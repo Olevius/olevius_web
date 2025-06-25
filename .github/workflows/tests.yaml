@@ -1,0 +1,25 @@
+# .github/workflows/ci.yml
+name: Unit Tests 🚦
+
+on: [push, pull_request]
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+
+        steps: # workflow
+            - uses: actions/checkout@v4 # puts in ci env
+
+            - uses: actions/setup-node@v4 # setups up nodejs ver 20 and enables caching of pnpm deps
+              with:
+                  node-version: "20"
+                  cache: "pnpm"
+
+            - name: Install pnpm # pnpm does not install naturally!
+              run: npm install -g pnpm
+
+            - name: Install dependencies
+              run: pnpm install
+
+            - name: Run unit tests with Vitest
+              run: pnpm vitest run --coverage

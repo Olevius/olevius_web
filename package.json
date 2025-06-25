@@ -9,6 +9,7 @@
     "lint": "pnpm -r lint"
   },
   "devDependencies": {
-    "concurrently": "^8.0.1"
+    "concurrently": "^8.0.1",
+    "vitest": "^3.2.4"
   }
 }
