@@ -1,0 +1,19 @@
+{
+  "name": "olevius_web",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Monorepo for frontend, backend, and shared code.",
+  "scripts": {
+    "dev": "concurrently -k \"pnpm --filter frontend dev\" \"pnpm --filter backend dev\"",
+    "build": "pnpm -r build",
+    "lint": "pnpm -r lint"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.3.0",
+    "@types/testing-library__react": "^10.2.0",
+    "@vitest/coverage-v8": "3.2.4",
+    "concurrently": "^8.0.1",
+    "jsdom": "^26.1.0",
+    "vitest": "^3.2.4"
+  }
+}
