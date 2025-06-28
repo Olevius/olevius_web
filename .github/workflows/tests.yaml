@@ -18,4 +18,4 @@ jobs:
             - run: pnpm install --recursive
 
             # 4. Run your tests
-            - run: pnpm --filter frontend vitest run --environment jsdom
+            - run: pnpm vitest
