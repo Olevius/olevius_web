@@ -1,6 +1,6 @@
 import { describe, it, vi } from "vitest";
 import { render } from "@testing-library/react";
-import { Page } from "./Page";
+import { App } from "./Page";
 import { StrictMode } from "react";
 
 describe("Front page tests", () => {
@@ -10,7 +10,7 @@ describe("Front page tests", () => {
         vi.useFakeTimers();
         const app = render(
             <StrictMode>
-                <Page />
+                <App />
             </StrictMode>
         );
         await vi.runAllTimersAsync();
