@@ -1,6 +1,3 @@
-/// <reference types="vitest" />
-/** @vitest-environment jsdom */
-
 import { Text } from "./components/basics/Text.tsx";
 import "./App.css";
 
