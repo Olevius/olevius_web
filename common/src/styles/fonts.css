@@ -1,0 +1,13 @@
+/* common/src/styles/fonts.css */
+@font-face {
+  font-family: "Uber Move";
+  src: url("../../assets/fonts/uber-move/UberMoveBold.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Uber Move";
+  src: url("../../assets/fonts/uber-move/UberMoveBold.otf") format("opentype");
+  font-weight: 700;
+  font-style: normal;
+}

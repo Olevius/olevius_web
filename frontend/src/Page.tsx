@@ -4,7 +4,9 @@ import "./App.css";
 export const App = () => {
     return (
         <>
-            <Text>dsduhhuos</Text>
+            <Text style={{ fontFamily: "sans-serif", fontSize: 150 }}>
+                dsduhhuos
+            </Text>
         </>
     );
 };

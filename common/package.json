@@ -1,6 +1,12 @@
 {
   "name": "common",
   "version": "1.0.0",
+  "files": [
+    "src/styles/fonts.css"
+  ],
+  "exports": {
+    "./fonts.css": "./src/styles/fonts.css"
+  },
   "main": "index.ts",
   "types": "index.ts"
 }
