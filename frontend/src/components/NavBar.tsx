@@ -1,20 +1,6 @@
-import React from "react";
-import { Nav, ListElement, Link } from "./basics/defaults";
+import { Nav, ListElement, Link, UlContainer } from "./basics/defaults";
 
-const UlContainer: React.FC<React.PropsWithChildren> = ({ children }) => (
-    <ul
-        style={{
-            display: "flex",
-            listStyle: "none",
-            margin: 0,
-            padding: 0,
-        }}
-    >
-        {children}
-    </ul>
-);
-
-const NavBar: React.FC = () => {
+const NavBar = () => {
     return (
         <Nav>
             <UlContainer>
