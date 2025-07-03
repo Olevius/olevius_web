@@ -5,7 +5,7 @@ export const App = () => {
     return (
         <>
             <Text style={{ fontFamily: "sans-serif", fontSize: 150 }}>
-                dsduhhuos
+                dsduh
             </Text>
         </>
     );
