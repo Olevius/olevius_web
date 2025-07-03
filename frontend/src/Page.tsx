@@ -1,12 +1,11 @@
 import { Text } from "./components/basics/Text.tsx";
 import "./App.css";
+import NavBar from "./components/NavBar.tsx";
 
 export const App = () => {
     return (
         <>
-            <Text style={{ fontFamily: "sans-serif", fontSize: 150 }}>
-                dsduh
-            </Text>
+            <NavBar></NavBar>
         </>
     );
 };
