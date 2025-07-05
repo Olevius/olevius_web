@@ -1,6 +1,6 @@
 import { Nav, ListElement, Link, UlContainer } from "./basics/defaults";
 
-const NavBar = () => {
+export const NavBar = () => {
     return (
         <Nav>
             <UlContainer>
@@ -17,5 +17,3 @@ const NavBar = () => {
         </Nav>
     );
 };
-
-export default NavBar;

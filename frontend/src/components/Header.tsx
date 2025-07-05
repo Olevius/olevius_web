@@ -1,11 +1,11 @@
-import React from "react";
+import type { BaseProps } from "./basics/defaultTypes";
 
-const Header: React.FC = () => {
+export const Header = ({
+    style,
+    className,
+    ...rest
+}: Omit<BaseProps, "children"> & { style?: React.CSSProperties }) => {
     return (
-        <header style={{ padding: "1rem", background: "#f5f5f5" }}>
-            <h1>Olevius Web</h1>
-        </header>
+        <header style={{ background: "black", ...style }} {...rest}></header>
     );
 };
-
-export default Header;

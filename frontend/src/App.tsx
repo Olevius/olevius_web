@@ -1,6 +1,6 @@
 import "./App.css";
-import Header from "./components/Header.tsx";
-import NavBar from "./components/NavBar.tsx";
+import { Header } from "./components/Header";
+import { NavBar } from "./components/NavBar";
 
 export const App = () => {
     return (
