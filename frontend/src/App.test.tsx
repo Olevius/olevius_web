@@ -1,6 +1,6 @@
 import { describe, it, vi } from "vitest";
 import { render } from "@testing-library/react";
-import { App } from "./Page";
+import { App } from "./App";
 import { StrictMode } from "react";
 
 describe("Front page tests", () => {

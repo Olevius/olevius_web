@@ -1,6 +1,7 @@
 import type { BaseProps, LinkProps } from "./defaultTypes";
+import React from "react";
 
-export const Card = ({ children, className = "", style }: BaseProps) => (
+export const Card = ({ children, className, style }: BaseProps) => (
     <div
         className={`rounded-lg shadow-md bg-white p-6 ${className}`}
         style={style}
@@ -58,9 +59,15 @@ export const ListElement = ({
     );
 };
 
-export const Text = ({ children, ...rest }: BaseProps) => {
-    return <span {...rest}>{children}</span>;
-};
+export const Text = React.forwardRef<HTMLSpanElement, BaseProps>(
+    ({ children, ...rest }, ref) => {
+        return (
+            <span ref={ref} {...rest}>
+                {children}
+            </span>
+        );
+    }
+);
 
 export const UlContainer = ({
     children,
