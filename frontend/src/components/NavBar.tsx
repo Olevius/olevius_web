@@ -1,8 +1,13 @@
+import React from "react";
 import { Nav, ListElement, Link, UlContainer } from "./basics/defaults";
+import type { BaseProps } from "./basics/defaultTypes";
 
-export const NavBar = () => {
+export const NavBar = React.forwardRef<
+    HTMLSpanElement,
+    BaseProps & { style?: React.CSSProperties }
+>(({ children, style, className, ...rest }, ref) => {
     return (
-        <Nav>
+        <Nav ref={ref}>
             <UlContainer>
                 <ListElement>
                     <Link link="/">Home</Link>
@@ -16,4 +21,4 @@ export const NavBar = () => {
             </UlContainer>
         </Nav>
     );
-};
+});

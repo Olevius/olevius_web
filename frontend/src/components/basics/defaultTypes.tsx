@@ -9,3 +9,7 @@ export interface BaseProps {
 export interface LinkProps extends BaseProps {
     link: string;
 }
+
+export type TextProps = React.ForwardRefExoticComponent<
+    BaseProps & React.RefAttributes<HTMLSpanElement>
+>;

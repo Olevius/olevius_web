@@ -1,14 +1,13 @@
+import React from "react";
 import type { BaseProps } from "./basics/defaultTypes";
 
-export const Header = ({
-    children,
-    style,
-    className,
-    ...rest
-}: BaseProps & { style?: React.CSSProperties }) => {
+export const Header = React.forwardRef<
+    HTMLHeadElement,
+    BaseProps & { style?: React.CSSProperties }
+>(({ children, style, className, ...rest }, ref) => {
     return (
-        <header style={{ background: "black", ...style }} {...rest}>
+        <header ref={ref} style={{ background: "black", ...style }} {...rest}>
             {children}
         </header>
     );
-};
+});
