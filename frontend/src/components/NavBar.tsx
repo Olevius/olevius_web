@@ -1,11 +1,7 @@
-import React from "react";
-import { Nav, ListElement, Link, UlContainer } from "./basics/defaults";
+import { Nav, ListElement, Link, UlContainer, forRef } from "./basics/defaults";
 import type { BaseProps } from "./basics/defaultTypes";
 
-export const NavBar = React.forwardRef<
-    HTMLSpanElement,
-    BaseProps & { style?: React.CSSProperties }
->(({ children, style, className, ...rest }, ref) => {
+export const NavBar = forRef<HTMLSpanElement, BaseProps>((ref) => {
     return (
         <Nav ref={ref}>
             <UlContainer>

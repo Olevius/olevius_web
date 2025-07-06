@@ -1,10 +1,12 @@
 import type { ReactNode } from "react";
 
-export interface BaseProps {
-    children: ReactNode;
+interface Base {
+    children?: ReactNode;
     className?: string;
     style?: React.CSSProperties;
 }
+
+export type BaseProps = Base & { style?: React.CSSProperties };
 
 export interface LinkProps extends BaseProps {
     link: string;
