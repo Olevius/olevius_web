@@ -7,6 +7,9 @@
   "exports": {
     "./fonts.css": "./src/styles/fonts.css"
   },
+  "scripts": {
+    "vitest": "vitest"
+  },
   "main": "index.ts",
   "types": "index.ts"
 }
