@@ -19,7 +19,7 @@ A modern, responsive, and performant website for the Olevius platform. Built wit
 
 ## 📦 Technologies
 
--   **Frontend**: React, Vite, TypeScript, Tailwind CSS
+-   **Frontend**: React, Vite, TypeScript, GSAP
 -   **Backend**: Node.js, Express, TypeScript
 -   **Database**: PostgreSQL (via Prisma ORM)
 -   **Testing**: Vitest, Testing Library
