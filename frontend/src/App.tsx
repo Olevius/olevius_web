@@ -15,7 +15,7 @@ export const App = () => {
 
     useGSAP(
         () => {
-            gsap.fromTo(".poop", { x: 750 }, { x: 0, duration: 3 });
+            gsap.fromTo(".title-header", { x: 750 }, { x: 0, duration: 3 });
         },
         { scope: container }
     );
@@ -33,7 +33,7 @@ export const App = () => {
                 }}
             >
                 <Text
-                    className="poop"
+                    className="title-header"
                     style={{ color: "white", fontSize: "200px" }}
                 >
                     {/* spell-checker: disable-next-line */}

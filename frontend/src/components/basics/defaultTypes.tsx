@@ -1,17 +1,23 @@
-import type { ReactNode } from "react";
+import type {
+    ReactNode,
+    CSSProperties,
+    ForwardRefExoticComponent,
+    RefAttributes,
+} from "react";
 
-interface Base {
+// Basic props shared by most components
+export interface BaseProps {
     children?: ReactNode;
     className?: string;
-    style?: React.CSSProperties;
+    style?: CSSProperties;
 }
 
-export type BaseProps = Base & { style?: React.CSSProperties };
-
+// Props for link components
 export interface LinkProps extends BaseProps {
     link: string;
 }
 
-export type TextProps = React.ForwardRefExoticComponent<
-    BaseProps & React.RefAttributes<HTMLSpanElement>
+// Type for text components with forward ref support
+export type TextProps = ForwardRefExoticComponent<
+    BaseProps & RefAttributes<HTMLSpanElement>
 >;

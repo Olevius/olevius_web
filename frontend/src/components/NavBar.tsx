@@ -1,19 +1,25 @@
 import { Nav, ListElement, Link, UlContainer, forRef } from "./basics/defaults";
 import type { BaseProps } from "./basics/defaultTypes";
 
-export const NavBar = forRef<HTMLSpanElement, BaseProps>((ref) => {
+// This is a navigation bar component
+export const NavBar = forRef<HTMLSpanElement, BaseProps>((props, ref) => {
+    // These are the links for the navigation bar
+    const navLinks = {
+        "/": "Home",
+        "/about": "About",
+        "/contact": "Contact",
+    };
+
+    // Render the navigation bar
     return (
-        <Nav ref={ref}>
+        <Nav ref={ref} {...props}>
             <UlContainer>
-                <ListElement>
-                    <Link link="/">Home</Link>
-                </ListElement>
-                <ListElement>
-                    <Link link="/about">About</Link>
-                </ListElement>
-                <ListElement>
-                    <Link link="/contact">Contact</Link>
-                </ListElement>
+                {/* Go through each link and show it */}
+                {Object.entries(navLinks).map(([path, name]) => (
+                    <ListElement key={path}>
+                        <Link link={path}>{name}</Link>
+                    </ListElement>
+                ))}
             </UlContainer>
         </Nav>
     );
