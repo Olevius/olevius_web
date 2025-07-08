@@ -17,7 +17,9 @@ export const NavBar = forRef<HTMLSpanElement, BaseProps>((props, ref) => {
                 {/* Go through each link and show it */}
                 {Object.entries(navLinks).map(([path, name]) => (
                     <ListElement key={path}>
-                        <Link link={path}>{name}</Link>
+                        <Link link={path} style={{ color: "black" }}>
+                            {name}
+                        </Link>
                     </ListElement>
                 ))}
             </UlContainer>

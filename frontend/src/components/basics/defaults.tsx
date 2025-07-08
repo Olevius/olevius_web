@@ -10,8 +10,8 @@ export const forRef = <T, P>(
 ) => React.forwardRef<T, P>(render);
 
 // Card component
-export const Card = forRef<HTMLDivElement, BaseProps>(
-    ({ children, className = "", style, ...rest }, ref) => (
+export const Layout = forRef<HTMLDivElement, BaseProps>(
+    ({ children, className, style, ...rest }, ref) => (
         <div
             ref={ref}
             className={`rounded-lg shadow-md bg-white p-6 ${className}`}
@@ -44,8 +44,6 @@ export const Nav = forRef<HTMLSpanElement, BaseProps>(
             ref={ref}
             style={{
                 padding: "1rem",
-                background: "#222",
-                color: "#fff",
                 ...style,
             }}
             {...rest}
