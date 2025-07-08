@@ -8,7 +8,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "vitest": "vitest"
+    "vitest": "vitest",
+    "coverage": "vitest run --coverage --reporter=coverage"
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",

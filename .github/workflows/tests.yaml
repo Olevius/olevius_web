@@ -19,3 +19,6 @@ jobs:
 
             # 4. Run your tests
             - run: pnpm --filter frontend exec vitest run --environment jsdom --coverage
+
+            # 5. Run the coverage report
+            - run: pnpm --filter frontend run coverage

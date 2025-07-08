@@ -8,7 +8,9 @@
     "./fonts.css": "./src/styles/fonts.css"
   },
   "scripts": {
-    "vitest": "vitest"
+    "vitest": "vitest",
+    "coverage": "vitest run --coverage --reporter=coverage"
+
   },
   "main": "index.ts",
   "types": "index.ts"
