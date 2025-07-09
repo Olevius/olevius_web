@@ -9,7 +9,7 @@ export const forRef = <T, P>(
     ) => React.ReactNode
 ) => React.forwardRef<T, P>(render);
 
-// Card component
+// Layout component
 export const Layout = forRef<HTMLDivElement, BaseProps>(
     ({ children, className, style, ...rest }, ref) => (
         <div
@@ -64,8 +64,8 @@ export const ListElement = forRef<HTMLLIElement, BaseProps>(
 
 // Text component
 export const Text = forRef<HTMLSpanElement, BaseProps>(
-    ({ children, ...rest }, ref) => (
-        <span ref={ref} {...rest}>
+    ({ children, style, ...rest }, ref) => (
+        <span ref={ref} {...rest} style={{ color: "black", ...style }}>
             {children}
         </span>
     )

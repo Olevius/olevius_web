@@ -6,7 +6,15 @@ export const Header = React.forwardRef<HTMLHeadElement, BaseProps>(
         <header
             ref={ref}
             className={className}
-            style={{ background: "#dcffcf", ...style }}
+            style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                minHeight: "100vh",
+                overflowX: "hidden",
+                position: "relative",
+                ...style,
+            }}
             {...rest}
         >
             {children}

@@ -39,22 +39,11 @@ export const App = () => {
                 className="nav-bar"
                 style={{ backgroundColor: "#dcffcf" }}
             />
-            <Header
-                ref={container}
-                style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    minHeight: "100vh",
-                    overflowX: "hidden",
-                    position: "relative",
-                }}
-            >
+            <Header ref={container}>
                 <Layout style={{ display: "flex", flexDirection: "column" }}>
                     <Text
                         className="title-header"
                         style={{
-                            color: "black",
                             fontSize: "200px",
                         }}
                     >
@@ -63,7 +52,6 @@ export const App = () => {
                     <Text
                         className="subtitle-header"
                         style={{
-                            color: "black",
                             fontSize: "50px",
                         }}
                     >
