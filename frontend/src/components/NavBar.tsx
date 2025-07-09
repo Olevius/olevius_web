@@ -19,10 +19,7 @@ export const NavBar = forRef<HTMLSpanElement, BaseProps>((props, ref) => {
                 {/* Go through each link and show it */}
                 {Object.entries(navLinks).map(([path, name]) => (
                     <ListElement key={path}>
-                        <Link
-                            to={{ pathname: path }}
-                            style={{ color: "black" }}
-                        >
+                        <Link to={path} style={{ color: "black" }}>
                             {name}
                         </Link>
                     </ListElement>

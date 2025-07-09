@@ -9,7 +9,7 @@ import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(useGSAP, SplitText);
 
-export const Contact = () => {
+export const About = () => {
     const container = useRef(null);
     const tl = useRef<gsap.core.Timeline | null>(null);
 
