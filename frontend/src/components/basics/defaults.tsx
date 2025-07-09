@@ -16,18 +16,18 @@ export const Layout = forRef<HTMLDivElement, BaseProps>(
 );
 
 // Link component
-export const Link = forRef<HTMLAnchorElement, LinkProps>(
-    ({ children, style, link, ...rest }, ref) => (
-        <a
-            ref={ref}
-            href={link}
-            style={{ color: "#fff", textDecoration: "none", ...style }}
-            {...rest}
-        >
-            {children}
-        </a>
-    )
-);
+// export const Link = forRef<HTMLAnchorElement, LinkProps>(
+//     ({ children, style, link, ...rest }, ref) => (
+//         <a
+//             ref={ref}
+//             href={link}
+//             style={{ color: "#fff", textDecoration: "none", ...style }}
+//             {...rest}
+//         >
+//             {children}
+//         </a>
+//     )
+// );
 
 // Nav component
 export const Nav = forRef<HTMLSpanElement, BaseProps>(

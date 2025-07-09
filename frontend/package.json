@@ -13,10 +13,12 @@
   },
   "dependencies": {
     "@gsap/react": "^2.1.2",
+    "@types/react-router-dom": "^5.3.3",
     "animejs": "^4.0.2",
     "gsap": "^3.13.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-router-dom": "^7.6.3",
     "three": "^0.178.0"
   },
   "devDependencies": {
