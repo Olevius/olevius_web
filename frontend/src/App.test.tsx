@@ -1,19 +1,15 @@
-import { describe, it, vi } from "vitest";
 import { render } from "@testing-library/react";
-import { App } from "./Page";
+import { App } from "./App";
 import { StrictMode } from "react";
+import { describe, it } from "vitest";
 
 describe("Front page tests", () => {
-    vi.resetAllMocks(); // resets test mocks after each test
-
-    it("renders the front page", async () => {
-        vi.useFakeTimers();
+    it("renders the front page", () => {
         const app = render(
             <StrictMode>
                 <App />
             </StrictMode>
         );
-        await vi.runAllTimersAsync();
         app.unmount();
     });
 });

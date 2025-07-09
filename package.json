@@ -8,6 +8,11 @@
     "build": "pnpm -r build",
     "lint": "pnpm -r lint"
   },
+   "workspaces": [
+    "frontend",
+    "backend",
+    "common"
+  ],
   "devDependencies": {
     "@testing-library/react": "^16.3.0",
     "@types/testing-library__react": "^10.2.0",

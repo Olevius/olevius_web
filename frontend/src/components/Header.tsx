@@ -1,11 +1,25 @@
 import React from "react";
+import type { BaseProps } from "./basics/defaultTypes";
 
-const Header: React.FC = () => {
-    return (
-        <header style={{ padding: "1rem", background: "#f5f5f5" }}>
-            <h1>Olevius Web</h1>
+export const Header = React.forwardRef<HTMLHeadElement, BaseProps>(
+    ({ children, style, className, ...rest }, ref) => (
+        <header
+            ref={ref}
+            className={className}
+            style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                minHeight: "100vh",
+                overflowX: "hidden",
+                position: "relative",
+                ...style,
+            }}
+            {...rest}
+        >
+            {children}
         </header>
-    );
-};
+    )
+);
 
-export default Header;
+Header.displayName = "Header";

@@ -1,43 +1,28 @@
-import React from "react";
+import { Nav, ListElement, Link, UlContainer, forRef } from "./basics/defaults";
+import type { BaseProps } from "./basics/defaultTypes";
 
-const NavBar: React.FC = () => {
+// This is a navigation bar component
+export const NavBar = forRef<HTMLSpanElement, BaseProps>((props, ref) => {
+    // These are the links for the navigation bar
+    const navLinks = {
+        "/": "Home",
+        "/about": "About",
+        "/contact": "Contact",
+    };
+
+    // Render the navigation bar
     return (
-        <nav style={{ padding: "1rem", background: "#222", color: "#fff" }}>
-            <ul
-                style={{
-                    display: "flex",
-                    listStyle: "none",
-                    margin: 0,
-                    padding: 0,
-                }}
-            >
-                <li style={{ marginRight: "1rem" }}>
-                    <a
-                        href="/"
-                        style={{ color: "#fff", textDecoration: "none" }}
-                    >
-                        Home
-                    </a>
-                </li>
-                <li style={{ marginRight: "1rem" }}>
-                    <a
-                        href="/about"
-                        style={{ color: "#fff", textDecoration: "none" }}
-                    >
-                        About
-                    </a>
-                </li>
-                <li>
-                    <a
-                        href="/contact"
-                        style={{ color: "#fff", textDecoration: "none" }}
-                    >
-                        Contact
-                    </a>
-                </li>
-            </ul>
-        </nav>
+        <Nav ref={ref} {...props}>
+            <UlContainer>
+                {/* Go through each link and show it */}
+                {Object.entries(navLinks).map(([path, name]) => (
+                    <ListElement key={path}>
+                        <Link link={path} style={{ color: "black" }}>
+                            {name}
+                        </Link>
+                    </ListElement>
+                ))}
+            </UlContainer>
+        </Nav>
     );
-};
-
-export default NavBar;
+});

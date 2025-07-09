@@ -1,5 +1,5 @@
 {
-  "name": "bun-react-template",
+  "name": "backend",
   "version": "0.1.0",
   "private": true,
   "type": "module",
@@ -7,7 +7,9 @@
   "module": "src/index.tsx",
   "scripts": {
     "dev": "bun --hot src/APITester.tsx",
-    "start": "NODE_ENV=production bun src/index.tsx"
+    "start": "NODE_ENV=production bun src/index.tsx",
+    "vitest": "vitest",
+    "coverage": "vitest run --coverage --reporter=coverage"
   },
   "dependencies": {
     "react": "^19",
