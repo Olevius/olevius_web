@@ -1,5 +1,6 @@
-import { Nav, ListElement, Link, UlContainer, forRef } from "./basics/defaults";
+import { Nav, ListElement, Link, UlContainer } from "./basics/defaults";
 import type { BaseProps } from "./basics/defaultTypes";
+import { forRef } from "./basics/refHelper";
 
 // This is a navigation bar component
 export const NavBar = forRef<HTMLSpanElement, BaseProps>((props, ref) => {

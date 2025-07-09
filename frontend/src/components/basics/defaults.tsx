@@ -1,13 +1,5 @@
-import React, { type ForwardedRef, type PropsWithoutRef } from "react";
 import type { BaseProps, LinkProps } from "./defaultTypes";
-
-// Utility to create forwardRef components
-export const forRef = <T, P>(
-    render: (
-        props: PropsWithoutRef<P>,
-        ref?: ForwardedRef<T>
-    ) => React.ReactNode
-) => React.forwardRef<T, P>(render);
+import { forRef } from "./refHelper";
 
 // Layout component
 export const Layout = forRef<HTMLDivElement, BaseProps>(
