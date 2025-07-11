@@ -7,7 +7,11 @@ export const Body = React.forwardRef<HTMLDivElement, BaseProps>(
       ref={ref}
       className={className}
       style={{
-        position: "relative",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: "800vh",
+        background: "white",
         ...style,
       }}
       {...rest}

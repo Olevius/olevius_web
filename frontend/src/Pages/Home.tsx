@@ -37,7 +37,7 @@ export const Home = () => {
       const scrubTl = gsap.timeline({
         scrollTrigger: {
           trigger: ".header",
-          start: "bottom bottom",
+          start: "top top",
           end: "+=1000",
           pin: true,
           scrub: true,
@@ -47,85 +47,56 @@ export const Home = () => {
 
       scrubTl
         .to(".title-header", {
-          fontSize: "3000px",
+          fontSize: "4000px",
           scale: 10,
           duration: 3,
           color: "white",
         })
-        .to(
-          "header",
-          {
-            color: "white",
-          },
-          "-=3"
-        );
+        .to(".subtitle-header", {
+          color: "white",
+        });
     },
     { scope: container }
   );
 
   return (
-    <Layout
-      ref={container}
-      style={{
-        overflowX: "hidden",
-        overflowY: "hidden",
-        position: "relative",
-        display: "block",
-      }}
-    >
+    <Layout ref={container} style={{ overflow: "hidden" }}>
       <NavBar className="nav-bar" style={{ backgroundColor: "#dcffcf" }} />
-      <Layout>
-        <Header className="header">
-          <Layout
+      <Header ref={container}>
+        <Layout style={{ display: "flex", flexDirection: "column" }}>
+          <Text
+            className="title-header"
             style={{
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "center",
-              alignItems: "center",
+              fontSize: "200px",
+              color: "black",
             }}
-            className="layout"
           >
-            <Layout ref={container}>
-              <Text
-                className="title-header"
-                style={{
-                  fontSize: "200px",
-                  color: "black",
-                }}
-              >
-                OLEVIUS
-              </Text>
-            </Layout>
-            <Text
-              className="subtitle-header"
-              style={{
-                fontSize: "50px",
-                color: "black",
-                top: "50%",
-                left: "50%",
-                width: "100vh",
-                transform: "translate(-50%, -50%)",
-                position: "absolute",
-              }}
-            >
-              Accuracy. Unmatched.
-            </Text>
-          </Layout>
-        </Header>
-        <Padding size={100} className="padding" />
-        <Body>
-          <Layout style={{ display: "flex", flexDirection: "column" }}>
-            <Text
-              style={{
-                fontSize: "20px",
-                color: "black",
-              }}
-            >
-              OLEVIUS
-            </Text>
-          </Layout>
-        </Body>
-      </Layout>
+            OLEVIUS
+          </Text>
+          <Text
+            className="subtitle-header"
+            style={{
+              fontSize: "50px",
+              color: "black",
+            }}
+          >
+            Accuracy. Unmatched.
+          </Text>
+        </Layout>
+      </Header>
+      <Body style={{ marginTop: "45%" }}>
+        <Layout style={{ display: "flex", flexDirection: "column" }}>
+          <Text
+            style={{
+              fontSize: "20px",
+              color: "black",
+            }}
+          >
+            drinking henny like its water, baby touch me softer, bands on me I
+            could fuck some nigga daughter
+          </Text>
+        </Layout>
+      </Body>
     </Layout>
   );
 };

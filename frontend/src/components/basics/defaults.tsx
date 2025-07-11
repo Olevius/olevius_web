@@ -42,19 +42,11 @@ export const ListElement = forRef<HTMLLIElement, BaseProps>(
 
 // Text component
 export const Text = forRef<HTMLSpanElement, BaseProps>(
-<<<<<<< Updated upstream
   ({ children, style, ...rest }, ref) => (
-    <span ref={ref} {...rest} style={{ color: "black", ...style }}>
+    <span ref={ref} {...rest} style={{ ...style }}>
       {children}
     </span>
   )
-=======
-    ({ children, style, ...rest }, ref) => (
-        <span ref={ref} {...rest} style={{ ...style }}>
-            {children}
-        </span>
-    )
->>>>>>> Stashed changes
 );
 
 // UlContainer component

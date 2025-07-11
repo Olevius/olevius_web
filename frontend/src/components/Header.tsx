@@ -7,19 +7,10 @@ export const Header = React.forwardRef<HTMLHeadElement, BaseProps>(
       ref={ref}
       className={className}
       style={{
-<<<<<<< Updated upstream
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        minHeight: "100vh",
-        overflowX: "hidden",
-        position: "relative",
-=======
-        position: "absolute",
         height: "100vh",
-        top: "50%",
-        left: "25%",
->>>>>>> Stashed changes
         ...style,
       }}
       {...rest}
