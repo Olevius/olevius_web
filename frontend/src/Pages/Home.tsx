@@ -45,16 +45,25 @@ export const Home = () => {
         },
       });
 
-      scrubTl
-        .to(".title-header", {
-          fontSize: "4000px",
-          scale: 10,
-          duration: 3,
-          color: "white",
-        })
-        .to(".subtitle-header", {
-          color: "white",
-        });
+      scrubTl.to(".title-header", {
+        fontSize: "5000px",
+        scale: 10,
+        duration: 2,
+        color: "white",
+      });
+
+      const hiddenOverlapTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".body",
+          start: "top top",
+          end: "+=100",
+          pin: true,
+          scrub: true,
+          markers: true,
+        },
+      });
+
+      hiddenOverlapTl.to("title-header", { opacity: 0, duration: 3 });
     },
     { scope: container }
   );
@@ -84,7 +93,7 @@ export const Home = () => {
           </Text>
         </Layout>
       </Header>
-      <Body style={{ marginTop: "45%" }}>
+      <Body style={{ marginTop: "60%" }} className="body">
         <Layout style={{ display: "flex", flexDirection: "column" }}>
           <Text
             style={{
@@ -92,8 +101,8 @@ export const Home = () => {
               color: "black",
             }}
           >
-            drinking henny like its water, baby touch me softer, bands on me I
-            could fuck some nigga daughter
+            hihihi hihihi hihihi hihihi hihihi hihihi hihihi hihihi hihihi
+            hihihi hihihi hihihi
           </Text>
         </Layout>
       </Body>

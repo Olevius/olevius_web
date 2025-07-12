@@ -10,7 +10,7 @@ export const Body = React.forwardRef<HTMLDivElement, BaseProps>(
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "800vh",
+        height: "100vh",
         background: "white",
         ...style,
       }}
