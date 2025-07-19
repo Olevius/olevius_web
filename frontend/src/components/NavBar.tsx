@@ -1,6 +1,7 @@
-import { Nav, ListElement, Link, UlContainer } from "./basics/defaults";
+import { Nav, ListElement, UlContainer } from "./basics/defaults";
 import type { BaseProps } from "./basics/defaultTypes";
 import { forRef } from "./basics/refHelper";
+import { Link } from "react-router-dom";
 
 // This is a navigation bar component
 export const NavBar = forRef<HTMLSpanElement, BaseProps>((props, ref) => {
@@ -18,7 +19,7 @@ export const NavBar = forRef<HTMLSpanElement, BaseProps>((props, ref) => {
                 {/* Go through each link and show it */}
                 {Object.entries(navLinks).map(([path, name]) => (
                     <ListElement key={path}>
-                        <Link link={path} style={{ color: "black" }}>
+                        <Link to={path} style={{ color: "black" }}>
                             {name}
                         </Link>
                     </ListElement>
