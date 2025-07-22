@@ -19,8 +19,8 @@ export const Home = () => {
   useGSAP(
     () => {
       // 1. Initial load animation (not scroll-triggered)
-      const introTl = gsap.timeline();
-      introTl
+      const introAnimationTimeline = gsap.timeline();
+      introAnimationTimeline
         .to(window, { duration: 0, scrollTo: 0 })
         .fromTo(
           ".title-header",
@@ -52,8 +52,8 @@ export const Home = () => {
           }
         );
 
-      // 2. Scrub animation (scroll-triggered)
-      const scrubTl = gsap.timeline({
+      // 2. Scroll-triggered animation for header and padding
+      const headerScrollAnimationTimeline = gsap.timeline({
         scrollTrigger: {
           trigger: ".header",
           start: "top top",
@@ -64,7 +64,7 @@ export const Home = () => {
         },
       });
 
-      scrubTl
+      headerScrollAnimationTimeline
         .to(".title-header", {
           fontSize: numbers.layout.scrubFontSize,
           scale: numbers.animation.scrubScale,
@@ -91,8 +91,8 @@ export const Home = () => {
           0
         );
 
-      // 3. Scrub animation color transition (scroll-triggered)
-      const hiddenOverlapTl = gsap.timeline({
+      // 3. Scroll-triggered animation for hiding title header
+      const titleHeaderHideAnimationTimeline = gsap.timeline({
         scrollTrigger: {
           trigger: ".body",
           start: "top top",
@@ -103,7 +103,7 @@ export const Home = () => {
         },
       });
 
-      hiddenOverlapTl.to(".title-header", {
+      titleHeaderHideAnimationTimeline.to(".title-header", {
         opacity: 0,
         duration: numbers.animation.hideDuration,
       });
