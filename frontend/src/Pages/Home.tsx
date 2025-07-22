@@ -20,8 +20,17 @@ export const Home = () => {
       const introTl = gsap.timeline();
       introTl
         .to(window, { duration: 0, scrollTo: 0 })
-        .fromTo(".title-header", { x: 750 }, { x: 0, duration: 3 })
-        .fromTo(".nav-bar", { y: -70 }, { y: 0, duration: 3 }, "-=3")
+        .fromTo(
+          ".title-header",
+          { x: 750 },
+          { x: 0, duration: 1.5, ease: "power1.out" }
+        )
+        .fromTo(
+          ".nav-bar",
+          { y: -70 },
+          { y: 0, duration: 1.5, ease: "power1.out" },
+          "-=1.5"
+        )
         .fromTo(
           ".subtitle-header",
           { y: -70, opacity: 0 },
@@ -45,13 +54,34 @@ export const Home = () => {
         },
       });
 
-      scrubTl.to(".title-header", {
-        fontSize: "5000px",
-        scale: 10,
-        duration: 2,
-        color: "white",
-      });
+      scrubTl
+        .to(".title-header", {
+          fontSize: "5000px",
+          scale: 10,
+          duration: 2,
+          color: "white",
+          ease: "power1.in",
+        })
+        .to(
+          ".header",
+          {
+            backgroundColor: "white",
+            duration: 2,
+            ease: "power1.in",
+          },
+          0
+        )
+        .to(
+          ".padding",
+          {
+            backgroundColor: "white",
+            duration: 2,
+            ease: "power1.in",
+          },
+          0
+        );
 
+      // 3. Scrub animation color transition (scroll-triggered)
       const hiddenOverlapTl = gsap.timeline({
         scrollTrigger: {
           trigger: ".body",
@@ -63,7 +93,7 @@ export const Home = () => {
         },
       });
 
-      hiddenOverlapTl.to("title-header", { opacity: 0, duration: 3 });
+      hiddenOverlapTl.to(".title-header", { opacity: 0, duration: 3 });
     },
     { scope: container }
   );
@@ -71,7 +101,7 @@ export const Home = () => {
   return (
     <Layout ref={container} style={{ overflow: "hidden" }}>
       <NavBar className="nav-bar" style={{ backgroundColor: "#dcffcf" }} />
-      <Header ref={container}>
+      <Header style={{ backgroundColor: "#dcffcf" }} className="header">
         <Layout style={{ display: "flex", flexDirection: "column" }}>
           <Text
             className="title-header"
@@ -93,16 +123,31 @@ export const Home = () => {
           </Text>
         </Layout>
       </Header>
-      <Body style={{ marginTop: "60%" }} className="body">
+      <Padding
+        size={100}
+        style={{ backgroundColor: "#dcffcf" }}
+        className="padding"
+      />
+      <Body style={{ overflow: "hidden" }} className="body">
         <Layout style={{ display: "flex", flexDirection: "column" }}>
           <Text
             style={{
-              fontSize: "20px",
+              fontSize: "200px",
               color: "black",
             }}
           >
-            hihihi hihihi hihihi hihihi hihihi hihihi hihihi hihihi hihihi
-            hihihi hihihi hihihi
+            This product is a fully functioning proof of concept. It
+            demonstrates the core features and intended user experience,
+            showcasing the main capabilities and design direction. While not yet
+            production-ready, it provides a comprehensive preview of the final
+            solution, including interactive elements, animations, and essential
+            workflows. The implementation highlights the underlying architecture
+            and technical approach, allowing stakeholders to evaluate usability,
+            performance, and scalability. All major components are integrated to
+            simulate real-world scenarios, enabling thorough testing and
+            feedback collection. Future iterations will focus on refining the
+            user interface, optimizing backend processes, and ensuring robust
+            security and reliability for production deployment.
           </Text>
         </Layout>
       </Body>
