@@ -60,12 +60,14 @@ export const Home = () => {
           scale: 10,
           duration: 2,
           color: "white",
+          ease: "power1.in",
         })
         .to(
           ".header",
           {
             backgroundColor: "white",
             duration: 2,
+            ease: "power1.in",
           },
           0
         )
@@ -74,6 +76,7 @@ export const Home = () => {
           {
             backgroundColor: "white",
             duration: 2,
+            ease: "power1.in",
           },
           0
         );
