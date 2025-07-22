@@ -155,18 +155,7 @@ export const Home = () => {
               color: "black",
             }}
           >
-            This product is a fully functioning proof of concept. It
-            demonstrates the core features and intended user experience,
-            showcasing the main capabilities and design direction. While not yet
-            production-ready, it provides a comprehensive preview of the final
-            solution, including interactive elements, animations, and essential
-            workflows. The implementation highlights the underlying architecture
-            and technical approach, allowing stakeholders to evaluate usability,
-            performance, and scalability. All major components are integrated to
-            simulate real-world scenarios, enabling thorough testing and
-            feedback collection. Future iterations will focus on refining the
-            user interface, optimizing backend processes, and ensuring robust
-            security and reliability for production deployment.
+            What is Olevius?
           </Text>
         </Layout>
       </Body>
