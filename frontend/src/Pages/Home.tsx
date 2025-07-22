@@ -8,6 +8,8 @@ import { ScrollTrigger, SplitText, ScrollToPlugin } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import { Body } from "../components/Body";
 import { Padding } from "../components/Padding";
+import { customColors } from "../theme/colors";
+import { numbers } from "../theme/default";
 
 gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger, ScrollToPlugin);
 
@@ -22,22 +24,22 @@ export const Home = () => {
         .to(window, { duration: 0, scrollTo: 0 })
         .fromTo(
           ".title-header",
-          { x: 750 },
-          { x: 0, duration: 1.5, ease: "power1.out" }
+          { x: numbers.animation.titleStartX },
+          { x: 0, duration: numbers.animation.introDuration, ease: "power1.out" }
         )
         .fromTo(
           ".nav-bar",
-          { y: -70 },
-          { y: 0, duration: 1.5, ease: "power1.out" },
-          "-=1.5"
+          { y: numbers.animation.navStartY },
+          { y: 0, duration: numbers.animation.introDuration, ease: "power1.out" },
+          `-=${numbers.animation.introDuration}`
         )
         .fromTo(
           ".subtitle-header",
-          { y: -70, opacity: 0 },
+          { y: numbers.animation.navStartY, opacity: 0 },
           {
             y: 0,
             opacity: 1,
-            duration: 2,
+            duration: numbers.animation.subtitleDuration,
             ease: "power2.out",
           }
         );
@@ -47,7 +49,7 @@ export const Home = () => {
         scrollTrigger: {
           trigger: ".header",
           start: "top top",
-          end: "+=1000",
+          end: `+=${numbers.animation.scrollEnd}`,
           pin: true,
           scrub: true,
           markers: true,
@@ -56,9 +58,9 @@ export const Home = () => {
 
       scrubTl
         .to(".title-header", {
-          fontSize: "5000px",
-          scale: 10,
-          duration: 2,
+          fontSize: numbers.layout.scrubFontSize,
+          scale: numbers.animation.scrubScale,
+          duration: numbers.animation.scrubDuration,
           color: "white",
           ease: "power1.in",
         })
@@ -66,7 +68,7 @@ export const Home = () => {
           ".header",
           {
             backgroundColor: "white",
-            duration: 2,
+            duration: numbers.animation.scrubDuration,
             ease: "power1.in",
           },
           0
@@ -75,7 +77,7 @@ export const Home = () => {
           ".padding",
           {
             backgroundColor: "white",
-            duration: 2,
+            duration: numbers.animation.scrubDuration,
             ease: "power1.in",
           },
           0
@@ -86,27 +88,27 @@ export const Home = () => {
         scrollTrigger: {
           trigger: ".body",
           start: "top top",
-          end: "+=100",
+          end: `+=${numbers.animation.overlapEnd}`,
           pin: true,
           scrub: true,
           markers: true,
         },
       });
 
-      hiddenOverlapTl.to(".title-header", { opacity: 0, duration: 3 });
+      hiddenOverlapTl.to(".title-header", { opacity: 0, duration: numbers.animation.hideDuration });
     },
     { scope: container }
   );
 
   return (
     <Layout ref={container} style={{ overflow: "hidden" }}>
-      <NavBar className="nav-bar" style={{ backgroundColor: "#dcffcf" }} />
-      <Header style={{ backgroundColor: "#dcffcf" }} className="header">
+      <NavBar className="nav-bar" style={{ backgroundColor: customColors.highlight }} />
+      <Header style={{ backgroundColor: customColors.highlight }} className="header">
         <Layout style={{ display: "flex", flexDirection: "column" }}>
           <Text
             className="title-header"
             style={{
-              fontSize: "200px",
+              fontSize: numbers.layout.titleFontSize,
               color: "black",
             }}
           >
@@ -115,7 +117,7 @@ export const Home = () => {
           <Text
             className="subtitle-header"
             style={{
-              fontSize: "50px",
+              fontSize: numbers.layout.subtitleFontSize,
               color: "black",
             }}
           >
@@ -124,15 +126,15 @@ export const Home = () => {
         </Layout>
       </Header>
       <Padding
-        size={100}
-        style={{ backgroundColor: "#dcffcf" }}
+        size={numbers.layout.paddingLarge}
+        style={{ backgroundColor: customColors.highlight }}
         className="padding"
       />
       <Body style={{ overflow: "hidden" }} className="body">
         <Layout style={{ display: "flex", flexDirection: "column" }}>
           <Text
             style={{
-              fontSize: "200px",
+              fontSize: numbers.layout.titleFontSize,
               color: "black",
             }}
           >

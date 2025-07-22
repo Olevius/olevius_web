@@ -1,13 +1,14 @@
 import type { BaseProps } from "./defaultTypes";
 import { forRef } from "./refHelper";
+import { customColors } from "../../theme/colors";
 
 // Layout component
 export const Layout = forRef<HTMLDivElement, BaseProps>(
   ({ children, className, style, ...rest }, ref) => (
     <div
       ref={ref}
-      className={`rounded-lg shadow-md #dcffcf p-6 ${className}`}
-      style={style}
+      className={`rounded-lg shadow-md p-6 ${className}`}
+      style={{ backgroundColor: customColors.highlight, ...style }}
       {...rest}
     >
       {children}

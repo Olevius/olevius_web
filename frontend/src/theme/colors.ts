@@ -29,4 +29,8 @@ export const palette = {
         dark: "#01579b",
         contrastText: "#fff",
     },
-}
+};
+
+export const customColors = {
+    highlight: "#dcffcf",
+};

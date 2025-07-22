@@ -27,4 +27,25 @@ export const defaultTheme = {
         h4: { fontSize: '1.5rem', fontWeight: 500 },
         h5: { fontSize: '1.25rem', fontWeight: 500 },
     }
-}
+};
+
+export const numbers = {
+    animation: {
+        introDuration: 1.5,
+        subtitleDuration: 2,
+        scrubDuration: 2,
+        hideDuration: 3,
+        titleStartX: 750,
+        navStartY: -70,
+        scrollEnd: 1000,
+        overlapEnd: 100,
+        scrubScale: 10,
+    },
+    layout: {
+        titleFontSize: '200px',
+        subtitleFontSize: '50px',
+        scrubFontSize: '5000px',
+        paddingLarge: 100,
+        fullHeight: '100vh',
+    },
+};

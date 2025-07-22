@@ -2,6 +2,8 @@ import "../App.css";
 import { Header } from "../components/Header";
 import { NavBar } from "../components/NavBar";
 import { Layout, Text } from "../components/basics/defaults";
+import { customColors } from "../theme/colors";
+import { numbers } from "../theme/default";
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { SplitText } from "gsap/all";
@@ -17,17 +19,26 @@ export const Contact = () => {
     () => {
       tl.current = gsap
         .timeline()
-        .fromTo(".title-header", { x: 750 }, { x: 0, duration: 3 })
+        .fromTo(
+          ".title-header",
+          { x: numbers.animation.titleStartX },
+          { x: 0, duration: numbers.animation.hideDuration }
+        )
         .fromTo(
           ".nav-bar",
-          { y: -70 },
-          { y: 0, duration: 3, overflow: -3 },
-          "-=3"
+          { y: numbers.animation.navStartY },
+          { y: 0, duration: numbers.animation.hideDuration, overflow: -3 },
+          `-=${numbers.animation.hideDuration}`
         )
         .fromTo(
           ".subtitle-header",
-          { y: -70, opacity: 0 },
-          { y: 0, opacity: 1, duration: 2, overflow: 3 }
+          { y: numbers.animation.navStartY, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: numbers.animation.subtitleDuration,
+            overflow: 3,
+          }
         );
     },
     { scope: container }
@@ -35,13 +46,13 @@ export const Contact = () => {
 
   return (
     <Layout ref={container}>
-      <NavBar className="nav-bar" style={{ backgroundColor: "#dcffcf" }} />
+      <NavBar className="nav-bar" style={{ backgroundColor: customColors.highlight }} />
       <Header ref={container}>
         <Layout style={{ display: "flex", flexDirection: "column" }}>
           <Text
             className="title-header"
             style={{
-              fontSize: "200px",
+              fontSize: numbers.layout.titleFontSize,
             }}
           >
             OLEVIUS
@@ -49,7 +60,7 @@ export const Contact = () => {
           <Text
             className="subtitle-header"
             style={{
-              fontSize: "50px",
+              fontSize: numbers.layout.subtitleFontSize,
             }}
           >
             Accuracy. Unmatched.
