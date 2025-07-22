@@ -1,5 +1,6 @@
 import React from "react";
 import type { BaseProps } from "./basics/defaultTypes";
+import { numbers } from "../theme/default";
 
 export const Header = React.forwardRef<HTMLHeadElement, BaseProps>(
   ({ children, style, className, ...rest }, ref) => (
@@ -10,7 +11,7 @@ export const Header = React.forwardRef<HTMLHeadElement, BaseProps>(
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100vh",
+        height: numbers.layout.fullHeight,
         ...style,
       }}
       {...rest}

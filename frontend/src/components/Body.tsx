@@ -1,5 +1,6 @@
 import React from "react";
 import type { BaseProps } from "./basics/defaultTypes";
+import { numbers } from "../theme/default";
 
 export const Body = React.forwardRef<HTMLDivElement, BaseProps>(
   ({ children, style, className, ...rest }, ref) => (
@@ -10,7 +11,7 @@ export const Body = React.forwardRef<HTMLDivElement, BaseProps>(
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100vh",
+        height: numbers.layout.fullHeight,
         background: "white",
         ...style,
       }}
