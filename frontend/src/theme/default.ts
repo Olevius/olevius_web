@@ -33,7 +33,7 @@ export const numbers = {
   animation: {
     introDuration: 1.5,
     subtitleDuration: 2,
-    scrubDuration: 2,
+    scrubDuration: 4,
     hideDuration: 3,
     titleStartX: 750,
     navStartY: -70,
@@ -45,7 +45,7 @@ export const numbers = {
     titleFontSize: '200px',
     subtitleFontSize: '50px',
     scrubFontSize: '5000px',
-    paddingLarge: 100,
+    paddingLarge: 200,
     fullHeight: '100vh',
   },
 };
