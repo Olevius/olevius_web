@@ -1,13 +1,12 @@
 import "../App.css";
 import { Header } from "../components/Header";
 import { NavBar } from "../components/NavBar";
-import { Layout, Text } from "../components/basics/defaults";
+import { Layout, Text, Padding } from "../components/basics/defaults";
 import { useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger, SplitText, ScrollToPlugin } from "gsap/all";
 import { useGSAP } from "@gsap/react";
 import { Body } from "../components/Body";
-import { Padding } from "../components/Padding";
 import { customColors } from "../theme/colors";
 import { numbers } from "../theme/default";
 
@@ -147,20 +146,22 @@ export const Home = () => {
         style={{ backgroundColor: customColors.highlight }}
         className="padding"
       />
-      <Body style={{ overflow: "hidden" }} className="body">
-        <Layout style={{ display: "flex", flexDirection: "row" }}>
-          <Layout style={{ display: "flex", flexDirection: "column" }}>
-            <Text
-              className=""
-              style={{
-                fontSize: numbers.layout.titleFontSize,
-                color: "black",
-              }}
-            >
-              What is Olevius?
-            </Text>
-          </Layout>
-        </Layout>
+      <Body
+        style={{
+          overflow: "hidden",
+          justifyContent: "left",
+          alignItems: "center",
+        }}
+        className="body"
+      >
+        <Text
+          style={{
+            fontSize: numbers.layout.titleFontSize,
+            color: "black",
+          }}
+        >
+          What is Olevius?
+        </Text>
       </Body>
     </Layout>
   );
