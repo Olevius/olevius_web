@@ -81,11 +81,6 @@ export const Home = () => {
           0
         );
 
-      // scrubTl.to(":root", {
-      //   css: { "--white": "#ffffff" }, // Replace "#ffffff" with your desired color value
-      //   duration: 2,
-      // });
-
       // 3. Scrub animation color transition (scroll-triggered)
       const hiddenOverlapTl = gsap.timeline({
         scrollTrigger: {
