@@ -79,7 +79,7 @@ export const Home = () => {
             duration: numbers.animation.scrubDuration,
             ease: "power1.in",
           },
-          0
+          `-=${numbers.animation.scrubDuration}`
         )
         .to(
           ".padding",
@@ -88,7 +88,7 @@ export const Home = () => {
             duration: numbers.animation.scrubDuration,
             ease: "power1.in",
           },
-          0
+          `-=${numbers.animation.scrubDuration}`
         );
 
       // 3. Scroll-triggered animation for hiding title header
@@ -96,7 +96,7 @@ export const Home = () => {
         scrollTrigger: {
           trigger: ".body",
           start: "top top",
-          end: `+=${numbers.animation.overlapEnd}`,
+          end: `+=0`,
           pin: true,
           scrub: true,
           markers: true,
@@ -148,15 +148,18 @@ export const Home = () => {
         className="padding"
       />
       <Body style={{ overflow: "hidden" }} className="body">
-        <Layout style={{ display: "flex", flexDirection: "column" }}>
-          <Text
-            style={{
-              fontSize: numbers.layout.titleFontSize,
-              color: "black",
-            }}
-          >
-            What is Olevius?
-          </Text>
+        <Layout style={{ display: "flex", flexDirection: "row" }}>
+          <Layout style={{ display: "flex", flexDirection: "column" }}>
+            <Text
+              className=""
+              style={{
+                fontSize: numbers.layout.titleFontSize,
+                color: "black",
+              }}
+            >
+              What is Olevius?
+            </Text>
+          </Layout>
         </Layout>
       </Body>
     </Layout>

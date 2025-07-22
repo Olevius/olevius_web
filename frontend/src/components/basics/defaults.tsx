@@ -15,6 +15,23 @@ export const Layout = forRef<HTMLDivElement, BaseProps>(
   )
 );
 
+export const GridLayout = forRef<HTMLDivElement, BaseProps>(
+  ({ children, className, style, ...rest }, ref) => (
+    <div
+      ref={ref}
+      className={`rounded-lg shadow-md #dcffcf p-6 ${className}`}
+      style={style}
+      {...rest}
+    >
+      <Layout style={{ display: "flex", flexDirection: "row" }}>
+        <Layout style={{ display: "flex", flexDirection: "column" }}>
+          {children}
+        </Layout>
+      </Layout>
+    </div>
+  )
+);
+
 // Nav component
 export const Nav = forRef<HTMLSpanElement, BaseProps>(
   ({ children, style, ...rest }, ref) => (
