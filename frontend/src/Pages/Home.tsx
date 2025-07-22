@@ -102,9 +102,31 @@ export const Home = () => {
         },
       });
 
+      let split = SplitText.create(".body-text", {
+        type: "chars, words, lines",
+        wordsClass: "word",
+      });
+
       titleHeaderHideAnimationTimeline.to(".title-header", {
         opacity: 0,
         duration: numbers.animation.hideDuration,
+      });
+
+      const bodyHeaderAnimationTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".body",
+          start: "center center",
+          end: `+=${numbers.animation.overlapEnd}`,
+          pin: true,
+          scrub: true,
+          markers: true,
+        },
+      });
+      bodyHeaderAnimationTimeline.from(split.words, {
+        y: 100,
+        autoAlpha: 0,
+        duration: 3,
+        stagger: 5,
       });
     },
     { scope: container }
@@ -141,20 +163,17 @@ export const Home = () => {
           </Text>
         </Layout>
       </Header>
-      <Padding
-        size={numbers.layout.paddingLarge}
-        style={{ backgroundColor: customColors.highlight }}
-        className="padding"
-      />
       <Body
         style={{
           overflow: "hidden",
           justifyContent: "left",
           alignItems: "center",
+          height: "2000vh",
         }}
         className="body"
       >
         <Text
+          className="body-text"
           style={{
             fontSize: numbers.layout.titleFontSize,
             color: "black",

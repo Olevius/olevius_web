@@ -33,19 +33,19 @@ export const numbers = {
   animation: {
     introDuration: 1.5,
     subtitleDuration: 2,
-    scrubDuration: 4,
+    scrubDuration: 10,
     hideDuration: 3,
     titleStartX: 750,
     navStartY: -70,
-    scrollEnd: 1000,
-    overlapEnd: 100,
+    scrollEnd: 500,
+    overlapEnd: 1000,
     scrubScale: 10,
   },
   layout: {
     titleFontSize: '200px',
     subtitleFontSize: '50px',
     scrubFontSize: '5000px',
-    paddingLarge: 200,
+    paddingSmall: 10,
     fullHeight: '100vh',
   },
 };
