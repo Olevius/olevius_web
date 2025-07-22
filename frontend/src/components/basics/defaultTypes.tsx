@@ -22,10 +22,6 @@ export type TextProps = ForwardRefExoticComponent<
   BaseProps & RefAttributes<HTMLSpanElement>
 >;
 
-export interface PaddingProps extends Omit<BaseProps, "children" | "style"> {
-<<<<<<< Updated upstream
+export interface PaddingProps extends BaseProps {
   size: number;
-=======
-    size: number;
->>>>>>> Stashed changes
 }
