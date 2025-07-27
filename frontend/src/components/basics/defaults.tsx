@@ -1,3 +1,4 @@
+import { cssNumbers } from "../../theme/theme";
 import type { BaseProps, GridLayoutProps, PaddingProps } from "./defaultTypes";
 import { forRef } from "./refHelper";
 
@@ -55,8 +56,14 @@ export const GridLayout = forRef<HTMLDivElement, GridLayoutProps>(
   ({ children, className, style, styleRow, styleColumn, ...rest }, ref) => (
     <div
       ref={ref}
-      className={`rounded-lg shadow-md #dcffcf p-6 ${className}`}
-      style={style}
+      className={className}
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        height: cssNumbers.layout.fullHeight,
+        ...style,
+      }}
       {...rest}
     >
       <Layout style={{ display: "flex", flexDirection: "row", ...styleRow }}>

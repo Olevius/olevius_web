@@ -1,6 +1,6 @@
 import React from "react";
 import type { BaseProps } from "./basics/defaultTypes";
-import { numbers } from "../theme/default";
+import { cssNumbers } from "../theme/theme";
 
 /**
  * A React functional component that renders a flexible `div` container with customizable styles and class names.
@@ -20,7 +20,7 @@ export const Body = React.forwardRef<HTMLDivElement, BaseProps>(
       className={className}
       style={{
         display: "flex",
-        height: numbers.layout.fullHeight,
+        height: cssNumbers.layout.bodyHeight,
         background: "white",
         ...style,
       }}

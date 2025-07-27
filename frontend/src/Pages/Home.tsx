@@ -1,133 +1,32 @@
 import "../App.css";
 import { Header } from "../components/Header";
 import { NavBar } from "../components/NavBar";
-import { Layout, Text, Padding } from "../components/basics/defaults";
-import { useRef } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger, SplitText, ScrollToPlugin } from "gsap/all";
+import {
+  Layout,
+  Text,
+  GridLayout,
+  Padding,
+} from "../components/basics/defaults";
 import { useGSAP } from "@gsap/react";
 import { Body } from "../components/Body";
 import { customColors } from "../theme/colors";
-import { numbers } from "../theme/default";
-
-gsap.registerPlugin(useGSAP, SplitText, ScrollTrigger, ScrollToPlugin);
+import { cssNumbers } from "../theme/theme";
+// Home.tsx
+import {
+  runIntroTimeline,
+  runHeaderScrollTimeline,
+  runBodyTextScroll,
+} from "../animations/homeAnimations";
+import { useRef } from "react";
 
 export const Home = () => {
   const container = useRef(null);
 
   useGSAP(
     () => {
-      // 1. Initial load animation (not scroll-triggered)
-      const introAnimationTimeline = gsap.timeline();
-      introAnimationTimeline
-        .to(window, { duration: 0, scrollTo: 0 })
-        .fromTo(
-          ".title-header",
-          { x: numbers.animation.titleStartX },
-          {
-            x: 0,
-            duration: numbers.animation.introDuration,
-            ease: "power1.out",
-          }
-        )
-        .fromTo(
-          ".nav-bar",
-          { y: numbers.animation.navStartY },
-          {
-            y: 0,
-            duration: numbers.animation.introDuration,
-            ease: "power1.out",
-          },
-          `-=${numbers.animation.introDuration}`
-        )
-        .fromTo(
-          ".subtitle-header",
-          { y: numbers.animation.navStartY, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: numbers.animation.subtitleDuration,
-            ease: "power2.out",
-          }
-        );
-
-      // 2. Scroll-triggered animation for header and padding
-      const headerScrollAnimationTimeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".header",
-          start: "top top",
-          end: `+=${numbers.animation.scrollEnd}`,
-          pin: true,
-          scrub: true,
-          markers: true,
-        },
-      });
-
-      headerScrollAnimationTimeline
-        .to(".title-header", {
-          fontSize: numbers.layout.scrubFontSize,
-          scale: numbers.animation.scrubScale,
-          duration: numbers.animation.scrubDuration,
-          color: "white",
-          ease: "power1.in",
-        })
-        .to(
-          ".header",
-          {
-            backgroundColor: "white",
-            duration: numbers.animation.scrubDuration,
-            ease: "power1.in",
-          },
-          `-=${numbers.animation.scrubDuration}`
-        )
-        .to(
-          ".padding",
-          {
-            backgroundColor: "white",
-            duration: numbers.animation.scrubDuration,
-            ease: "power1.in",
-          },
-          `-=${numbers.animation.scrubDuration}`
-        );
-
-      // 3. Scroll-triggered animation for hiding title header
-      const titleHeaderHideAnimationTimeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".body",
-          start: "top top",
-          end: `+=0`,
-          pin: true,
-          scrub: true,
-          markers: true,
-        },
-      });
-
-      let split = SplitText.create(".body-text", {
-        type: "chars, words, lines",
-        wordsClass: "word",
-      });
-
-      titleHeaderHideAnimationTimeline.to(".title-header", {
-        opacity: 0,
-        duration: numbers.animation.hideDuration,
-      });
-
-      const bodyHeaderAnimationTimeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".body",
-          start: "center center",
-          end: `+=${numbers.animation.overlapEnd}`,
-          pin: true,
-          scrub: true,
-          markers: true,
-        },
-      });
-      bodyHeaderAnimationTimeline.from(split.words, {
-        y: 100,
-        autoAlpha: 0,
-        duration: 3,
-        stagger: 5,
-      });
+      runIntroTimeline(cssNumbers);
+      runHeaderScrollTimeline(cssNumbers);
+      runBodyTextScroll(cssNumbers);
     },
     { scope: container }
   );
@@ -146,7 +45,7 @@ export const Home = () => {
           <Text
             className="title-header"
             style={{
-              fontSize: numbers.layout.titleFontSize,
+              fontSize: cssNumbers.layout.titleFontSize,
               color: "black",
             }}
           >
@@ -155,33 +54,43 @@ export const Home = () => {
           <Text
             className="subtitle-header"
             style={{
-              fontSize: numbers.layout.subtitleFontSize,
+              fontSize: cssNumbers.layout.subtitleFontSize,
               color: "black",
+              opacity: 0,
             }}
           >
             Accuracy. Unmatched.
           </Text>
         </Layout>
       </Header>
-      <Body
-        style={{
-          overflow: "hidden",
-          justifyContent: "left",
-          alignItems: "center",
-          height: "2000vh",
-        }}
-        className="body"
+      <Padding
+        style={{ backgroundColor: customColors.highlight }}
+        size={1000}
+        className="padding"
+      />
+      <GridLayout
+        style={{ backgroundColor: "white" }}
+        className="body-title-box"
       >
         <Text
           className="body-text"
           style={{
-            fontSize: numbers.layout.titleFontSize,
+            fontSize: cssNumbers.layout.titleFontSize,
             color: "black",
           }}
         >
           What is Olevius?
         </Text>
-      </Body>
+      </GridLayout>
+      <Body
+        style={{
+          overflow: "hidden",
+          justifyContent: "center",
+          alignItems: "flex-start",
+          backgroundColor: "white",
+        }}
+        className="body"
+      ></Body>
     </Layout>
   );
 };
