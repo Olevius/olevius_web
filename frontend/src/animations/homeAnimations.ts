@@ -67,6 +67,7 @@ export const runHeaderScrollTimeline = (numbers: CSSNumbers) => {
       scale: numbers.animation.scrubScale,
       duration: numbers.animation.scrubDuration,
       color: "white",
+      opacity: 0,
       ease: "power1.in",
     }, "syncPoint")
     .to(".header", {
