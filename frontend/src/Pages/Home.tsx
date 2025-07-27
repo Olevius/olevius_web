@@ -24,7 +24,7 @@ export const Home = () => {
 
   useGSAP(
     () => {
-      runIntroTimeline(cssNumbers);
+      runIntroTimeline(cssNumbers).then();
       runHeaderScrollTimeline(cssNumbers);
       runBodyTextScroll(cssNumbers);
     },
@@ -35,10 +35,16 @@ export const Home = () => {
     <Layout ref={container} style={{ overflow: "hidden" }}>
       <NavBar
         className="nav-bar"
-        style={{ backgroundColor: customColors.highlight }}
+        style={{
+          backgroundColor: customColors.highlight,
+          border: "1px solid red",
+        }}
       />
       <Header
-        style={{ backgroundColor: customColors.highlight }}
+        style={{
+          backgroundColor: customColors.highlight,
+          border: "1px solid red",
+        }}
         className="header"
       >
         <Layout style={{ display: "flex", flexDirection: "column" }}>
@@ -64,12 +70,18 @@ export const Home = () => {
         </Layout>
       </Header>
       <Padding
-        style={{ backgroundColor: customColors.highlight }}
+        style={{
+          backgroundColor: customColors.highlight,
+          border: "1px solid red",
+        }}
         size={100}
         className="padding"
       />
       <GridLayout
-        style={{ backgroundColor: customColors.highlight }}
+        style={{
+          backgroundColor: customColors.highlight,
+          border: "1px solid red",
+        }}
         className="body-title-box"
       >
         <Text
@@ -85,12 +97,32 @@ export const Home = () => {
       <Body
         style={{
           overflow: "hidden",
-          justifyContent: "center",
-          alignItems: "flex-start",
           backgroundColor: customColors.highlight,
+          paddingLeft: cssNumbers.layout.paddingSmall,
+          border: "1px solid red",
         }}
         className="body"
-      ></Body>
+      >
+        <Text
+          style={{
+            fontSize: cssNumbers.layout.subtitleFontSize,
+            color: "black",
+            textAlign: "left", // Aligns the text to the left
+          }}
+        >
+          Our device differs fundamentally from smartwatches like the Apple
+          Watch by providing direct, continuous blood pressure measurement using
+          optical fiber compression, rather than relying on indirect pulse
+          transit time estimates. While smartwatches require frequent
+          calibration and rely on population-averaged models with limited
+          accuracy, our sensor captures true pulse waveforms via a fluid-coupled
+          optical system, enabling machine learning models to extract systolic
+          and diastolic pressures with FDA-grade precision (±3 mmHg). This
+          allows for more reliable, individualized readings without cuffs,
+          recalibration, or positional sensitivity—delivering medical-grade
+          performance in a compact, wearable form.
+        </Text>
+      </Body>
     </Layout>
   );
 };
