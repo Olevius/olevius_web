@@ -65,7 +65,7 @@ export const Home = () => {
       </Header>
       <Padding
         style={{ backgroundColor: customColors.highlight }}
-        size={700}
+        size={100}
         className="padding"
       />
       <GridLayout
