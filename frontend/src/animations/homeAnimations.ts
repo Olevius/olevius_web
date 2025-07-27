@@ -78,7 +78,16 @@ export const runHeaderScrollTimeline = (numbers: CSSNumbers) => {
       backgroundColor: "white",
       duration: numbers.animation.scrubDuration,
       ease: "power1.in",
-    }, "syncPoint");
+    }, "syncPoint")
+    .to(".body-title-box", {
+      backgroundColor: "white",
+      duration: numbers.animation.scrubDuration,
+      ease: "power1.in",
+    }).to(".body", {
+      backgroundColor: "white",
+      duration: numbers.animation.scrubDuration,
+      ease: "power1.in",
+    });;
 
 };
 
@@ -97,7 +106,7 @@ export const runBodyTextScroll = (numbers: CSSNumbers) => {
       scrub: 1,
       markers: true,
     },
-  }).from(split.chars, {
+  }).from(split.words, {
     y: numbers.animation.wordStart,
     autoAlpha: 0,
     duration: numbers.animation.bodyHeaderDuration,

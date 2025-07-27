@@ -65,11 +65,11 @@ export const Home = () => {
       </Header>
       <Padding
         style={{ backgroundColor: customColors.highlight }}
-        size={1000}
+        size={700}
         className="padding"
       />
       <GridLayout
-        style={{ backgroundColor: "white" }}
+        style={{ backgroundColor: customColors.highlight }}
         className="body-title-box"
       >
         <Text
@@ -87,7 +87,7 @@ export const Home = () => {
           overflow: "hidden",
           justifyContent: "center",
           alignItems: "flex-start",
-          backgroundColor: "white",
+          backgroundColor: customColors.highlight,
         }}
         className="body"
       ></Body>
