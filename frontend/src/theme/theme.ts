@@ -26,26 +26,31 @@ export const defaultTheme = {
     h3: { fontSize: '1.75rem', fontWeight: 500 },
     h4: { fontSize: '1.5rem', fontWeight: 500 },
     h5: { fontSize: '1.25rem', fontWeight: 500 },
-  }
+  },
 };
 
-export const numbers = {
+export const cssNumbers = {
   animation: {
     introDuration: 1.5,
     subtitleDuration: 2,
-    scrubDuration: 4,
+    bodyHeaderDuration: 3,
+    wordStagger: 5,
+    scrubDuration: 10,
     hideDuration: 3,
     titleStartX: 750,
     navStartY: -70,
     scrollEnd: 1000,
-    overlapEnd: 100,
+    overlapEnd: 1500,
     scrubScale: 10,
+    wordStart: 100
   },
   layout: {
     titleFontSize: '200px',
     subtitleFontSize: '50px',
     scrubFontSize: '5000px',
-    paddingLarge: 200,
+    paddingSmall: 10,
     fullHeight: '100vh',
+    doubleFullHeight: '500vh',
+    bodyHeight: '1000vh',
   },
 };

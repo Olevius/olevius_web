@@ -25,3 +25,8 @@ export type TextProps = ForwardRefExoticComponent<
 export interface PaddingProps extends BaseProps {
   size: number;
 }
+
+export interface GridLayoutProps extends BaseProps {
+  styleRow?: CSSProperties;
+  styleColumn?: CSSProperties;
+}
