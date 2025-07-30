@@ -100,7 +100,6 @@ export const Nav = forRef<HTMLSpanElement, BaseProps>(
     </nav>
   )
 );
-
 /**
  * ListElement
  * -------------
@@ -128,8 +127,17 @@ export const ListElement = forRef<HTMLLIElement, BaseProps>(
  * @returns A ref-forwarding `<span>`.
  */
 export const Text = forRef<HTMLSpanElement, BaseProps>(
-  ({ children, style, ...rest }, ref) => (
-    <span ref={ref} {...rest} style={{ ...style }}>
+  ({ children, style, highlight, ...rest }, ref) => (
+    <span
+      ref={ref}
+      {...rest}
+      style={{
+        fontSize: cssNumbers.layout.subtitleFontSize,
+        color: "black",
+        display: "inline",
+        ...style,
+      }}
+    >
       {children}
     </span>
   )

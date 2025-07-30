@@ -69,14 +69,14 @@ export const Home = () => {
           </Text>
         </Layout>
       </Header>
-      <Padding
+      {/* <Padding
         style={{
           backgroundColor: customColors.highlight,
           border: "1px solid red",
         }}
         size={100}
         className="padding"
-      />
+      /> */}
       <GridLayout
         style={{
           backgroundColor: customColors.highlight,
@@ -98,30 +98,131 @@ export const Home = () => {
         style={{
           overflow: "hidden",
           backgroundColor: customColors.highlight,
-          paddingLeft: cssNumbers.layout.paddingSmall,
           border: "1px solid red",
         }}
         className="body"
       >
-        <Text
+        <Layout
           style={{
-            fontSize: cssNumbers.layout.subtitleFontSize,
-            color: "black",
-            textAlign: "left", // Aligns the text to the left
+            display: "flex",
+            flexDirection: "column",
+            padding: cssNumbers.layout.paddingBody,
           }}
         >
-          Our device differs fundamentally from smartwatches like the Apple
-          Watch by providing direct, continuous blood pressure measurement using
-          optical fiber compression, rather than relying on indirect pulse
-          transit time estimates. While smartwatches require frequent
-          calibration and rely on population-averaged models with limited
-          accuracy, our sensor captures true pulse waveforms via a fluid-coupled
-          optical system, enabling machine learning models to extract systolic
-          and diastolic pressures with FDA-grade precision (±3 mmHg). This
-          allows for more reliable, individualized readings without cuffs,
-          recalibration, or positional sensitivity—delivering medical-grade
-          performance in a compact, wearable form.
-        </Text>
+          <Layout
+            style={{
+              overflow: "hidden",
+              backgroundColor: "white",
+              display: "flex",
+              marginRight: "500px",
+              flexDirection: "column",
+              justifyContent: "flex-start",
+              border: "1px solid red",
+            }}
+          >
+            <Text
+              style={{
+                textAlign: "left", // Aligns the text to the left
+                fontSize: cssNumbers.layout.textHeaderFontSize,
+                fontWeight: "bold", // Highlights the text
+                color: "black", // Ensures the text is visible
+              }}
+            >
+              <mark style={{ backgroundColor: customColors.highlight }}>
+                why?
+              </mark>
+            </Text>
+            <Text
+              style={{
+                fontSize: cssNumbers.layout.bodyFontSize,
+                color: "black",
+                textAlign: "left", // Aligns the text to the left
+              }}
+            >
+              Current off-the-shelf blood pressure measurement solutions are
+              sorely lacking in portability, accuracy, or continuity. Can an
+              optical fiber-based wearable sensor deliver continuous,
+              non-invasive blood pressure monitoring with clinical-grade
+              accuracy and real-time data transmission?
+            </Text>
+          </Layout>
+          <Layout
+            style={{
+              overflow: "hidden",
+              backgroundColor: "white",
+              display: "flex",
+              marginTop: cssNumbers.layout.paddingBody,
+              marginLeft: "500px",
+              flexDirection: "column",
+              justifyContent: "flex-start",
+              border: "1px solid red",
+            }}
+          >
+            <Text
+              style={{
+                textAlign: "left", // Aligns the text to the left
+                fontSize: cssNumbers.layout.textHeaderFontSize,
+                fontWeight: "bold", // Highlights the text
+                color: "black", // Ensures the text is visible
+              }}
+            >
+              <mark style={{ backgroundColor: customColors.highlight }}>
+                how?
+              </mark>
+            </Text>
+            <Text
+              style={{
+                fontSize: cssNumbers.layout.bodyFontSize,
+                color: "black",
+                textAlign: "left", // Aligns the text to the left
+              }}
+            >
+              Our device differs fundamentally from smartwatches like the Apple
+              Watch by providing direct, continuous blood pressure measurement
+              using optical fiber compression, rather than relying on indirect
+              pulse transit time estimates. While smartwatches require frequent
+              calibration and rely on population-averaged models with limited
+              accuracy, our sensor captures true pulse waveforms via a
+              fluid-coupled optical system, enabling machine learning models to
+              extract systolic and diastolic pressures with FDA-grade precision
+              (±3 mmHg). This allows for more reliable, individualized readings
+              without cuffs, recalibration, or positional sensitivity—delivering
+              medical-grade performance in a compact, wearable form.
+            </Text>
+          </Layout>
+          <Layout
+            style={{
+              overflow: "hidden",
+              backgroundColor: "white",
+              display: "flex",
+              marginTop: cssNumbers.layout.paddingBody,
+              marginRight: "500px",
+              flexDirection: "column",
+              justifyContent: "flex-start",
+              border: "1px solid red",
+            }}
+          >
+            <Text
+              style={{
+                textAlign: "left", // Aligns the text to the left
+                fontSize: cssNumbers.layout.textHeaderFontSize,
+                fontWeight: "bold", // Highlights the text
+                color: "black", // Ensures the text is visible
+              }}
+            >
+              <mark style={{ backgroundColor: customColors.highlight }}>
+                whats next?
+              </mark>
+            </Text>
+            <Text
+              style={{
+                fontSize: cssNumbers.layout.bodyFontSize,
+                color: "black",
+                textAlign: "left", // Aligns the text to the left
+              }}
+            ></Text>
+          </Layout>
+        </Layout>
       </Body>
     </Layout>
   );

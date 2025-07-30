@@ -10,6 +10,7 @@ export interface BaseProps {
   children?: ReactNode;
   className?: string;
   style?: CSSProperties;
+  highlight?: CSSProperties;
 }
 
 // Props for link components
