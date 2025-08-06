@@ -55,5 +55,19 @@ export const cssNumbers = {
     fullHeight: '100vh',
     doubleFullHeight: '500vh',
     bodyHeight: '1000vh',
+    textBoxMargin: "500px",
+    marginSmallLeft: '100px',
+    marginSmallRight: '100px',
+    marginSmallTop: '100px',
+    marginSmallBottom: '100px',
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
+    // Extra small variant
+    marginBottomXs: '20px',
   },
+  testing: {
+    border: "1px solid red"
+  }
 };

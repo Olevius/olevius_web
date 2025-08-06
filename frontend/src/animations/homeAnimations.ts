@@ -121,3 +121,8 @@ export const runBodyTextScroll = (numbers: CSSNumbers) => {
     stagger: 5,
   })
 };
+
+// export const runBodyScroll = (numbers: CSSNumbers) => {
+
+//   return gsap.timeline
+// }

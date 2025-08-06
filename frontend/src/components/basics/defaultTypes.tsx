@@ -31,3 +31,11 @@ export interface GridLayoutProps extends BaseProps {
   styleRow?: CSSProperties;
   styleColumn?: CSSProperties;
 }
+
+export interface TextBoxProps extends BaseProps {
+  key?: string;
+  value: {
+    title: string;
+    content: string;
+  };
+}

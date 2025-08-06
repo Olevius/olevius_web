@@ -1,6 +1,6 @@
 import React from "react";
 
-const Contact: React.FC = () => {
+export const Contact: React.FC = () => {
   return (
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
       <h1>Contact Us</h1>
