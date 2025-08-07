@@ -122,7 +122,8 @@ export const runBodyTextScroll = (numbers: CSSNumbers) => {
   })
 };
 
-// export const runBodyScroll = (numbers: CSSNumbers) => {
+export const runBodyScroll = (numbers: CSSNumbers) => {
+  return gsap.timeline({
 
-//   return gsap.timeline
-// }
+  })
+}

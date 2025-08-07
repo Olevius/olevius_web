@@ -54,12 +54,16 @@ export const cssNumbers = {
     paddingBody: 50,
     fullHeight: '100vh',
     doubleFullHeight: '500vh',
-    bodyHeight: '1000vh',
+    bodyHeight: '2000vh',
     textBoxMargin: "500px",
-    marginSmallLeft: '100px',
-    marginSmallRight: '100px',
-    marginSmallTop: '100px',
-    marginSmallBottom: '100px',
+    marginSmallLeft: '20px',
+    marginSmallRight: '20px',
+    marginSmallTop: '20vh',
+    marginSmallBottom: '20px',
+    marginExtraSmallLeft: '5vh',
+    marginExtraSmallRight: '5vh',
+    marginExtraSmallTop: '5vh',
+    marginExtraSmallBottom: '5vh',
     paddingLeft: 10,
     paddingRight: 10,
     paddingTop: 10,
@@ -68,6 +72,6 @@ export const cssNumbers = {
     marginBottomXs: '20px',
   },
   testing: {
-    border: "1px solid red"
+    border: ""
   }
 };

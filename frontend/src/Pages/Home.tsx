@@ -53,19 +53,19 @@ export const Home = () => {
   return (
     <Layout
       ref={container}
-      style={{ overflow: "hidden", border: "1px solid red" }}
+      style={{ overflow: "hidden", border: cssNumbers.testing.border }}
     >
       <NavBar
         className="nav-bar"
         style={{
           backgroundColor: customColors.highlight,
-          border: "1px solid red",
+          border: cssNumbers.testing.border,
         }}
       />
       <Header
         style={{
           backgroundColor: customColors.highlight,
-          border: "1px solid red",
+          border: cssNumbers.testing.border,
         }}
         className="header"
       >
@@ -73,7 +73,7 @@ export const Home = () => {
           style={{
             display: "flex",
             flexDirection: "column",
-            border: "1px solid red",
+            border: cssNumbers.testing.border,
           }}
         >
           <Text
@@ -81,7 +81,7 @@ export const Home = () => {
             style={{
               fontSize: cssNumbers.layout.titleFontSize,
               color: "black",
-              border: "1px solid red",
+              border: cssNumbers.testing.border,
             }}
           >
             OLEVIUS
@@ -92,7 +92,7 @@ export const Home = () => {
               fontSize: cssNumbers.layout.subtitleFontSize,
               color: "black",
               opacity: 0,
-              border: "1px solid red",
+              border: cssNumbers.testing.border,
             }}
           >
             Accuracy. Unmatched.
@@ -102,7 +102,7 @@ export const Home = () => {
       <GridLayout
         style={{
           backgroundColor: customColors.highlight,
-          border: "1px solid red",
+          border: cssNumbers.testing.border,
         }}
         className="body-title-box"
       >
@@ -111,7 +111,7 @@ export const Home = () => {
           style={{
             fontSize: cssNumbers.layout.titleFontSize,
             color: "black",
-            border: "1px solid red",
+            border: cssNumbers.testing.border,
           }}
         >
           What is Olevius?
@@ -121,7 +121,7 @@ export const Home = () => {
         style={{
           overflow: "hidden",
           backgroundColor: customColors.highlight,
-          border: "1px solid red",
+          border: cssNumbers.testing.border,
         }}
         className="body"
       >
@@ -130,7 +130,7 @@ export const Home = () => {
             display: "flex",
             flexDirection: "column",
             padding: cssNumbers.layout.paddingBody,
-            border: "1px solid red",
+            border: cssNumbers.testing.border,
           }}
         >
           <Layout
@@ -140,12 +140,14 @@ export const Home = () => {
               display: "flex",
               flexDirection: "column",
               justifyContent: "flex-start",
-              border: "1px solid red",
+              border: cssNumbers.testing.border,
             }}
           >
-            {Object.entries(bodyTextMap).map(([key, value]) => (
-              <TextBox key={key} value={value} />
-            ))}
+            {Object.entries(bodyTextMap).map(([key, value], idx) => {
+              const marginTop =
+                idx !== 0 ? cssNumbers.layout.marginExtraSmallTop : undefined;
+              return <TextBox style={{ marginTop }} key={key} value={value} />;
+            })}
           </Layout>
         </Layout>
       </Body>

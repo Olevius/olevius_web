@@ -34,8 +34,10 @@ export interface GridLayoutProps extends BaseProps {
 
 export interface TextBoxProps extends BaseProps {
   key?: string;
-  value: {
-    title: string;
-    content: string;
-  };
+  value: TextBoxConfig;
 }
+
+export type TextBoxConfig = {
+  title: string;
+  content: string;
+};
