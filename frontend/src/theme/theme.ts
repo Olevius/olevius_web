@@ -16,16 +16,16 @@ export const defaultTheme = {
   },
   spacing: (factor: number) => `${factor * 8}px`,
   typography: {
-    fontFamily: '"Roboto", "Helvetica", "Arial", sans-serif',
+    fontFamily: '"Roboto Thin", "Roboto", "Helvetica", "Arial", sans-serif',
     fontSize: 16,
-    fontWeightLight: 300,
-    fontWeightRegular: 400,
-    fontWeightMedium: 500,
-    h1: { fontSize: '2.5rem', fontWeight: 500 },
-    h2: { fontSize: '2rem', fontWeight: 500 },
-    h3: { fontSize: '1.75rem', fontWeight: 500 },
-    h4: { fontSize: '1.5rem', fontWeight: 500 },
-    h5: { fontSize: '1.25rem', fontWeight: 500 },
+    fontWeightLight: 100,
+    fontWeightRegular: 300,
+    fontWeightMedium: 400,
+    h1: { fontSize: '2.5rem', fontWeight: 100 },
+    h2: { fontSize: '2rem', fontWeight: 100 },
+    h3: { fontSize: '1.75rem', fontWeight: 100 },
+    h4: { fontSize: '1.5rem', fontWeight: 100 },
+    h5: { fontSize: '1.25rem', fontWeight: 100 },
   },
 };
 
@@ -46,8 +46,9 @@ export const cssNumbers = {
   },
   layout: {
     titleFontSize: '200px',
-    bodyFontSize: '25px',
+    mediumFontSize: '100px',
     subtitleFontSize: '50px',
+    bodyFontSize: '25px',
     textHeaderFontSize: '20px',
     scrubFontSize: '5000px',
     paddingSmall: 10,
@@ -72,6 +73,6 @@ export const cssNumbers = {
     marginBottomXs: '20px',
   },
   testing: {
-    border: ""
+    border: "1px solid red"
   }
 };

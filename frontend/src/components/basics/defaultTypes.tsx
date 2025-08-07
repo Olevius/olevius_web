@@ -32,7 +32,7 @@ export interface GridLayoutProps extends BaseProps {
   styleColumn?: CSSProperties;
 }
 
-export interface TextBoxProps extends BaseProps {
+export interface TextBoxProps extends Omit<BaseProps, "children"> {
   key?: string;
   value: TextBoxConfig;
 }

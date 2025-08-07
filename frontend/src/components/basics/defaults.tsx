@@ -127,7 +127,7 @@ export const ListElement = forRef<HTMLLIElement, BaseProps>(
  * @returns A ref-forwarding `<span>`.
  */
 export const Text = forRef<HTMLSpanElement, BaseProps>(
-  ({ children, style, highlight, ...rest }, ref) => (
+  ({ children, style, ...rest }, ref) => (
     <span
       ref={ref}
       {...rest}

@@ -1,12 +1,7 @@
 import "../App.css";
 import { Header } from "../components/Header";
 import { NavBar } from "../components/NavBar";
-import {
-  Layout,
-  Text,
-  GridLayout,
-  Padding,
-} from "../components/basics/defaults";
+import { Layout, Text, GridLayout } from "../components/basics/defaults";
 import { useGSAP } from "@gsap/react";
 import { Body } from "../components/Body";
 import { customColors } from "../theme/colors";

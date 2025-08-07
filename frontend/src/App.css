@@ -1,3 +1,6 @@
+@font-face {
+  font-family: 'Satoshi', sans-serif;
+}
 
 #root {
   max-width: none;
@@ -40,3 +43,4 @@
 .read-the-docs {
   color: #888;
 }
+
