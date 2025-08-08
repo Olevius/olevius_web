@@ -55,7 +55,7 @@ export const cssNumbers = {
     paddingBody: 50,
     fullHeight: '100vh',
     doubleFullHeight: '500vh',
-    bodyHeight: '2000vh',
+    bodyHeight: '100vh',
     textBoxMargin: "500px",
     marginSmallLeft: '20px',
     marginSmallRight: '20px',

@@ -138,11 +138,17 @@ export const Home = () => {
               border: cssNumbers.testing.border,
             }}
           >
-            {Object.entries(bodyTextMap).map(([key, value], idx) => {
+            {/* {Object.entries(bodyTextMap).map(([key, value], idx) => {
               const marginTop =
                 idx !== 0 ? cssNumbers.layout.marginExtraSmallTop : undefined;
-              return <TextBox style={{ marginTop }} key={key} value={value} />;
-            })}
+              return ( */}
+            <TextBox
+              classNameTitle="text-box-title"
+              style={{}}
+              value={{ title: "poop", content: "poop" }}
+            />
+            {/* );
+            })} */}
           </Layout>
         </Layout>
       </Body>

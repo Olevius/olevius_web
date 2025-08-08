@@ -74,10 +74,6 @@ export const runHeaderScrollTimeline = (numbers: CSSNumbers) => {
       backgroundColor: "white",
       ease: "power1.in",
     }, "syncPoint")
-    .to(".padding", {
-      backgroundColor: "white",
-      ease: "power1.in",
-    }, "syncPoint")
     .to(".body-title-box", {
       backgroundColor: "white",
       ease: "power1.in",
@@ -122,8 +118,29 @@ export const runBodyTextScroll = (numbers: CSSNumbers) => {
   })
 };
 
-// export const runBodyScroll = (numbers: CSSNumbers) => {
-//   return gsap.timeline({
+export const runBodyScroll = (numbers: CSSNumbers) => {
+  const elements = document.querySelectorAll(".text-box-title");
 
-//   })
-// }
+  elements.forEach((el) => {
+    console.log(el)
+    const split = SplitText.create(el, {
+      type: "chars, words, lines",
+      charsClass: "char"
+    });
+
+    gsap.timeline({
+      scrollTrigger: {
+        trigger: el,
+        start: "center center",
+        end: `+=${numbers.animation.overlapEnd}`,
+        scrub: 1,
+        markers: true,
+      },
+    }).from(split.chars, {
+      y: numbers.animation.wordStart,
+      autoAlpha: 0,
+      duration: numbers.animation.bodyHeaderDuration,
+      stagger: 0.05,
+    });
+  });
+};
