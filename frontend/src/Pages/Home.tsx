@@ -21,12 +21,25 @@ export const Home = () => {
 
   useGSAP(
     () => {
-      runIntroTimeline(cssNumbers).then();
-      runHeaderScrollTimeline(cssNumbers);
-      runTransitionTextScroll(cssNumbers);
-      runBodyScroll(cssNumbers);
+      // SSR/CI/test guard — nothing runs in jsdom
+      if (typeof window === "undefined" || process.env.NODE_ENV === "test")
+        return;
+
+      // Use gsap.context so everything is scoped + revert() on unmount
+      const ctx = gsap.context(() => {
+        runIntroTimeline(cssNumbers).then(() => {
+          // optional: refresh after intro if SplitText changed layout
+          ScrollTrigger.refresh();
+        });
+        runHeaderScrollTimeline(cssNumbers);
+        runTransitionTextScroll(cssNumbers);
+        runBodyScroll(cssNumbers);
+      }, container);
+
+      // cleanup
+      return () => ctx.revert();
     },
-    { scope: container }
+    { scope: container, dependencies: [cssNumbers] } // re-run when numbers change
   );
 
   const bodyTextMap = {
