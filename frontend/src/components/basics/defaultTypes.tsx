@@ -10,6 +10,7 @@ export interface BaseProps {
   children?: ReactNode;
   className?: string;
   style?: CSSProperties;
+  highlight?: CSSProperties;
 }
 
 // Props for link components
@@ -30,3 +31,18 @@ export interface GridLayoutProps extends BaseProps {
   styleRow?: CSSProperties;
   styleColumn?: CSSProperties;
 }
+
+export interface TextBoxProps
+  extends Omit<BaseProps, "children" | "className"> {
+  key?: string;
+  classNameTitle?: string;
+  classNameContent?: string;
+  value?: TextBoxConfig;
+}
+
+export type TextBoxConfig = {
+  title: string;
+  content: string;
+  classNameTitle?: string;
+  classNameContent?: string;
+};

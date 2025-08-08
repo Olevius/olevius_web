@@ -1,61 +1,84 @@
-import "../App.css";
-import { Header } from "../components/Header";
-import { NavBar } from "../components/NavBar";
-import { Layout, Text } from "../components/basics/defaults";
-import { useRef } from "react";
-import { gsap } from "gsap";
-import { SplitText } from "gsap/all";
-import { useGSAP } from "@gsap/react";
+import React from "react";
 
-gsap.registerPlugin(useGSAP, SplitText);
-
-export const Contact = () => {
-  const container = useRef(null);
-  const tl = useRef<gsap.core.Timeline | null>(null);
-
-  useGSAP(
-    () => {
-      tl.current = gsap
-        .timeline()
-        .fromTo(".title-header", { x: 750 }, { x: 0, duration: 3 })
-        .fromTo(
-          ".nav-bar",
-          { y: -70 },
-          { y: 0, duration: 3, overflow: -3 },
-          "-=3"
-        )
-        .fromTo(
-          ".subtitle-header",
-          { y: -70, opacity: 0 },
-          { y: 0, opacity: 1, duration: 2, overflow: 3 }
-        );
-    },
-    { scope: container }
-  );
-
+export const Contact: React.FC = () => {
   return (
-    <Layout ref={container}>
-      <NavBar className="nav-bar" style={{ backgroundColor: "#dcffcf" }} />
-      <Header ref={container}>
-        <Layout style={{ display: "flex", flexDirection: "column" }}>
-          <Text
-            className="title-header"
-            style={{
-              fontSize: "200px",
-            }}
+    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
+      <h1>Contact Us</h1>
+      <p>If you have any questions, feel free to reach out to us!</p>
+      <form style={{ maxWidth: "400px", marginTop: "20px" }}>
+        <div style={{ marginBottom: "15px" }}>
+          <label
+            htmlFor="name"
+            style={{ display: "block", marginBottom: "5px" }}
           >
-            OLEVIUS
-          </Text>
-          <Text
-            className="subtitle-header"
+            Name:
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
             style={{
-              fontSize: "50px",
+              width: "100%",
+              padding: "8px",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
             }}
+          />
+        </div>
+        <div style={{ marginBottom: "15px" }}>
+          <label
+            htmlFor="email"
+            style={{ display: "block", marginBottom: "5px" }}
           >
-            Accuracy. Unmatched.
-          </Text>
-        </Layout>
-      </Header>
-    </Layout>
+            Email:
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            style={{
+              width: "100%",
+              padding: "8px",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+            }}
+          />
+        </div>
+        <div style={{ marginBottom: "15px" }}>
+          <label
+            htmlFor="message"
+            style={{ display: "block", marginBottom: "5px" }}
+          >
+            Message:
+          </label>
+          <textarea
+            id="message"
+            name="message"
+            rows={5}
+            style={{
+              width: "100%",
+              padding: "8px",
+              border: "1px solid #ccc",
+              borderRadius: "4px",
+            }}
+          ></textarea>
+        </div>
+        <button
+          type="submit"
+          style={{
+            backgroundColor: "#007BFF",
+            color: "#fff",
+            padding: "10px 15px",
+            border: "none",
+            borderRadius: "4px",
+            cursor: "pointer",
+          }}
+        >
+          Submit
+        </button>
+      </form>
+    </div>
   );
 };
+
+export default Contact;
