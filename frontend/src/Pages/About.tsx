@@ -10,7 +10,7 @@ import { cssNumbers } from "../theme/theme";
 import {
   runIntroTimeline,
   runHeaderScrollTimeline,
-  runBodyTextScroll,
+  runTransitionTextScroll,
 } from "../animations/homeAnimations";
 import { useRef } from "react";
 
@@ -21,7 +21,7 @@ export const About = () => {
     () => {
       runIntroTimeline(cssNumbers).then();
       runHeaderScrollTimeline(cssNumbers);
-      runBodyTextScroll(cssNumbers);
+      runTransitionTextScroll(cssNumbers);
     },
     { scope: container }
   );

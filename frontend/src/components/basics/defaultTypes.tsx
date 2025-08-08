@@ -43,4 +43,6 @@ export interface TextBoxProps
 export type TextBoxConfig = {
   title: string;
   content: string;
+  classNameTitle?: string;
+  classNameContent?: string;
 };

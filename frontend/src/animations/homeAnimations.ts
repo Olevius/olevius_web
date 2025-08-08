@@ -84,7 +84,7 @@ export const runHeaderScrollTimeline = (numbers: CSSNumbers) => {
 
 };
 
-export const runBodyTextScroll = (numbers: CSSNumbers) => {
+export const runTransitionTextScroll = (numbers: CSSNumbers) => {
   const split = SplitText.create(".body-text", {
     type: "chars, words, lines",
     charsClass: "char"
@@ -119,28 +119,129 @@ export const runBodyTextScroll = (numbers: CSSNumbers) => {
 };
 
 export const runBodyScroll = (numbers: CSSNumbers) => {
-  const elements = document.querySelectorAll(".text-box-title");
+  const splitWhyTitle = SplitText.create(".why-title", {
+    type: "chars, words, lines",
+    charsClass: "char"
+  });
 
-  elements.forEach((el) => {
-    console.log(el)
-    const split = SplitText.create(el, {
-      type: "chars, words, lines",
-      charsClass: "char"
-    });
+  const splitHowTitle = SplitText.create(".how-title", {
+    type: "chars, words, lines",
+    charsClass: "char"
+  });
 
-    gsap.timeline({
-      scrollTrigger: {
-        trigger: el,
-        start: "center center",
-        end: `+=${numbers.animation.overlapEnd}`,
-        scrub: 1,
-        markers: true,
-      },
-    }).from(split.chars, {
-      y: numbers.animation.wordStart,
-      autoAlpha: 0,
-      duration: numbers.animation.bodyHeaderDuration,
-      stagger: 0.05,
-    });
+  const splitWhatTitle = SplitText.create(".what-title", {
+    type: "chars, words, lines",
+    charsClass: "char"
+  });
+
+  const splitWhyContent = SplitText.create(".why-content", {
+    type: "chars, words, lines",
+    charsClass: "char"
+  });
+
+  const splitHowContent = SplitText.create(".how-content", {
+    type: "chars, words, lines",
+    charsClass: "char"
+  });
+
+  const splitWhatContent = SplitText.create(".what-content", {
+    type: "chars, words, lines",
+    charsClass: "char"
+  });
+
+  // pin the section across the whole sequence
+  ScrollTrigger.create({
+    trigger: ".body",
+    start: "top top",
+    end: `+=${numbers.layout.bodyHeight}`,       // whatever span you need
+    markers: true,
+  });
+
+  // now each tween has its own trigger & start
+  gsap.from(splitWhyTitle.chars, {
+    x: numbers.animation.wordStart,
+    autoAlpha: 0,
+    stagger: 0.05,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".body",
+      start: "top center",   // top of .body hits viewport center + 2000px later
+      end: "+=200",
+      scrub: 1,
+      markers: true,
+    },
+  });
+
+  gsap.from(splitHowTitle.chars, {
+    x: numbers.animation.wordStart,
+    autoAlpha: 0,
+    stagger: 0.05,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".body",
+      start: `top center-=${300}`,  // later start
+      end: "+=200",
+      scrub: 1,
+      markers: true,
+    },
+  });
+
+  gsap.from(splitWhatTitle.chars, {
+    x: numbers.animation.wordStart,
+    autoAlpha: 0,
+    stagger: 0.05,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".body",
+      start: `top center-=${1000}`,  // even later
+      end: "+=200",
+      scrub: 1,
+      markers: true,
+    },
+  });
+
+  // =====================
+
+  // now each tween has its own trigger & start
+  gsap.from(splitWhyContent.chars, {
+    x: numbers.animation.wordStart,
+    autoAlpha: 0,
+    stagger: 0.05,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".body",
+      start: "top center",   // top of .body hits viewport center + 2000px later
+      end: "+=200",
+      scrub: 1,
+      markers: true,
+    },
+  });
+
+  gsap.from(splitHowContent.chars, {
+    x: numbers.animation.wordStart,
+    autoAlpha: 0,
+    stagger: 0.05,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".body",
+      start: `top center-=${300}`,  // later start
+      end: "+=200",
+      scrub: 1,
+      markers: true,
+    },
+  });
+
+  gsap.from(splitWhatContent.chars, {
+    x: numbers.animation.wordStart,
+    autoAlpha: 0,
+    stagger: 0.05,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".body",
+      start: `top center-=${1000}`,  // even later
+      end: "+=200",
+      scrub: 1,
+      markers: true,
+    },
   });
 };
