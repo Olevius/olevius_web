@@ -26,18 +26,10 @@ export const Home = () => {
         return;
 
       // Use gsap.context so everything is scoped + revert() on unmount
-      const ctx = gsap.context(() => {
-        runIntroTimeline(cssNumbers).then(() => {
-          // optional: refresh after intro if SplitText changed layout
-          ScrollTrigger.refresh();
-        });
-        runHeaderScrollTimeline(cssNumbers);
-        runTransitionTextScroll(cssNumbers);
-        runBodyScroll(cssNumbers);
-      }, container);
-
-      // cleanup
-      return () => ctx.revert();
+      runIntroTimeline(cssNumbers).then();
+      runHeaderScrollTimeline(cssNumbers);
+      runTransitionTextScroll(cssNumbers);
+      runBodyScroll(cssNumbers);
     },
     { scope: container, dependencies: [cssNumbers] } // re-run when numbers change
   );
