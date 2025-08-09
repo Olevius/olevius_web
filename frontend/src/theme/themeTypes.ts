@@ -35,14 +35,22 @@ export type CSSNumbers = {
     subtitleDuration: number;
     bodyHeaderDuration: number;
     wordStagger: number;
+    charStagger: number;
     scrubDuration: number;
+    sectionScrollSpan: number;
     hideDuration: number;
+    colorChangeDuration: number;
     titleStartX: number;
     navStartY: number;
     scrollEnd: number;
     overlapEnd: number;
     scrubScale: number;
     wordStart: number;
+    eases: {
+      power1Out: string;
+      power1In: string;
+      power2Out: string;
+    };
   };
   layout: {
     titleFontSize: string;
@@ -52,5 +60,7 @@ export type CSSNumbers = {
     fullHeight: string;
     doubleFullHeight: string;
     bodyHeight: string;
+    bodySectionOffsetHow: number;
+    bodySectionOffsetWhat: number;
   };
 };

@@ -1,11 +1,12 @@
 // animations/homeAnimations.ts
 import { gsap } from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
+import { cssNumbers } from "../theme/theme";
 import type { CSSNumbers } from "../theme/themeTypes";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-export const runIntroTimeline = (numbers: CSSNumbers) => {
+export const runIntroTimeline = (numbers: CSSNumbers = cssNumbers) => {
   return new Promise((resolve) => {
     const tl = gsap.timeline({ onComplete: resolve });
 
@@ -15,7 +16,7 @@ export const runIntroTimeline = (numbers: CSSNumbers) => {
       {
         x: 0,
         duration: numbers.animation.introDuration,
-        ease: "power1.out",
+        ease: numbers.animation.eases.power1Out,
       }
     )
       .fromTo(
@@ -24,7 +25,7 @@ export const runIntroTimeline = (numbers: CSSNumbers) => {
         {
           y: 0,
           duration: numbers.animation.introDuration,
-          ease: "power1.out",
+          ease: numbers.animation.eases.power1Out,
         },
         `-=${numbers.animation.introDuration}`
       )
@@ -34,20 +35,20 @@ export const runIntroTimeline = (numbers: CSSNumbers) => {
         {
           y: 0,
           opacity: 1,
-          ease: "power2.out",
+          ease: numbers.animation.eases.power2Out,
         }
       )
   })
 };
 
-export const runHeaderScrollTimeline = (numbers: CSSNumbers) => {
+export const runHeaderScrollTimeline = (numbers: CSSNumbers = cssNumbers) => {
   return gsap.timeline({
     scrollTrigger: {
       trigger: ".header",
       start: "top top",
       end: `+=${numbers.animation.scrollEnd}`,
       pin: true,
-      scrub: 1,
+      scrub: numbers.animation.scrubDuration,
       markers: true,
       onUpdate: (self) => {
         const scrollY = self.scroll();
@@ -56,8 +57,8 @@ export const runHeaderScrollTimeline = (numbers: CSSNumbers) => {
         const color = scrollY >= end ? "white" : "black";
         gsap.to(".subtitle-header", {
           color,
-          duration: 0.2,
-          ease: "power1.out"
+          duration: numbers.animation.colorChangeDuration,
+          ease: numbers.animation.eases.power1Out
         });
       },
     },
@@ -68,23 +69,23 @@ export const runHeaderScrollTimeline = (numbers: CSSNumbers) => {
       scale: numbers.animation.scrubScale,
       color: "white",
       opacity: 0,
-      ease: "power1.in",
+      ease: numbers.animation.eases.power1In,
     }, "syncPoint")
     .to(".header", {
       backgroundColor: "white",
-      ease: "power1.in",
+      ease: numbers.animation.eases.power1In,
     }, "syncPoint")
     .to(".body-title-box", {
       backgroundColor: "white",
-      ease: "power1.in",
+      ease: numbers.animation.eases.power1In,
     }).to(".body", {
       backgroundColor: "white",
-      ease: "power1.in",
-    });;
+      ease: numbers.animation.eases.power1In,
+    });
 
 };
 
-export const runTransitionTextScroll = (numbers: CSSNumbers) => {
+export const runTransitionTextScroll = (numbers: CSSNumbers = cssNumbers) => {
   const split = SplitText.create(".body-text", {
     type: "chars, words, lines",
     charsClass: "char"
@@ -96,7 +97,7 @@ export const runTransitionTextScroll = (numbers: CSSNumbers) => {
       start: "center center",
       end: `+=${numbers.animation.overlapEnd}`,
       pin: true,
-      scrub: 1,
+      scrub: numbers.animation.scrubDuration,
       markers: true,
       onUpdate: (self) => {
         const scrollY = self.scroll();
@@ -105,8 +106,8 @@ export const runTransitionTextScroll = (numbers: CSSNumbers) => {
         const opacity = scrollY >= end ? 0 : 1;
         gsap.to(".subtitle-header", {
           opacity,
-          duration: 0.2,
-          ease: "power1.out"
+          duration: numbers.animation.colorChangeDuration,
+          ease: numbers.animation.eases.power1Out
         });
       },
     },
@@ -114,134 +115,59 @@ export const runTransitionTextScroll = (numbers: CSSNumbers) => {
     y: numbers.animation.wordStart,
     autoAlpha: 0,
     duration: numbers.animation.bodyHeaderDuration,
-    stagger: 5,
+    stagger: numbers.animation.wordStagger,
   })
 };
 
-export const runBodyScroll = (numbers: CSSNumbers) => {
-  const splitWhyTitle = SplitText.create(".why-title", {
+export const createSplitScroll = (
+  selector: string,
+  offset: number,
+  numbers: CSSNumbers = cssNumbers
+) => {
+  const split = SplitText.create(selector, {
     type: "chars, words, lines",
-    charsClass: "char"
+    charsClass: "char",
   });
 
-  const splitHowTitle = SplitText.create(".how-title", {
-    type: "chars, words, lines",
-    charsClass: "char"
+  gsap.from(split.chars, {
+    x: numbers.animation.wordStart,
+    autoAlpha: 0,
+    stagger: numbers.animation.charStagger,
+    ease: numbers.animation.eases.power2Out,
+    scrollTrigger: {
+      trigger: ".body",
+      start: offset ? `top center-=${offset}` : "top center",
+      end: `+=${numbers.animation.sectionScrollSpan}`,
+      scrub: numbers.animation.scrubDuration,
+      markers: true,
+    },
   });
+};
 
-  const splitWhatTitle = SplitText.create(".what-title", {
-    type: "chars, words, lines",
-    charsClass: "char"
-  });
-
-  const splitWhyContent = SplitText.create(".why-content", {
-    type: "chars, words, lines",
-    charsClass: "char"
-  });
-
-  const splitHowContent = SplitText.create(".how-content", {
-    type: "chars, words, lines",
-    charsClass: "char"
-  });
-
-  const splitWhatContent = SplitText.create(".what-content", {
-    type: "chars, words, lines",
-    charsClass: "char"
-  });
-
-  // pin the section across the whole sequence
+export const runBodyScroll = (numbers: CSSNumbers = cssNumbers) => {
   ScrollTrigger.create({
     trigger: ".body",
     start: "top top",
-    end: `+=${numbers.layout.bodyHeight}`,       // whatever span you need
+    end: `+=${numbers.layout.bodyHeight}`,
     markers: true,
   });
 
-  // now each tween has its own trigger & start
-  gsap.from(splitWhyTitle.chars, {
-    x: numbers.animation.wordStart,
-    autoAlpha: 0,
-    stagger: 0.05,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: ".body",
-      start: "top center",   // top of .body hits viewport center + 2000px later
-      end: "+=200",
-      scrub: 1,
-      markers: true,
+  const sections = [
+    { title: ".why-title", content: ".why-content", offset: 0 },
+    {
+      title: ".how-title",
+      content: ".how-content",
+      offset: numbers.layout.bodySectionOffsetHow,
     },
-  });
-
-  gsap.from(splitHowTitle.chars, {
-    x: numbers.animation.wordStart,
-    autoAlpha: 0,
-    stagger: 0.05,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: ".body",
-      start: `top center-=${300}`,  // later start
-      end: "+=200",
-      scrub: 1,
-      markers: true,
+    {
+      title: ".what-title",
+      content: ".what-content",
+      offset: numbers.layout.bodySectionOffsetWhat,
     },
-  });
+  ];
 
-  gsap.from(splitWhatTitle.chars, {
-    x: numbers.animation.wordStart,
-    autoAlpha: 0,
-    stagger: 0.05,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: ".body",
-      start: `top center-=${1000}`,  // even later
-      end: "+=200",
-      scrub: 1,
-      markers: true,
-    },
-  });
-
-  // =====================
-
-  // now each tween has its own trigger & start
-  gsap.from(splitWhyContent.chars, {
-    x: numbers.animation.wordStart,
-    autoAlpha: 0,
-    stagger: 0.05,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: ".body",
-      start: "top center",   // top of .body hits viewport center + 2000px later
-      end: "+=200",
-      scrub: 1,
-      markers: true,
-    },
-  });
-
-  gsap.from(splitHowContent.chars, {
-    x: numbers.animation.wordStart,
-    autoAlpha: 0,
-    stagger: 0.05,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: ".body",
-      start: `top center-=${300}`,  // later start
-      end: "+=200",
-      scrub: 1,
-      markers: true,
-    },
-  });
-
-  gsap.from(splitWhatContent.chars, {
-    x: numbers.animation.wordStart,
-    autoAlpha: 0,
-    stagger: 0.05,
-    ease: "power2.out",
-    scrollTrigger: {
-      trigger: ".body",
-      start: `top center-=${1000}`,  // even later
-      end: "+=200",
-      scrub: 1,
-      markers: true,
-    },
+  sections.forEach(({ title, content, offset }) => {
+    createSplitScroll(title, offset, numbers);
+    createSplitScroll(content, offset, numbers);
   });
 };
