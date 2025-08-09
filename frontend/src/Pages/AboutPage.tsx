@@ -14,7 +14,7 @@ import {
 } from "../animations/homeAnimations";
 import { useRef } from "react";
 
-export const About = () => {
+export const AboutPage = () => {
   const container = useRef(null);
 
   useGSAP(
