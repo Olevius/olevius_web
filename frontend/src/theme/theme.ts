@@ -63,9 +63,10 @@ export const cssNumbers = {
     paddingBody: 50,
     fullHeight: '100vh',
     doubleFullHeight: '500vh',
-    bodyHeight: '500vh',
+    bodyHeight: '200vh',
     bodySectionOffsetHow: 300,
     bodySectionOffsetWhat: 1000,
+    aboutHeight: '500vh',
     textBoxMargin: "500px",
     marginSmallLeft: '20px',
     marginSmallRight: '20px',
@@ -83,6 +84,6 @@ export const cssNumbers = {
     marginBottomXs: '20px',
   },
   testing: {
-    border: "1px solid red"
+    border: ""
   }
 };
