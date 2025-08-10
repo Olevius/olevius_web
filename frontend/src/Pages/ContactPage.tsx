@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Layout, Text } from "../components/basics/defaults";
+import { Layout } from "../components/basics/defaults";
 import { NavBar } from "../components/NavBar";
 import { customColors } from "../theme/colors";
 

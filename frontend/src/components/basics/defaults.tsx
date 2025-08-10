@@ -19,8 +19,9 @@ import { forRef } from "./refHelper";
  * ```
  */
 export const Layout = forRef<HTMLDivElement, BaseProps>(
-  ({ children, className, style, ...rest }, ref) => (
+  ({ children, className, style, id, ...rest }, ref) => (
     <div
+      id={id}
       ref={ref}
       className={`rounded-lg shadow-md #dcffcf p-6 ${className}`}
       style={style}

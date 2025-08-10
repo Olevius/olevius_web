@@ -12,6 +12,7 @@ import {
   runHeaderScrollTimeline,
   runTransitionTextScroll,
   runBodyScroll,
+  runAboutScroll,
 } from "../animations/homeAnimations";
 import { useRef } from "react";
 import { TextBox } from "../components/TextBox";
@@ -25,11 +26,11 @@ export const Home = () => {
       // SSR/CI/test guard — nothing runs in jsdom
       if (typeof window === "undefined" || process.env.NODE_ENV === "test")
         return;
-
       runIntroTimeline(cssNumbers).then();
       runHeaderScrollTimeline(cssNumbers);
       runTransitionTextScroll(cssNumbers);
       runBodyScroll(cssNumbers);
+      runAboutScroll(cssNumbers);
     },
     { scope: container, dependencies: [cssNumbers] } // re-run when numbers change
   );
@@ -167,7 +168,13 @@ export const Home = () => {
           </Layout>
         </Layout>
       </Body>
-      <About>
+      <About
+        style={{
+          overflow: "hidden",
+          border: cssNumbers.testing.border,
+        }}
+        className="about"
+      >
         <Layout
           style={{
             display: "flex",
@@ -189,6 +196,8 @@ export const Home = () => {
             }}
           >
             <Text
+              data-speed={0.75}
+              className="about-title"
               style={{
                 fontSize: cssNumbers.layout.mediumFontSize,
                 textAlign: "left",
@@ -212,44 +221,31 @@ export const Home = () => {
             }}
           >
             <Text
+              className="about-content"
+              data-speed={1}
               style={{
                 fontSize: cssNumbers.layout.bodyFontSize,
                 textAlign: "left",
                 border: cssNumbers.testing.border,
               }}
             >
-              Olevius is a wearable health technology initiative founded by a
-              team of engineering students at the University of Waterloo. Our
-              mission is to make continuous, clinically accurate blood pressure
-              monitoring accessible, comfortable, and affordable for everyone —
-              without the cuffs, cables, or compromises of existing solutions.{" "}
+              Olevius is a wearable health-tech initiative focused on
+              continuous, cuff-free blood pressure monitoring. Hypertension
+              affects ~1.39 billion people, yet current options force a
+              trade-off: bulky, intermittent cuffs vs. smartwatch PTT methods
+              that require frequent recalibration and lack clinical accuracy.
               <br />
               <br />
-              For decades, hypertension has been one of the most significant yet
-              under-monitored health risks, affecting over 1.39 billion people
-              worldwide. Current tools like cuff-based sphygmomanometers deliver
-              accuracy but are bulky and impractical for continuous use, while
-              smartwatch-based pulse transit time sensors offer convenience but
-              suffer from poor accuracy and frequent recalibration requirements.{" "}
+              Our approach uses a compact optical-fiber sensor inside a
+              fluid-filled PDMS pouch. Pulse pressure subtly changes light
+              transmission at an air-core fiber union; those waveforms are
+              processed on-device and with ML to estimate systolic and diastolic
+              BP, targeting ±3 mmHg accuracy.
               <br />
               <br />
-              Olevius is our answer to this gap. We’ve developed a compact,
-              non-invasive sensor that uses an optical fiber embedded in a
-              fluid-filled PDMS pouch to detect minute pressure changes from a
-              wearer’s pulse. These signals are processed with advanced machine
-              learning algorithms to determine systolic and diastolic pressures
-              in real time, meeting FDA accuracy standards of ±3 mmHg. The
-              launch of Olevius builds on our belief that high-quality medical
-              monitoring shouldn’t be reserved for clinics or those with
-              expensive devices. Our design prioritizes comfort (less than 7 mm
-              thick, under 30 g), long battery life, wireless connectivity via
-              Bluetooth or NFC, and a manufacturing cost target of $25 per unit
-              — making it viable for both individual consumers and large-scale
-              public health applications. We are committed to pushing the
-              boundaries of wearable health technology, addressing the needs of
-              patients, healthcare providers, and researchers alike, while
-              ensuring that accurate, continuous blood pressure monitoring is
-              available to all who need it.
+              Designed for everyday wear, the band targets ≤7 mm thickness, 30 g
+              weight, ≥24 h battery life, and secure Bluetooth/NFC syncing—while
+              keeping unit cost near $25 to maximize accessibility.
             </Text>
           </Layout>
         </Layout>
