@@ -6,6 +6,7 @@ import type { CSSNumbers } from "../theme/themeTypes";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
+
 export const runIntroTimeline = (numbers: CSSNumbers = cssNumbers) => {
   return new Promise((resolve) => {
     const tl = gsap.timeline({ onComplete: resolve });
@@ -171,3 +172,21 @@ export const runBodyScroll = (numbers: CSSNumbers = cssNumbers) => {
     createSplitScroll(content, offset, numbers);
   });
 };
+
+export const runAboutScroll = () => {
+  // create the scrollSmoother before your scrollTriggers
+  return gsap.timeline({
+    scrollTrigger: {
+      trigger: ".about",
+      start: "top center",
+      end: `bottom top`,
+      scrub: true,
+      markers: true
+    }
+  }).add("sync-point")
+    .fromTo(".about-content", {
+      y: 50
+    }, { y: -50 }, "sync-point").fromTo(".about-title", {
+      y: 50
+    }, { y: -50 }, "sync-point")
+}

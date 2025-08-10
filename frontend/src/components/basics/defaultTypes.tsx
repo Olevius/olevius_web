@@ -8,6 +8,7 @@ import type {
 // Basic props shared by most components
 export interface BaseProps {
   children?: ReactNode;
+  id?: string;
   className?: string;
   style?: CSSProperties;
   highlight?: CSSProperties;

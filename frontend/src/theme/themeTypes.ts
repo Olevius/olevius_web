@@ -54,13 +54,43 @@ export type CSSNumbers = {
   };
   layout: {
     titleFontSize: string;
+    mediumFontSize: string;
     subtitleFontSize: string;
+    bodyFontSize: string;
+    textHeaderFontSize: string;
     scrubFontSize: string;
+
     paddingSmall: number;
+    paddingBody: number;
+    paddingLeft: number;
+    paddingRight: number;
+    paddingTop: number;
+    paddingBottom: number;
+
     fullHeight: string;
     doubleFullHeight: string;
     bodyHeight: string;
+    aboutHeight: string;
+
     bodySectionOffsetHow: number;
     bodySectionOffsetWhat: number;
+
+    textBoxMargin: string;
+
+    marginSmallLeft: string;
+    marginSmallRight: string;
+    marginSmallTop: string;
+    marginSmallBottom: string;
+
+    marginExtraSmallLeft: string;
+    marginExtraSmallRight: string;
+    marginExtraSmallTop: string;
+    marginExtraSmallBottom: string;
+
+    // Extra small variant
+    marginBottomXs: string;
+  };
+  testing: {
+    border: string;
   };
 };
