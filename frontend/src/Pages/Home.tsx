@@ -30,7 +30,7 @@ export const Home = () => {
       runHeaderScrollTimeline(cssNumbers);
       runTransitionTextScroll(cssNumbers);
       runBodyScroll(cssNumbers);
-      runAboutScroll(cssNumbers);
+      runAboutScroll();
     },
     { scope: container, dependencies: [cssNumbers] } // re-run when numbers change
   );
