@@ -84,6 +84,6 @@ export const cssNumbers = {
     marginBottomXs: '20px',
   },
   testing: {
-    border: "1px solid red"
+    border: ""
   }
 };
