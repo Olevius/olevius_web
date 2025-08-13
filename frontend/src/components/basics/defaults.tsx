@@ -1,5 +1,10 @@
 import { cssNumbers } from "../../theme/theme";
-import type { BaseProps, GridLayoutProps, PaddingProps } from "./defaultTypes";
+import type {
+  BaseProps,
+  GridLayoutProps,
+  ImageProps,
+  PaddingProps,
+} from "./defaultTypes";
 import { forRef } from "./refHelper";
 
 /**
@@ -29,6 +34,12 @@ export const Layout = forRef<HTMLDivElement, BaseProps>(
     >
       {children}
     </div>
+  )
+);
+
+export const Image = forRef<HTMLImageElement, ImageProps>(
+  ({ children, className, style, src, id, ...rest }, ref) => (
+    <img ref={ref} id={id} style={style} src={src} {...rest} />
   )
 );
 

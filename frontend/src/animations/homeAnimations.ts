@@ -184,9 +184,9 @@ export const runAboutScroll = () => {
       markers: true
     }
   }).add("sync-point")
-    .fromTo(".about-content", {
-      y: 100
-    }, { y: -50, ease: "power2.out" }, "sync-point").fromTo(".about-title", {
-      y: 100
-    }, { y: -50, ease: "power1.out" }, "sync-point")
+    .from(".about-content", {
+      y: "20vh", ease: "power2.out"
+    }, "sync-point").from(".about-title", {
+      y: "20vh", ease: "power1.out"
+    }, "sync-point")
 }

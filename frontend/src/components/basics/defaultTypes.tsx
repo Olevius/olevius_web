@@ -14,6 +14,10 @@ export interface BaseProps {
   highlight?: CSSProperties;
 }
 
+export interface ImageProps extends BaseProps {
+  src?: string;
+}
+
 // Props for link components
 export interface LinkProps extends BaseProps {
   link: string;
@@ -46,4 +50,16 @@ export type TextBoxConfig = {
   content: string;
   classNameTitle?: string;
   classNameContent?: string;
+};
+
+type ImageMapValueProps = {
+  src: string;
+  style?: CSSProperties;
+};
+
+export type ImageMapProps = {
+  levi: ImageMapValueProps;
+  jp: ImageMapValueProps;
+  matthew: ImageMapValueProps;
+  andrew: ImageMapValueProps;
 };

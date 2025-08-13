@@ -1,8 +1,12 @@
 import "../App.css";
 import { Header } from "../components/Header";
 import { NavBar } from "../components/NavBar";
-import { Layout, Text, GridLayout } from "../components/basics/defaults";
+import { Layout, Text, GridLayout, Image } from "../components/basics/defaults";
 import { useGSAP } from "@gsap/react";
+import leviImg from "../assets/levi.png";
+import jpImg from "../assets/jp.png";
+import matthewImg from "../assets/matthew.png";
+import andrewImg from "../assets/andrew.png";
 import { Body } from "../components/Body";
 import { customColors } from "../theme/colors";
 import { cssNumbers } from "../theme/theme";
@@ -17,9 +21,30 @@ import {
 import { useRef } from "react";
 import { TextBox } from "../components/TextBox";
 import { About } from "../components/About";
+import { Team } from "../components/Team";
+import type { ImageMapProps } from "../components/basics/defaultTypes";
 
 export const Home = () => {
   const container = useRef(null);
+
+  const imagePathList: ImageMapProps = {
+    levi: {
+      src: leviImg,
+      style: { maxWidth: "25vw", height: "auto" },
+    },
+    jp: {
+      src: jpImg,
+      style: { maxWidth: "25vw", height: "auto" },
+    },
+    matthew: {
+      src: matthewImg,
+      style: { maxWidth: "25vw", height: "auto" },
+    },
+    andrew: {
+      src: andrewImg,
+      style: { maxWidth: "25vw", height: "auto" },
+    },
+  };
 
   useGSAP(
     () => {
@@ -250,6 +275,50 @@ export const Home = () => {
           </Layout>
         </Layout>
       </About>
+      <Team
+        style={{
+          overflow: "hidden",
+          border: cssNumbers.testing.border,
+        }}
+        className="about"
+      >
+        <Layout style={{ display: "flex", flexDirection: "column" }}>
+          <Layout
+            style={{
+              display: "flex",
+              width: "100vw",
+              justifyContent: "center",
+              alignItems: "top",
+            }}
+          >
+            <Text style={{ fontSize: cssNumbers.layout.mediumFontSize }}>
+              Our Team
+            </Text>
+          </Layout>
+          <Layout
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              paddingTop: cssNumbers.layout.paddingTeam,
+            }}
+          >
+            {Object.entries(imagePathList).map(([key, value]) => (
+              <Layout
+                style={{
+                  display: "flex",
+                  flexDirection: "row",
+                  flexWrap: "wrap",
+                  overflow: "hidden",
+                  height: "auto",
+                }}
+                key={key}
+              >
+                <Image style={value.style} key={key} src={value.src} />
+              </Layout>
+            ))}
+          </Layout>
+        </Layout>
+      </Team>
     </Layout>
   );
 };
