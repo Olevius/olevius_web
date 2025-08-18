@@ -204,5 +204,5 @@ export const runTeamScroll = () => {
       markers: true,
     }
   }).add("sync-point")
-    .to(".scroll-rect", { y: 5, ease: "power2.out" }, "sync-point");
+    .to(".scroll-rect", { y: 0, ease: "power2.out" }, "sync-point");
 };
