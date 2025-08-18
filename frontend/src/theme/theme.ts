@@ -68,6 +68,7 @@ export const cssNumbers = {
     bodySectionOffsetHow: 300,
     bodySectionOffsetWhat: 1000,
     aboutHeight: '120vh',
+    teamHeight: '500vh',
     textBoxMargin: "500px",
     marginSmallLeft: '20px',
     marginSmallRight: '20px',
@@ -85,6 +86,6 @@ export const cssNumbers = {
     marginBottomXs: '20px',
   },
   testing: {
-    border: ""
+    border: "1px solid red"
   }
 };

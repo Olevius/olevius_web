@@ -6,7 +6,6 @@ import type { CSSNumbers } from "../theme/themeTypes";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-
 export const runIntroTimeline = (numbers: CSSNumbers = cssNumbers) => {
   return new Promise((resolve) => {
     const tl = gsap.timeline({ onComplete: resolve });
@@ -190,3 +189,20 @@ export const runAboutScroll = () => {
       y: "20vh", ease: "power1.out"
     }, "sync-point")
 }
+
+export const runTeamScroll = () => {
+  const imageWrapper = document.querySelector(".image-wrapper") as HTMLElement;
+
+  return gsap.timeline({
+    scrollTrigger: {
+      trigger: ".team",
+      start: "top top",
+      end: () => "+=" + (imageWrapper.getBoundingClientRect().height * 1.01),
+      pin: true,           // create space to scroll through
+      pinSpacing: false,   // ← remove the “gap”
+      scrub: 100,
+      markers: true,
+    }
+  }).add("sync-point")
+    .to(".scroll-rect", { y: 5, ease: "power2.out" }, "sync-point");
+};

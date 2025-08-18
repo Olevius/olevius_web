@@ -1,7 +1,13 @@
 import "../App.css";
 import { Header } from "../components/Header";
 import { NavBar } from "../components/NavBar";
-import { Layout, Text, GridLayout, Image } from "../components/basics/defaults";
+import {
+  Layout,
+  Text,
+  GridLayout,
+  Image,
+  Padding,
+} from "../components/basics/defaults";
 import { useGSAP } from "@gsap/react";
 import leviImg from "../assets/levi.png";
 import jpImg from "../assets/jp.png";
@@ -17,6 +23,7 @@ import {
   runTransitionTextScroll,
   runBodyScroll,
   runAboutScroll,
+  runTeamScroll,
 } from "../animations/homeAnimations";
 import { useRef } from "react";
 import { TextBox } from "../components/TextBox";
@@ -56,6 +63,7 @@ export const Home = () => {
       runTransitionTextScroll(cssNumbers);
       runBodyScroll(cssNumbers);
       runAboutScroll();
+      runTeamScroll();
     },
     { scope: container, dependencies: [cssNumbers] } // re-run when numbers change
   );
@@ -277,18 +285,17 @@ export const Home = () => {
       </About>
       <Team
         style={{
-          overflow: "hidden",
           border: cssNumbers.testing.border,
         }}
-        className="about"
+        className="team"
       >
         <Layout style={{ display: "flex", flexDirection: "column" }}>
           <Layout
             style={{
               display: "flex",
-              width: "100vw",
               justifyContent: "center",
               alignItems: "top",
+              padding: cssNumbers.layout.paddingBody,
             }}
           >
             <Text style={{ fontSize: cssNumbers.layout.mediumFontSize }}>
@@ -299,26 +306,38 @@ export const Home = () => {
             style={{
               display: "flex",
               flexDirection: "row",
-              paddingTop: cssNumbers.layout.paddingTeam,
             }}
           >
             {Object.entries(imagePathList).map(([key, value]) => (
               <Layout
+                className="image-wrapper"
                 style={{
                   display: "flex",
                   flexDirection: "row",
                   flexWrap: "wrap",
-                  overflow: "hidden",
                   height: "auto",
                 }}
                 key={key}
               >
-                <Image style={value.style} key={key} src={value.src} />
+                <Image
+                  id="view_img"
+                  style={value.style}
+                  key={key}
+                  src={value.src}
+                />
               </Layout>
             ))}
           </Layout>
         </Layout>
       </Team>
+      <Padding
+        className="scroll-rect"
+        style={{
+          backgroundColor: "white",
+          border: cssNumbers.testing.border,
+        }}
+        size={500}
+      />
     </Layout>
   );
 };

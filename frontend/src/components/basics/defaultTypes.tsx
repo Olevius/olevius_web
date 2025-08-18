@@ -14,7 +14,7 @@ export interface BaseProps {
   highlight?: CSSProperties;
 }
 
-export interface ImageProps extends BaseProps {
+export interface ImageProps extends Omit<BaseProps, "children"> {
   src?: string;
 }
 

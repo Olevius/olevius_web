@@ -38,8 +38,15 @@ export const Layout = forRef<HTMLDivElement, BaseProps>(
 );
 
 export const Image = forRef<HTMLImageElement, ImageProps>(
-  ({ children, className, style, src, id, ...rest }, ref) => (
-    <img ref={ref} id={id} style={style} src={src} {...rest} />
+  ({ className, style, src, id, ...rest }, ref) => (
+    <img
+      className={className}
+      ref={ref}
+      id={id}
+      style={style}
+      src={src}
+      {...rest}
+    />
   )
 );
 
