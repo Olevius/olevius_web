@@ -1,6 +1,7 @@
 import React from "react";
 import type { BaseProps } from "./basics/defaultTypes";
 import { cssNumbers } from "../theme/theme";
+import { forRef } from "./basics/refHelper";
 
 /**
  * A React functional component that renders a header element with customizable styles and properties.
@@ -13,7 +14,7 @@ import { cssNumbers } from "../theme/theme";
  * @param {React.Ref<HTMLHeadElement>} ref - A ref to the underlying `<header>` element.
  * @returns {JSX.Element} The rendered header component.
  */
-export const Header = React.forwardRef<HTMLHeadElement, BaseProps>(
+export const Header = forRef<HTMLHeadElement, BaseProps>(
   ({ children, style, className, ...rest }, ref) => (
     <header
       ref={ref}

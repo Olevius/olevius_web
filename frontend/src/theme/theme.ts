@@ -60,6 +60,7 @@ export const cssNumbers = {
     textHeaderFontSize: '20px',
     scrubFontSize: '5000px',
     paddingSmall: 10,
+    paddingTransitionText: 80,
     paddingBody: 50,
     paddingTeam: 90,
     fullHeight: '100vh',

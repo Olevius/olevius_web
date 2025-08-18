@@ -1,5 +1,4 @@
-// Team.tsx
-import React from "react";
+// Footer.tsx
 import type { BaseProps } from "./basics/defaultTypes";
 import { forRef } from "./basics/refHelper";
 
@@ -7,7 +6,7 @@ import { forRef } from "./basics/refHelper";
  * A React functional component that renders a flexible `div` container for the Team page
  * with customizable styles and class names. Uses `forwardRef` to pass a ref to the underlying `div`.
  */
-export const Team = forRef<HTMLDivElement, BaseProps>(
+export const Footer = forRef<HTMLDivElement, BaseProps>(
   ({ children, style, className, ...rest }, ref) => (
     <div
       ref={ref}
@@ -23,4 +22,4 @@ export const Team = forRef<HTMLDivElement, BaseProps>(
   )
 );
 
-Team.displayName = "Team";
+Footer.displayName = "Footer";

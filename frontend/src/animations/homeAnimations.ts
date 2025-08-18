@@ -193,16 +193,30 @@ export const runAboutScroll = () => {
 export const runTeamScroll = () => {
   const imageWrapper = document.querySelector(".image-wrapper") as HTMLElement;
 
-  return gsap.timeline({
+  // 1) PINNED sequence
+  gsap.timeline({
     scrollTrigger: {
       trigger: ".team",
       start: "top top",
-      end: () => "+=" + (imageWrapper.getBoundingClientRect().height * 1.01),
-      pin: true,           // create space to scroll through
-      pinSpacing: false,   // ← remove the “gap”
-      scrub: 100,
+      end: () => "+=" + imageWrapper.getBoundingClientRect().height * 1.01,
+      pin: true,
+      pinSpacing: false,
+      scrub: 1,
       markers: true,
+      invalidateOnRefresh: true,
     }
-  }).add("sync-point")
-    .to(".scroll-rect", { y: 0, ease: "power2.out" }, "sync-point");
+  })
+    // better for responsiveness than fixed px
+    .to(".scroll-rect", { y: 0, ease: "power2.out" }, 0);
+
+  // 2) NON-PINNED fade after the pin releases
+  // gsap.timeline({
+  //   scrollTrigger: {
+  //     trigger: ".team",
+  //     start: "top top",
+  //     end: "+=2",
+  //     scrub: 1,
+  //     markers: true,
+  //   }
+  // }).to(".team-title", { opacity: 0 }, 0)
 };

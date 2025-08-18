@@ -16,6 +16,7 @@ export interface BaseProps {
 
 export interface ImageProps extends Omit<BaseProps, "children"> {
   src?: string;
+  link?: string;
 }
 
 // Props for link components

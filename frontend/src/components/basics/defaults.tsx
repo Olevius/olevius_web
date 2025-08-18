@@ -50,6 +50,21 @@ export const Image = forRef<HTMLImageElement, ImageProps>(
   )
 );
 
+export const AnchoredImage = forRef<HTMLImageElement, ImageProps>(
+  ({ className, style, src, id, link, ...rest }, ref) => (
+    <a href={link}>
+      <img
+        className={className}
+        ref={ref}
+        id={id}
+        style={style}
+        src={src}
+        {...rest}
+      />
+    </a>
+  )
+);
+
 /**
  * GridLayout
  * -------------

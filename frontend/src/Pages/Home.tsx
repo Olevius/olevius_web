@@ -7,12 +7,15 @@ import {
   GridLayout,
   Image,
   Padding,
+  AnchoredImage,
 } from "../components/basics/defaults";
 import { useGSAP } from "@gsap/react";
 import leviImg from "../assets/levi.png";
 import jpImg from "../assets/jp.png";
 import matthewImg from "../assets/matthew.png";
 import andrewImg from "../assets/andrew.png";
+import githubImg from "../assets/logos/github.svg";
+import linkedinImg from "../assets/logos/linkedin.svg";
 import { Body } from "../components/Body";
 import { customColors } from "../theme/colors";
 import { cssNumbers } from "../theme/theme";
@@ -30,6 +33,7 @@ import { TextBox } from "../components/TextBox";
 import { About } from "../components/About";
 import { Team } from "../components/Team";
 import type { ImageMapProps } from "../components/basics/defaultTypes";
+import { Footer } from "../components/Footer";
 
 export const Home = () => {
   const container = useRef(null);
@@ -153,6 +157,8 @@ export const Home = () => {
           style={{
             fontSize: cssNumbers.layout.titleFontSize,
             color: "black",
+            marginLeft: cssNumbers.layout.paddingTransitionText,
+            marginRight: cssNumbers.layout.paddingTransitionText,
             border: cssNumbers.testing.border,
           }}
         >
@@ -298,7 +304,10 @@ export const Home = () => {
               padding: cssNumbers.layout.paddingBody,
             }}
           >
-            <Text style={{ fontSize: cssNumbers.layout.mediumFontSize }}>
+            <Text
+              className="team-title"
+              style={{ fontSize: cssNumbers.layout.mediumFontSize }}
+            >
               Our Team
             </Text>
           </Layout>
@@ -338,6 +347,31 @@ export const Home = () => {
         }}
         size={500}
       />
+      <Footer>
+        <Layout
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexDirection: "row",
+            padding: cssNumbers.layout.paddingBody,
+          }}
+        >
+          <Text>Contact us</Text>
+          <Layout style={{ display: "flex", flexDirection: "row", gap: "2vw" }}>
+            <AnchoredImage
+              link="https://www.linkedin.com/company/olevius/posts/?feedView=all"
+              src={linkedinImg}
+              style={{ scale: 1.5 }}
+            />
+            <AnchoredImage
+              link="https://github.com/Olevius"
+              src={githubImg}
+              style={{ scale: 1.5 }}
+            />
+          </Layout>
+        </Layout>
+      </Footer>
     </Layout>
   );
 };
