@@ -69,7 +69,6 @@ export type CSSNumbers = {
 
     fullHeight: string;
     doubleFullHeight: string;
-    bodyHeight: string;
     aboutHeight: string;
 
     bodySectionOffsetHow: number;

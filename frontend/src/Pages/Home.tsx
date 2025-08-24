@@ -326,7 +326,7 @@ export const Home = () => {
           display: "flex",
           justifyContent: "flex-start",
           alignItems: "flex-start",
-          height: cssNumbers.layout.fullHeight,
+          height: cssNumbers.layout.doubleFullHeight,
         }}
       >
         <Layout style={{ padding: cssNumbers.layout.paddingBody }}>

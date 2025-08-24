@@ -191,16 +191,22 @@ export const runTeamScroll = () => {
     scrollTrigger: {
       trigger: ".team",
       start: "top top",
-      end: () => `+=` + imageWrapper.getBoundingClientRect().height * 1.01,
+      end: () => "+=" + imageWrapper.getBoundingClientRect().height * 1.01,
       pin: true,
       pinSpacing: false,
       scrub: 5,
       markers: true,
+      invalidateOnRefresh: true,
     }
   })
-    .to(".scroll-rect1", {
-      y: 0
-    }).add("sync-point")
-    .to(".team-title", { opacity: 0 })
-    .to(".team-content", { opacity: 1 })
+    .to(".scroll-rect1", { y: 0 })
+    .add("sync-point")
+    .to(".team-title", { autoAlpha: 0 }, "sync-point")
+    // slide IN from the right
+    .fromTo(".team-content",
+      { xPercent: 110, autoAlpha: 0 },   // start off canvas
+      { xPercent: 0, autoAlpha: 1, ease: "power2.out" },
+      "sync-point"                       // align with the label (or "+=0.2")
+    );
+
 };
