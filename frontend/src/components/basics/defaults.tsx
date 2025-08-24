@@ -2,9 +2,10 @@ import { cssNumbers } from "../../theme/theme";
 import type {
   BaseProps,
   GridLayoutProps,
-  ImageProps,
+  LinkProps,
   PaddingProps,
 } from "./defaultTypes";
+import type { ImageProps } from "./ImagePropTypes";
 import { forRef } from "./refHelper";
 
 /**
@@ -160,6 +161,34 @@ export const ListElement = forRef<HTMLLIElement, BaseProps>(
  * @param props.style    Inline style overrides.
  * @returns A ref-forwarding `<span>`.
  */
+export const AnchoredText = forRef<HTMLSpanElement, LinkProps>(
+  ({ children, style, link, ...rest }, ref) => (
+    <a href={link}>
+      <span
+        ref={ref}
+        {...rest}
+        style={{
+          fontSize: cssNumbers.layout.subtitleFontSize,
+          color: "black",
+          display: "inline",
+          ...style,
+        }}
+      >
+        {children}
+      </span>
+    </a>
+  )
+);
+
+/**
+ * Text
+ * ------
+ * Span wrapper for inline text with ref forwarding.
+ *
+ * @param props.children Inline content.
+ * @param props.style    Inline style overrides.
+ * @returns A ref-forwarding `<span>`.
+ */
 export const Text = forRef<HTMLSpanElement, BaseProps>(
   ({ children, style, ...rest }, ref) => (
     <span
@@ -229,11 +258,7 @@ export const UlContainer = forRef<HTMLUListElement, BaseProps>(
  */
 export const Padding = forRef<HTMLDivElement, PaddingProps>(
   ({ size, className, style }, ref) => (
-    <div
-      ref={ref}
-      className={className}
-      style={{ padding: size, ...style }}
-    ></div>
+    <div ref={ref} className={className} style={{ padding: size, ...style }} />
   )
 );
 

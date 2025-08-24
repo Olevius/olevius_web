@@ -56,6 +56,8 @@ export const cssNumbers = {
     titleFontSize: '200px',
     mediumFontSize: '100px',
     subtitleFontSize: '50px',
+    footerFontSize: '10px',
+    teamFontSize: "15px",
     bodyFontSize: '25px',
     textHeaderFontSize: '20px',
     scrubFontSize: '5000px',
@@ -63,6 +65,8 @@ export const cssNumbers = {
     paddingTransitionText: 80,
     paddingBody: 50,
     paddingTeam: 90,
+    halfHeight: '50vh',
+    threeQuartersHeight: '75vh',
     fullHeight: '100vh',
     doubleFullHeight: '500vh',
     bodyHeight: '200vh',
@@ -87,6 +91,6 @@ export const cssNumbers = {
     marginBottomXs: '20px',
   },
   testing: {
-    border: "1px solid red"
+    border: ""
   }
 };

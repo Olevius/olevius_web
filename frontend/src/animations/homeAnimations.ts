@@ -145,12 +145,6 @@ export const createSplitScroll = (
 };
 
 export const runBodyScroll = (numbers: CSSNumbers = cssNumbers) => {
-  ScrollTrigger.create({
-    trigger: ".body",
-    start: "top top",
-    end: `+=${numbers.layout.bodyHeight}`,
-    markers: true,
-  });
 
   const sections = [
     { title: ".why-title", content: ".why-content", offset: 0 },
@@ -193,30 +187,20 @@ export const runAboutScroll = () => {
 export const runTeamScroll = () => {
   const imageWrapper = document.querySelector(".image-wrapper") as HTMLElement;
 
-  // 1) PINNED sequence
   gsap.timeline({
     scrollTrigger: {
       trigger: ".team",
       start: "top top",
-      end: () => "+=" + imageWrapper.getBoundingClientRect().height * 1.01,
+      end: () => `+=` + imageWrapper.getBoundingClientRect().height * 1.01,
       pin: true,
       pinSpacing: false,
-      scrub: 1,
+      scrub: 5,
       markers: true,
-      invalidateOnRefresh: true,
     }
   })
-    // better for responsiveness than fixed px
-    .to(".scroll-rect", { y: 0, ease: "power2.out" }, 0);
-
-  // 2) NON-PINNED fade after the pin releases
-  // gsap.timeline({
-  //   scrollTrigger: {
-  //     trigger: ".team",
-  //     start: "top top",
-  //     end: "+=2",
-  //     scrub: 1,
-  //     markers: true,
-  //   }
-  // }).to(".team-title", { opacity: 0 }, 0)
+    .to(".scroll-rect1", {
+      y: 0
+    }).add("sync-point")
+    .to(".team-title", { opacity: 0 })
+    .to(".team-content", { opacity: 1 })
 };

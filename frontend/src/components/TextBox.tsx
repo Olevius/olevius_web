@@ -1,21 +1,34 @@
 import { cssNumbers } from "../theme/theme";
 import { Layout, Text } from "./basics/defaults";
-import type { TextBoxProps } from "./basics/defaultTypes";
+import type { TextBoxProps } from "./basics/TextBoxConfigTypes";
 import { forRef } from "./basics/refHelper";
 
 export const TextBox = forRef<HTMLDivElement, TextBoxProps>(
-  ({ classNameTitle, classNameContent, style, key, value, ...rest }, ref) => (
+  (
+    {
+      classNameTitle,
+      classNameContent,
+      className,
+      style,
+      key,
+      value,
+      styleTitle,
+      styleContent,
+      ...rest
+    },
+    ref
+  ) => (
     <Layout
       key={key}
       ref={ref}
+      className={className}
       {...rest}
       style={{
         overflow: "hidden",
         backgroundColor: "white",
         display: "flex",
         marginBottom: cssNumbers.layout.marginBottomXs,
-        width: "70vw", // Changed from maxWidth: "80vw" to width: "80%"
-        wordWrap: "break-word",
+        width: "70vw",
         marginRight: cssNumbers.layout.marginSmallRight,
         flexDirection: "column",
         justifyContent: "flex-start",
@@ -31,6 +44,7 @@ export const TextBox = forRef<HTMLDivElement, TextBoxProps>(
           fontFamily: "Satoshi",
           color: "black",
           border: cssNumbers.testing.border,
+          ...styleTitle,
         }}
       >
         {value ? value.title : undefined}
@@ -42,6 +56,7 @@ export const TextBox = forRef<HTMLDivElement, TextBoxProps>(
           color: "black",
           textAlign: "left",
           border: cssNumbers.testing.border,
+          ...styleContent,
         }}
       >
         {value ? value.content : undefined}
