@@ -28,7 +28,7 @@ import {
   runAboutScroll,
   runTeamScroll,
 } from "../animations/homeAnimations";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { TextBox } from "../components/TextBox";
 import { About } from "../components/About";
 import { Team } from "../components/Team";
@@ -48,6 +48,10 @@ export const Home = () => {
     matthew: { src: matthewImg, style: { maxWidth: "25vw", height: "auto" } },
     andrew: { src: andrewImg, style: { maxWidth: "25vw", height: "auto" } },
   };
+  useEffect(() => {
+    document.documentElement.classList.add("cursor-hidden");
+    return () => document.documentElement.classList.remove("cursor-hidden");
+  }, []);
 
   useGSAP(
     () => {
@@ -349,6 +353,7 @@ export const Home = () => {
           <Layout
             style={{
               marginLeft: "5vw",
+              justifyContent: "space-between",
               display: "flex",
               flexDirection: "row",
               gap: "5vw",
