@@ -43,10 +43,22 @@ export const Home = () => {
   const container = useRef(null);
 
   const imagePathList: ImageMapProps = {
-    levi: { src: leviImg, style: { maxWidth: "25vw", height: "auto" } },
-    jp: { src: jpImg, style: { maxWidth: "25vw", height: "auto" } },
-    matthew: { src: matthewImg, style: { maxWidth: "25vw", height: "auto" } },
-    andrew: { src: andrewImg, style: { maxWidth: "25vw", height: "auto" } },
+    levi: {
+      src: leviImg,
+      style: { maxWidth: cssNumbers.layout.teamImageMaxWidth, height: "auto" },
+    },
+    jp: {
+      src: jpImg,
+      style: { maxWidth: cssNumbers.layout.teamImageMaxWidth, height: "auto" },
+    },
+    matthew: {
+      src: matthewImg,
+      style: { maxWidth: cssNumbers.layout.teamImageMaxWidth, height: "auto" },
+    },
+    andrew: {
+      src: andrewImg,
+      style: { maxWidth: cssNumbers.layout.teamImageMaxWidth, height: "auto" },
+    },
   };
   useEffect(() => {
     document.documentElement.classList.add("cursor-hidden");
@@ -197,7 +209,7 @@ export const Home = () => {
           style={{
             display: "flex",
             flexDirection: "row",
-            width: "100vw",
+            width: cssNumbers.layout.aboutFullWidth,
             padding: cssNumbers.layout.paddingBody,
             border: cssNumbers.testing.border,
           }}
@@ -206,14 +218,14 @@ export const Home = () => {
             style={{
               overflow: "hidden",
               display: "flex",
-              width: "50vw",
+              width: cssNumbers.layout.aboutTitleWidth,
               paddingRight: cssNumbers.layout.paddingRight,
               justifyContent: "flex-start",
               border: cssNumbers.testing.border,
             }}
           >
             <Text
-              data-speed={0.75}
+              data-speed={cssNumbers.layout.aboutTitleSpeed}
               className="about-title"
               style={{
                 fontSize: cssNumbers.layout.mediumFontSize,
@@ -228,9 +240,9 @@ export const Home = () => {
             style={{
               overflow: "hidden",
               display: "flex",
-              paddingTop: 20,
-              height: "100",
-              width: "41vw",
+              paddingTop: cssNumbers.layout.aboutContentPaddingTop,
+              height: cssNumbers.layout.aboutContentHeight,
+              width: cssNumbers.layout.aboutContentWidth,
               wordWrap: "break-word",
               justifyContent: "flex-start",
               border: cssNumbers.testing.border,
@@ -238,7 +250,7 @@ export const Home = () => {
           >
             <Text
               className="about-content"
-              data-speed={1}
+              data-speed={cssNumbers.layout.aboutContentSpeed}
               style={{
                 fontSize: cssNumbers.layout.bodyFontSize,
                 textAlign: "left",
@@ -330,7 +342,7 @@ export const Home = () => {
               classNameTitle={value.classNameTitle}
               style={{
                 opacity: 0,
-                width: "100%",
+                width: cssNumbers.layout.fullWidthPercent,
                 paddingRight: cssNumbers.layout.paddingBody,
               }}
               styleContent={{ fontSize: cssNumbers.layout.bodyFontSize }}
@@ -349,31 +361,41 @@ export const Home = () => {
             padding: cssNumbers.layout.paddingBody,
           }}
         >
-          <Text style={{ transform: "translateY(-6vh )" }}>Contact us</Text>
+          <Text
+            style={{ transform: `translateY(${cssNumbers.layout.footerContactTranslateY})` }}
+          >
+            Contact us
+          </Text>
           <Layout
             style={{
-              marginLeft: "5vw",
+              marginLeft: cssNumbers.layout.footerLinkMargin,
               justifyContent: "space-between",
               display: "flex",
               flexDirection: "row",
-              gap: "5vw",
-              marginRight: "5vw",
+              gap: cssNumbers.layout.footerLinkGap,
+              marginRight: cssNumbers.layout.footerLinkMargin,
             }}
           >
             {Object.entries(aboutTextMap).map(([key, value]) => (
               <AboutCard key={key} value={value} />
             ))}
           </Layout>
-          <Layout style={{ display: "flex", flexDirection: "row", gap: "2vw" }}>
+          <Layout
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              gap: cssNumbers.layout.footerSocialGap,
+            }}
+          >
             <AnchoredImage
               link="https://www.linkedin.com/company/olevius/posts/?feedView=all"
               src={linkedinImg}
-              style={{ scale: 1.5 }}
+              style={{ scale: cssNumbers.layout.footerSocialIconScale }}
             />
             <AnchoredImage
               link="https://github.com/Olevius"
               src={githubImg}
-              style={{ scale: 1.5 }}
+              style={{ scale: cssNumbers.layout.footerSocialIconScale }}
             />
           </Layout>
         </Layout>
