@@ -102,6 +102,20 @@ export type CSSNumbers = {
     marginExtraSmallRight: string;
     marginExtraSmallTop: string;
     marginExtraSmallBottom: string;
+    teamImageMaxWidth: string;
+    aboutFullWidth: string;
+    aboutTitleWidth: string;
+    aboutContentWidth: string;
+    aboutContentPaddingTop: number;
+    aboutContentHeight: string;
+    aboutTitleSpeed: number;
+    aboutContentSpeed: number;
+    footerContactTranslateY: string;
+    footerLinkMargin: string;
+    footerLinkGap: string;
+    footerSocialGap: string;
+    footerSocialIconScale: number;
+    fullWidthPercent: string;
 
     // Extra small variant
     marginBottomXs: string;
