@@ -76,7 +76,7 @@ export const cssNumbers = {
     titleFontSize: '200px',
     mediumFontSize: '100px',
     subtitleFontSize: '50px',
-    footerFontSize: '10px',
+    footerFontSize: '13px',
     teamFontSize: "15px",
     bodyFontSize: '25px',
     textHeaderFontSize: '20px',
