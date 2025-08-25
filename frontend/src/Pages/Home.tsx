@@ -334,7 +334,7 @@ export const Home = () => {
             <TextBox
               key={key}
               value={value}
-              className="team-content"
+              className={value.className}
               classNameContent={value.classNameContent}
               classNameTitle={value.classNameTitle}
               style={{

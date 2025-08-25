@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
 import { cssNumbers } from "../theme/theme";
 import type { CSSNumbers } from "../theme/themeTypes";
+import { teamTextMap } from "../text-maps/teamMap";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -187,26 +188,33 @@ export const runAboutScroll = () => {
 export const runTeamScroll = () => {
   const imageWrapper = document.querySelector(".image-wrapper") as HTMLElement;
 
-  gsap.timeline({
-    scrollTrigger: {
-      trigger: ".team",
-      start: "top top",
-      end: () => "+=" + imageWrapper.getBoundingClientRect().height * 1.01,
-      pin: true,
-      pinSpacing: false,
-      scrub: 5,
-      markers: true,
-      invalidateOnRefresh: true,
-    }
-  })
-    .to(".scroll-rect1", { y: 0 })
-    .add("sync-point")
-    .to(".team-title", { autoAlpha: 0 }, "sync-point")
-    // slide IN from the right
-    .fromTo(".team-content",
-      { xPercent: 110, autoAlpha: 0 },   // start off canvas
-      { xPercent: 0, autoAlpha: 1, ease: "power2.out" },
-      "sync-point"                       // align with the label (or "+=0.2")
+  {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".team",
+        start: "top top",
+        end: () => "+=" + imageWrapper.getBoundingClientRect().height * 1.01,
+        pin: true,
+        pinSpacing: false,
+        scrub: 4,
+        markers: true,
+        invalidateOnRefresh: true,
+      }
+    })
+
+    tl.to(".scroll-rect1", { y: 0 })
+    tl.add("sync-point")
+    tl.to(".team-title", { autoAlpha: 0 }, "sync-point")
+    // slide IN from the right 
+    const teamEls = gsap.utils.toArray<HTMLElement>(
+      Object.values(teamTextMap)
+        .map(v => `.${v.className}`)   // className is a real string at runtime
+        .join(", ")
     );
+
+    tl.fromTo(teamEls, { xPercent: 110, autoAlpha: 0 }, { xPercent: 0, autoAlpha: 1, stagger: 0.3 });
+
+
+  };
 
 };
