@@ -132,7 +132,6 @@ export const createSplitScroll = (
     x: numbers.animation.wordStart,
     autoAlpha: 0,
     stagger: numbers.animation.charStagger,
-    ease: numbers.animation.eases.power2Out,
     scrollTrigger: {
       trigger: ".body",
       start: offset ? `top center-=${offset}` : "top center",
