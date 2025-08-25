@@ -183,15 +183,17 @@ export const runAboutScroll = () => {
 
 export const runTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
   const A = numbers.animation;
-  const imageWrapper = document.querySelector(".image-wrapper") as HTMLElement;
-  const height = imageWrapper?.getBoundingClientRect().height ?? 0;
 
   const tl = gsap.timeline({
     defaults: { ease: A.eases.none ?? "none" },
     scrollTrigger: {
       trigger: ".team",
       start: "top top",
-      end: () => "+=" + height * A.endMultiplier,
+      end: () => {
+        const el = document.querySelector(".image-wrapper") as HTMLElement | null;
+        const h = el?.getBoundingClientRect().height ?? 0;
+        return "+=" + h * A.endMultiplier;
+      },
       pin: true,
       pinSpacing: false,
       scrub: A.scrub,
@@ -218,15 +220,14 @@ export const runTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
       autoAlpha: 1,
       duration: A.teamEnterDuration,
       ease: A.eases.none ?? "none",
-      stagger: {
-        each: A.teamStaggerEach,
-        from: A.teamStaggerFrom,
-        amount: A.teamStaggerAmount,
-        grid: "auto",
-      },
+      stagger: { each: A.teamStaggerEach, from: A.teamStaggerFrom, amount: A.teamStaggerAmount, grid: "auto" },
     },
     `bios+=${A.biosDelay}`
   );
 
+  // ensure refresh after load (first view in prod)
+  window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
+
   return tl;
 };
+
