@@ -1,5 +1,4 @@
 // Team.tsx
-import React from "react";
 import type { BaseProps } from "./basics/defaultTypes";
 import { forRef } from "./basics/refHelper";
 

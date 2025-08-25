@@ -1,4 +1,3 @@
-import React from "react";
 import type { BaseProps } from "./basics/defaultTypes";
 import { cssNumbers } from "../theme/theme";
 import { forRef } from "./basics/refHelper";
