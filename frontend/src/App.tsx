@@ -10,6 +10,8 @@ function ExternalRedirect({ to }: { to: string }) {
   return null;
 }
 
+gsap.registerPlugin(ScrollTrigger);
+
 export const App = () => {
   return (
     <Router>
