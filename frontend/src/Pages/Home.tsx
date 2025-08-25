@@ -6,17 +6,20 @@ import {
   Text,
   GridLayout,
   Image,
-  Padding,
+  AnchoredImage,
 } from "../components/basics/defaults";
 import { useGSAP } from "@gsap/react";
 import leviImg from "../assets/levi.png";
 import jpImg from "../assets/jp.png";
 import matthewImg from "../assets/matthew.png";
 import andrewImg from "../assets/andrew.png";
+import githubImg from "../assets/logos/github.svg";
+import linkedinImg from "../assets/logos/linkedin.svg";
+import aboutImg from "../assets/aboutBg.png";
 import { Body } from "../components/Body";
 import { customColors } from "../theme/colors";
 import { cssNumbers } from "../theme/theme";
-// Home.tsx
+
 import {
   runIntroTimeline,
   runHeaderScrollTimeline,
@@ -29,68 +32,36 @@ import { useRef } from "react";
 import { TextBox } from "../components/TextBox";
 import { About } from "../components/About";
 import { Team } from "../components/Team";
-import type { ImageMapProps } from "../components/basics/defaultTypes";
+import type { ImageMapProps } from "../components/basics/ImagePropTypes";
+import { Footer } from "../components/Footer";
+import { AboutCard } from "../components/AboutCard";
+import { aboutTextMap } from "../text-maps/aboutTextMap";
+import { bodyTextMap } from "../text-maps/bodyTextMap";
+import { teamTextMap } from "../text-maps/teamMap";
 
 export const Home = () => {
   const container = useRef(null);
 
   const imagePathList: ImageMapProps = {
-    levi: {
-      src: leviImg,
-      style: { maxWidth: "25vw", height: "auto" },
-    },
-    jp: {
-      src: jpImg,
-      style: { maxWidth: "25vw", height: "auto" },
-    },
-    matthew: {
-      src: matthewImg,
-      style: { maxWidth: "25vw", height: "auto" },
-    },
-    andrew: {
-      src: andrewImg,
-      style: { maxWidth: "25vw", height: "auto" },
-    },
+    levi: { src: leviImg, style: { maxWidth: "25vw", height: "auto" } },
+    jp: { src: jpImg, style: { maxWidth: "25vw", height: "auto" } },
+    matthew: { src: matthewImg, style: { maxWidth: "25vw", height: "auto" } },
+    andrew: { src: andrewImg, style: { maxWidth: "25vw", height: "auto" } },
   };
 
   useGSAP(
     () => {
-      // SSR/CI/test guard — nothing runs in jsdom
       if (typeof window === "undefined" || process.env.NODE_ENV === "test")
         return;
       runIntroTimeline(cssNumbers).then();
       runHeaderScrollTimeline(cssNumbers);
       runTransitionTextScroll(cssNumbers);
       runBodyScroll(cssNumbers);
-      runAboutScroll();
-      runTeamScroll();
+      runAboutScroll(); // pass numbers
+      runTeamScroll(cssNumbers); // pass numbers
     },
-    { scope: container, dependencies: [cssNumbers] } // re-run when numbers change
+    { scope: container, dependencies: [cssNumbers] }
   );
-
-  const bodyTextMap = {
-    why: {
-      title: "Why?",
-      content:
-        "Current off-the-shelf blood pressure measurement solutions are sorely lacking in portability, accuracy, or continuity. Can an optical fiber-based wearable sensor deliver continuous, non-invasive blood pressure monitoring with clinical-grade accuracy and real-time data transmission?",
-      classNameTitle: "why-title",
-      classNameContent: "why-content",
-    },
-    how: {
-      title: "How?",
-      content:
-        "Our device differs fundamentally from smartwatches like the Apple Watch by providing direct, continuous blood pressure measurement using optical fiber compression, rather than relying on indirect pulse transit time estimates. While smartwatches require frequent calibration and rely on population-averaged models with limited accuracy, our sensor captures true pulse waveforms via a fluid-coupled optical system, enabling machine learning models to extract systolic and diastolic pressures with FDA-grade precision (±3 mmHg). This allows for more reliable, individualized readings without cuffs, recalibration, or positional sensitivity—delivering medical-grade performance in a compact, wearable form.",
-      classNameTitle: "how-title",
-      classNameContent: "how-content",
-    },
-    whatsNext: {
-      title: "Whats Next?",
-      content:
-        "While we can’t reveal all the details just yet, our continuous blood pressure sensor fuses precision optical sensing with smart signal interpretation. At the heart of our design is a fluid-filled PDMS pouch containing an air-core optical fiber union. As your pulse presses against the pouch, it alters light transmission through the fiber—subtle changes that our photodetector captures in real time. From there, our software takes over. Using advanced signal processing and machine learning, we extract meaningful features from the waveform—like systolic and diastolic pressure—delivering accurate, continuous readings without the discomfort of a cuff or the need for constant recalibration. Our team brings together expertise in hardware/computer engineering, applied chemistry and physics, and wearable product design—alongside two software engineers with backgrounds in data science and full-stack development. Together, we’re building a clinically robust system that’s wearable, intuitive, and ready for the real world. We’re driven by a shared mission to make vital health insights accessible—seamlessly, continuously, and comfortably.",
-      classNameTitle: "what-title",
-      classNameContent: "what-content",
-    },
-  };
 
   return (
     <Layout
@@ -141,6 +112,7 @@ export const Home = () => {
           </Text>
         </Layout>
       </Header>
+
       <GridLayout
         style={{
           backgroundColor: customColors.highlight,
@@ -153,12 +125,15 @@ export const Home = () => {
           style={{
             fontSize: cssNumbers.layout.titleFontSize,
             color: "black",
+            marginLeft: cssNumbers.layout.paddingTransitionText,
+            marginRight: cssNumbers.layout.paddingTransitionText,
             border: cssNumbers.testing.border,
           }}
         >
           What is Olevius?
         </Text>
       </GridLayout>
+
       <Body
         style={{
           overflow: "hidden",
@@ -201,10 +176,16 @@ export const Home = () => {
           </Layout>
         </Layout>
       </Body>
+
       <About
         style={{
           overflow: "hidden",
           border: cssNumbers.testing.border,
+          backgroundImage: `url(${aboutImg})`,
+          backgroundColor: "transparent",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
         }}
         className="about"
       >
@@ -220,7 +201,6 @@ export const Home = () => {
           <Layout
             style={{
               overflow: "hidden",
-              backgroundColor: "white",
               display: "flex",
               width: "50vw",
               paddingRight: cssNumbers.layout.paddingRight,
@@ -243,7 +223,6 @@ export const Home = () => {
           <Layout
             style={{
               overflow: "hidden",
-              backgroundColor: "white",
               display: "flex",
               paddingTop: 20,
               height: "100",
@@ -283,12 +262,8 @@ export const Home = () => {
           </Layout>
         </Layout>
       </About>
-      <Team
-        style={{
-          border: cssNumbers.testing.border,
-        }}
-        className="team"
-      >
+
+      <Team style={{ border: cssNumbers.testing.border }} className="team">
         <Layout style={{ display: "flex", flexDirection: "column" }}>
           <Layout
             style={{
@@ -298,16 +273,14 @@ export const Home = () => {
               padding: cssNumbers.layout.paddingBody,
             }}
           >
-            <Text style={{ fontSize: cssNumbers.layout.mediumFontSize }}>
+            <Text
+              className="team-title"
+              style={{ fontSize: cssNumbers.layout.mediumFontSize }}
+            >
               Our Team
             </Text>
           </Layout>
-          <Layout
-            style={{
-              display: "flex",
-              flexDirection: "row",
-            }}
-          >
+          <Layout style={{ display: "flex", flexDirection: "row" }}>
             {Object.entries(imagePathList).map(([key, value]) => (
               <Layout
                 className="image-wrapper"
@@ -321,7 +294,8 @@ export const Home = () => {
               >
                 <Image
                   id="view_img"
-                  style={value.style}
+                  className="images"
+                  style={{ ...value.style, pointerEvents: "none" }} // don't block clicks
                   key={key}
                   src={value.src}
                 />
@@ -330,14 +304,75 @@ export const Home = () => {
           </Layout>
         </Layout>
       </Team>
-      <Padding
-        className="scroll-rect"
+
+      <Layout
+        className="scroll-rect1"
         style={{
           backgroundColor: "white",
           border: cssNumbers.testing.border,
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "flex-start",
+          height: cssNumbers.layout.teamHeight,
         }}
-        size={500}
-      />
+      >
+        <Layout style={{ padding: cssNumbers.layout.paddingBody }}>
+          {Object.entries(teamTextMap).map(([key, value]) => (
+            <TextBox
+              key={key}
+              value={value}
+              className={value.className}
+              classNameContent={value.classNameContent}
+              classNameTitle={value.classNameTitle}
+              style={{
+                opacity: 0,
+                width: "100%",
+                paddingRight: cssNumbers.layout.paddingBody,
+              }}
+              styleContent={{ fontSize: cssNumbers.layout.bodyFontSize }}
+            />
+          ))}
+        </Layout>
+      </Layout>
+
+      <Footer>
+        <Layout
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexDirection: "row",
+            padding: cssNumbers.layout.paddingBody,
+          }}
+        >
+          <Text style={{ transform: "translateY(-6vh )" }}>Contact us</Text>
+          <Layout
+            style={{
+              marginLeft: "5vw",
+              display: "flex",
+              flexDirection: "row",
+              gap: "5vw",
+              marginRight: "5vw",
+            }}
+          >
+            {Object.entries(aboutTextMap).map(([key, value]) => (
+              <AboutCard key={key} value={value} />
+            ))}
+          </Layout>
+          <Layout style={{ display: "flex", flexDirection: "row", gap: "2vw" }}>
+            <AnchoredImage
+              link="https://www.linkedin.com/company/olevius/posts/?feedView=all"
+              src={linkedinImg}
+              style={{ scale: 1.5 }}
+            />
+            <AnchoredImage
+              link="https://github.com/Olevius"
+              src={githubImg}
+              style={{ scale: 1.5 }}
+            />
+          </Layout>
+        </Layout>
+      </Footer>
     </Layout>
   );
 };

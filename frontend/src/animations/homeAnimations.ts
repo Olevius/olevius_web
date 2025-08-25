@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
 import { cssNumbers } from "../theme/theme";
 import type { CSSNumbers } from "../theme/themeTypes";
+import { teamTextMap } from "../text-maps/teamMap";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -49,7 +50,6 @@ export const runHeaderScrollTimeline = (numbers: CSSNumbers = cssNumbers) => {
       end: `+=${numbers.animation.scrollEnd}`,
       pin: true,
       scrub: numbers.animation.scrubDuration,
-      markers: true,
       onUpdate: (self) => {
         const scrollY = self.scroll();
         const end = self.end;
@@ -98,7 +98,6 @@ export const runTransitionTextScroll = (numbers: CSSNumbers = cssNumbers) => {
       end: `+=${numbers.animation.overlapEnd}`,
       pin: true,
       scrub: numbers.animation.scrubDuration,
-      markers: true,
       onUpdate: (self) => {
         const scrollY = self.scroll();
         const end = self.end;
@@ -138,19 +137,12 @@ export const createSplitScroll = (
       trigger: ".body",
       start: offset ? `top center-=${offset}` : "top center",
       end: `+=${numbers.animation.sectionScrollSpan}`,
-      scrub: numbers.animation.scrubDuration,
-      markers: true,
+      scrub: 2,
     },
   });
 };
 
 export const runBodyScroll = (numbers: CSSNumbers = cssNumbers) => {
-  ScrollTrigger.create({
-    trigger: ".body",
-    start: "top top",
-    end: `+=${numbers.layout.bodyHeight}`,
-    markers: true,
-  });
 
   const sections = [
     { title: ".why-title", content: ".why-content", offset: 0 },
@@ -180,7 +172,6 @@ export const runAboutScroll = () => {
       start: "top center",
       end: `bottom top`,
       scrub: true,
-      markers: true
     }
   }).add("sync-point")
     .from(".about-content", {
@@ -190,19 +181,52 @@ export const runAboutScroll = () => {
     }, "sync-point")
 }
 
-export const runTeamScroll = () => {
+export const runTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
+  const A = numbers.animation;
   const imageWrapper = document.querySelector(".image-wrapper") as HTMLElement;
+  const height = imageWrapper?.getBoundingClientRect().height ?? 0;
 
-  return gsap.timeline({
+  const tl = gsap.timeline({
+    defaults: { ease: A.eases.none ?? "none" },
     scrollTrigger: {
       trigger: ".team",
       start: "top top",
-      end: () => "+=" + (imageWrapper.getBoundingClientRect().height * 1.01),
-      pin: true,           // create space to scroll through
-      pinSpacing: false,   // ← remove the “gap”
-      scrub: 100,
-      markers: true,
+      end: () => "+=" + height * A.endMultiplier,
+      pin: true,
+      pinSpacing: false,
+      scrub: A.scrub,
+      invalidateOnRefresh: true,
     }
-  }).add("sync-point")
-    .to(".scroll-rect", { y: 5, ease: "power2.out" }, "sync-point");
+  });
+
+  tl.add("start")
+    .to(".scroll-rect1", { y: 0, duration: A.scrollRectDuration }, "start")
+    .to(".images", { opacity: A.imagesOpacity, duration: A.imagesFadeDuration }, `start+=${A.imagesFadeOffset}`)
+    .add("sync-point", `+=${A.syncPointOffset}`)
+    .to(".team-title", { autoAlpha: 0, duration: A.titleFadeDuration }, "sync-point")
+    .add("bios", `>-=${A.biosOverlapBack}`);
+
+  const teamEls = gsap.utils.toArray<HTMLElement>(
+    Object.values(teamTextMap).map(v => `.${v.className}`).join(", ")
+  );
+
+  tl.fromTo(
+    teamEls,
+    { xPercent: A.teamEnterXPercent, autoAlpha: 0 },
+    {
+      xPercent: 0,
+      autoAlpha: 1,
+      duration: A.teamEnterDuration,
+      ease: A.eases.none ?? "none",
+      stagger: {
+        each: A.teamStaggerEach,
+        from: A.teamStaggerFrom,
+        amount: A.teamStaggerAmount,
+        grid: "auto",
+      },
+    },
+    `bios+=${A.biosDelay}`
+  );
+
+  return tl;
 };

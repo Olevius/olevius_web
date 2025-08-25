@@ -2,9 +2,10 @@ import { cssNumbers } from "../../theme/theme";
 import type {
   BaseProps,
   GridLayoutProps,
-  ImageProps,
+  LinkProps,
   PaddingProps,
 } from "./defaultTypes";
+import type { ImageProps } from "./ImagePropTypes";
 import { forRef } from "./refHelper";
 
 /**
@@ -38,7 +39,7 @@ export const Layout = forRef<HTMLDivElement, BaseProps>(
 );
 
 export const Image = forRef<HTMLImageElement, ImageProps>(
-  ({ className, style, src, id, ...rest }, ref) => (
+  ({ className, children, style, src, id, ...rest }, ref) => (
     <img
       className={className}
       ref={ref}
@@ -46,7 +47,24 @@ export const Image = forRef<HTMLImageElement, ImageProps>(
       style={style}
       src={src}
       {...rest}
-    />
+    >
+      {children}
+    </img>
+  )
+);
+
+export const AnchoredImage = forRef<HTMLImageElement, ImageProps>(
+  ({ className, style, src, id, link, ...rest }, ref) => (
+    <a href={link}>
+      <img
+        className={className}
+        ref={ref}
+        id={id}
+        style={style}
+        src={src}
+        {...rest}
+      />
+    </a>
   )
 );
 
@@ -145,6 +163,39 @@ export const ListElement = forRef<HTMLLIElement, BaseProps>(
  * @param props.style    Inline style overrides.
  * @returns A ref-forwarding `<span>`.
  */
+export const AnchoredText = forRef<HTMLSpanElement, LinkProps>(
+  ({ children, style, link, ...rest }, ref) => (
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ position: "relative", pointerEvents: "auto" }}
+      {...rest}
+    >
+      <span
+        ref={ref}
+        style={{
+          fontSize: cssNumbers.layout.subtitleFontSize,
+          color: "black",
+          display: "inline",
+          ...style,
+        }}
+      >
+        {children}
+      </span>
+    </a>
+  )
+);
+
+/**
+ * Text
+ * ------
+ * Span wrapper for inline text with ref forwarding.
+ *
+ * @param props.children Inline content.
+ * @param props.style    Inline style overrides.
+ * @returns A ref-forwarding `<span>`.
+ */
 export const Text = forRef<HTMLSpanElement, BaseProps>(
   ({ children, style, ...rest }, ref) => (
     <span
@@ -214,11 +265,7 @@ export const UlContainer = forRef<HTMLUListElement, BaseProps>(
  */
 export const Padding = forRef<HTMLDivElement, PaddingProps>(
   ({ size, className, style }, ref) => (
-    <div
-      ref={ref}
-      className={className}
-      style={{ padding: size, ...style }}
-    ></div>
+    <div ref={ref} className={className} style={{ padding: size, ...style }} />
   )
 );
 
