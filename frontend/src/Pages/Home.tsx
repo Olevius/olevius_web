@@ -362,7 +362,9 @@ export const Home = () => {
           }}
         >
           <Text
-            style={{ transform: `translateY(${cssNumbers.layout.footerContactTranslateY})` }}
+            style={{
+              transform: `translateY(${cssNumbers.layout.footerContactTranslateY})`,
+            }}
           >
             Contact us
           </Text>
