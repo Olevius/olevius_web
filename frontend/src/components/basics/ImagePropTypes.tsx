@@ -13,7 +13,7 @@ export type ImageMapProps = {
   andrew: ImageMapValueProps;
 };
 
-export interface ImageProps extends Omit<BaseProps, "children"> {
+export interface ImageProps extends BaseProps {
   src?: string;
   link?: string;
 }

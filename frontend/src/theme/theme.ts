@@ -31,6 +31,7 @@ export const defaultTheme = {
 
 export const cssNumbers = {
   animation: {
+    // --- your existing keys ---
     introDuration: 1.5,
     subtitleDuration: 2,
     bodyHeaderDuration: 3,
@@ -50,7 +51,26 @@ export const cssNumbers = {
       power1Out: "power1.out",
       power1In: "power1.in",
       power2Out: "power2.out",
+      none: "none",
+      expoOut: "expo.out",
     },
+
+    // --- added for runTeamScroll ---
+    endMultiplier: 1.3,          // "+=" + height * endMultiplier
+    scrub: 1.5,                   // ScrollTrigger scrub
+    scrollRectDuration: 1.2,      // ".scroll-rect1" slide
+    imagesOpacity: 0.7,           // ".images" fade target
+    imagesFadeDuration: 0.9,      // ".images" fade duration
+    imagesFadeOffset: 0.15,       // start offset after "start"
+    syncPointOffset: 0.2,         // gap before title fade
+    titleFadeDuration: 0.8,       // ".team-title" fade out
+    biosOverlapBack: 0.1,         // overlap with previous beat (">-=x")
+    biosDelay: 0.25,              // delay before bios enter starts
+    teamEnterXPercent: 12,        // from xPercent
+    teamEnterDuration: 1.2,       // enter tween duration
+    teamStaggerEach: 0.22,        // stagger cadence
+    teamStaggerFrom: "center" as const,
+    teamStaggerAmount: 0.9,       // spread across group
   },
   layout: {
     titleFontSize: '200px',
@@ -68,6 +88,8 @@ export const cssNumbers = {
     halfHeight: '50vh',
     threeQuartersHeight: '75vh',
     fullHeight: '100vh',
+    oneAndHalfHeight: '150vh',
+    oneAndThreeQuartersHeight: '175vh',
     doubleFullHeight: '200vh',
     bodySectionOffsetHow: 300,
     bodySectionOffsetWhat: 1000,

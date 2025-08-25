@@ -50,7 +50,24 @@ export type CSSNumbers = {
       power1Out: string;
       power1In: string;
       power2Out: string;
+      none: string;
+      expoOut: string;
     };
+    endMultiplier: number;
+    scrub: number;
+    scrollRectDuration: number;
+    imagesOpacity: number;
+    imagesFadeDuration: number;
+    imagesFadeOffset: number;
+    syncPointOffset: number;
+    titleFadeDuration: number;
+    biosOverlapBack: number;
+    biosDelay: number;
+    teamEnterXPercent: number;
+    teamEnterDuration: number;
+    teamStaggerEach: number;
+    teamStaggerFrom: "start" | "center" | "edges" | number;
+    teamStaggerAmount: number;
   };
   layout: {
     titleFontSize: string;

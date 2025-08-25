@@ -15,6 +15,7 @@ import matthewImg from "../assets/matthew.png";
 import andrewImg from "../assets/andrew.png";
 import githubImg from "../assets/logos/github.svg";
 import linkedinImg from "../assets/logos/linkedin.svg";
+import aboutImg from "../assets/aboutBg.png";
 import { Body } from "../components/Body";
 import { customColors } from "../theme/colors";
 import { cssNumbers } from "../theme/theme";
@@ -190,6 +191,8 @@ export const Home = () => {
         style={{
           overflow: "hidden",
           border: cssNumbers.testing.border,
+          backgroundImage: `url(${aboutImg})`,
+          backgroundColor: "transparent",
         }}
         className="about"
       >
@@ -205,7 +208,6 @@ export const Home = () => {
           <Layout
             style={{
               overflow: "hidden",
-              backgroundColor: "white",
               display: "flex",
               width: "50vw",
               paddingRight: cssNumbers.layout.paddingRight,
@@ -228,7 +230,6 @@ export const Home = () => {
           <Layout
             style={{
               overflow: "hidden",
-              backgroundColor: "white",
               display: "flex",
               paddingTop: 20,
               height: "100",
@@ -309,6 +310,7 @@ export const Home = () => {
               >
                 <Image
                   id="view_img"
+                  className="images"
                   style={value.style}
                   key={key}
                   src={value.src}
@@ -326,7 +328,7 @@ export const Home = () => {
           display: "flex",
           justifyContent: "flex-start",
           alignItems: "flex-start",
-          height: cssNumbers.layout.doubleFullHeight,
+          height: cssNumbers.layout.oneAndThreeQuartersHeight,
         }}
       >
         <Layout style={{ padding: cssNumbers.layout.paddingBody }}>
