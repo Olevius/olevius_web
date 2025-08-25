@@ -5,6 +5,7 @@ export const teamTextMap = {
     classNameTitle: "why-title",
     classNameContent: "why-content",
     className: "levi-team",
+    offset: 1,
   },
   andrew: {
     title: "Andrew:",
@@ -12,6 +13,7 @@ export const teamTextMap = {
     classNameTitle: "how-title",
     classNameContent: "how-content",
     className: "andrew-team",
+    offset: 1,
   },
   jp: {
     title: "Justin:",
@@ -19,6 +21,7 @@ export const teamTextMap = {
     classNameTitle: "what-title",
     classNameContent: "what-content",
     className: "jp-team",
+    offset: 1,
   },
   matthew: {
     title: "Matthew:",
@@ -26,5 +29,6 @@ export const teamTextMap = {
     classNameTitle: "what-title",
     classNameContent: "what-content",
     className: "matthew-team",
+    offset: 1,
   },
 } as const;
