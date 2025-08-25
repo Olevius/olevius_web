@@ -165,10 +165,15 @@ export const ListElement = forRef<HTMLLIElement, BaseProps>(
  */
 export const AnchoredText = forRef<HTMLSpanElement, LinkProps>(
   ({ children, style, link, ...rest }, ref) => (
-    <a href={link}>
+    <a
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      style={{ position: "relative", pointerEvents: "auto" }}
+      {...rest}
+    >
       <span
         ref={ref}
-        {...rest}
         style={{
           fontSize: cssNumbers.layout.subtitleFontSize,
           color: "black",

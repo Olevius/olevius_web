@@ -19,7 +19,7 @@ import aboutImg from "../assets/aboutBg.png";
 import { Body } from "../components/Body";
 import { customColors } from "../theme/colors";
 import { cssNumbers } from "../theme/theme";
-// Home.tsx
+
 import {
   runIntroTimeline,
   runHeaderScrollTimeline,
@@ -43,37 +43,24 @@ export const Home = () => {
   const container = useRef(null);
 
   const imagePathList: ImageMapProps = {
-    levi: {
-      src: leviImg,
-      style: { maxWidth: "25vw", height: "auto" },
-    },
-    jp: {
-      src: jpImg,
-      style: { maxWidth: "25vw", height: "auto" },
-    },
-    matthew: {
-      src: matthewImg,
-      style: { maxWidth: "25vw", height: "auto" },
-    },
-    andrew: {
-      src: andrewImg,
-      style: { maxWidth: "25vw", height: "auto" },
-    },
+    levi: { src: leviImg, style: { maxWidth: "25vw", height: "auto" } },
+    jp: { src: jpImg, style: { maxWidth: "25vw", height: "auto" } },
+    matthew: { src: matthewImg, style: { maxWidth: "25vw", height: "auto" } },
+    andrew: { src: andrewImg, style: { maxWidth: "25vw", height: "auto" } },
   };
 
   useGSAP(
     () => {
-      // SSR/CI/test guard — nothing runs in jsdom
       if (typeof window === "undefined" || process.env.NODE_ENV === "test")
         return;
       runIntroTimeline(cssNumbers).then();
       runHeaderScrollTimeline(cssNumbers);
       runTransitionTextScroll(cssNumbers);
       runBodyScroll(cssNumbers);
-      runAboutScroll();
-      runTeamScroll();
+      runAboutScroll(); // pass numbers
+      runTeamScroll(cssNumbers); // pass numbers
     },
-    { scope: container, dependencies: [cssNumbers] } // re-run when numbers change
+    { scope: container, dependencies: [cssNumbers] }
   );
 
   return (
@@ -125,6 +112,7 @@ export const Home = () => {
           </Text>
         </Layout>
       </Header>
+
       <GridLayout
         style={{
           backgroundColor: customColors.highlight,
@@ -145,6 +133,7 @@ export const Home = () => {
           What is Olevius?
         </Text>
       </GridLayout>
+
       <Body
         style={{
           overflow: "hidden",
@@ -187,12 +176,16 @@ export const Home = () => {
           </Layout>
         </Layout>
       </Body>
+
       <About
         style={{
           overflow: "hidden",
           border: cssNumbers.testing.border,
           backgroundImage: `url(${aboutImg})`,
           backgroundColor: "transparent",
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "center",
+          backgroundSize: "cover",
         }}
         className="about"
       >
@@ -269,12 +262,8 @@ export const Home = () => {
           </Layout>
         </Layout>
       </About>
-      <Team
-        style={{
-          border: cssNumbers.testing.border,
-        }}
-        className="team"
-      >
+
+      <Team style={{ border: cssNumbers.testing.border }} className="team">
         <Layout style={{ display: "flex", flexDirection: "column" }}>
           <Layout
             style={{
@@ -291,12 +280,7 @@ export const Home = () => {
               Our Team
             </Text>
           </Layout>
-          <Layout
-            style={{
-              display: "flex",
-              flexDirection: "row",
-            }}
-          >
+          <Layout style={{ display: "flex", flexDirection: "row" }}>
             {Object.entries(imagePathList).map(([key, value]) => (
               <Layout
                 className="image-wrapper"
@@ -311,7 +295,7 @@ export const Home = () => {
                 <Image
                   id="view_img"
                   className="images"
-                  style={value.style}
+                  style={{ ...value.style, pointerEvents: "none" }} // don't block clicks
                   key={key}
                   src={value.src}
                 />
@@ -320,6 +304,7 @@ export const Home = () => {
           </Layout>
         </Layout>
       </Team>
+
       <Layout
         className="scroll-rect1"
         style={{
@@ -328,7 +313,7 @@ export const Home = () => {
           display: "flex",
           justifyContent: "flex-start",
           alignItems: "flex-start",
-          height: cssNumbers.layout.oneAndThreeQuartersHeight,
+          height: cssNumbers.layout.teamHeight,
         }}
       >
         <Layout style={{ padding: cssNumbers.layout.paddingBody }}>
@@ -341,7 +326,7 @@ export const Home = () => {
               classNameTitle={value.classNameTitle}
               style={{
                 opacity: 0,
-                width: "100%", // stop fighting the container
+                width: "100%",
                 paddingRight: cssNumbers.layout.paddingBody,
               }}
               styleContent={{ fontSize: cssNumbers.layout.bodyFontSize }}
@@ -349,6 +334,7 @@ export const Home = () => {
           ))}
         </Layout>
       </Layout>
+
       <Footer>
         <Layout
           style={{
@@ -373,13 +359,7 @@ export const Home = () => {
               <AboutCard key={key} value={value} />
             ))}
           </Layout>
-          <Layout
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              gap: "2vw",
-            }}
-          >
+          <Layout style={{ display: "flex", flexDirection: "row", gap: "2vw" }}>
             <AnchoredImage
               link="https://www.linkedin.com/company/olevius/posts/?feedView=all"
               src={linkedinImg}

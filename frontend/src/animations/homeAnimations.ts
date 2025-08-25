@@ -182,7 +182,7 @@ export const runAboutScroll = () => {
 }
 
 export const runTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
-  const A = numbers.animation; // <- use the param, not cssNumbers
+  const A = numbers.animation;
   const imageWrapper = document.querySelector(".image-wrapper") as HTMLElement;
   const height = imageWrapper?.getBoundingClientRect().height ?? 0;
 

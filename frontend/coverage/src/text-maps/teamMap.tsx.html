@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/theme/colors.ts</title>
+    <title>Code coverage report for src/text-maps/teamMap.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,13 +19,13 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/theme</a> colors.ts</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">src/text-maps</a> teamMap.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>35/35</span>
+                <span class='fraction'>38/38</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>35/35</span>
+                <span class='fraction'>38/38</span>
             </div>
         
             
@@ -98,7 +98,10 @@
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -130,45 +133,51 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">export const palette = {
-  primary: {
-    main: "#1976d2",
-    light: "#63a4ff",
-    dark: "#004ba0",
-    contrastText: "#fff",
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">export const teamTextMap = {
+  levi: {
+    title: "Levi:",
+    content:
+      "Levi focuses on the chemistry and materials side of the project, particularly in developing and testing the PDMS pouch and fluid interface that enables the fiber-optic sensor to detect blood pressure changes. His work ensures the sensor has the right mechanical and chemical properties to translate pulse-induced pressure variations into reliable optical signals, while also exploring alternative polymers and materials for durability and comfort in a wearable device.",
+    classNameTitle: "why-title",
+    classNameContent: "why-content",
+    className: "levi-team",
+    offset: 1,
   },
-  secondary: {
-    main: "#9c27b0",
-    light: "#d05ce3",
-    dark: "#6a0080",
-    contrastText: "#fff",
+  andrew: {
+    title: "Andrew:",
+    content:
+      "Andrew leads the hardware integration efforts, concentrating on the mechanical design and electronics packaging that transform the prototype into a practical wearable form. He is responsible for embedding the optical fibers, photodetector, and wireless modules into a compact watch-like device that is comfortable, robust, and power-efficient. His work bridges the gap between lab-scale testing and a functional, user-ready product.",
+    classNameTitle: "how-title",
+    classNameContent: "how-content",
+    className: "andrew-team",
+    offset: 1,
   },
-  error: {
-    main: "#d32f2f",
-    light: "#ff6659",
-    dark: "#9a0007",
-    contrastText: "#fff",
+  jp: {
+    title: "Justin:",
+    content:
+      "Justin works on the user interface and database systems that support the device’s functionality. He designs the companion mobile application that connects to the wearable via Bluetooth/NFC, enabling continuous monitoring and visualization of blood pressure trends. He also ensures that data storage and transmission meet requirements for usability and potential healthcare integration, creating a smooth link between the hardware sensor and its end users.",
+    classNameTitle: "what-title",
+    classNameContent: "what-content",
+    className: "jp-team",
+    offset: 1,
   },
-  warning: {
-    main: "#ed6c02",
-    light: "#ff9800",
-    dark: "#e65100",
-    contrastText: "#fff",
+  matthew: {
+    title: "Matthew:",
+    content:
+      "Matthew leads the data science and optimization side of the project, focusing on developing the machine learning model that translates raw optical waveforms into accurate blood pressure readings. He is responsible for training and refining algorithms using both collected and open-source medical datasets, while optimizing them for real-time analysis on wearable hardware. His work ensures the device achieves clinically acceptable accuracy and scalability.",
+    classNameTitle: "what-title",
+    classNameContent: "what-content",
+    className: "matthew-team",
+    offset: 1,
   },
-  info: {
-    main: "#0288d1",
-    light: "#03a9f4",
-    dark: "#01579b",
-    contrastText: "#fff",
-  },
-};
-&nbsp;
-export const customColors = {
-  highlight: "#dcffcf",
-};</pre></td></tr></table></pre>
+} as const;
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

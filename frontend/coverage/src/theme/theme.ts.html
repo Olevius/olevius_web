@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>88/88</span>
+                <span class='fraction'>115/115</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>88/88</span>
+                <span class='fraction'>115/115</span>
             </div>
         
             
@@ -151,7 +151,35 @@
 <a name='L86'></a><a href='#L86'>86</a>
 <a name='L87'></a><a href='#L87'>87</a>
 <a name='L88'></a><a href='#L88'>88</a>
-<a name='L89'></a><a href='#L89'>89</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -182,6 +210,34 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -272,6 +328,7 @@
 &nbsp;
 export const cssNumbers = {
   animation: {
+    // --- your existing keys ---
     introDuration: 1.5,
     subtitleDuration: 2,
     bodyHeaderDuration: 3,
@@ -291,23 +348,50 @@ export const cssNumbers = {
       power1Out: "power1.out",
       power1In: "power1.in",
       power2Out: "power2.out",
+      none: "none",
+      expoOut: "expo.out",
     },
+&nbsp;
+    // --- added for runTeamScroll ---
+    endMultiplier: 1.3,          // "+=" + height * endMultiplier
+    scrub: 1.5,                   // ScrollTrigger scrub
+    scrollRectDuration: 1.2,      // ".scroll-rect1" slide
+    imagesOpacity: 0.7,           // ".images" fade target
+    imagesFadeDuration: 0.9,      // ".images" fade duration
+    imagesFadeOffset: 0.15,       // start offset after "start"
+    syncPointOffset: 0.2,         // gap before title fade
+    titleFadeDuration: 0.8,       // ".team-title" fade out
+    biosOverlapBack: 0.1,         // overlap with previous beat ("&gt;-=x")
+    biosDelay: 0.25,              // delay before bios enter starts
+    teamEnterXPercent: 12,        // from xPercent
+    teamEnterDuration: 1.2,       // enter tween duration
+    teamStaggerEach: 0.22,        // stagger cadence
+    teamStaggerFrom: "center" as const,
+    teamStaggerAmount: 0.9,       // spread across group
   },
   layout: {
     titleFontSize: '200px',
     mediumFontSize: '100px',
     subtitleFontSize: '50px',
+    footerFontSize: '10px',
+    teamFontSize: "15px",
     bodyFontSize: '25px',
     textHeaderFontSize: '20px',
     scrubFontSize: '5000px',
     paddingSmall: 10,
+    paddingTransitionText: 80,
     paddingBody: 50,
+    paddingTeam: 90,
+    halfHeight: '50vh',
+    threeQuartersHeight: '75vh',
     fullHeight: '100vh',
-    doubleFullHeight: '500vh',
-    bodyHeight: '200vh',
+    oneAndHalfHeight: '150vh',
+    oneAndThreeQuartersHeight: '175vh',
+    doubleFullHeight: '200vh',
     bodySectionOffsetHow: 300,
     bodySectionOffsetWhat: 1000,
-    aboutHeight: '100vh',
+    aboutHeight: '120vh',
+    teamHeight: '500vh',
     textBoxMargin: "500px",
     marginSmallLeft: '20px',
     marginSmallRight: '20px',
@@ -334,7 +418,7 @@ export const cssNumbers = {
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-08-10T17:02:50.201Z
+                at 2025-08-25T11:36:59.429Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

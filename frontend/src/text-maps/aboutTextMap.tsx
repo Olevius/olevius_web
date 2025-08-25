@@ -2,7 +2,11 @@ export const aboutTextMap = {
   useCases: {
     title: "Use Cases",
     content: [
-      { text: "Sales", className: "sales-content", link: "" },
+      {
+        text: "Sales",
+        className: "sales-content",
+        link: "https://airflow.apache.org/",
+      },
       { text: "Support", className: "support-content", link: "" },
       { text: "Consulting", className: "consulting-content", link: "" },
       { text: "Recruiting", className: "recruiting-content", link: "" },

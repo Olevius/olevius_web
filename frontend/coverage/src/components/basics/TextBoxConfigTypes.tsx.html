@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/components/basics/defaultTypes.tsx</title>
+    <title>Code coverage report for src/components/basics/TextBoxConfigTypes.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/components/basics</a> defaultTypes.tsx</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/components/basics</a> TextBoxConfigTypes.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -87,7 +87,12 @@
 <a name='L22'></a><a href='#L22'>22</a>
 <a name='L23'></a><a href='#L23'>23</a>
 <a name='L24'></a><a href='#L24'>24</a>
-<a name='L25'></a><a href='#L25'>25</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -111,29 +116,39 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import type { ReactNode, CSSProperties } from "react";
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import type {
+  CSSProperties,
+  ForwardRefExoticComponent,
+  RefAttributes,
+} from "react";
+import type { BaseProps } from "./defaultTypes";
 &nbsp;
-// Basic props shared by most components
-export interface BaseProps {
-  children?: ReactNode;
-  id?: string;
+export interface TextBoxConfig {
+  title: string;
+  content: string;
+  classNameTitle?: string;
+  classNameContent?: string;
+}
+&nbsp;
+// Type for text components with forward ref support
+export type TextProps = ForwardRefExoticComponent&lt;
+  BaseProps &amp; RefAttributes&lt;HTMLSpanElement&gt;
+&gt;;
+&nbsp;
+export interface TextBoxProps
+  extends Omit&lt;BaseProps, "children" | "className"&gt; {
+  key?: string;
+  styleTitle?: CSSProperties;
+  styleContent?: CSSProperties;
   className?: string;
-  style?: CSSProperties;
-  highlight?: CSSProperties;
-}
-&nbsp;
-// Props for link components
-export interface LinkProps extends BaseProps {
-  link: string;
-}
-&nbsp;
-export interface PaddingProps extends BaseProps {
-  size: number;
-}
-&nbsp;
-export interface GridLayoutProps extends BaseProps {
-  styleRow?: CSSProperties;
-  styleColumn?: CSSProperties;
+  classNameTitle?: string;
+  classNameContent?: string;
+  value?: TextBoxConfig;
 }
 &nbsp;</pre></td></tr></table></pre>
 
