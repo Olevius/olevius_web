@@ -243,7 +243,6 @@ export const Home = () => {
               paddingTop: cssNumbers.layout.aboutContentPaddingTop,
               height: cssNumbers.layout.aboutContentHeight,
               width: cssNumbers.layout.aboutContentWidth,
-              wordWrap: "break-word",
               justifyContent: "flex-start",
               border: cssNumbers.testing.border,
             }}
