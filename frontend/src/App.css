@@ -2,6 +2,18 @@
   font-family: 'Satoshi', sans-serif;
 }
 
+/* App.css (or a global CSS) */
+.about-content,
+.body-text,
+.team .why-content,
+.team .how-content,
+.team .what-content {
+  word-break: normal !important;     /* don’t split words */
+  overflow-wrap: normal !important;   /* only wrap at spaces */
+  white-space: normal !important;     /* no nowrap */
+  hyphens: manual !important;         /* avoid auto hyphenation */
+  min-width: 0;                       /* critical for flex children */
+}
 
 
 #root {
