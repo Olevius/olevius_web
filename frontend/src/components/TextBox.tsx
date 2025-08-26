@@ -57,6 +57,7 @@ export const TextBox = forRef<HTMLDivElement, TextBoxProps>(
           textAlign: "left",
           border: cssNumbers.testing.border,
           minWidth: 0,
+          wordWrap: "normal",
           ...styleContent,
         }}
       >
