@@ -9,7 +9,7 @@ export const AboutCard = forRef<HTMLDivElement, AboutCardProps>(
       style={{
         display: "flex",
         flexDirection: "column",
-        gap: "0.5vh",
+        gap: "0.5dvh",
         ...style,
       }}
       ref={ref}
@@ -21,7 +21,7 @@ export const AboutCard = forRef<HTMLDivElement, AboutCardProps>(
         style={{
           fontSize: cssNumbers.layout.footerFontSize,
           fontFamily: "Satoshi",
-          marginBottom: "0.5vh",
+          marginBottom: "0.5dvh",
         }}
       >
         {value?.title}
@@ -34,7 +34,7 @@ export const AboutCard = forRef<HTMLDivElement, AboutCardProps>(
           style={{
             fontSize: cssNumbers.layout.footerFontSize,
             fontFamily: "Satoshi",
-            marginTop: "0.5vh",
+            marginTop: "0.5dvh",
           }}
         >
           {value.text}

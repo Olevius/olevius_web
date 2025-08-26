@@ -2,10 +2,6 @@
   font-family: 'Satoshi', sans-serif;
 }
 
-html, body { height: 100%; }
-.main { min-height: 100dvh; min-width: 100dvw; padding-bottom: env(safe-area-inset-bottom); }
-
-
 #root {
   max-width: none;
   margin: 0;

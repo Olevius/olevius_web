@@ -31,7 +31,6 @@ export const defaultTheme = {
 
 export const cssNumbers = {
   animation: {
-    // --- your existing keys ---
     introDuration: 1.5,
     subtitleDuration: 2,
     bodyHeaderDuration: 3,
@@ -54,23 +53,21 @@ export const cssNumbers = {
       none: "none",
       expoOut: "expo.out",
     },
-
-    // --- added for runTeamScroll ---
-    endMultiplier: 1.3,          // "+=" + height * endMultiplier
-    scrub: 1.5,                   // ScrollTrigger scrub
-    scrollRectDuration: 1.2,      // ".scroll-rect1" slide
-    imagesOpacity: 0.7,           // ".images" fade target
-    imagesFadeDuration: 0.9,      // ".images" fade duration
-    imagesFadeOffset: 0.15,       // start offset after "start"
-    syncPointOffset: 0.2,         // gap before title fade
-    titleFadeDuration: 0.8,       // ".team-title" fade out
-    biosOverlapBack: 0.1,         // overlap with previous beat (">-=x")
-    biosDelay: 0.25,              // delay before bios enter starts
-    teamEnterXPercent: 12,        // from xPercent
-    teamEnterDuration: 1.2,       // enter tween duration
-    teamStaggerEach: 0.22,        // stagger cadence
+    endMultiplier: 1.3,
+    scrub: 1.5,
+    scrollRectDuration: 1.2,
+    imagesOpacity: 0.7,
+    imagesFadeDuration: 0.9,
+    imagesFadeOffset: 0.15,
+    syncPointOffset: 0.2,
+    titleFadeDuration: 0.8,
+    biosOverlapBack: 0.1,
+    biosDelay: 0.25,
+    teamEnterXPercent: 12,
+    teamEnterDuration: 1.2,
+    teamStaggerEach: 0.22,
     teamStaggerFrom: "center" as const,
-    teamStaggerAmount: 0.9,       // spread across group
+    teamStaggerAmount: 0.9,
   },
   layout: {
     titleFontSize: '200px',
@@ -85,44 +82,43 @@ export const cssNumbers = {
     paddingTransitionText: 80,
     paddingBody: 50,
     paddingTeam: 90,
-    halfHeight: '50vh',
-    threeQuartersHeight: '75vh',
-    fullHeight: '100vh',
-    oneAndHalfHeight: '150vh',
-    oneAndThreeQuartersHeight: '175vh',
-    doubleFullHeight: '200vh',
+    halfHeight: '50dvh',
+    threeQuartersHeight: '75dvh',
+    fullHeight: '100dvh',
+    oneAndHalfHeight: '150dvh',
+    oneAndThreeQuartersHeight: '175dvh',
+    doubleFullHeight: '200dvh',
     bodySectionOffsetHow: 300,
     bodySectionOffsetWhat: 1000,
-    aboutHeight: '120vh',
-    teamHeight: '185vh',
+    aboutHeight: '120dvh',
+    teamHeight: '185dvh',
     textBoxMargin: "500px",
     marginSmallLeft: '20px',
     marginSmallRight: '20px',
-    marginSmallTop: '20vh',
+    marginSmallTop: '20dvh',
     marginSmallBottom: '20px',
-    marginExtraSmallLeft: '5vh',
-    marginExtraSmallRight: '5vh',
-    marginExtraSmallTop: '5vh',
-    marginExtraSmallBottom: '5vh',
+    marginExtraSmallLeft: '5dvh',
+    marginExtraSmallRight: '5dvh',
+    marginExtraSmallTop: '5dvh',
+    marginExtraSmallBottom: '5dvh',
     paddingLeft: 10,
     paddingRight: 10,
     paddingTop: 10,
     paddingBottom: 10,
-    teamImageMaxWidth: '25vw',
-    aboutFullWidth: '100vw',
-    aboutTitleWidth: '50vw',
-    aboutContentWidth: '41vw',
+    teamImageMaxWidth: '25dvw',
+    aboutFullWidth: '100dvw',
+    aboutTitleWidth: '50dvw',
+    aboutContentWidth: '41dvw',
     aboutContentPaddingTop: 20,
     aboutContentHeight: '100',
     aboutTitleSpeed: 0.75,
     aboutContentSpeed: 1,
-    footerContactTranslateY: '-6vh',
-    footerLinkMargin: '5vw',
-    footerLinkGap: '5vw',
-    footerSocialGap: '2vw',
+    footerContactTranslateY: '-6dvh',
+    footerLinkMargin: '5dvw',
+    footerLinkGap: '5dvw',
+    footerSocialGap: '2dvw',
     footerSocialIconScale: 1.5,
     fullWidthPercent: '100%',
-    // Extra small variant
     marginBottomXs: '20px',
   },
   testing: {

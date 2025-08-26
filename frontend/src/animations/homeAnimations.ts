@@ -174,9 +174,9 @@ export const runAboutScroll = () => {
     }
   }).add("sync-point")
     .from(".about-content", {
-      y: "20vh", ease: "power2.out"
+      y: "20dvh", ease: "power2.out"
     }, "sync-point").from(".about-title", {
-      y: "20vh", ease: "power1.out"
+      y: "20dvh", ease: "power1.out"
     }, "sync-point")
 }
 
