@@ -56,6 +56,7 @@ export const TextBox = forRef<HTMLDivElement, TextBoxProps>(
           color: "black",
           textAlign: "left",
           border: cssNumbers.testing.border,
+          minWidth: 0,
           ...styleContent,
         }}
       >
