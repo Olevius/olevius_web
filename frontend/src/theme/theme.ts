@@ -93,10 +93,10 @@ export const cssNumbers = {
     aboutHeight: '120dvh',
     teamHeight: '185dvh',
     textBoxMargin: "500px",
-    marginSmallLeft: '20px',
-    marginSmallRight: '20px',
+    marginSmallLeft: '2dvw',
+    marginSmallRight: '2dvw',
     marginSmallTop: '20dvh',
-    marginSmallBottom: '20px',
+    marginSmallBottom: '2dvh',
     marginExtraSmallLeft: '5dvh',
     marginExtraSmallRight: '5dvh',
     marginExtraSmallTop: '5dvh',
@@ -119,7 +119,7 @@ export const cssNumbers = {
     footerSocialGap: '2dvw',
     footerSocialIconScale: 1.5,
     fullWidthPercent: '100%',
-    marginBottomXs: '20px',
+    marginBottomXs: '2dvh',
   },
   testing: {
     border: ""
