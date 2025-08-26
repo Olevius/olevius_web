@@ -4,8 +4,8 @@
 
 A modern, responsive, and performant website for the Olevius platform. Built with a React frontend and a Node.js/Express backend to deliver an engaging user experience and robust API services.
 
-[https://olevius-9ma1ouc28-justin-maks-projects-297821e4.vercel.app
-](https://olevius-web-git-main-justin-maks-projects-297821e4.vercel.app?_vercel_share=QpRy0wfm91bNUBLTryvwyJ2b1DJtkpKF)
+https://olevius-web.vercel.app/
+
 ---
 
 ## 🚀 Features
