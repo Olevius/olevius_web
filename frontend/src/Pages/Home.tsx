@@ -184,6 +184,12 @@ export const Home = () => {
                   classNameTitle={value.classNameTitle}
                   classNameContent={value.classNameContent}
                   style={{ marginTop }}
+                  styleContent={{
+                    fontSize: cssNumbers.layout.bodyFontSize,
+                    textAlign: "left",
+                    border: cssNumbers.testing.border,
+                    whiteSpace: "pre-line",
+                  }}
                   key={key}
                   value={value}
                 />
@@ -267,12 +273,13 @@ export const Home = () => {
               fluid-filled PDMS pouch. Pulse pressure subtly changes light
               transmission at an air-core fiber union; those waveforms are
               processed on-device and with ML to estimate systolic and diastolic
-              BP, targeting ±3 mmHg accuracy.
+              BP, targeting ±5 mmHg accuracy.
               <br />
               <br />
-              Designed for everyday wear, the band targets ≤7 mm thickness, 30 g
-              weight, ≥24 h battery life, and secure Bluetooth/NFC syncing—while
-              keeping unit cost near $25 to maximize accessibility.
+              Designed for everyday wear, the band targets ≤7 mm thickness, ≤30
+              g weight, ≥24 h battery life, and secure Bluetooth/NFC
+              syncing—while keeping unit cost under $100 to maximize
+              accessibility.
             </Text>
           </Layout>
         </Layout>
