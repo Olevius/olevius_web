@@ -17,7 +17,7 @@ export type DefaultTheme = {
   spacing: (factor: number) => string;
   typography: {
     fontFamily: string;
-    fontSize: number;
+    fontSize: string;
     fontWeightLight: number;
     fontWeightRegular: number;
     fontWeightMedium: number;
