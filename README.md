@@ -4,7 +4,7 @@
 
 A modern, responsive, and performant website for the Olevius platform. Built with a React frontend and a Node.js/Express backend to deliver an engaging user experience and robust API services.
 
-https://olevius-web.vercel.app/
+olevius.info
 ---
 
 ## 🚀 Features
