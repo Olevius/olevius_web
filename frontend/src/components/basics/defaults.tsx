@@ -256,7 +256,7 @@ export const UlContainer = forRef<HTMLUListElement, BaseProps>(
  *
  * @param {PaddingProps} props - The properties passed to the component.
  * @param {string | number} props.size - The padding size to apply to the `<div>`.
- * Can be a string (e.g., "10px") or a number (e.g., 10).
+ * Can be a string (e.g., "1rem") or a number (e.g., 1).
  * @param {string} [props.className] - Optional CSS class name(s) to apply to the `<div>`.
  * @param {React.CSSProperties} [props.style] - Optional inline styles to apply to the `<div>`.
  * @param {React.Ref<HTMLDivElement>} ref - A ref object for the `<div>` element.
