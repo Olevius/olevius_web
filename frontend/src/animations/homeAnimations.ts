@@ -92,17 +92,6 @@ export const runTransitionTextScroll = (numbers: CSSNumbers = cssNumbers) => {
       end: `+=${numbers.animation.overlapEnd}`,
       pin: true,
       scrub: numbers.animation.scrubDuration,
-      onUpdate: (self) => {
-        const scrollY = self.scroll();
-        const end = self.end;
-
-        const opacity = scrollY >= end ? 0 : 1;
-        gsap.to(".subtitle-header", {
-          opacity,
-          duration: numbers.animation.colorChangeDuration,
-          ease: numbers.animation.eases.power1Out
-        });
-      },
     },
   }).from(split.words, {
     y: numbers.animation.wordStart,
