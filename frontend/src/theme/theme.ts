@@ -1,3 +1,5 @@
+import type { CSSNumbers } from "./themeTypes";
+
 export const defaultTheme = {
   colors: {
     primary: '#1976d2',
@@ -29,7 +31,92 @@ export const defaultTheme = {
   },
 };
 
-export const cssNumbers = {
+const buildLayout = (width: number) => {
+  const base = {
+    footerFontSize: '13px',
+    teamFontSize: '15px',
+    paddingSmall: 10,
+    paddingTransitionText: 80,
+    paddingBody: 50,
+    paddingTeam: 90,
+    halfHeight: '50dvh',
+    threeQuartersHeight: '75dvh',
+    fullHeight: '100dvh',
+    oneAndHalfHeight: '150dvh',
+    oneAndThreeQuartersHeight: '175dvh',
+    doubleFullHeight: '200dvh',
+    bodySectionOffsetHow: 300,
+    bodySectionOffsetWhat: 1000,
+    aboutHeight: '120dvh',
+    teamHeight: '150dvh',
+    textBoxMargin: '500px',
+    marginSmallLeft: '20px',
+    marginSmallRight: '20px',
+    marginSmallTop: '20px',
+    marginSmallBottom: '20px',
+    marginExtraSmallLeft: '10px',
+    marginExtraSmallRight: '10px',
+    marginExtraSmallTop: '10px',
+    marginExtraSmallBottom: '10px',
+    paddingLeft: 10,
+    paddingRight: 10,
+    paddingTop: 10,
+    paddingBottom: 10,
+    aboutFullWidth: '100dvw',
+    aboutTitleWidth: '50dvw',
+    aboutContentWidth: '41dvw',
+    aboutContentPaddingTop: 20,
+    aboutContentHeight: '100',
+    aboutTitleSpeed: 0.75,
+    aboutContentSpeed: 1,
+    footerContactTranslateY: '-6dvh',
+    footerLinkMargin: '40px',
+    footerLinkGap: '40px',
+    footerSocialGap: '16px',
+    footerSocialIconScale: 1.5,
+    fullWidthPercent: '100%',
+    marginBottomXs: '20px',
+    teamImageMaxWidth: '25dvw',
+  } as const;
+
+  if (width < 600) {
+    return {
+      ...base,
+      titleFontSize: '80px',
+      mediumFontSize: '48px',
+      subtitleFontSize: '24px',
+      bodyFontSize: '16px',
+      textHeaderFontSize: '14px',
+      scrubFontSize: '3000px',
+      teamImageMaxWidth: '80dvw',
+    };
+  }
+
+  if (width < 1024) {
+    return {
+      ...base,
+      titleFontSize: '150px',
+      mediumFontSize: '80px',
+      subtitleFontSize: '40px',
+      bodyFontSize: '20px',
+      textHeaderFontSize: '16px',
+      scrubFontSize: '4000px',
+      teamImageMaxWidth: '40dvw',
+    };
+  }
+
+  return {
+    ...base,
+    titleFontSize: '200px',
+    mediumFontSize: '100px',
+    subtitleFontSize: '50px',
+    bodyFontSize: '25px',
+    textHeaderFontSize: '20px',
+    scrubFontSize: '5000px',
+  };
+};
+
+export const createCssNumbers = (width: number): CSSNumbers => ({
   animation: {
     introDuration: 1.5,
     subtitleDuration: 2,
@@ -47,11 +134,11 @@ export const cssNumbers = {
     scrubScale: 10,
     wordStart: 100,
     eases: {
-      power1Out: "power1.out",
-      power1In: "power1.in",
-      power2Out: "power2.out",
-      none: "none",
-      expoOut: "expo.out",
+      power1Out: 'power1.out',
+      power1In: 'power1.in',
+      power2Out: 'power2.out',
+      none: 'none',
+      expoOut: 'expo.out',
     },
     endMultiplier: 1.3,
     scrub: 1.5,
@@ -66,62 +153,16 @@ export const cssNumbers = {
     teamEnterXPercent: 12,
     teamEnterDuration: 1.2,
     teamStaggerEach: 0.22,
-    teamStaggerFrom: "center" as const,
+    teamStaggerFrom: 'center' as const,
     teamStaggerAmount: 0.9,
   },
-  layout: {
-    titleFontSize: '200px',
-    mediumFontSize: '100px',
-    subtitleFontSize: '50px',
-    footerFontSize: '13px',
-    teamFontSize: "15px",
-    bodyFontSize: '25px',
-    textHeaderFontSize: '20px',
-    scrubFontSize: '5000px',
-    paddingSmall: 10,
-    paddingTransitionText: 80,
-    paddingBody: 50,
-    paddingTeam: 90,
-    halfHeight: '50dvh',
-    threeQuartersHeight: '75dvh',
-    fullHeight: '100dvh',
-    oneAndHalfHeight: '150dvh',
-    oneAndThreeQuartersHeight: '175dvh',
-    doubleFullHeight: '200dvh',
-    bodySectionOffsetHow: 300,
-    bodySectionOffsetWhat: 1000,
-    aboutHeight: '120dvh',
-    teamHeight: '150dvh',
-    textBoxMargin: "500px",
-    marginSmallLeft: '2dvw',
-    marginSmallRight: '2dvw',
-    marginSmallTop: '20dvh',
-    marginSmallBottom: '2dvh',
-    marginExtraSmallLeft: '5dvh',
-    marginExtraSmallRight: '5dvh',
-    marginExtraSmallTop: '5dvh',
-    marginExtraSmallBottom: '5dvh',
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
-    teamImageMaxWidth: '25dvw',
-    aboutFullWidth: '100dvw',
-    aboutTitleWidth: '50dvw',
-    aboutContentWidth: '41dvw',
-    aboutContentPaddingTop: 20,
-    aboutContentHeight: '100',
-    aboutTitleSpeed: 0.75,
-    aboutContentSpeed: 1,
-    footerContactTranslateY: '-6dvh',
-    footerLinkMargin: '5dvw',
-    footerLinkGap: '5dvw',
-    footerSocialGap: '2dvw',
-    footerSocialIconScale: 1.5,
-    fullWidthPercent: '100%',
-    marginBottomXs: '2dvh',
-  },
+  layout: buildLayout(width),
   testing: {
-    border: ""
-  }
-};
+    border: '',
+  },
+});
+
+export const cssNumbers = createCssNumbers(
+  typeof window !== 'undefined' ? window.innerWidth : 1920
+);
+
