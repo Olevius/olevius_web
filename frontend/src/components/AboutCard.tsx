@@ -4,7 +4,7 @@ import type { AboutCardProps } from "./basics/AboutConfigTypes";
 import { forRef } from "./basics/refHelper";
 
 export const AboutCard = forRef<HTMLDivElement, AboutCardProps>(
-  ({ classNameTitle, style, key, value, ...rest }, ref) => (
+  ({ classNameTitle, style, value, ...rest }, ref) => (
     <Layout
       style={{
         display: "flex",
@@ -16,7 +16,6 @@ export const AboutCard = forRef<HTMLDivElement, AboutCardProps>(
       {...rest}
     >
       <Text
-        key={key}
         className={classNameTitle}
         style={{
           fontSize: cssNumbers.layout.footerFontSize,

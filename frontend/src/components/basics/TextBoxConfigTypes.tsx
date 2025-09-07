@@ -19,7 +19,6 @@ export type TextProps = ForwardRefExoticComponent<
 
 export interface TextBoxProps
   extends Omit<BaseProps, "children" | "className"> {
-  key?: string;
   styleTitle?: CSSProperties;
   styleContent?: CSSProperties;
   className?: string;

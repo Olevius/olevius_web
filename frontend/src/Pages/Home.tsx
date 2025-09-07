@@ -45,21 +45,34 @@ export const Home = () => {
   const imagePathList: ImageMapProps = {
     levi: {
       src: leviImg,
-      style: { maxWidth: cssNumbers.layout.teamImageMaxWidth, height: "auto" },
+      style: {
+        maxWidth: cssNumbers.layout.teamImageMaxWidth,
+        height: "auto",
+      },
     },
     jp: {
       src: jpImg,
-      style: { maxWidth: cssNumbers.layout.teamImageMaxWidth, height: "auto" },
+      style: {
+        maxWidth: cssNumbers.layout.teamImageMaxWidth,
+        height: "auto",
+      },
     },
     matthew: {
       src: matthewImg,
-      style: { maxWidth: cssNumbers.layout.teamImageMaxWidth, height: "auto" },
+      style: {
+        maxWidth: cssNumbers.layout.teamImageMaxWidth,
+        height: "auto",
+      },
     },
     andrew: {
       src: andrewImg,
-      style: { maxWidth: cssNumbers.layout.teamImageMaxWidth, height: "auto" },
+      style: {
+        maxWidth: cssNumbers.layout.teamImageMaxWidth,
+        height: "auto",
+      },
     },
   };
+
   useEffect(() => {
     document.documentElement.classList.add("cursor-hidden");
     return () => document.documentElement.classList.remove("cursor-hidden");

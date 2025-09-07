@@ -10,7 +10,6 @@ export const TextBox = forRef<HTMLDivElement, TextBoxProps>(
       classNameContent,
       className,
       style,
-      key,
       value,
       styleTitle,
       styleContent,
@@ -19,7 +18,6 @@ export const TextBox = forRef<HTMLDivElement, TextBoxProps>(
     ref
   ) => (
     <Layout
-      key={key}
       ref={ref}
       className={className}
       {...rest}
