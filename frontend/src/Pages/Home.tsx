@@ -8,7 +8,6 @@ import {
   Image,
   AnchoredImage,
 } from "../components/basics/defaults";
-import { useGSAP } from "@gsap/react";
 import leviImg from "../assets/levi.png";
 import jpImg from "../assets/jp.png";
 import matthewImg from "../assets/matthew.png";
@@ -78,19 +77,25 @@ export const Home = () => {
     return () => document.documentElement.classList.remove("cursor-hidden");
   }, []);
 
-  useGSAP(
-    () => {
-      if (typeof window === "undefined" || process.env.NODE_ENV === "test")
-        return;
-      runIntroTimeline(cssNumbers).then();
+  useEffect(() => {
+    let cancelled = false;
+    (async () => {
+      if (typeof document !== "undefined" && "fonts" in document) {
+        await (document.fonts as FontFaceSet).ready;
+      }
+      if (cancelled) return;
+      // run SplitText/ScrollTrigger timelines here AFTER fonts are ready
+      runIntroTimeline(cssNumbers);
       runHeaderScrollTimeline(cssNumbers);
       runTransitionTextScroll(cssNumbers);
       runBodyScroll(cssNumbers);
-      runAboutScroll(); // pass numbers
-      runTeamScroll(cssNumbers); // pass numbers
-    },
-    { scope: container, dependencies: [cssNumbers] }
-  );
+      runAboutScroll();
+      runTeamScroll(cssNumbers);
+    })();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   return (
     <Layout

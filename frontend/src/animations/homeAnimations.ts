@@ -5,7 +5,7 @@ import { cssNumbers } from "../theme/theme";
 import type { CSSNumbers } from "../theme/themeTypes";
 import { teamTextMap } from "../text-maps/teamMap";
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+gsap.registerPlugin(ScrollTrigger, SplitText)
 
 export const runIntroTimeline = (numbers: CSSNumbers = cssNumbers) => {
   return new Promise((resolve) => {
@@ -38,67 +38,82 @@ export const runIntroTimeline = (numbers: CSSNumbers = cssNumbers) => {
           opacity: 1,
           ease: numbers.animation.eases.power2Out,
         }
-      )
-  })
+      );
+  });
 };
 
 export const runHeaderScrollTimeline = (numbers: CSSNumbers = cssNumbers) => {
-  return gsap.timeline({
-    scrollTrigger: {
-      trigger: ".header",
-      start: "top top",
-      end: `+=${numbers.animation.scrollEnd}`,
-      pin: true,
-      scrub: numbers.animation.scrubDuration,
-    },
-  })
+  return gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: ".header",
+        start: "top top",
+        end: `+=${numbers.animation.scrollEnd}`,
+        pin: true,
+        scrub: numbers.animation.scrubDuration,
+      },
+    })
     .add("syncPoint") // 🔑 all tweens anchor here
-    .to(".title-header", {
-      fontSize: numbers.layout.scrubFontSize,
-      scale: numbers.animation.scrubScale,
-      color: "white",
-      opacity: 0,
-      ease: numbers.animation.eases.power1In,
-    }, "syncPoint")
-    .to(".subtitle-header", {
-      color: "white",
-      duration: numbers.animation.colorChangeDuration,
-      ease: numbers.animation.eases.power1Out
-    }, "sync-point")
-    .to(".header", {
-      backgroundColor: "white",
-      ease: numbers.animation.eases.power1In,
-    }, "syncPoint")
+    .to(
+      ".title-header",
+      {
+        fontSize: numbers.layout.scrubFontSize,
+        scale: numbers.animation.scrubScale,
+        color: "white",
+        opacity: 0,
+        ease: numbers.animation.eases.power1In,
+      },
+      "syncPoint"
+    )
+    .to(
+      ".subtitle-header",
+      {
+        color: "white",
+        duration: numbers.animation.colorChangeDuration,
+        ease: numbers.animation.eases.power1Out,
+      },
+      "sync-point"
+    )
+    .to(
+      ".header",
+      {
+        backgroundColor: "white",
+        ease: numbers.animation.eases.power1In,
+      },
+      "syncPoint"
+    )
     .to(".body-title-box", {
       backgroundColor: "white",
       ease: numbers.animation.eases.power1In,
-    }).to(".body", {
+    })
+    .to(".body", {
       backgroundColor: "white",
       ease: numbers.animation.eases.power1In,
     });
-
 };
 
 export const runTransitionTextScroll = (numbers: CSSNumbers = cssNumbers) => {
   const split = SplitText.create(".body-text", {
     type: "chars, words, lines",
-    charsClass: "char"
+    charsClass: "char",
   });
 
-  return gsap.timeline({
-    scrollTrigger: {
-      trigger: ".body-title-box",
-      start: "center center",
-      end: `+=${numbers.animation.overlapEnd}`,
-      pin: true,
-      scrub: numbers.animation.scrubDuration,
-    },
-  }).from(split.words, {
-    y: numbers.animation.wordStart,
-    autoAlpha: 0,
-    duration: numbers.animation.bodyHeaderDuration,
-    stagger: numbers.animation.wordStagger,
-  })
+  return gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: ".body-title-box",
+        start: "center center",
+        end: `+=${numbers.animation.overlapEnd}`,
+        pin: true,
+        scrub: numbers.animation.scrubDuration,
+      },
+    })
+    .from(split.words, {
+      y: numbers.animation.wordStart,
+      autoAlpha: 0,
+      duration: numbers.animation.bodyHeaderDuration,
+      stagger: numbers.animation.wordStagger,
+    });
 };
 
 export const createSplitScroll = (
@@ -125,7 +140,6 @@ export const createSplitScroll = (
 };
 
 export const runBodyScroll = (numbers: CSSNumbers = cssNumbers) => {
-
   const sections = [
     { title: ".why-title", content: ".why-content", offset: 0 },
     {
@@ -148,20 +162,31 @@ export const runBodyScroll = (numbers: CSSNumbers = cssNumbers) => {
 
 export const runAboutScroll = () => {
   // create the scrollSmoother before your scrollTriggers
-  return gsap.timeline({
-    scrollTrigger: {
-      trigger: ".about",
-      start: "top center",
-      end: `bottom top`,
-      scrub: true,
-    }
-  }).add("sync-point")
-    .from(".about-content", {
-      y: "20dvh", ease: "power2.out"
-    }, "sync-point").from(".about-title", {
-      y: "20dvh", ease: "power1.out"
-    }, "sync-point")
-}
+  return gsap
+    .timeline({
+      scrollTrigger: {
+        trigger: ".about",
+        start: "top center",
+        end: `bottom top`,
+        scrub: true,
+      },
+    })
+    .add("sync-point")
+    .from(
+      ".about-content",
+      {
+        y: "30dvh",
+      },
+      "sync-point"
+    )
+    .from(
+      ".about-title",
+      {
+        y: "30dvh",
+      },
+      "sync-point"
+    );
+};
 
 export const runTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
   const A = numbers.animation;
@@ -172,7 +197,9 @@ export const runTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
       trigger: ".team",
       start: "top top",
       end: () => {
-        const el = document.querySelector(".image-wrapper") as HTMLElement | null;
+        const el = document.querySelector(
+          ".image-wrapper"
+        ) as HTMLElement | null;
         const h = el?.getBoundingClientRect().height ?? 0;
         return "+=" + h * A.endMultiplier;
       },
@@ -180,18 +207,28 @@ export const runTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
       pinSpacing: false,
       scrub: A.scrub,
       invalidateOnRefresh: true,
-    }
+    },
   });
 
   tl.add("start")
     .to(".scroll-rect1", { y: 0, duration: A.scrollRectDuration }, "start")
-    .to(".images", { opacity: A.imagesOpacity, duration: A.imagesFadeDuration }, `start+=${A.imagesFadeOffset}`)
+    .to(
+      ".images",
+      { opacity: A.imagesOpacity, duration: A.imagesFadeDuration },
+      `start+=${A.imagesFadeOffset}`
+    )
     .add("sync-point", `+=${A.syncPointOffset}`)
-    .to(".team-title", { autoAlpha: 0, duration: A.titleFadeDuration }, "sync-point")
+    .to(
+      ".team-title",
+      { autoAlpha: 0, duration: A.titleFadeDuration },
+      "sync-point"
+    )
     .add("bios", `>-=${A.biosOverlapBack}`);
 
   const teamEls = gsap.utils.toArray<HTMLElement>(
-    Object.values(teamTextMap).map(v => `.${v.className}`).join(", ")
+    Object.values(teamTextMap)
+      .map((v) => `.${v.className}`)
+      .join(", ")
   );
 
   tl.fromTo(
@@ -202,14 +239,20 @@ export const runTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
       autoAlpha: 1,
       duration: A.teamEnterDuration,
       ease: A.eases.none ?? "none",
-      stagger: { each: A.teamStaggerEach, from: A.teamStaggerFrom, amount: A.teamStaggerAmount, grid: "auto" },
+      stagger: {
+        each: A.teamStaggerEach,
+        from: A.teamStaggerFrom,
+        amount: A.teamStaggerAmount,
+        grid: "auto",
+      },
     },
     `bios+=${A.biosDelay}`
   );
 
   // ensure refresh after load (first view in prod)
-  window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
+  window.addEventListener("load", () => ScrollTrigger.refresh(), {
+    once: true,
+  });
 
   return tl;
 };
-

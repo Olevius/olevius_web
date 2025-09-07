@@ -1,5 +1,7 @@
 @font-face {
-  font-family: 'Satoshi', sans-serif;
+  font-family: 'Satoshi';
+  src: url('/path-to-fonts/Satoshi.woff2') format('woff2'),
+       url('/path-to-fonts/Satoshi.woff') format('woff');
 }
 
 #root {
