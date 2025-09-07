@@ -91,7 +91,7 @@ export const cssNumbers = {
     bodySectionOffsetHow: 300,
     bodySectionOffsetWhat: 1000,
     aboutHeight: '120dvh',
-    teamHeight: '125dvh',
+    teamHeight: '130dvh',
     textBoxMargin: "500px",
     marginSmallLeft: '2dvw',
     marginSmallRight: '2dvw',
