@@ -50,17 +50,6 @@ export const runHeaderScrollTimeline = (numbers: CSSNumbers = cssNumbers) => {
       end: `+=${numbers.animation.scrollEnd}`,
       pin: true,
       scrub: numbers.animation.scrubDuration,
-      onUpdate: (self) => {
-        const scrollY = self.scroll();
-        const end = self.end;
-
-        const color = scrollY >= end ? "white" : "black";
-        gsap.to(".subtitle-header", {
-          color,
-          duration: numbers.animation.colorChangeDuration,
-          ease: numbers.animation.eases.power1Out
-        });
-      },
     },
   })
     .add("syncPoint") // 🔑 all tweens anchor here
@@ -71,6 +60,11 @@ export const runHeaderScrollTimeline = (numbers: CSSNumbers = cssNumbers) => {
       opacity: 0,
       ease: numbers.animation.eases.power1In,
     }, "syncPoint")
+    .to(".subtitle-header", {
+      color: "white",
+      duration: numbers.animation.colorChangeDuration,
+      ease: numbers.animation.eases.power1Out
+    }, "sync-point")
     .to(".header", {
       backgroundColor: "white",
       ease: numbers.animation.eases.power1In,
