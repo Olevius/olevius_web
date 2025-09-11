@@ -27,6 +27,22 @@ export const defaultTheme = {
     h4: { fontSize: '1.5rem', fontWeight: 100 },
     h5: { fontSize: '1.25rem', fontWeight: 100 },
   },
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 480,
+      md: 768,
+      lg: 1024,
+      xl: 1440,
+    },
+  },
+  media: {
+    xs: `@media (max-width: 480px)`,
+    sm: `@media (min-width: 481px) and (max-width: 768px)`,
+    md: `@media (min-width: 769px) and (max-width: 1024px)`,
+    lg: `@media (min-width: 1025px) and (max-width: 1440px)`,
+    xl: `@media (min-width: 1441px)`,
+  },
 };
 
 export const cssNumbers = {
@@ -40,7 +56,13 @@ export const cssNumbers = {
     sectionScrollSpan: 200,
     hideDuration: 3,
     colorChangeDuration: 0.2,
-    titleStartX: "46.875rem",
+    titleStartX: {
+      xs: "46.875rem",
+      sm: "46.875rem",
+      m: "46.875rem",
+      l: "46.875rem",
+      xl: "46.875rem"
+    },
     navStartY: "-4.375rem",
     scrollEnd: 1000,
     overlapEnd: 1500,

@@ -1,3 +1,11 @@
+export type MediaQuery = {
+  xs: string;
+  sm: string;
+  m: string;
+  l: string;
+  xl: string;
+};
+
 export type DefaultTheme = {
   colors: {
     primary: string;
