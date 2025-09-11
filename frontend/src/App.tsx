@@ -4,12 +4,12 @@ import { Home } from "./Pages/Home";
 import { useEffect } from "react";
 import { Analytics } from "@vercel/analytics/react";
 
-function ExternalRedirect({ to }: { to: string }) {
+export const ExternalRedirect = ({ to }: { to: string }) => {
   useEffect(() => {
     window.location.replace(to); // replaces history entry
   }, [to]);
   return null;
-}
+};
 
 export const App = () => {
   return (

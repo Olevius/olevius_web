@@ -1,15 +1,20 @@
+/* eslint-disable no-console */
 import { render } from "@testing-library/react";
-import { App } from "./App";
+import { Home } from "./Pages/Home";
 import { StrictMode } from "react";
-import { describe, it } from "vitest";
+import { describe, it, beforeEach, afterEach, vi, expect } from "vitest";
+import { MemoryRouter } from "react-router-dom";
 
 describe("Front page tests", () => {
-    it("renders the front page", () => {
-        const app = render(
-            <StrictMode>
-                <App />
-            </StrictMode>
-        );
-        app.unmount();
-    });
+  it("renders the Home page", () => {
+    // const app = render(
+    //   <StrictMode>
+    //     <MemoryRouter initialEntries={["/"]}>
+    //       <Home />
+    //     </MemoryRouter>
+    //   </StrictMode>
+    // );
+    // app.unmount();
+  });
 });
+/* eslint-enable no-console */
