@@ -17,7 +17,7 @@ export const defaultTheme = {
   spacing: (factor: number) => `${factor * 8}px`,
   typography: {
     fontFamily: '"Roboto Thin", "Roboto", "Helvetica", "Arial", sans-serif',
-    fontSize: 16,
+    fontSize: "1rem",
     fontWeightLight: 100,
     fontWeightRegular: 300,
     fontWeightMedium: 400,
@@ -40,8 +40,8 @@ export const cssNumbers = {
     sectionScrollSpan: 200,
     hideDuration: 3,
     colorChangeDuration: 0.2,
-    titleStartX: 750,
-    navStartY: -70,
+    titleStartX: "46.875rem",
+    navStartY: "-4.375rem",
     scrollEnd: 1000,
     overlapEnd: 1500,
     scrubScale: 10,
@@ -70,18 +70,18 @@ export const cssNumbers = {
     teamStaggerAmount: 0.9,
   },
   layout: {
-    titleFontSize: '200px',
-    mediumFontSize: '100px',
-    subtitleFontSize: '50px',
-    footerFontSize: '13px',
-    teamFontSize: "15px",
-    bodyFontSize: '25px',
-    textHeaderFontSize: '20px',
-    scrubFontSize: '5000px',
-    paddingSmall: 10,
-    paddingTransitionText: 80,
-    paddingBody: 50,
-    paddingTeam: 90,
+    titleFontSize: "12.5rem",        // 200px ÷ 16
+    mediumFontSize: "6.25rem",       // 100px ÷ 16
+    subtitleFontSize: "3.125rem",    // 50px ÷ 16
+    footerFontSize: "0.8125rem",     // 13px ÷ 16
+    teamFontSize: "0.9375rem",       // 15px ÷ 16
+    bodyFontSize: "1.5625rem",       // 25px ÷ 16
+    textHeaderFontSize: "1.25rem",   // 20px ÷ 16
+    scrubFontSize: "312.5rem",       // 5000px ÷ 16
+    paddingSmall: "0.625rem",          // 10px ÷ 16
+    paddingTransitionText: "5rem",     // 80px ÷ 16
+    paddingBody: "3.125rem",           // 50px ÷ 16
+    paddingTeam: "5.625rem",           // 90px ÷ 16
     halfHeight: '50dvh',
     threeQuartersHeight: '75dvh',
     fullHeight: '100dvh',
@@ -90,7 +90,7 @@ export const cssNumbers = {
     doubleFullHeight: '200dvh',
     bodySectionOffsetHow: 300,
     bodySectionOffsetWhat: 1000,
-    aboutHeight: '120dvh',
+    aboutHeight: '130dvh',
     teamHeight: '150dvh',
     textBoxMargin: "500px",
     marginSmallLeft: '2dvw',
@@ -101,15 +101,15 @@ export const cssNumbers = {
     marginExtraSmallRight: '5dvh',
     marginExtraSmallTop: '5dvh',
     marginExtraSmallBottom: '5dvh',
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
+    paddingLeft: "0.625rem",   // 10px ÷ 16
+    paddingRight: "0.625rem",
+    paddingTop: "0.625rem",
+    paddingBottom: "0.625rem",
     teamImageMaxWidth: '25dvw',
     aboutFullWidth: '100dvw',
     aboutTitleWidth: '50dvw',
     aboutContentWidth: '41dvw',
-    aboutContentPaddingTop: 20,
+    aboutContentPaddingTop: "2dvh",
     aboutContentHeight: '100',
     aboutTitleSpeed: 0.75,
     aboutContentSpeed: 1,

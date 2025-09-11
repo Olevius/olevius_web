@@ -236,15 +236,15 @@ export const Home = () => {
             width: cssNumbers.layout.aboutFullWidth,
             padding: cssNumbers.layout.paddingBody,
             border: cssNumbers.testing.border,
+            gap: "5vw",
+            paddingBlockStart: cssNumbers.layout.paddingBody, // 👈 top spacing applied once
+            alignItems: "flex-start",
           }}
         >
           <Layout
             style={{
-              overflow: "hidden",
               display: "flex",
               width: cssNumbers.layout.aboutTitleWidth,
-              paddingRight: cssNumbers.layout.paddingRight,
-              justifyContent: "flex-start",
               border: cssNumbers.testing.border,
             }}
           >
@@ -254,17 +254,18 @@ export const Home = () => {
               style={{
                 fontSize: cssNumbers.layout.mediumFontSize,
                 textAlign: "left",
+                zIndex: 100,
                 border: cssNumbers.testing.border,
               }}
             >
               About Olevius
             </Text>
           </Layout>
+
           <Layout
             style={{
-              overflow: "hidden",
               display: "flex",
-              paddingTop: cssNumbers.layout.aboutContentPaddingTop,
+              // ❌ remove paddingTop; parent handles it
               height: cssNumbers.layout.aboutContentHeight,
               width: cssNumbers.layout.aboutContentWidth,
               justifyContent: "flex-start",
@@ -278,26 +279,22 @@ export const Home = () => {
                 fontSize: cssNumbers.layout.bodyFontSize,
                 textAlign: "left",
                 border: cssNumbers.testing.border,
+                paddingRight: cssNumbers.layout.paddingBody,
               }}
             >
               Olevius is a wearable health-tech initiative focused on
               continuous, cuff-free blood pressure monitoring. Hypertension
               affects ~1.39 billion people, yet current options force a
               trade-off: bulky, intermittent cuffs vs. smartwatch PTT methods
-              that require frequent recalibration and lack clinical accuracy.
-              <br />
-              <br />
-              Our approach uses a compact optical-fiber sensor inside a
-              fluid-filled PDMS pouch. Pulse pressure subtly changes light
-              transmission at an air-core fiber union; those waveforms are
+              that require frequent recalibration and lack clinical accuracy.{" "}
+              <br /> <br /> Our approach uses a compact optical-fiber sensor
+              inside a fluid-filled PDMS pouch. Pulse pressure subtly changes
+              light transmission at an air-core fiber union; those waveforms are
               processed on-device and with ML to estimate systolic and diastolic
-              BP, targeting ±5 mmHg accuracy.
-              <br />
-              <br />
-              Designed for everyday wear, the band targets ≤7 mm thickness, ≤30
-              g weight, ≥24 h battery life, and secure Bluetooth/NFC
-              syncing—while keeping unit cost under $100 to maximize
-              accessibility.
+              BP, targeting ±5 mmHg accuracy. <br /> <br /> Designed for
+              everyday wear, the band targets ≤7 mm thickness, ≤30 g weight, ≥24
+              h battery life, and secure Bluetooth/NFC syncing—while keeping
+              unit cost under $100 to maximize accessibility.
             </Text>
           </Layout>
         </Layout>

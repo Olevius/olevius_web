@@ -40,12 +40,12 @@ export type CSSNumbers = {
     sectionScrollSpan: number;
     hideDuration: number;
     colorChangeDuration: number;
-    titleStartX: number;
-    navStartY: number;
-    scrollEnd: number;
-    overlapEnd: number;
-    scrubScale: number;
-    wordStart: number;
+    titleStartX: string | number;
+    navStartY: string | number;
+    scrollEnd: string | number;
+    overlapEnd: string | number;
+    scrubScale: string | number;
+    wordStart: string | number;
     eases: {
       power1Out: string;
       power1In: string;
@@ -63,26 +63,26 @@ export type CSSNumbers = {
     titleFadeDuration: number;
     biosOverlapBack: number;
     biosDelay: number;
-    teamEnterXPercent: number;
-    teamEnterDuration: number;
-    teamStaggerEach: number;
+    teamEnterXPercent: string | number;
+    teamEnterDuration: string | number;
+    teamStaggerEach: string | number;
     teamStaggerFrom: "start" | "center" | "edges" | number;
-    teamStaggerAmount: number;
+    teamStaggerAmount: string | number;
   };
   layout: {
     titleFontSize: string;
-    mediumFontSize: string;
+    mediumFontSize: string | number;
     subtitleFontSize: string;
     bodyFontSize: string;
     textHeaderFontSize: string;
     scrubFontSize: string;
 
-    paddingSmall: number;
-    paddingBody: number;
-    paddingLeft: number;
-    paddingRight: number;
-    paddingTop: number;
-    paddingBottom: number;
+    paddingSmall: number | string;
+    paddingBody: number | string;
+    paddingLeft: number | string;
+    paddingRight: number | string;
+    paddingTop: number | string;
+    paddingBottom: number | string;
 
     fullHeight: string;
     doubleFullHeight: string;
@@ -106,7 +106,7 @@ export type CSSNumbers = {
     aboutFullWidth: string;
     aboutTitleWidth: string;
     aboutContentWidth: string;
-    aboutContentPaddingTop: number;
+    aboutContentPaddingTop: number | string;
     aboutContentHeight: string;
     aboutTitleSpeed: number;
     aboutContentSpeed: number;
