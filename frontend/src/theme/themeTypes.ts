@@ -48,12 +48,12 @@ export type CSSNumbers = {
     sectionScrollSpan: number;
     hideDuration: number;
     colorChangeDuration: number;
-    titleStartX: string | number;
-    navStartY: string | number;
-    scrollEnd: string | number;
-    overlapEnd: string | number;
-    scrubScale: string | number;
-    wordStart: string | number;
+    titleStartX: MediaQuery;
+    navStartY: MediaQuery;
+    scrollEnd: MediaQuery;
+    overlapEnd: MediaQuery;
+    scrubScale: MediaQuery;
+    wordStart: MediaQuery;
     eases: {
       power1Out: string;
       power1In: string;
@@ -71,11 +71,11 @@ export type CSSNumbers = {
     titleFadeDuration: number;
     biosOverlapBack: number;
     biosDelay: number;
-    teamEnterXPercent: string | number;
-    teamEnterDuration: string | number;
-    teamStaggerEach: string | number;
+    teamEnterXPercent: MediaQuery;
+    teamEnterDuration: MediaQuery;
+    teamStaggerEach: MediaQuery;
     teamStaggerFrom: "start" | "center" | "edges" | number;
-    teamStaggerAmount: string | number;
+    teamStaggerAmount: MediaQuery;
   };
   layout: {
     titleFontSize: string;
@@ -85,48 +85,48 @@ export type CSSNumbers = {
     textHeaderFontSize: string;
     scrubFontSize: string;
 
-    paddingSmall: number | string;
-    paddingBody: number | string;
-    paddingLeft: number | string;
-    paddingRight: number | string;
-    paddingTop: number | string;
-    paddingBottom: number | string;
+    paddingSmall: MediaQuery;
+    paddingBody: MediaQuery;
+    paddingLeft: MediaQuery;
+    paddingRight: MediaQuery;
+    paddingTop: MediaQuery;
+    paddingBottom: MediaQuery;
 
-    fullHeight: string;
-    doubleFullHeight: string;
-    aboutHeight: string;
+    fullHeight: MediaQuery;
+    doubleFullHeight: MediaQuery;
+    aboutHeight: MediaQuery;
 
     bodySectionOffsetHow: number;
     bodySectionOffsetWhat: number;
 
-    textBoxMargin: string;
+    textBoxMargin: MediaQuery;
 
-    marginSmallLeft: string;
-    marginSmallRight: string;
-    marginSmallTop: string;
-    marginSmallBottom: string;
+    marginSmallLeft: MediaQuery;
+    marginSmallRight: MediaQuery;
+    marginSmallTop: MediaQuery;
+    marginSmallBottom: MediaQuery;
 
-    marginExtraSmallLeft: string;
-    marginExtraSmallRight: string;
-    marginExtraSmallTop: string;
-    marginExtraSmallBottom: string;
-    teamImageMaxWidth: string;
-    aboutFullWidth: string;
-    aboutTitleWidth: string;
-    aboutContentWidth: string;
-    aboutContentPaddingTop: number | string;
-    aboutContentHeight: string;
+    marginExtraSmallLeft: MediaQuery;
+    marginExtraSmallRight: MediaQuery;
+    marginExtraSmallTop: MediaQuery;
+    marginExtraSmallBottom: MediaQuery;
+    teamImageMaxWidth: MediaQuery;
+    aboutFullWidth: MediaQuery;
+    aboutTitleWidth: MediaQuery;
+    aboutContentWidth: MediaQuery;
+    aboutContentPaddingTop: MediaQuery;
+    aboutContentHeight: MediaQuery;
     aboutTitleSpeed: number;
     aboutContentSpeed: number;
-    footerContactTranslateY: string;
-    footerLinkMargin: string;
-    footerLinkGap: string;
-    footerSocialGap: string;
+    footerContactTranslateY: MediaQuery;
+    footerLinkMargin: MediaQuery;
+    footerLinkGap: MediaQuery;
+    footerSocialGap: MediaQuery;
     footerSocialIconScale: number;
-    fullWidthPercent: string;
+    fullWidthPercent: MediaQuery;
 
     // Extra small variant
-    marginBottomXs: string;
+    marginBottomXs: MediaQuery;
   };
   testing: {
     border: string;
