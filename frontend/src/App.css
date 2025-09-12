@@ -38,6 +38,90 @@
   }
 }
 
+/* escalate as width grows — later rules override */
+@media (min-width: 640px) {
+  .scroll-rect1 { --team-h: var(--layout-teamHeight-s); }
+}
+@media (min-width: 900px) {
+  .scroll-rect1 { --team-h: var(--layout-teamHeight-m); }
+}
+@media (min-width: 1024px) {
+  .scroll-rect1 { --team-h: var(--layout-teamHeight-l); }
+}
+
+/* Header Section */
+@media (min-width: 640px) {
+  .title-header { font-size: var(--layout-titleFontSize-s); }
+  .subtitle-header { font-size: var(--layout-subtitleFontSize-s); }
+}
+
+@media (min-width: 900px) {
+  .title-header { font-size: var(--layout-titleFontSize-m); }
+  .subtitle-header { font-size: var(--layout-subtitleFontSize-m); }
+}
+
+/* Body Section */
+@media (min-width: 640px) {
+  .body { padding: var(--layout-paddingBody-s); }
+  .body-text { font-size: var(--layout-bodyFontSize-s); }
+  .text-box-title { font-size: var(--layout-mediumFontSize-s); }
+}
+
+@media (min-width: 900px) {
+  .body { padding: var(--layout-paddingBody-m); }
+  .body-text { font-size: var(--layout-bodyFontSize-m); }
+  .text-box-title { font-size: var(--layout-mediumFontSize-m); }
+}
+
+/* About Section */
+@media (min-width: 640px) {
+  .about { height: var(--layout-aboutHeight-s); }
+  .about-content { 
+    width: var(--layout-aboutContentWidth-s);
+    height: var(--layout-aboutContentHeight-s);
+  }
+  .about-title { width: var(--layout-aboutTitleWidth-s); }
+}
+
+@media (min-width: 900px) {
+  .about { height: var(--layout-aboutHeight-m); }
+  .about-content { 
+    width: var(--layout-aboutContentWidth-m);
+    height: var(--layout-aboutContentHeight-m);
+  }
+  .about-title { width: var(--layout-aboutTitleWidth-m); }
+}
+
+/* Team Section */
+@media (min-width: 640px) {
+  .team { height: var(--layout-teamHeight-s); }
+  .images { max-width: var(--layout-teamImageMaxWidth-s); }
+  .team-title { font-size: var(--layout-mediumFontSize-s); }
+}
+
+@media (min-width: 900px) {
+  .team { height: var(--layout-teamHeight-m); }
+  .images { max-width: var(--layout-teamImageMaxWidth-m); }
+  .team-title { font-size: var(--layout-mediumFontSize-m); }
+}
+
+/* Footer Section */
+@media (min-width: 640px) {
+  .footer { 
+    gap: var(--layout-footerLinkGap-s);
+    margin: var(--layout-footerLinkMargin-s);
+  }
+}
+
+@media (min-width: 900px) {
+  .footer { 
+    gap: var(--layout-footerLinkGap-m);
+    margin: var(--layout-footerLinkMargin-m);
+  }
+}
+
+
+
 .card {
   padding: 2em;
 }

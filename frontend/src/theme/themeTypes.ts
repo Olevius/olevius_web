@@ -95,6 +95,7 @@ export type CSSNumbers = {
     fullHeight: MediaQuery;
     doubleFullHeight: MediaQuery;
     aboutHeight: MediaQuery;
+    teamHeight: MediaQuery;
 
     bodySectionOffsetHow: number;
     bodySectionOffsetWhat: number;

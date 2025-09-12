@@ -98,7 +98,7 @@ export const GridLayout = forRef<HTMLDivElement, GridLayoutProps>(
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: cssNumbers.layout.fullHeight,
+        height: cssNumbers.layout.fullHeight.m,
         ...style,
       }}
       {...rest}

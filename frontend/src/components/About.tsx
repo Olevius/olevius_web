@@ -21,7 +21,7 @@ export const About = React.forwardRef<HTMLDivElement, BaseProps>(
       className={className}
       style={{
         display: "flex",
-        height: cssNumbers.layout.aboutHeight, // renamed to aboutHeight
+        height: cssNumbers.layout.aboutHeight.m, // renamed to aboutHeight
         background: "white",
         ...style,
       }}

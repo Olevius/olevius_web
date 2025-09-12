@@ -22,7 +22,7 @@ export const Header = forRef<HTMLHeadElement, BaseProps>(
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: cssNumbers.layout.fullHeight,
+        height: cssNumbers.layout.fullHeight.m,
         ...style,
       }}
       {...rest}

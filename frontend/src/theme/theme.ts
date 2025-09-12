@@ -27,22 +27,6 @@ export const defaultTheme = {
     h4: { fontSize: '1.5rem', fontWeight: 100 },
     h5: { fontSize: '1.25rem', fontWeight: 100 },
   },
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 480,
-      md: 768,
-      lg: 1024,
-      xl: 1440,
-    },
-  },
-  media: {
-    xs: `@media (max-width: 480px)`,
-    sm: `@media (min-width: 481px) and (max-width: 768px)`,
-    md: `@media (min-width: 769px) and (max-width: 1024px)`,
-    lg: `@media (min-width: 1025px) and (max-width: 1440px)`,
-    xl: `@media (min-width: 1441px)`,
-  },
 };
 
 export const cssNumbers = {
@@ -56,18 +40,51 @@ export const cssNumbers = {
     sectionScrollSpan: 200,
     hideDuration: 3,
     colorChangeDuration: 0.2,
+
+    // MediaQuery fields
     titleStartX: {
       xs: "46.875rem",
       sm: "46.875rem",
       m: "46.875rem",
       l: "46.875rem",
-      xl: "46.875rem"
+      xl: "46.875rem",
     },
-    navStartY: "-4.375rem",
-    scrollEnd: 1000,
-    overlapEnd: 1500,
-    scrubScale: 10,
-    wordStart: 100,
+    navStartY: {
+      xs: "-4.375rem",
+      sm: "-4.375rem",
+      m: "-4.375rem",
+      l: "-4.375rem",
+      xl: "-4.375rem",
+    },
+    scrollEnd: {
+      xs: "1000",
+      sm: "1000",
+      m: "1000",
+      l: "1000",
+      xl: "1000",
+    },
+    overlapEnd: {
+      xs: "1500",
+      sm: "1500",
+      m: "1500",
+      l: "1500",
+      xl: "1500",
+    },
+    scrubScale: {
+      xs: "10",
+      sm: "10",
+      m: "10",
+      l: "10",
+      xl: "10",
+    },
+    wordStart: {
+      xs: "100",
+      sm: "100",
+      m: "100",
+      l: "100",
+      xl: "100",
+    },
+
     eases: {
       power1Out: "power1.out",
       power1In: "power1.in",
@@ -85,65 +102,298 @@ export const cssNumbers = {
     titleFadeDuration: 0.8,
     biosOverlapBack: 0.1,
     biosDelay: 0.25,
-    teamEnterXPercent: 12,
-    teamEnterDuration: 1.2,
-    teamStaggerEach: 0.22,
+
+    // MediaQuery fields
+    teamEnterXPercent: {
+      xs: "12",
+      sm: "12",
+      m: "12",
+      l: "12",
+      xl: "12",
+    },
+    teamEnterDuration: {
+      xs: "1.2",
+      sm: "1.2",
+      m: "1.2",
+      l: "1.2",
+      xl: "1.2",
+    },
+    teamStaggerEach: {
+      xs: "0.22",
+      sm: "0.22",
+      m: "0.22",
+      l: "0.22",
+      xl: "0.22",
+    },
     teamStaggerFrom: "center" as const,
-    teamStaggerAmount: 0.9,
+    teamStaggerAmount: {
+      xs: "0.9",
+      sm: "0.9",
+      m: "0.9",
+      l: "0.9",
+      xl: "0.9",
+    },
   },
+
   layout: {
-    titleFontSize: "12.5rem",        // 200px ÷ 16
-    mediumFontSize: "6.25rem",       // 100px ÷ 16
-    subtitleFontSize: "3.125rem",    // 50px ÷ 16
-    footerFontSize: "0.8125rem",     // 13px ÷ 16
-    teamFontSize: "0.9375rem",       // 15px ÷ 16
-    bodyFontSize: "1.5625rem",       // 25px ÷ 16
-    textHeaderFontSize: "1.25rem",   // 20px ÷ 16
-    scrubFontSize: "312.5rem",       // 5000px ÷ 16
-    paddingSmall: "0.625rem",          // 10px ÷ 16
-    paddingTransitionText: "5rem",     // 80px ÷ 16
-    paddingBody: "3.125rem",           // 50px ÷ 16
-    paddingTeam: "5.625rem",           // 90px ÷ 16
-    halfHeight: '50dvh',
-    threeQuartersHeight: '75dvh',
-    fullHeight: '100dvh',
-    oneAndHalfHeight: '150dvh',
-    oneAndThreeQuartersHeight: '175dvh',
-    doubleFullHeight: '200dvh',
+    titleFontSize: "12.5rem",
+    mediumFontSize: "6.25rem",
+    subtitleFontSize: "3.125rem",
+    footerFontSize: "0.8125rem",
+    teamFontSize: "0.9375rem",
+    bodyFontSize: "1.5625rem",
+    textHeaderFontSize: "1.25rem",
+    scrubFontSize: "312.5rem",
+
+    // MediaQuery fields
+    paddingSmall: {
+      xs: "0.625rem",
+      sm: "0.625rem",
+      m: "0.625rem",
+      l: "0.625rem",
+      xl: "0.625rem",
+    },
+    paddingBody: {
+      xs: "3.125rem",
+      sm: "3.125rem",
+      m: "3.125rem",
+      l: "3.125rem",
+      xl: "3.125rem",
+    },
+
+    // not typed as MediaQuery in your types; keeping as-is
+    paddingTransitionText: "5rem",
+    paddingTeam: "5.625rem",
+
+    // not MediaQuery in your types (half/threeQuarters), keep as-is
+    halfHeight: "50dvh",
+    threeQuartersHeight: "75dvh",
+
+    // MediaQuery fields
+    fullHeight: {
+      xs: "100dvh",
+      sm: "100dvh",
+      m: "100dvh",
+      l: "100dvh",
+      xl: "100dvh",
+    },
+    doubleFullHeight: {
+      xs: "200dvh",
+      sm: "200dvh",
+      m: "200dvh",
+      l: "200dvh",
+      xl: "200dvh",
+    },
+    aboutHeight: {
+      xs: "130dvh",
+      sm: "130dvh",
+      m: "130dvh",
+      l: "130dvh",
+      xl: "130dvh",
+    },
+    teamHeight: {
+      xs: "130dvh",
+      sm: "50dvh",
+      m: "200dvh",
+      l: "10dvh",
+      xl: "50dvh",
+    },
+
     bodySectionOffsetHow: 300,
     bodySectionOffsetWhat: 1000,
-    aboutHeight: '130dvh',
-    teamHeight: '150dvh',
-    textBoxMargin: "500px",
-    marginSmallLeft: '2dvw',
-    marginSmallRight: '2dvw',
-    marginSmallTop: '20dvh',
-    marginSmallBottom: '2dvh',
-    marginExtraSmallLeft: '5dvh',
-    marginExtraSmallRight: '5dvh',
-    marginExtraSmallTop: '5dvh',
-    marginExtraSmallBottom: '5dvh',
-    paddingLeft: "0.625rem",   // 10px ÷ 16
-    paddingRight: "0.625rem",
-    paddingTop: "0.625rem",
-    paddingBottom: "0.625rem",
-    teamImageMaxWidth: '25dvw',
-    aboutFullWidth: '100dvw',
-    aboutTitleWidth: '50dvw',
-    aboutContentWidth: '41dvw',
-    aboutContentPaddingTop: "2dvh",
-    aboutContentHeight: '100',
+
+    // MediaQuery fields
+    textBoxMargin: {
+      xs: "500px",
+      sm: "500px",
+      m: "500px",
+      l: "500px",
+      xl: "500px",
+    },
+
+    marginSmallLeft: {
+      xs: "2dvw",
+      sm: "2dvw",
+      m: "2dvw",
+      l: "2dvw",
+      xl: "2dvw",
+    },
+    marginSmallRight: {
+      xs: "2dvw",
+      sm: "2dvw",
+      m: "2dvw",
+      l: "2dvw",
+      xl: "2dvw",
+    },
+    marginSmallTop: {
+      xs: "20dvh",
+      sm: "20dvh",
+      m: "20dvh",
+      l: "20dvh",
+      xl: "20dvh",
+    },
+    marginSmallBottom: {
+      xs: "2dvh",
+      sm: "2dvh",
+      m: "2dvh",
+      l: "2dvh",
+      xl: "2dvh",
+    },
+
+    marginExtraSmallLeft: {
+      xs: "5dvh",
+      sm: "5dvh",
+      m: "5dvh",
+      l: "5dvh",
+      xl: "5dvh",
+    },
+    marginExtraSmallRight: {
+      xs: "5dvh",
+      sm: "5dvh",
+      m: "5dvh",
+      l: "5dvh",
+      xl: "5dvh",
+    },
+    marginExtraSmallTop: {
+      xs: "5dvh",
+      sm: "5dvh",
+      m: "5dvh",
+      l: "5dvh",
+      xl: "5dvh",
+    },
+    marginExtraSmallBottom: {
+      xs: "5dvh",
+      sm: "5dvh",
+      m: "5dvh",
+      l: "5dvh",
+      xl: "5dvh",
+    },
+
+    paddingLeft: {
+      xs: "0.625rem",
+      sm: "0.625rem",
+      m: "0.625rem",
+      l: "0.625rem",
+      xl: "0.625rem",
+    },
+    paddingRight: {
+      xs: "0.625rem",
+      sm: "0.625rem",
+      m: "0.625rem",
+      l: "0.625rem",
+      xl: "0.625rem",
+    },
+    paddingTop: {
+      xs: "0.625rem",
+      sm: "0.625rem",
+      m: "0.625rem",
+      l: "0.625rem",
+      xl: "0.625rem",
+    },
+    paddingBottom: {
+      xs: "0.625rem",
+      sm: "0.625rem",
+      m: "0.625rem",
+      l: "0.625rem",
+      xl: "0.625rem",
+    },
+
+    teamImageMaxWidth: {
+      xs: "25dvw",
+      sm: "25dvw",
+      m: "25dvw",
+      l: "25dvw",
+      xl: "25dvw",
+    },
+    aboutFullWidth: {
+      xs: "100dvw",
+      sm: "100dvw",
+      m: "100dvw",
+      l: "100dvw",
+      xl: "100dvw",
+    },
+    aboutTitleWidth: {
+      xs: "50dvw",
+      sm: "50dvw",
+      m: "50dvw",
+      l: "50dvw",
+      xl: "50dvw",
+    },
+    aboutContentWidth: {
+      xs: "41dvw",
+      sm: "41dvw",
+      m: "41dvw",
+      l: "41dvw",
+      xl: "41dvw",
+    },
+    aboutContentPaddingTop: {
+      xs: "2dvh",
+      sm: "2dvh",
+      m: "2dvh",
+      l: "2dvh",
+      xl: "2dvh",
+    },
+    aboutContentHeight: {
+      xs: "100",
+      sm: "100",
+      m: "100",
+      l: "100",
+      xl: "100",
+    },
+
     aboutTitleSpeed: 0.75,
     aboutContentSpeed: 1,
-    footerContactTranslateY: '-6dvh',
-    footerLinkMargin: '5dvw',
-    footerLinkGap: '5dvw',
-    footerSocialGap: '2dvw',
+
+    footerContactTranslateY: {
+      xs: "-6dvh",
+      sm: "-6dvh",
+      m: "-6dvh",
+      l: "-6dvh",
+      xl: "-6dvh",
+    },
+    footerLinkMargin: {
+      xs: "5dvw",
+      sm: "5dvw",
+      m: "5dvw",
+      l: "5dvw",
+      xl: "5dvw",
+    },
+    footerLinkGap: {
+      xs: "5dvw",
+      sm: "5dvw",
+      m: "5dvw",
+      l: "5dvw",
+      xl: "5dvw",
+    },
+    footerSocialGap: {
+      xs: "2dvw",
+      sm: "2dvw",
+      m: "2dvw",
+      l: "2dvw",
+      xl: "2dvw",
+    },
+
     footerSocialIconScale: 1.5,
-    fullWidthPercent: '100%',
-    marginBottomXs: '2dvh',
+
+    fullWidthPercent: {
+      xs: "100%",
+      sm: "100%",
+      m: "100%",
+      l: "100%",
+      xl: "100%",
+    },
+
+    // Extra small variant
+    marginBottomXs: {
+      xs: "2dvh",
+      sm: "2dvh",
+      m: "2dvh",
+      l: "2dvh",
+      xl: "2dvh",
+    },
   },
+
   testing: {
-    border: ""
-  }
+    border: "",
+  },
 };

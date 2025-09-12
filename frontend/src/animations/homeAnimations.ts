@@ -5,7 +5,7 @@ import { cssNumbers } from "../theme/theme";
 import type { CSSNumbers } from "../theme/themeTypes";
 import { teamTextMap } from "../text-maps/teamMap";
 
-gsap.registerPlugin(ScrollTrigger, SplitText)
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 export const runIntroTimeline = (numbers: CSSNumbers = cssNumbers) => {
   return new Promise((resolve) => {
@@ -13,7 +13,7 @@ export const runIntroTimeline = (numbers: CSSNumbers = cssNumbers) => {
 
     tl.fromTo(
       ".title-header",
-      { x: numbers.animation.titleStartX },
+      { x: numbers.animation.titleStartX.m }, // MediaQuery -> .m
       {
         x: 0,
         duration: numbers.animation.introDuration,
@@ -22,7 +22,7 @@ export const runIntroTimeline = (numbers: CSSNumbers = cssNumbers) => {
     )
       .fromTo(
         ".nav-bar",
-        { y: numbers.animation.navStartY },
+        { y: numbers.animation.navStartY.m }, // MediaQuery -> .m
         {
           y: 0,
           duration: numbers.animation.introDuration,
@@ -32,7 +32,7 @@ export const runIntroTimeline = (numbers: CSSNumbers = cssNumbers) => {
       )
       .fromTo(
         ".subtitle-header",
-        { y: numbers.animation.navStartY, opacity: 0 },
+        { y: numbers.animation.navStartY.m, opacity: 0 }, // MediaQuery -> .m
         {
           y: 0,
           opacity: 1,
@@ -48,17 +48,18 @@ export const runHeaderScrollTimeline = (numbers: CSSNumbers = cssNumbers) => {
       scrollTrigger: {
         trigger: ".header",
         start: "top top",
-        end: `+=${numbers.animation.scrollEnd}`,
+        end: `+=${numbers.animation.scrollEnd.m}`, // MediaQuery -> .m
         pin: true,
         scrub: numbers.animation.scrubDuration,
       },
     })
-    .add("syncPoint") // 🔑 all tweens anchor here
+    .add("syncPoint")
     .to(
       ".title-header",
       {
         fontSize: numbers.layout.scrubFontSize,
-        scale: numbers.animation.scrubScale,
+        // MediaQuery -> .m (ensure number for GSAP scale)
+        scale: +numbers.animation.scrubScale.m,
         color: "white",
         opacity: 0,
         ease: numbers.animation.eases.power1In,
@@ -103,13 +104,13 @@ export const runTransitionTextScroll = (numbers: CSSNumbers = cssNumbers) => {
       scrollTrigger: {
         trigger: ".body-title-box",
         start: "center center",
-        end: `+=${numbers.animation.overlapEnd}`,
+        end: `+=${numbers.animation.overlapEnd.m}`, // MediaQuery -> .m
         pin: true,
         scrub: numbers.animation.scrubDuration,
       },
     })
     .from(split.words, {
-      y: numbers.animation.wordStart,
+      y: numbers.animation.wordStart.m, // MediaQuery -> .m
       autoAlpha: 0,
       duration: numbers.animation.bodyHeaderDuration,
       stagger: numbers.animation.wordStagger,
@@ -127,7 +128,7 @@ export const createSplitScroll = (
   });
 
   gsap.from(split.chars, {
-    x: numbers.animation.wordStart,
+    x: numbers.animation.wordStart.m, // MediaQuery -> .m
     autoAlpha: 0,
     stagger: numbers.animation.charStagger,
     scrollTrigger: {
@@ -161,7 +162,6 @@ export const runBodyScroll = (numbers: CSSNumbers = cssNumbers) => {
 };
 
 export const runAboutScroll = () => {
-  // create the scrollSmoother before your scrollTriggers
   return gsap
     .timeline({
       scrollTrigger: {
@@ -233,26 +233,23 @@ export const runTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
 
   tl.fromTo(
     teamEls,
-    { xPercent: A.teamEnterXPercent, autoAlpha: 0 },
+    { xPercent: +A.teamEnterXPercent.m, autoAlpha: 0 }, // MediaQuery -> .m (number)
     {
       xPercent: 0,
       autoAlpha: 1,
-      duration: A.teamEnterDuration,
+      duration: +A.teamEnterDuration.m, // MediaQuery -> .m (number)
       ease: A.eases.none ?? "none",
       stagger: {
-        each: A.teamStaggerEach,
+        each: +A.teamStaggerEach.m, // MediaQuery -> .m (number)
         from: A.teamStaggerFrom,
-        amount: A.teamStaggerAmount,
+        amount: +A.teamStaggerAmount.m, // MediaQuery -> .m (number)
         grid: "auto",
       },
     },
     `bios+=${A.biosDelay}`
   );
 
-  // ensure refresh after load (first view in prod)
-  window.addEventListener("load", () => ScrollTrigger.refresh(), {
-    once: true,
-  });
+  window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
 
   return tl;
 };
