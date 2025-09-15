@@ -78,11 +78,11 @@ export type CSSNumbers = {
     teamStaggerAmount: MediaQuery;
   };
   layout: {
-    titleFontSize: string;
-    mediumFontSize: string | number;
-    subtitleFontSize: string;
-    bodyFontSize: string;
-    textHeaderFontSize: string;
+    titleFontSize: MediaQuery;
+    mediumFontSize: MediaQuery;
+    subtitleFontSize: MediaQuery;
+    bodyFontSize: MediaQuery;
+    textHeaderFontSize: MediaQuery;
     scrubFontSize: string;
 
     paddingSmall: MediaQuery;

@@ -18,7 +18,6 @@ import aboutImg from "../assets/aboutBg.png";
 import { Body } from "../components/Body";
 import { customColors } from "../theme/colors";
 import { cssNumbers } from "../theme/theme";
-
 import {
   runIntroTimeline,
   runHeaderScrollTimeline,
@@ -45,28 +44,28 @@ export const Home = () => {
     levi: {
       src: leviImg,
       style: {
-        maxWidth: cssNumbers.layout.teamImageMaxWidth.m,
+        maxWidth: cssNumbers.layout.teamImageMaxWidth,
         height: "auto",
       },
     },
     jp: {
       src: jpImg,
       style: {
-        maxWidth: cssNumbers.layout.teamImageMaxWidth.m,
+        maxWidth: cssNumbers.layout.teamImageMaxWidth,
         height: "auto",
       },
     },
     matthew: {
       src: matthewImg,
       style: {
-        maxWidth: cssNumbers.layout.teamImageMaxWidth.m,
+        maxWidth: cssNumbers.layout.teamImageMaxWidth,
         height: "auto",
       },
     },
     andrew: {
       src: andrewImg,
       style: {
-        maxWidth: cssNumbers.layout.teamImageMaxWidth.m,
+        maxWidth: cssNumbers.layout.teamImageMaxWidth,
         height: "auto",
       },
     },
@@ -84,12 +83,12 @@ export const Home = () => {
         await (document.fonts as FontFaceSet).ready;
       }
       if (cancelled) return;
-      runIntroTimeline(cssNumbers);
-      runHeaderScrollTimeline(cssNumbers);
-      runTransitionTextScroll(cssNumbers);
-      runBodyScroll(cssNumbers);
+      runIntroTimeline();
+      runHeaderScrollTimeline();
+      runTransitionTextScroll();
+      runBodyScroll();
       runAboutScroll();
-      runTeamScroll(cssNumbers);
+      runTeamScroll();
     })();
     return () => {
       cancelled = true;
@@ -125,7 +124,6 @@ export const Home = () => {
           <Text
             className="title-header"
             style={{
-              fontSize: cssNumbers.layout.titleFontSize,
               color: "black",
               border: cssNumbers.testing.border,
             }}
@@ -135,7 +133,6 @@ export const Home = () => {
           <Text
             className="subtitle-header"
             style={{
-              fontSize: cssNumbers.layout.subtitleFontSize,
               color: "black",
               opacity: 0,
               border: cssNumbers.testing.border,
@@ -156,7 +153,6 @@ export const Home = () => {
         <Text
           className="body-text"
           style={{
-            fontSize: cssNumbers.layout.titleFontSize,
             color: "black",
             marginLeft: cssNumbers.layout.paddingTransitionText,
             marginRight: cssNumbers.layout.paddingTransitionText,
@@ -176,10 +172,10 @@ export const Home = () => {
         className="body"
       >
         <Layout
+          className="body-wrapper"
           style={{
             display: "flex",
             flexDirection: "column",
-            padding: cssNumbers.layout.paddingBody.m,
             border: cssNumbers.testing.border,
           }}
         >
@@ -194,15 +190,10 @@ export const Home = () => {
             }}
           >
             {Object.entries(bodyTextMap).map(([key, value], idx) => {
-              const marginTop =
-                idx !== 0 ? cssNumbers.layout.marginExtraSmallTop.m : undefined;
               return (
                 <TextBox
-                  classNameTitle={value.classNameTitle}
-                  classNameContent={value.classNameContent}
-                  style={{ marginTop }}
+                  className={idx !== 0 ? "shared-body-text" : "_"}
                   styleContent={{
-                    fontSize: cssNumbers.layout.bodyFontSize,
                     textAlign: "left",
                     border: cssNumbers.testing.border,
                     whiteSpace: "pre-line",
@@ -229,21 +220,19 @@ export const Home = () => {
         className="about"
       >
         <Layout
+          className="about-title-content-container"
           style={{
             display: "flex",
             flexDirection: "row",
-            width: cssNumbers.layout.aboutFullWidth.m,
-            padding: cssNumbers.layout.paddingBody.m,
             border: cssNumbers.testing.border,
             gap: "5vw",
-            paddingBlockStart: cssNumbers.layout.paddingBody.m,
             alignItems: "flex-start",
           }}
         >
           <Layout
+            className="about-title-container"
             style={{
               display: "flex",
-              width: cssNumbers.layout.aboutTitleWidth.m,
               border: cssNumbers.testing.border,
             }}
           >
@@ -251,7 +240,6 @@ export const Home = () => {
               data-speed={cssNumbers.layout.aboutTitleSpeed}
               className="about-title"
               style={{
-                fontSize: cssNumbers.layout.mediumFontSize,
                 textAlign: "left",
                 zIndex: 100,
                 border: cssNumbers.testing.border,
@@ -262,10 +250,9 @@ export const Home = () => {
           </Layout>
 
           <Layout
+            className="about-content-container"
             style={{
               display: "flex",
-              height: cssNumbers.layout.aboutContentHeight.m,
-              width: cssNumbers.layout.aboutContentWidth.m,
               justifyContent: "flex-start",
               border: cssNumbers.testing.border,
             }}
@@ -274,10 +261,8 @@ export const Home = () => {
               className="about-content"
               data-speed={cssNumbers.layout.aboutContentSpeed}
               style={{
-                fontSize: cssNumbers.layout.bodyFontSize,
                 textAlign: "left",
                 border: cssNumbers.testing.border,
-                paddingRight: cssNumbers.layout.paddingBody.m,
               }}
             >
               Olevius is a wearable health-tech initiative focused on
@@ -304,19 +289,14 @@ export const Home = () => {
       <Team style={{ border: cssNumbers.testing.border }} className="team">
         <Layout style={{ display: "flex", flexDirection: "column" }}>
           <Layout
+            className="team-title-container"
             style={{
               display: "flex",
               justifyContent: "center",
               alignItems: "top",
-              padding: cssNumbers.layout.paddingBody.m,
             }}
           >
-            <Text
-              className="team-title"
-              style={{ fontSize: cssNumbers.layout.mediumFontSize }}
-            >
-              Our Team
-            </Text>
+            <Text className="team-title">Our Team</Text>
           </Layout>
           <Layout style={{ display: "flex", flexDirection: "row" }}>
             {Object.entries(imagePathList).map(([key, value]) => (
@@ -353,20 +333,15 @@ export const Home = () => {
           alignItems: "flex-start",
         }}
       >
-        <Layout style={{ padding: cssNumbers.layout.paddingBody.m }}>
+        <Layout className="team-text-container">
           {Object.entries(teamTextMap).map(([key, value]) => (
             <TextBox
+              className={"team-shared-text-box"}
               key={key}
               value={value}
-              className={value.className}
-              classNameContent={value.classNameContent}
-              classNameTitle={value.classNameTitle}
               style={{
                 opacity: 0,
-                width: cssNumbers.layout.fullWidthPercent.m,
-                paddingRight: cssNumbers.layout.paddingBody.m,
               }}
-              styleContent={{ fontSize: cssNumbers.layout.bodyFontSize }}
             />
           ))}
         </Layout>
@@ -374,48 +349,42 @@ export const Home = () => {
 
       <Footer>
         <Layout
+          className="contact-container"
           style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
             flexDirection: "row",
-            padding: cssNumbers.layout.paddingBody.m,
           }}
         >
-          <Text
-            style={{
-              transform: `translateY(${cssNumbers.layout.footerContactTranslateY.m})`,
-            }}
-          >
-            Contact us
-          </Text>
+          <Text className="footer-contact-us-title">Contact us</Text>
           <Layout
+            className="footer-links-container"
             style={{
-              marginLeft: cssNumbers.layout.footerLinkMargin.m,
               justifyContent: "space-between",
               display: "flex",
               flexDirection: "row",
-              gap: cssNumbers.layout.footerLinkGap.m,
-              marginRight: cssNumbers.layout.footerLinkMargin.m,
             }}
           >
             {Object.entries(aboutTextMap).map(([key, value]) => (
-              <AboutCard key={key} value={value} />
+              <AboutCard className="about-card" key={key} value={value} />
             ))}
           </Layout>
           <Layout
+            className="footer-logo-container"
             style={{
               display: "flex",
               flexDirection: "row",
-              gap: cssNumbers.layout.footerSocialGap.m,
             }}
           >
             <AnchoredImage
+              className="footer-linkedin-logo"
               link="https://www.linkedin.com/company/olevius/posts/?feedView=all"
               src={linkedinImg}
               style={{ scale: cssNumbers.layout.footerSocialIconScale }}
             />
             <AnchoredImage
+              className="footer-github-logo"
               link="https://github.com/Olevius"
               src={githubImg}
               style={{ scale: cssNumbers.layout.footerSocialIconScale }}

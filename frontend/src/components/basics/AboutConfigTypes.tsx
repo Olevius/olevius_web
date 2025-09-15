@@ -3,6 +3,7 @@ import type { TextBoxConfig, TextBoxProps } from "./TextBoxConfigTypes";
 export interface AboutCardProps
   extends Omit<TextBoxProps, "value" | "classNameContent"> {
   value?: Readonly<AboutCardConfig>;
+  $footerFontSize?: number | string;
 }
 
 export interface AboutCardConfig
@@ -13,6 +14,6 @@ export interface AboutCardConfig
 
 type AboutContentProps = Readonly<{
   text: string;
-  className: string;
+  classNameContent?: string;
   link: string;
 }>;

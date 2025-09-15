@@ -2,67 +2,65 @@
 import { gsap } from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
 import { cssNumbers } from "../theme/theme";
-import type { CSSNumbers } from "../theme/themeTypes";
 import { teamTextMap } from "../text-maps/teamMap";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
-export const runIntroTimeline = (numbers: CSSNumbers = cssNumbers) => {
+export const runIntroTimeline = () => {
   return new Promise((resolve) => {
     const tl = gsap.timeline({ onComplete: resolve });
 
     tl.fromTo(
       ".title-header",
-      { x: numbers.animation.titleStartX.m }, // MediaQuery -> .m
+      { x: "var(--animation-titleStartX)" },
       {
         x: 0,
-        duration: numbers.animation.introDuration,
-        ease: numbers.animation.eases.power1Out,
+        duration: cssNumbers.animation.introDuration,
+        ease: "power1.out",
       }
     )
       .fromTo(
         ".nav-bar",
-        { y: numbers.animation.navStartY.m }, // MediaQuery -> .m
+        { y: "var(--animation-navStartY)" },
         {
           y: 0,
-          duration: numbers.animation.introDuration,
-          ease: numbers.animation.eases.power1Out,
+          duration: cssNumbers.animation.introDuration,
+          ease: "power1.out",
         },
-        `-=${numbers.animation.introDuration}`
+        `-=${cssNumbers.animation.introDuration}`
       )
       .fromTo(
         ".subtitle-header",
-        { y: numbers.animation.navStartY.m, opacity: 0 }, // MediaQuery -> .m
+        { y: "var(--animation-navStartY)", opacity: 0 },
         {
           y: 0,
           opacity: 1,
-          ease: numbers.animation.eases.power2Out,
+          ease: "power2.out",
         }
       );
   });
 };
 
-export const runHeaderScrollTimeline = (numbers: CSSNumbers = cssNumbers) => {
+export const runHeaderScrollTimeline = () => {
   return gsap
     .timeline({
       scrollTrigger: {
         trigger: ".header",
         start: "top top",
-        end: `+=${numbers.animation.scrollEnd.m}`, // MediaQuery -> .m
+        end: `+=${"var(--animation-scrollEnd)"}`,
         pin: true,
-        scrub: numbers.animation.scrubDuration,
+        scrub: cssNumbers.animation.scrubDuration,
       },
     })
     .add("syncPoint")
     .to(
       ".title-header",
       {
-        fontSize: numbers.layout.scrubFontSize,
-        // MediaQuery -> .m (ensure number for GSAP scale)
-        scale: +numbers.animation.scrubScale.m,
+        fontSize: cssNumbers.layout.scrubFontSize,
+        scale: +"var(--animation-scrubScale)",
         color: "white",
         opacity: 0,
-        ease: numbers.animation.eases.power1In,
+        ease: "power1.in",
       },
       "syncPoint"
     )
@@ -70,8 +68,8 @@ export const runHeaderScrollTimeline = (numbers: CSSNumbers = cssNumbers) => {
       ".subtitle-header",
       {
         color: "white",
-        duration: numbers.animation.colorChangeDuration,
-        ease: numbers.animation.eases.power1Out,
+        duration: cssNumbers.animation.colorChangeDuration,
+        ease: "power1.out",
       },
       "sync-point"
     )
@@ -79,21 +77,21 @@ export const runHeaderScrollTimeline = (numbers: CSSNumbers = cssNumbers) => {
       ".header",
       {
         backgroundColor: "white",
-        ease: numbers.animation.eases.power1In,
+        ease: "power1.in",
       },
       "syncPoint"
     )
     .to(".body-title-box", {
       backgroundColor: "white",
-      ease: numbers.animation.eases.power1In,
+      ease: "power1.in",
     })
     .to(".body", {
       backgroundColor: "white",
-      ease: numbers.animation.eases.power1In,
+      ease: "power1.in",
     });
 };
 
-export const runTransitionTextScroll = (numbers: CSSNumbers = cssNumbers) => {
+export const runTransitionTextScroll = () => {
   const split = SplitText.create(".body-text", {
     type: "chars, words, lines",
     charsClass: "char",
@@ -104,23 +102,23 @@ export const runTransitionTextScroll = (numbers: CSSNumbers = cssNumbers) => {
       scrollTrigger: {
         trigger: ".body-title-box",
         start: "center center",
-        end: `+=${numbers.animation.overlapEnd.m}`, // MediaQuery -> .m
+        end: `+=${"var(--animation-overlapEnd)"}`,
         pin: true,
-        scrub: numbers.animation.scrubDuration,
+        scrub: cssNumbers.animation.scrubDuration,
       },
     })
     .from(split.words, {
-      y: numbers.animation.wordStart.m, // MediaQuery -> .m
+      y: "var(--animation-wordStart)",
       autoAlpha: 0,
-      duration: numbers.animation.bodyHeaderDuration,
-      stagger: numbers.animation.wordStagger,
+      duration: cssNumbers.animation.bodyHeaderDuration,
+      stagger: cssNumbers.animation.wordStagger,
+      ease: "power1.out",
     });
 };
 
 export const createSplitScroll = (
   selector: string,
   offset: number,
-  numbers: CSSNumbers = cssNumbers
 ) => {
   const split = SplitText.create(selector, {
     type: "chars, words, lines",
@@ -128,36 +126,37 @@ export const createSplitScroll = (
   });
 
   gsap.from(split.chars, {
-    x: numbers.animation.wordStart.m, // MediaQuery -> .m
+    x: "var(--animation-wordStart)",
     autoAlpha: 0,
-    stagger: numbers.animation.charStagger,
+    stagger: cssNumbers.animation.charStagger,
+    ease: "power1.out",
     scrollTrigger: {
       trigger: ".body",
       start: offset ? `top center-=${offset}` : "top center",
-      end: `+=${numbers.animation.sectionScrollSpan}`,
+      end: `+=${cssNumbers.animation.sectionScrollSpan}`,
       scrub: 2,
     },
   });
 };
 
-export const runBodyScroll = (numbers: CSSNumbers = cssNumbers) => {
+export const runBodyScroll = () => {
   const sections = [
     { title: ".why-title", content: ".why-content", offset: 0 },
     {
       title: ".how-title",
       content: ".how-content",
-      offset: numbers.layout.bodySectionOffsetHow,
+      offset: cssNumbers.layout.bodySectionOffsetHow,
     },
     {
       title: ".what-title",
       content: ".what-content",
-      offset: numbers.layout.bodySectionOffsetWhat,
+      offset: cssNumbers.layout.bodySectionOffsetWhat,
     },
   ];
 
   sections.forEach(({ title, content, offset }) => {
-    createSplitScroll(title, offset, numbers);
-    createSplitScroll(content, offset, numbers);
+    createSplitScroll(title, offset);
+    createSplitScroll(content, offset);
   });
 };
 
@@ -176,6 +175,7 @@ export const runAboutScroll = () => {
       ".about-content",
       {
         y: "30dvh",
+        ease: "power1.out",
       },
       "sync-point"
     )
@@ -183,16 +183,17 @@ export const runAboutScroll = () => {
       ".about-title",
       {
         y: "30dvh",
+        ease: "power1.out",
       },
       "sync-point"
     );
 };
 
-export const runTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
-  const A = numbers.animation;
+export const runTeamScroll = () => {
+  const A = cssNumbers.animation;
 
   const tl = gsap.timeline({
-    defaults: { ease: A.eases.none ?? "none" },
+    defaults: { ease: "none" },
     scrollTrigger: {
       trigger: ".team",
       start: "top top",
@@ -214,35 +215,29 @@ export const runTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
     .to(".scroll-rect1", { y: 0, duration: A.scrollRectDuration }, "start")
     .to(
       ".images",
-      { opacity: A.imagesOpacity, duration: A.imagesFadeDuration },
+      { opacity: A.imagesOpacity, duration: A.imagesFadeDuration, ease: "power1.out" },
       `start+=${A.imagesFadeOffset}`
     )
     .add("sync-point", `+=${A.syncPointOffset}`)
     .to(
       ".team-title",
-      { autoAlpha: 0, duration: A.titleFadeDuration },
+      { autoAlpha: 0, duration: A.titleFadeDuration, ease: "power1.in" },
       "sync-point"
     )
     .add("bios", `>-=${A.biosOverlapBack}`);
 
-  const teamEls = gsap.utils.toArray<HTMLElement>(
-    Object.values(teamTextMap)
-      .map((v) => `.${v.className}`)
-      .join(", ")
-  );
-
   tl.fromTo(
-    teamEls,
-    { xPercent: +A.teamEnterXPercent.m, autoAlpha: 0 }, // MediaQuery -> .m (number)
+    ".team-shared-text-box",
+    { xPercent: +"var(--animation-teamEnterXPercent)", autoAlpha: 0 },
     {
       xPercent: 0,
       autoAlpha: 1,
-      duration: +A.teamEnterDuration.m, // MediaQuery -> .m (number)
-      ease: A.eases.none ?? "none",
+      duration: +"var(--animation-teamEnterDuration)",
+      ease: "none",
       stagger: {
-        each: +A.teamStaggerEach.m, // MediaQuery -> .m (number)
+        each: +"var(--animation-teamStaggerEach)",
         from: A.teamStaggerFrom,
-        amount: +A.teamStaggerAmount.m, // MediaQuery -> .m (number)
+        amount: +"var(--animation-teamStaggerAmount)",
         grid: "auto",
       },
     },
