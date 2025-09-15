@@ -4,7 +4,7 @@ import type { AboutCardProps } from "./basics/AboutConfigTypes";
 import { forRef } from "./basics/refHelper";
 
 export const AboutCard = forRef<HTMLDivElement, AboutCardProps>(
-  ({ classNameTitle, style, value, ...rest }, ref) => (
+  ({ classNameTitle, className, style, value, ...rest }, ref) => (
     <Layout
       style={{
         display: "flex",
@@ -29,7 +29,7 @@ export const AboutCard = forRef<HTMLDivElement, AboutCardProps>(
         <AnchoredText
           link={value.link}
           key={i}
-          className={value.className}
+          className={className}
           style={{
             fontSize: cssNumbers.layout.footerFontSize,
             fontFamily: "Satoshi",

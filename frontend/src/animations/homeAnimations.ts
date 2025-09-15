@@ -3,7 +3,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
 import { cssNumbers } from "../theme/theme";
 import type { CSSNumbers } from "../theme/themeTypes";
-import { teamTextMap } from "../text-maps/teamMap";
 
 gsap.registerPlugin(ScrollTrigger, SplitText)
 
@@ -53,7 +52,7 @@ export const runHeaderScrollTimeline = (numbers: CSSNumbers = cssNumbers) => {
         scrub: numbers.animation.scrubDuration,
       },
     })
-    .add("syncPoint") // 🔑 all tweens anchor here
+    .add("syncPoint")
     .to(
       ".title-header",
       {
@@ -161,7 +160,6 @@ export const runBodyScroll = (numbers: CSSNumbers = cssNumbers) => {
 };
 
 export const runAboutScroll = () => {
-  // create the scrollSmoother before your scrollTriggers
   return gsap
     .timeline({
       scrollTrigger: {
@@ -225,14 +223,8 @@ export const runTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
     )
     .add("bios", `>-=${A.biosOverlapBack}`);
 
-  const teamEls = gsap.utils.toArray<HTMLElement>(
-    Object.values(teamTextMap)
-      .map((v) => `.${v.className}`)
-      .join(", ")
-  );
-
   tl.fromTo(
-    teamEls,
+    ".team-text-box",
     { xPercent: A.teamEnterXPercent, autoAlpha: 0 } as gsap.TweenVars,
     {
       xPercent: 0,

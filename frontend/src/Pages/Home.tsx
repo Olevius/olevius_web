@@ -199,9 +199,9 @@ export const Home = () => {
                 idx !== 0 ? cssNumbers.layout.marginExtraSmallTop : undefined;
               return (
                 <TextBox
+                  style={{ marginTop }}
                   classNameTitle={value.classNameTitle}
                   classNameContent={value.classNameContent}
-                  style={{ marginTop }}
                   styleContent={{
                     fontSize: cssNumbers.layout.bodyFontSize,
                     textAlign: "left",
@@ -237,7 +237,7 @@ export const Home = () => {
             padding: cssNumbers.layout.paddingBody,
             border: cssNumbers.testing.border,
             gap: "5vw",
-            paddingBlockStart: cssNumbers.layout.paddingBody, // 👈 top spacing applied once
+            paddingBlockStart: cssNumbers.layout.paddingBody,
             alignItems: "flex-start",
           }}
         >
@@ -265,7 +265,6 @@ export const Home = () => {
           <Layout
             style={{
               display: "flex",
-              // ❌ remove paddingTop; parent handles it
               height: cssNumbers.layout.aboutContentHeight,
               width: cssNumbers.layout.aboutContentWidth,
               justifyContent: "flex-start",
@@ -287,14 +286,17 @@ export const Home = () => {
               affects ~1.39 billion people, yet current options force a
               trade-off: bulky, intermittent cuffs vs. smartwatch PTT methods
               that require frequent recalibration and lack clinical accuracy.{" "}
-              <br /> <br /> Our approach uses a compact optical-fiber sensor
-              inside a fluid-filled PDMS pouch. Pulse pressure subtly changes
-              light transmission at an air-core fiber union; those waveforms are
+              <br /> <br />
+              Our approach uses a compact optical-fiber sensor inside a
+              fluid-filled PDMS pouch. Pulse pressure subtly changes light
+              transmission at an air-core fiber union; those waveforms are
               processed on-device and with ML to estimate systolic and diastolic
-              BP, targeting ±5 mmHg accuracy. <br /> <br /> Designed for
-              everyday wear, the band targets ≤7 mm thickness, ≤30 g weight, ≥24
-              h battery life, and secure Bluetooth/NFC syncing—while keeping
-              unit cost under $100 to maximize accessibility.
+              BP, targeting ±5 mmHg accuracy.
+              <br /> <br />
+              Designed for everyday wear, the band targets ≤7 mm thickness, ≤30
+              g weight, ≥24 h battery life, and secure Bluetooth/NFC
+              syncing—while keeping unit cost under $100 to maximize
+              accessibility.
             </Text>
           </Layout>
         </Layout>
@@ -332,7 +334,7 @@ export const Home = () => {
                 <Image
                   id="view_img"
                   className="images"
-                  style={{ ...value.style, pointerEvents: "none" }} // don't block clicks
+                  style={{ ...value.style, pointerEvents: "none" }}
                   key={key}
                   src={value.src}
                 />
@@ -358,9 +360,7 @@ export const Home = () => {
             <TextBox
               key={key}
               value={value}
-              className={value.className}
-              classNameContent={value.classNameContent}
-              classNameTitle={value.classNameTitle}
+              className="team-text-box"
               style={{
                 opacity: 0,
                 width: cssNumbers.layout.fullWidthPercent,
