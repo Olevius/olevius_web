@@ -1,4 +1,4 @@
-/* eslint-disable no-console */
+ 
 import { render } from "@testing-library/react";
 import { Home } from "./Pages/Home";
 import { StrictMode } from "react";
@@ -17,4 +17,4 @@ describe("Front page tests", () => {
     // app.unmount();
   });
 });
-/* eslint-enable no-console */
+ 
