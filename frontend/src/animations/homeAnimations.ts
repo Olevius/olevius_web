@@ -233,7 +233,7 @@ export const runTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
 
   tl.fromTo(
     teamEls,
-    { xPercent: A.teamEnterXPercent, autoAlpha: 0 },
+    { xPercent: A.teamEnterXPercent, autoAlpha: 0 } as gsap.TweenVars,
     {
       xPercent: 0,
       autoAlpha: 1,
@@ -245,8 +245,8 @@ export const runTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
         amount: A.teamStaggerAmount,
         grid: "auto",
       },
-    },
-    `bios+=${A.biosDelay}`
+    } as gsap.TweenVars,
+    `>+=${A.biosDelay}`
   );
 
   // ensure refresh after load (first view in prod)

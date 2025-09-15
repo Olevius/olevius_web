@@ -63,7 +63,7 @@ export type CSSNumbers = {
     titleFadeDuration: number;
     biosOverlapBack: number;
     biosDelay: number;
-    teamEnterXPercent: string | number;
+    teamEnterXPercent: number;
     teamEnterDuration: string | number;
     teamStaggerEach: string | number;
     teamStaggerFrom: "start" | "center" | "edges" | number;
