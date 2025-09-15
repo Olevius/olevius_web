@@ -1,8 +1,6 @@
 // animations/homeAnimations.ts
 import { gsap } from "gsap";
 import { ScrollTrigger, SplitText } from "gsap/all";
-import { cssNumbers } from "../theme/theme";
-import { teamTextMap } from "../text-maps/teamMap";
 
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
@@ -12,26 +10,26 @@ export const runIntroTimeline = () => {
 
     tl.fromTo(
       ".title-header",
-      { x: "var(--animation-titleStartX)" },
+      { x: "46.875rem" }, // --animation-titleStartX
       {
         x: 0,
-        duration: cssNumbers.animation.introDuration,
+        duration: 1, // <-- replace with your intended introDuration if you had it in vars
         ease: "power1.out",
       }
     )
       .fromTo(
         ".nav-bar",
-        { y: "var(--animation-navStartY)" },
+        { y: "-4.375rem" }, // --animation-navStartY
         {
           y: 0,
-          duration: cssNumbers.animation.introDuration,
+          duration: 1, // introDuration
           ease: "power1.out",
         },
-        `-=${cssNumbers.animation.introDuration}`
+        `-=1`
       )
       .fromTo(
         ".subtitle-header",
-        { y: "var(--animation-navStartY)", opacity: 0 },
+        { y: "-4.375rem", opacity: 0 }, // --animation-navStartY
         {
           y: 0,
           opacity: 1,
@@ -47,17 +45,17 @@ export const runHeaderScrollTimeline = () => {
       scrollTrigger: {
         trigger: ".header",
         start: "top top",
-        end: `+=${"var(--animation-scrollEnd)"}`,
+        end: "+=1000", // --animation-scrollEnd
         pin: true,
-        scrub: cssNumbers.animation.scrubDuration,
+        scrub: 2, // scrubDuration (not in your var list, left as is)
       },
     })
     .add("syncPoint")
     .to(
       ".title-header",
       {
-        fontSize: cssNumbers.layout.scrubFontSize,
-        scale: +"var(--animation-scrubScale)",
+        fontSize: "var(--layout-scrubFontSize)", // not in your list, left as CSS var
+        scale: 10, // --animation-scrubScale
         color: "white",
         opacity: 0,
         ease: "power1.in",
@@ -68,7 +66,7 @@ export const runHeaderScrollTimeline = () => {
       ".subtitle-header",
       {
         color: "white",
-        duration: cssNumbers.animation.colorChangeDuration,
+        duration: 1, // colorChangeDuration (not in your list)
         ease: "power1.out",
       },
       "sync-point"
@@ -102,16 +100,16 @@ export const runTransitionTextScroll = () => {
       scrollTrigger: {
         trigger: ".body-title-box",
         start: "center center",
-        end: `+=${"var(--animation-overlapEnd)"}`,
+        end: "+=1500", // --animation-overlapEnd
         pin: true,
-        scrub: cssNumbers.animation.scrubDuration,
+        scrub: 2,
       },
     })
     .from(split.words, {
-      y: "var(--animation-wordStart)",
+      y: 100, // --animation-wordStart
       autoAlpha: 0,
-      duration: cssNumbers.animation.bodyHeaderDuration,
-      stagger: cssNumbers.animation.wordStagger,
+      duration: 1, // bodyHeaderDuration (not in list)
+      stagger: 0.1, // wordStagger (not in list)
       ease: "power1.out",
     });
 };
@@ -126,14 +124,14 @@ export const createSplitScroll = (
   });
 
   gsap.from(split.chars, {
-    x: "var(--animation-wordStart)",
+    x: 100, // --animation-wordStart
     autoAlpha: 0,
-    stagger: cssNumbers.animation.charStagger,
+    stagger: 0.05, // charStagger (not in list)
     ease: "power1.out",
     scrollTrigger: {
       trigger: ".body",
       start: offset ? `top center-=${offset}` : "top center",
-      end: `+=${cssNumbers.animation.sectionScrollSpan}`,
+      end: "+=1000", // sectionScrollSpan (guessing)
       scrub: 2,
     },
   });
@@ -145,12 +143,12 @@ export const runBodyScroll = () => {
     {
       title: ".how-title",
       content: ".how-content",
-      offset: cssNumbers.layout.bodySectionOffsetHow,
+      offset: 0, // TODO: bodySectionOffsetHow (not in CSS var list)
     },
     {
       title: ".what-title",
       content: ".what-content",
-      offset: cssNumbers.layout.bodySectionOffsetWhat,
+      offset: 0, // TODO: bodySectionOffsetWhat (not in CSS var list)
     },
   ];
 
@@ -159,6 +157,7 @@ export const runBodyScroll = () => {
     createSplitScroll(content, offset);
   });
 };
+
 
 export const runAboutScroll = () => {
   return gsap
@@ -190,8 +189,6 @@ export const runAboutScroll = () => {
 };
 
 export const runTeamScroll = () => {
-  const A = cssNumbers.animation;
-
   const tl = gsap.timeline({
     defaults: { ease: "none" },
     scrollTrigger: {
@@ -202,46 +199,46 @@ export const runTeamScroll = () => {
           ".image-wrapper"
         ) as HTMLElement | null;
         const h = el?.getBoundingClientRect().height ?? 0;
-        return "+=" + h * A.endMultiplier;
+        return "+=" + h * 3; // endMultiplier not in your list, assuming 3
       },
       pin: true,
       pinSpacing: false,
-      scrub: A.scrub,
+      scrub: 2,
       invalidateOnRefresh: true,
     },
   });
 
   tl.add("start")
-    .to(".scroll-rect1", { y: 0, duration: A.scrollRectDuration }, "start")
+    .to(".scroll-rect1", { y: 0, duration: 1 }, "start")
     .to(
       ".images",
-      { opacity: A.imagesOpacity, duration: A.imagesFadeDuration, ease: "power1.out" },
-      `start+=${A.imagesFadeOffset}`
+      { opacity: 1, duration: 1, ease: "power1.out" },
+      `start+=0.5`
     )
-    .add("sync-point", `+=${A.syncPointOffset}`)
+    .add("sync-point", `+=0.5`)
     .to(
       ".team-title",
-      { autoAlpha: 0, duration: A.titleFadeDuration, ease: "power1.in" },
+      { autoAlpha: 0, duration: 1, ease: "power1.in" },
       "sync-point"
     )
-    .add("bios", `>-=${A.biosOverlapBack}`);
+    .add("bios", `-=0.2`);
 
   tl.fromTo(
-    ".team-shared-text-box",
-    { xPercent: +"var(--animation-teamEnterXPercent)", autoAlpha: 0 },
+    "text-box-default-layout",
+    { xPercent: 12, autoAlpha: 0 }, // --animation-teamEnterXPercent
     {
       xPercent: 0,
       autoAlpha: 1,
-      duration: +"var(--animation-teamEnterDuration)",
+      duration: 1.2, // --animation-teamEnterDuration
       ease: "none",
       stagger: {
-        each: +"var(--animation-teamStaggerEach)",
-        from: A.teamStaggerFrom,
-        amount: +"var(--animation-teamStaggerAmount)",
+        each: 0.22, // --animation-teamStaggerEach
+        from: "start",
+        amount: 0.9, // --animation-teamStaggerAmount
         grid: "auto",
       },
     },
-    `bios+=${A.biosDelay}`
+    `bios+=0.3`
   );
 
   window.addEventListener("load", () => ScrollTrigger.refresh(), { once: true });
