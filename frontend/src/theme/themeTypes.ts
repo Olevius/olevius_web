@@ -114,10 +114,9 @@ export type CSSNumbers = {
     footerLinkGap: string;
     footerSocialGap: string;
     footerSocialIconScale: number;
-    fullWidthPercent: string;
 
     // Extra small variant
-    marginBottomXs: string;
+    marginBottomXXs: string;
   };
   testing: {
     border: string;

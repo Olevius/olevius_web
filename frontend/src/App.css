@@ -69,7 +69,7 @@
     --layout-fullHeight: 100dvh;
     --layout-doubleFullHeight: 200dvh;
     --layout-aboutHeight: 130dvh;
-    --layout-teamHeight: 50dvh;
+    --layout-teamHeight: 100dvh;
 
     --layout-textBoxMargin: 500px;
 
@@ -99,15 +99,21 @@
     --layout-aboutContentPaddingTop: 2dvh;
     --layout-aboutContentHeight: 100;
 
+    --layout-teamFullWidth: 100%;
+
     --layout-footerContactTranslateY: -6dvh;
     --layout-footerLinkMargin: 5dvw;
     --layout-footerLinkGap: 5dvw;
     --layout-footerSocialGap: 2dvw;
+    --layout-footerSocialIconScale: 1.5;
 
-    --layout-fullWidthPercent: 100%;
     --layout-marginBottomXXs: 2dvh;
 
     --layout-textBoxWidth: 70vw;
+    --layout-textBoxGap: 5vw;
+
+    --layout-imageVisibility: visible;
+
   }
 }
 
@@ -142,7 +148,7 @@
     --layout-fullHeight: 100dvh;
     --layout-doubleFullHeight: 200dvh;
     --layout-aboutHeight: 130dvh;
-    --layout-teamHeight: 200dvh;
+    --layout-teamHeight: 500dvh;
 
     --layout-textBoxMargin: 500px;
 
@@ -166,22 +172,27 @@
     --layout-paddingTransitionTop: 5rem;
     --layout-paddingTransitionBottom: 5rem;
 
-    --layout-teamImageMaxWidth: 25dvw;
     --layout-aboutFullWidth: 100dvw;
     --layout-aboutTitleWidth: 50dvw;
     --layout-aboutContentWidth: 41dvw;
     --layout-aboutContentPaddingTop: 2dvh;
     --layout-aboutContentHeight: 100;
 
+    --layout-teamImageMaxWidth: 25dvw;
+    --layout-teamFullWidth: 100dvw;
+
     --layout-footerContactTranslateY: -6dvh;
     --layout-footerLinkMargin: 5dvw;
     --layout-footerLinkGap: 5dvw;
     --layout-footerSocialGap: 2dvw;
+    --layout-footerSocialIconScale: 1.5;
 
-    --layout-fullWidthPercent: 100%;
     --layout-marginBottomXXs: 2dvh;
 
     --layout-textBoxWidth: 70vw;
+    --layout-textBoxGap: 5vw;
+
+    --layout-imageVisibility: visible;
 
   }
 }
@@ -215,7 +226,7 @@
     --layout-paddingBody: 3.125rem;
 
     --layout-aboutHeight: 130dvh;
-    --layout-teamHeight: 10dvh;
+    --layout-teamHeight: 500dvh;
 
     --layout-textBoxMargin: 500px;
 
@@ -246,17 +257,26 @@
     --layout-aboutContentPaddingTop: 2dvh;
     --layout-aboutContentHeight: 100;
 
+    --layout-teamImageMaxWidth: 25dvw;
+    --layout-teamFullWidth: 100dvw;
+
     --layout-footerContactTranslateY: -6dvh;
     --layout-footerLinkMargin: 5dvw;
     --layout-footerLinkGap: 5dvw;
     --layout-footerSocialGap: 2dvw;
+    --layout-footerSocialIconScale: 1.5;
 
     --layout-fullWidthPercent: 100%;
     --layout-marginBottomXXs: 2dvh;
 
     --layout-textBoxWidth: 70vw;
+    --layout-textBoxGap: 5vw;
+    
+    --layout-imageVisibility: visible;
   }
 }
+
+/* header stuff */
 
 .title-header {
   font-size: var(--layout-titleFontSize);
@@ -318,8 +338,6 @@
   font-size: var(--layout-bodyFontSize)
 }
 
-
-
 .default-text-box-content {
   font-size: var(--layout-bodyFontSize);
 }
@@ -328,7 +346,76 @@
   margin-top: var(--layout-marginExtraSmallTop);
 }
 
+.about-container {
+  width: var(--layout-aboutFullWidth);
+  padding: var(--layout-paddingBody);
+  gap: var(--layout-textBoxGap);
+}
 
+.about-title-container {
+  width: var(--layout-aboutTitleWidth);
+}
+
+.about-title {
+  font-size: var(--layout-mediumFontSize);
+}
+
+.about-content-container {
+  height: var(--layout-aboutContentHeight);
+  width: var(--layout-aboutContentWidth);
+}
+
+.about-content {
+  font-size: var(--layout-bodyFontSize);
+  padding-right: var(--layout-paddingBody);
+}
+
+.team-container {
+  padding: var(--layout-paddingBody)
+}
+
+.team-title {
+  font-size: var(--layout-mediumFontSize);
+}
+
+.image-wrapper {
+  visibility: var(--layout-imageVisibility);
+}
+
+.scroll-rect1 {
+  height: var(--layout-teamHeight);
+}
+
+.team-text-box-content {
+  font-size: var(--layout-bodyFontSize);
+}
+
+.footer-container {
+  padding: var(--layout-paddingBody)
+}
+
+.footer-contact-us {
+  transform: translateY(var(--layout-footerContactTranslateY));
+  font-size: var(--layout-subtitleFontSize);
+}
+
+.footer-link-layout {
+  margin-left: var(--layout-footerLinkMargin);
+  gap: var(--layout-footerLinkGap);
+  margin-right: var(--layout-footerLinkMargin);
+}
+
+.footer-image-container {
+  gap: var(--layout-footerSocialGap)
+}
+
+.footer-linkedin-icon {
+  scale: var(--layout-footerSocialIconScale)
+}
+
+.footer-github-icon {
+  scale: var(--layout-footerSocialIconScale)
+}
 
 
 .card {

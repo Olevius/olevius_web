@@ -222,21 +222,18 @@ export const Home = () => {
         className="about"
       >
         <Layout
+          className="about-container"
           style={{
             display: "flex",
             flexDirection: "row",
-            width: cssNumbers.layout.aboutFullWidth,
-            padding: cssNumbers.layout.paddingBody,
-            border: cssNumbers.testing.border,
-            gap: "5vw",
             paddingBlockStart: cssNumbers.layout.paddingBody,
             alignItems: "flex-start",
           }}
         >
           <Layout
+            className="about-title-container"
             style={{
               display: "flex",
-              width: cssNumbers.layout.aboutTitleWidth,
               border: cssNumbers.testing.border,
             }}
           >
@@ -244,7 +241,6 @@ export const Home = () => {
               data-speed={cssNumbers.layout.aboutTitleSpeed}
               className="about-title"
               style={{
-                fontSize: cssNumbers.layout.mediumFontSize,
                 textAlign: "left",
                 zIndex: 100,
                 border: cssNumbers.testing.border,
@@ -255,6 +251,7 @@ export const Home = () => {
           </Layout>
 
           <Layout
+            className="about-content-container"
             style={{
               display: "flex",
               height: cssNumbers.layout.aboutContentHeight,
@@ -267,10 +264,8 @@ export const Home = () => {
               className="about-content"
               data-speed={cssNumbers.layout.aboutContentSpeed}
               style={{
-                fontSize: cssNumbers.layout.bodyFontSize,
                 textAlign: "left",
                 border: cssNumbers.testing.border,
-                paddingRight: cssNumbers.layout.paddingBody,
               }}
             >
               Olevius is a wearable health-tech initiative focused on
@@ -297,19 +292,14 @@ export const Home = () => {
       <Team style={{ border: cssNumbers.testing.border }} className="team">
         <Layout style={{ display: "flex", flexDirection: "column" }}>
           <Layout
+            className="team-container"
             style={{
               display: "flex",
               justifyContent: "center",
               alignItems: "top",
-              padding: cssNumbers.layout.paddingBody,
             }}
           >
-            <Text
-              className="team-title"
-              style={{ fontSize: cssNumbers.layout.mediumFontSize }}
-            >
-              Our Team
-            </Text>
+            <Text className="team-title">Our Team</Text>
           </Layout>
           <Layout style={{ display: "flex", flexDirection: "row" }}>
             {Object.entries(imagePathList).map(([key, value]) => (
@@ -344,7 +334,6 @@ export const Home = () => {
           display: "flex",
           justifyContent: "flex-start",
           alignItems: "flex-start",
-          height: cssNumbers.layout.teamHeight,
         }}
       >
         <Layout style={{ padding: cssNumbers.layout.paddingBody }}>
@@ -353,12 +342,10 @@ export const Home = () => {
               key={key}
               value={value}
               className="team-text-box"
+              classNameContent="team-text-box-content"
               style={{
                 opacity: 0,
-                width: cssNumbers.layout.fullWidthPercent,
-                paddingRight: cssNumbers.layout.paddingBody,
               }}
-              styleContent={{ fontSize: cssNumbers.layout.bodyFontSize }}
             />
           ))}
         </Layout>
@@ -366,29 +353,21 @@ export const Home = () => {
 
       <Footer>
         <Layout
+          className="footer-container"
           style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
             flexDirection: "row",
-            padding: cssNumbers.layout.paddingBody,
           }}
         >
-          <Text
-            style={{
-              transform: `translateY(${cssNumbers.layout.footerContactTranslateY})`,
-            }}
-          >
-            Contact us
-          </Text>
+          <Text className="footer-contact-us">Contact us</Text>
           <Layout
+            className="footer-link-layout"
             style={{
-              marginLeft: cssNumbers.layout.footerLinkMargin,
               justifyContent: "space-between",
               display: "flex",
               flexDirection: "row",
-              gap: cssNumbers.layout.footerLinkGap,
-              marginRight: cssNumbers.layout.footerLinkMargin,
             }}
           >
             {Object.entries(aboutTextMap).map(([key, value]) => (
@@ -396,21 +375,21 @@ export const Home = () => {
             ))}
           </Layout>
           <Layout
+            className="footer-image-container"
             style={{
               display: "flex",
               flexDirection: "row",
-              gap: cssNumbers.layout.footerSocialGap,
             }}
           >
             <AnchoredImage
+              className="footer-linkedin-icon"
               link="https://www.linkedin.com/company/olevius/posts/?feedView=all"
               src={linkedinImg}
-              style={{ scale: cssNumbers.layout.footerSocialIconScale }}
             />
             <AnchoredImage
+              className="footer-github-icon"
               link="https://github.com/Olevius"
               src={githubImg}
-              style={{ scale: cssNumbers.layout.footerSocialIconScale }}
             />
           </Layout>
         </Layout>

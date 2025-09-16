@@ -72,18 +72,18 @@ export const cssNumbers = {
     bodySectionOffsetWhat: 800,
   },
   layout: {
-    titleFontSize: "12.5rem",        // 200px ÷ 16
-    mediumFontSize: "6.25rem",       // 100px ÷ 16
-    subtitleFontSize: "3.125rem",    // 50px ÷ 16
-    footerFontSize: "0.8125rem",     // 13px ÷ 16
-    teamFontSize: "0.9375rem",       // 15px ÷ 16
-    bodyFontSize: "1.5625rem",       // 25px ÷ 16
-    textHeaderFontSize: "1.25rem",   // 20px ÷ 16
-    scrubFontSize: "312.5rem",       // 5000px ÷ 16
-    paddingSmall: "0.625rem",          // 10px ÷ 16
-    paddingTransitionText: "5rem",     // 80px ÷ 16
-    paddingBody: "3.125rem",           // 50px ÷ 16
-    paddingTeam: "5.625rem",           // 90px ÷ 16
+    titleFontSize: "12.5rem",
+    mediumFontSize: "6.25rem",
+    subtitleFontSize: "3.125rem",
+    footerFontSize: "0.8125rem",
+    teamFontSize: "0.9375rem",
+    bodyFontSize: "1.5625rem",
+    textHeaderFontSize: "1.25rem",
+    scrubFontSize: "312.5rem",
+    paddingSmall: "0.625rem",
+    paddingTransitionText: "5rem",
+    paddingBody: "3.125rem",
+    paddingTeam: "5.625rem",
     halfHeight: '50dvh',
     threeQuartersHeight: '75dvh',
     fullHeight: '100dvh',
@@ -92,6 +92,7 @@ export const cssNumbers = {
     doubleFullHeight: '200dvh',
     aboutHeight: '130dvh',
     teamHeight: '150dvh',
+    teamFullWidth: "100dvw",
     textBoxMargin: "500px",
     marginSmallLeft: '2dvw',
     marginSmallRight: '2dvw',
@@ -101,7 +102,7 @@ export const cssNumbers = {
     marginExtraSmallRight: '5dvh',
     marginExtraSmallTop: '5dvh',
     marginExtraSmallBottom: '5dvh',
-    paddingLeft: "0.625rem",   // 10px ÷ 16
+    paddingLeft: "0.625rem",
     paddingRight: "0.625rem",
     paddingTop: "0.625rem",
     paddingBottom: "0.625rem",
@@ -118,8 +119,7 @@ export const cssNumbers = {
     footerLinkGap: '5dvw',
     footerSocialGap: '2dvw',
     footerSocialIconScale: 1.5,
-    fullWidthPercent: '100%',
-    marginBottomXs: '2dvh',
+    marginBottomXXs: '2dvh',
   },
   testing: {
     border: ""
