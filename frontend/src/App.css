@@ -291,7 +291,7 @@
 }
 
 .default-text-box-title {
-  font-size: var(--layout-titleFontSize);
+  font-size: var(--layout-mediumFontSize);
 }
 
 .why-title {
@@ -305,6 +305,20 @@
 .what-title {
   font-size: var(--layout-mediumFontSize);
 }
+
+.why-content {
+  font-size: var(--layout-bodyFontSize)
+}
+
+.how-content {
+  font-size: var(--layout-bodyFontSize)
+}
+
+.what-content {
+  font-size: var(--layout-bodyFontSize)
+}
+
+
 
 .default-text-box-content {
   font-size: var(--layout-bodyFontSize);

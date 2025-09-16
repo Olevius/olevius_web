@@ -196,7 +196,6 @@ export const Home = () => {
                   classNameTitle={value.classNameTitle}
                   classNameContent={value.classNameContent}
                   styleContent={{
-                    fontSize: cssNumbers.layout.bodyFontSize,
                     textAlign: "left",
                     border: cssNumbers.testing.border,
                     whiteSpace: "pre-line",
