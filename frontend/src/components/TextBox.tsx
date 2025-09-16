@@ -19,15 +19,12 @@ export const TextBox = forRef<HTMLDivElement, TextBoxProps>(
   ) => (
     <Layout
       ref={ref}
-      className={className}
+      className={className ? className : "default-text-box-layout"}
       {...rest}
       style={{
         overflow: "hidden",
         backgroundColor: "white",
         display: "flex",
-        marginBottom: cssNumbers.layout.marginBottomXs,
-        width: "70vw",
-        marginRight: cssNumbers.layout.marginSmallRight,
         flexDirection: "column",
         justifyContent: "flex-start",
         border: cssNumbers.testing.border,
@@ -35,10 +32,9 @@ export const TextBox = forRef<HTMLDivElement, TextBoxProps>(
       }}
     >
       <Text
-        className={classNameTitle}
+        className={classNameTitle ? classNameTitle : "default-text-box-title"}
         style={{
           textAlign: "left",
-          fontSize: cssNumbers.layout.mediumFontSize,
           fontFamily: "Satoshi",
           color: "black",
           border: cssNumbers.testing.border,
@@ -48,9 +44,10 @@ export const TextBox = forRef<HTMLDivElement, TextBoxProps>(
         {value ? value.title : undefined}
       </Text>
       <Text
-        className={classNameContent}
+        className={
+          classNameContent ? classNameContent : "default-text-box-content"
+        }
         style={{
-          fontSize: cssNumbers.layout.bodyFontSize,
           color: "black",
           textAlign: "left",
           border: cssNumbers.testing.border,

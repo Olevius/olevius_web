@@ -126,7 +126,6 @@ export const Home = () => {
           <Text
             className="title-header"
             style={{
-              fontSize: cssNumbers.layout.titleFontSize,
               color: "black",
               border: cssNumbers.testing.border,
             }}
@@ -136,7 +135,6 @@ export const Home = () => {
           <Text
             className="subtitle-header"
             style={{
-              fontSize: cssNumbers.layout.subtitleFontSize,
               color: "black",
               opacity: 0,
               border: cssNumbers.testing.border,
@@ -157,10 +155,7 @@ export const Home = () => {
         <Text
           className="body-text"
           style={{
-            fontSize: cssNumbers.layout.titleFontSize,
             color: "black",
-            marginLeft: cssNumbers.layout.paddingTransitionText,
-            marginRight: cssNumbers.layout.paddingTransitionText,
             border: cssNumbers.testing.border,
           }}
         >
@@ -177,10 +172,10 @@ export const Home = () => {
         className="body"
       >
         <Layout
+          className="body-text-container"
           style={{
             display: "flex",
             flexDirection: "column",
-            padding: cssNumbers.layout.paddingBody,
             border: cssNumbers.testing.border,
           }}
         >
@@ -195,11 +190,9 @@ export const Home = () => {
             }}
           >
             {Object.entries(bodyTextMap).map(([key, value], idx) => {
-              const marginTop =
-                idx !== 0 ? cssNumbers.layout.marginExtraSmallTop : undefined;
               return (
                 <TextBox
-                  style={{ marginTop }}
+                  className={idx !== 0 ? "body-text-box" : undefined}
                   classNameTitle={value.classNameTitle}
                   classNameContent={value.classNameContent}
                   styleContent={{

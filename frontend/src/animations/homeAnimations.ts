@@ -144,12 +144,12 @@ export const runBodyScroll = (numbers: CSSNumbers = cssNumbers) => {
     {
       title: ".how-title",
       content: ".how-content",
-      offset: numbers.layout.bodySectionOffsetHow,
+      offset: numbers.animation.bodySectionOffsetHow,
     },
     {
       title: ".what-title",
       content: ".what-content",
-      offset: numbers.layout.bodySectionOffsetWhat,
+      offset: numbers.animation.bodySectionOffsetWhat,
     },
   ];
 

@@ -68,6 +68,8 @@ export type CSSNumbers = {
     teamStaggerEach: string | number;
     teamStaggerFrom: "start" | "center" | "edges" | number;
     teamStaggerAmount: string | number;
+    bodySectionOffsetHow: number;
+    bodySectionOffsetWhat: number;
   };
   layout: {
     titleFontSize: string;
@@ -87,9 +89,6 @@ export type CSSNumbers = {
     fullHeight: string;
     doubleFullHeight: string;
     aboutHeight: string;
-
-    bodySectionOffsetHow: number;
-    bodySectionOffsetWhat: number;
 
     textBoxMargin: string;
 

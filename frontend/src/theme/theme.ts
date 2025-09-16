@@ -68,6 +68,8 @@ export const cssNumbers = {
     teamStaggerEach: 0.22,
     teamStaggerFrom: "center" as const,
     teamStaggerAmount: 0.9,
+    bodySectionOffsetHow: 250,
+    bodySectionOffsetWhat: 800,
   },
   layout: {
     titleFontSize: "12.5rem",        // 200px ÷ 16
@@ -88,8 +90,6 @@ export const cssNumbers = {
     oneAndHalfHeight: '150dvh',
     oneAndThreeQuartersHeight: '175dvh',
     doubleFullHeight: '200dvh',
-    bodySectionOffsetHow: 300,
-    bodySectionOffsetWhat: 1000,
     aboutHeight: '130dvh',
     teamHeight: '150dvh',
     textBoxMargin: "500px",
