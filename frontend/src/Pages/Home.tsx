@@ -336,12 +336,15 @@ export const Home = () => {
           alignItems: "flex-start",
         }}
       >
-        <Layout style={{ padding: cssNumbers.layout.paddingBody }}>
+        <Layout
+          className="team-text-box-container"
+          style={{ padding: cssNumbers.layout.paddingBody }}
+        >
           {Object.entries(teamTextMap).map(([key, value]) => (
             <TextBox
               key={key}
               value={value}
-              className="team-text-box"
+              className={"team-text-box"}
               classNameContent="team-text-box-content"
               style={{
                 opacity: 0,

@@ -109,7 +109,7 @@
 
     --layout-marginBottomXXs: 2dvh;
 
-    --layout-textBoxWidth: 70vw;
+    --layout-textBoxWidth: 100%;
     --layout-textBoxGap: 5vw;
 
     --layout-imageVisibility: visible;
@@ -189,7 +189,7 @@
 
     --layout-marginBottomXXs: 2dvh;
 
-    --layout-textBoxWidth: 70vw;
+    --layout-textBoxWidth: 100%;
     --layout-textBoxGap: 5vw;
 
     --layout-imageVisibility: visible;
@@ -226,7 +226,7 @@
     --layout-paddingBody: 3.125rem;
 
     --layout-aboutHeight: 130dvh;
-    --layout-teamHeight: 500dvh;
+    --layout-teamHeight: 300%;
 
     --layout-textBoxMargin: 500px;
 
@@ -266,10 +266,9 @@
     --layout-footerSocialGap: 2dvw;
     --layout-footerSocialIconScale: 1.5;
 
-    --layout-fullWidthPercent: 100%;
     --layout-marginBottomXXs: 2dvh;
 
-    --layout-textBoxWidth: 70vw;
+    --layout-textBoxWidth: 100%;
     --layout-textBoxGap: 5vw;
     
     --layout-imageVisibility: visible;
@@ -282,14 +281,16 @@
   font-size: var(--layout-titleFontSize);
 }
 
+/* subtitle stuff */
+
 .subtitle-header {
   font-size: var(--layout-subtitleFontSize);
 }
 
+/* body stuff */
+
 .body-text {
   font-size: var(--layout-titleFontSize);
-  margin-left: var(--layout-paddingTransitionLeft);
-  margin-right: var(--layout-paddingTransitionRight);
 }
 
 .body-text-container {
@@ -304,15 +305,22 @@
   font-size: var(--layout-bodyFontSize);
 }
 
+/* default text box stuff */
+
 .default-text-box-layout {
   margin-bottom: var(--layout-marginBottomXXs);
-  margin-right: var(--layout-marginExtraSmallRight);
   width: var(--layout-textBoxWidth);
 }
 
 .default-text-box-title {
   font-size: var(--layout-mediumFontSize);
 }
+
+.default-text-box-content {
+  font-size: var(--layout-bodyFontSize);
+}
+
+/* body text box stuff */
 
 .why-title {
   font-size: var(--layout-mediumFontSize);
@@ -338,13 +346,11 @@
   font-size: var(--layout-bodyFontSize)
 }
 
-.default-text-box-content {
-  font-size: var(--layout-bodyFontSize);
-}
-
 .body-text-box {
   margin-top: var(--layout-marginExtraSmallTop);
 }
+
+/* about page stuff */
 
 .about-container {
   width: var(--layout-aboutFullWidth);
@@ -370,8 +376,10 @@
   padding-right: var(--layout-paddingBody);
 }
 
+/* team page stuff */
+
 .team-container {
-  padding: var(--layout-paddingBody)
+  padding: var(--layout-paddingBody);
 }
 
 .team-title {
@@ -386,9 +394,19 @@
   height: var(--layout-teamHeight);
 }
 
+.team-text-box {
+    margin-bottom: var(--layout-marginBottomXXs);
+}
+
+.team-text-box-container {
+  margin-bottom: var(--layout-marginSmallBottom);
+}
+
 .team-text-box-content {
   font-size: var(--layout-bodyFontSize);
 }
+
+/* footer section stuff */
 
 .footer-container {
   padding: var(--layout-paddingBody)
@@ -417,6 +435,7 @@
   scale: var(--layout-footerSocialIconScale)
 }
 
+/* misc stuff */
 
 .card {
   padding: 2em;
