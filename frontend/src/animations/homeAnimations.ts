@@ -42,53 +42,71 @@ export const runIntroTimeline = (numbers: CSSNumbers = cssNumbers) => {
 };
 
 export const runHeaderScrollTimeline = (numbers: CSSNumbers = cssNumbers) => {
-  return gsap
-    .timeline({
-      scrollTrigger: {
-        trigger: ".header",
-        start: "top top",
-        end: `+=${numbers.animation.scrollEnd}`,
-        pin: true,
-        scrub: numbers.animation.scrubDuration,
-      },
-    })
-    .add("syncPoint")
-    .to(
-      ".title-header",
+  const ctx = gsap.context(() => {
+    const mm = gsap.matchMedia();
+
+    gsap.set(".title-header", { clearProps: "fontSize" }); // avoid leftover inline
+
+    mm.add(
       {
-        fontSize: numbers.layout.scrubFontSize,
-        scale: numbers.animation.scrubScale,
-        color: "white",
-        opacity: 0,
-        ease: numbers.animation.eases.power1In,
+        xs: "(max-width: 639px)",
+        sd: "(min-width: 640px)",
+        md: "(min-width: 900px)",
+        lg: "(min-width: 1024px)",
       },
-      "syncPoint"
-    )
-    .to(
-      ".subtitle-header",
-      {
-        color: "white",
-        duration: numbers.animation.colorChangeDuration,
-        ease: numbers.animation.eases.power1Out,
-      },
-      "sync-point"
-    )
-    .to(
-      ".header",
-      {
-        backgroundColor: "white",
-        ease: numbers.animation.eases.power1In,
-      },
-      "syncPoint"
-    )
-    .to(".body-title-box", {
-      backgroundColor: "white",
-      ease: numbers.animation.eases.power1In,
-    })
-    .to(".body", {
-      backgroundColor: "white",
-      ease: numbers.animation.eases.power1In,
-    });
+      (mctx) => {
+        const startFont =
+          mctx.conditions?.lg ? numbers.layout.titleFontSize.l :
+            mctx.conditions?.md ? numbers.layout.titleFontSize.m :
+              mctx.conditions?.sd ? numbers.layout.titleFontSize.s :
+                mctx.conditions?.xs ? numbers.layout.titleFontSize.xs :
+                  numbers.layout.titleFontSize.xs;
+
+        const endFont =
+          mctx.conditions?.lg ? numbers.layout.scrubFontSize.l :
+            mctx.conditions?.md ? numbers.layout.scrubFontSize.l :
+              mctx.conditions?.sd ? numbers.layout.scrubFontSize.s :
+                mctx.conditions?.xs ? numbers.layout.scrubFontSize.xs :
+                  numbers.layout.scrubFontSize.m;
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".header",
+            start: "top top",
+            end: `+=${numbers.animation.scrollEnd}`,
+            pin: true,
+            scrub: numbers.animation.scrubDuration,
+            invalidateOnRefresh: true,
+          },
+        })
+          .add("syncPoint")
+          .fromTo(
+            ".title-header",
+            { fontSize: startFont },
+            {
+              fontSize: endFont,
+              color: "white",
+              opacity: 0,
+              ease: numbers.animation.eases.power1In,
+            },
+            "syncPoint"
+          )
+          .to(".subtitle-header", {
+            opacity: 0,
+            duration: numbers.animation.colorChangeDuration,
+            ease: numbers.animation.eases.power1In,
+          }, "syncPoint")
+          .to(".header", { backgroundColor: "white", ease: numbers.animation.eases.power1In }, "syncPoint")
+          .to(".body-title-box", { backgroundColor: "white", ease: numbers.animation.eases.power1In })
+          .to(".body", { backgroundColor: "white", ease: numbers.animation.eases.power1In });
+
+        return () => tl.kill(); // cleanup when query stops matching
+      }
+    );
+  });
+
+  // if using a framework, return disposer:
+  return () => ctx.revert();
 };
 
 export const runTransitionTextScroll = (numbers: CSSNumbers = cssNumbers) => {
@@ -113,6 +131,8 @@ export const runTransitionTextScroll = (numbers: CSSNumbers = cssNumbers) => {
       duration: numbers.animation.bodyHeaderDuration,
       stagger: numbers.animation.wordStagger,
     });
+
+
 };
 
 export const createSplitScroll = (

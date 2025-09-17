@@ -37,6 +37,83 @@
     animation: logo-spin infinite 20s linear;
   }
 }
+@media (max-width: 639px) {
+  :root {
+    /* animation */
+    --animation-titleStartX: 46.875rem;
+    --animation-navStartY: -4.375rem;
+    --animation-scrollEnd: 1000;
+    --animation-overlapEnd: 1500;
+    --animation-scrubScale: 10;
+    --animation-wordStart: 100;
+
+    --animation-teamEnterXPercent: 12;
+    --animation-teamEnterDuration: 1.2;
+    --animation-teamStaggerEach: 0.22;
+    --animation-teamStaggerAmount: 0.9;
+
+    /* layout */
+    --layout-titleFontSize: 12.5rem;
+    --layout-mediumFontSize: 6.25rem;
+    --layout-headerTitleFontSize: 3.5rem;
+    --layout-subtitleFontSize: 3.125rem;
+    --layout-footerFontSize: 0.8125rem;
+    --layout-teamFontSize: 0.9375rem;
+    --layout-bodyFontSize: 1.5625rem;
+    --layout-textHeaderFontSize: 1.25rem;
+
+    --layout-paddingSmall: 0.625rem;
+    --layout-paddingBody: 3.125rem;
+
+    --layout-fullHeight: 100dvh;
+    --layout-doubleFullHeight: 200dvh;
+    --layout-aboutHeight: 130dvh;
+    --layout-teamHeight: 100dvh;
+
+    --layout-textBoxMargin: 500px;
+
+    --layout-marginSmallLeft: 2dvw;
+    --layout-marginSmallRight: 2dvw;
+    --layout-marginSmallTop: 20dvh;
+    --layout-marginSmallBottom: 2dvh;
+
+    --layout-marginExtraSmallLeft: 5dvh;
+    --layout-marginExtraSmallRight: 5dvh;
+    --layout-marginExtraSmallTop: 5dvh;
+    --layout-marginExtraSmallBottom: 5dvh;
+
+    --layout-paddingLeft: 0.625rem;
+    --layout-paddingRight: 0.625rem;
+    --layout-paddingTop: 0.625rem;
+    --layout-paddingBottom: 0.625rem;
+
+    --layout-paddingTransitionLeft: 5rem;
+    --layout-paddingTransitionRight: 5rem;
+    --layout-paddingTransitionTop: 5rem;
+    --layout-paddingTransitionBottom: 5rem;
+
+    --layout-aboutFullWidth: 100dvw;
+    --layout-aboutTitleWidth: 50dvw;
+    --layout-aboutContentWidth: 41dvw;
+    --layout-aboutContentPaddingTop: 2dvh;
+    --layout-aboutContentHeight: 100;
+
+    --layout-teamFullWidth: 100%;
+
+    --layout-footerContactTranslateY: -6dvh;
+    --layout-footerLinkMargin: 5dvw;
+    --layout-footerLinkGap: 5dvw;
+    --layout-footerSocialGap: 2dvw;
+    --layout-footerSocialIconScale: 1.5;
+
+    --layout-marginBottomXXs: 2dvh;
+
+    --layout-textBoxWidth: 100%;
+    --layout-textBoxGap: 5vw;
+
+    --layout-imageVisibility: visible;
+  }
+}
 
 /* ========== Small ≥640px ========== */
 @media (min-width: 640px) {
@@ -57,6 +134,7 @@
     /* layout */
     --layout-titleFontSize: 12.5rem;
     --layout-mediumFontSize: 6.25rem;
+    --layout-headerTitleFontSize: 8.5rem;
     --layout-subtitleFontSize: 3.125rem;
     --layout-footerFontSize: 0.8125rem;
     --layout-teamFontSize: 0.9375rem;
@@ -136,6 +214,7 @@
     /* layout */
     --layout-titleFontSize: 12.5rem;
     --layout-mediumFontSize: 6.25rem;
+    --layout-headerTitleFontSize: 12.5rem;
     --layout-subtitleFontSize: 3.125rem;
     --layout-footerFontSize: 0.8125rem;
     --layout-teamFontSize: 0.9375rem;
@@ -216,6 +295,7 @@
     /* layout */
     --layout-titleFontSize: 12.5rem;
     --layout-mediumFontSize: 6.25rem;
+    --layout-headerTitleFontSize: 12.5rem;
     --layout-subtitleFontSize: 3.125rem;
     --layout-footerFontSize: 0.8125rem;
     --layout-teamFontSize: 0.9375rem;
@@ -278,7 +358,7 @@
 /* header stuff */
 
 .title-header {
-  font-size: var(--layout-titleFontSize);
+  font-size: var(--layout-headerTitleFontSize);
 }
 
 /* subtitle stuff */
@@ -294,6 +374,7 @@
 }
 
 .body-text-container {
+  margin-top: var(--layout-);
   padding: var(--layout-paddingBody);
 }
 

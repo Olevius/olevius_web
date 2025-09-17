@@ -72,12 +72,12 @@ export type CSSNumbers = {
     bodySectionOffsetWhat: number;
   };
   layout: {
-    titleFontSize: string;
+    titleFontSize: MediaQuery;
     mediumFontSize: string | number;
     subtitleFontSize: string;
     bodyFontSize: string;
     textHeaderFontSize: string;
-    scrubFontSize: string;
+    scrubFontSize: MediaQuery;
 
     paddingSmall: number | string;
     paddingBody: number | string;
@@ -122,3 +122,12 @@ export type CSSNumbers = {
     border: string;
   };
 };
+
+
+export type MediaQuery = {
+  xs: string | number;
+  s: string | number;
+  m: string | number;
+  l: string | number;
+  xl: string | number
+}
