@@ -202,7 +202,6 @@ export const Text = forRef<HTMLSpanElement, BaseProps>(
       ref={ref}
       {...rest}
       style={{
-        fontSize: cssNumbers.layout.subtitleFontSize,
         color: "black",
         display: "inline",
         ...style,

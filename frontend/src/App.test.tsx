@@ -1,9 +1,4 @@
- 
-import { render } from "@testing-library/react";
-import { Home } from "./Pages/Home";
-import { StrictMode } from "react";
-import { describe, it, beforeEach, afterEach, vi, expect } from "vitest";
-import { MemoryRouter } from "react-router-dom";
+import { describe, it } from "vitest";
 
 describe("Front page tests", () => {
   it("renders the Home page", () => {
@@ -17,4 +12,3 @@ describe("Front page tests", () => {
     // app.unmount();
   });
 });
- 

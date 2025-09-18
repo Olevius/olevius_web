@@ -13,6 +13,6 @@ export interface AboutCardConfig
 
 type AboutContentProps = Readonly<{
   text: string;
-  className: string;
+  className?: string;
   link: string;
 }>;
