@@ -77,7 +77,6 @@ export const runHeaderScrollTimeline = (numbers: CSSNumbers = cssNumbers) => {
           end: `+=${numbers.animation.scrollEnd}`,
           pin: true,
           scrub: numbers.animation.scrubDuration,
-          invalidateOnRefresh: true,
         },
       })
         .add("syncPoint")
@@ -93,7 +92,7 @@ export const runHeaderScrollTimeline = (numbers: CSSNumbers = cssNumbers) => {
           "syncPoint"
         )
         .to(".subtitle-header", {
-          opacity: 0,
+          color: "white",
           duration: numbers.animation.colorChangeDuration,
           ease: numbers.animation.eases.power1In,
         }, "syncPoint")
@@ -256,7 +255,6 @@ export const runTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
         pin: true,
         pinSpacing: false,
         scrub: A.scrub,
-        invalidateOnRefresh: true,
       },
     });
 

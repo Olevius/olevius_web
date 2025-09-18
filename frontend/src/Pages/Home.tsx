@@ -127,6 +127,7 @@ export const Home = () => {
             className="title-header"
             style={{
               color: "black",
+              zIndex: 0,
               border: cssNumbers.testing.border,
             }}
           >
@@ -136,8 +137,9 @@ export const Home = () => {
             className="subtitle-header"
             style={{
               color: "black",
-              opacity: 0,
+              opacity: 1,
               border: cssNumbers.testing.border,
+              zIndex: 0,
             }}
           >
             Accuracy. Unmatched.
@@ -149,6 +151,7 @@ export const Home = () => {
         style={{
           backgroundColor: customColors.highlight,
           border: cssNumbers.testing.border,
+          zIndex: 2,
         }}
         className="transition-title-box"
       >
@@ -168,6 +171,7 @@ export const Home = () => {
           overflow: "hidden",
           backgroundColor: customColors.highlight,
           border: cssNumbers.testing.border,
+          zIndex: 3,
         }}
         className="body"
       >
