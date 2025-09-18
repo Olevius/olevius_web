@@ -37,6 +37,7 @@
     animation: logo-spin infinite 20s linear;
   }
 }
+
 @media (max-width: 639px) {
   :root {
     /* animation */
@@ -53,10 +54,10 @@
     --animation-teamStaggerAmount: 0.9;
 
     /* layout */
-    --layout-titleFontSize: 12.5rem;
-    --layout-mediumFontSize: 6.25rem;
-    --layout-headerTitleFontSize: 3.5rem;
-    --layout-subtitleFontSize: 3.125rem;
+    --layout-titleFontSize: 5.5rem;
+    --layout-mediumFontSize: 4.25rem;
+    --layout-headerTitleFontSize: 12.5rem;
+    --layout-subtitleFontSize: 2.125rem;
     --layout-footerFontSize: 0.8125rem;
     --layout-teamFontSize: 0.9375rem;
     --layout-bodyFontSize: 1.5625rem;
@@ -110,8 +111,10 @@
 
     --layout-textBoxWidth: 100%;
     --layout-textBoxGap: 5vw;
+    --layout-textBoxLineHeight: 1;
 
     --layout-imageVisibility: visible;
+
   }
 }
 
@@ -134,7 +137,7 @@
     /* layout */
     --layout-titleFontSize: 12.5rem;
     --layout-mediumFontSize: 6.25rem;
-    --layout-headerTitleFontSize: 8.5rem;
+    --layout-headerTitleFontSize: 12.5rem;
     --layout-subtitleFontSize: 3.125rem;
     --layout-footerFontSize: 0.8125rem;
     --layout-teamFontSize: 0.9375rem;
@@ -214,7 +217,6 @@
     /* layout */
     --layout-titleFontSize: 12.5rem;
     --layout-mediumFontSize: 6.25rem;
-    --layout-headerTitleFontSize: 12.5rem;
     --layout-subtitleFontSize: 3.125rem;
     --layout-footerFontSize: 0.8125rem;
     --layout-teamFontSize: 0.9375rem;
@@ -295,7 +297,6 @@
     /* layout */
     --layout-titleFontSize: 12.5rem;
     --layout-mediumFontSize: 6.25rem;
-    --layout-headerTitleFontSize: 12.5rem;
     --layout-subtitleFontSize: 3.125rem;
     --layout-footerFontSize: 0.8125rem;
     --layout-teamFontSize: 0.9375rem;
@@ -358,7 +359,7 @@
 /* header stuff */
 
 .title-header {
-  font-size: var(--layout-headerTitleFontSize);
+  font-size: var(--layout-z);
 }
 
 /* subtitle stuff */
@@ -367,14 +368,16 @@
   font-size: var(--layout-subtitleFontSize);
 }
 
-/* body stuff */
+/* transition stuff */
 
-.body-text {
+.transition-text {
   font-size: var(--layout-titleFontSize);
 }
 
+/* body stuff */
+
 .body-text-container {
-  margin-top: var(--layout-);
+  margin-top: var(--layout-paddingBody);
   padding: var(--layout-paddingBody);
 }
 

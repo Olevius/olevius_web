@@ -41,6 +41,7 @@ export const runIntroTimeline = (numbers: CSSNumbers = cssNumbers) => {
   });
 };
 
+
 export const runHeaderScrollTimeline = (numbers: CSSNumbers = cssNumbers) => {
   const ctx = gsap.context(() => {
     const mm = gsap.matchMedia();
@@ -97,7 +98,7 @@ export const runHeaderScrollTimeline = (numbers: CSSNumbers = cssNumbers) => {
             ease: numbers.animation.eases.power1In,
           }, "syncPoint")
           .to(".header", { backgroundColor: "white", ease: numbers.animation.eases.power1In }, "syncPoint")
-          .to(".body-title-box", { backgroundColor: "white", ease: numbers.animation.eases.power1In })
+          .to(".transition-title-box", { backgroundColor: "white", ease: numbers.animation.eases.power1In })
           .to(".body", { backgroundColor: "white", ease: numbers.animation.eases.power1In });
 
         return () => tl.kill(); // cleanup when query stops matching
@@ -110,7 +111,7 @@ export const runHeaderScrollTimeline = (numbers: CSSNumbers = cssNumbers) => {
 };
 
 export const runTransitionTextScroll = (numbers: CSSNumbers = cssNumbers) => {
-  const split = SplitText.create(".body-text", {
+  const split = SplitText.create(".transition-text", {
     type: "chars, words, lines",
     charsClass: "char",
   });
@@ -118,7 +119,7 @@ export const runTransitionTextScroll = (numbers: CSSNumbers = cssNumbers) => {
   return gsap
     .timeline({
       scrollTrigger: {
-        trigger: ".body-title-box",
+        trigger: ".transition-title-box",
         start: "center center",
         end: `+=${numbers.animation.overlapEnd}`,
         pin: true,

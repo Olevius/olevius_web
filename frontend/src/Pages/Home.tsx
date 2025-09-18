@@ -150,10 +150,10 @@ export const Home = () => {
           backgroundColor: customColors.highlight,
           border: cssNumbers.testing.border,
         }}
-        className="body-title-box"
+        className="transition-title-box"
       >
         <Text
-          className="body-text"
+          className="transition-text"
           style={{
             color: "black",
             border: cssNumbers.testing.border,
