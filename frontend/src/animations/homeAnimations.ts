@@ -194,14 +194,25 @@ export const runBodyScroll = (numbers: CSSNumbers = cssNumbers) => {
     })
 };
 
-export const runAboutScroll = () => {
+export const runAboutScroll = (numbers: CSSNumbers = cssNumbers) => {
 
   mm.add({
     xs: "(max-width: 639px)",
     sd: "(min-width: 640px)",
     md: "(min-width: 900px)",
     lg: "(min-width: 1024px)",
-  }, () => {
+  }, (mctx) => {
+    const parallaxDistance =
+      mctx.conditions?.lg
+        ? numbers.layout.aboutParallaxDistance.l
+        : mctx.conditions?.md
+          ? numbers.layout.aboutParallaxDistance.m
+          : mctx.conditions?.sd
+            ? numbers.layout.aboutParallaxDistance.s
+            : mctx.conditions?.xs
+              ? numbers.layout.aboutParallaxDistance.xs
+              : numbers.layout.aboutParallaxDistance.xs; // fallback
+
     const tl = gsap
       .timeline({
         scrollTrigger: {
@@ -215,14 +226,14 @@ export const runAboutScroll = () => {
       .from(
         ".about-content",
         {
-          y: "30dvh",
+          y: parallaxDistance,
         },
         "sync-point"
       )
       .from(
         ".about-title",
         {
-          y: "30dvh",
+          y: parallaxDistance,
         },
         "sync-point"
       );

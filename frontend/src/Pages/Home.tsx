@@ -44,31 +44,15 @@ export const Home = () => {
   const imagePathList: ImageMapProps = {
     levi: {
       src: leviImg,
-      style: {
-        maxWidth: cssNumbers.layout.teamImageMaxWidth,
-        height: "auto",
-      },
     },
     jp: {
       src: jpImg,
-      style: {
-        maxWidth: cssNumbers.layout.teamImageMaxWidth,
-        height: "auto",
-      },
     },
     matthew: {
       src: matthewImg,
-      style: {
-        maxWidth: cssNumbers.layout.teamImageMaxWidth,
-        height: "auto",
-      },
     },
     andrew: {
       src: andrewImg,
-      style: {
-        maxWidth: cssNumbers.layout.teamImageMaxWidth,
-        height: "auto",
-      },
     },
   };
 
@@ -89,7 +73,7 @@ export const Home = () => {
       runHeaderScrollTimeline(cssNumbers);
       runTransitionTextScroll(cssNumbers);
       runBodyScroll(cssNumbers);
-      runAboutScroll();
+      runAboutScroll(cssNumbers);
       runTeamScroll(cssNumbers);
     })();
     return () => {
@@ -229,8 +213,6 @@ export const Home = () => {
           className="about-container"
           style={{
             display: "flex",
-            flexDirection: "row",
-            paddingBlockStart: cssNumbers.layout.paddingBody,
             alignItems: "flex-start",
           }}
         >
@@ -246,7 +228,6 @@ export const Home = () => {
               className="about-title"
               style={{
                 textAlign: "left",
-                zIndex: 100,
                 border: cssNumbers.testing.border,
               }}
             >
@@ -258,8 +239,6 @@ export const Home = () => {
             className="about-content-container"
             style={{
               display: "flex",
-              height: cssNumbers.layout.aboutContentHeight,
-              width: cssNumbers.layout.aboutContentWidth,
               justifyContent: "flex-start",
               border: cssNumbers.testing.border,
             }}
@@ -305,13 +284,12 @@ export const Home = () => {
           >
             <Text className="team-title">Our Team</Text>
           </Layout>
-          <Layout style={{ display: "flex", flexDirection: "row" }}>
+          <Layout className="image-container" style={{ display: "flex" }}>
             {Object.entries(imagePathList).map(([key, value]) => (
               <Layout
                 className="image-wrapper"
                 style={{
                   display: "flex",
-                  flexDirection: "row",
                   flexWrap: "wrap",
                   height: "auto",
                 }}
@@ -320,7 +298,7 @@ export const Home = () => {
                 <Image
                   id="view_img"
                   className="images"
-                  style={{ ...value.style, pointerEvents: "none" }}
+                  style={{ pointerEvents: "none" }}
                   key={key}
                   src={value.src}
                 />

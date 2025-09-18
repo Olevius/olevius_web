@@ -109,6 +109,7 @@ export type CSSNumbers = {
     aboutContentHeight: string;
     aboutTitleSpeed: number;
     aboutContentSpeed: number;
+    aboutParallaxDistance: MediaQuery;
     footerContactTranslateY: string;
     footerLinkMargin: string;
     footerLinkGap: string;

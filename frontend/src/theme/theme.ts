@@ -120,6 +120,13 @@ export const cssNumbers = {
     aboutContentHeight: '100',
     aboutTitleSpeed: 0.75,
     aboutContentSpeed: 1,
+    aboutParallaxDistance: {
+      xs: "15dvh",
+      s: "30dvh",
+      m: "30dvh",
+      l: "30dvh",
+      xl: "30dvh",
+    },
     footerContactTranslateY: '-6dvh',
     footerLinkMargin: '5dvw',
     footerLinkGap: '5dvw',
