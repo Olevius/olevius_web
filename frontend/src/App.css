@@ -57,10 +57,10 @@
     --layout-titleFontSize: 5.5rem;
     --layout-mediumFontSize: 4.25rem;
     --layout-headerTitleFontSize: 12.5rem;
-    --layout-subtitleFontSize: 2.125rem;
+    --layout-subtitleFontSize: 1.5rem;
     --layout-footerFontSize: 0.8125rem;
     --layout-teamFontSize: 0.9375rem;
-    --layout-bodyFontSize: 1.5625rem;
+    --layout-bodyFontSize: 1.2rem;
     --layout-textHeaderFontSize: 1.25rem;
 
     --layout-paddingSmall: 0.625rem;
@@ -110,8 +110,9 @@
     --layout-marginBottomXXs: 2dvh;
 
     --layout-textBoxWidth: 100%;
-    --layout-textBoxGap: 5vw;
+    --layout-textBoxGap: 5dvh;
     --layout-textBoxLineHeight: 1;
+    --layout-textBoxTitleContentGap: 20px;
 
     --layout-imageVisibility: visible;
 
@@ -191,7 +192,7 @@
     --layout-marginBottomXXs: 2dvh;
 
     --layout-textBoxWidth: 100%;
-    --layout-textBoxGap: 5vw;
+    --layout-textBoxGap: 5dvh;
 
     --layout-imageVisibility: visible;
 
@@ -271,7 +272,7 @@
     --layout-marginBottomXXs: 2dvh;
 
     --layout-textBoxWidth: 100%;
-    --layout-textBoxGap: 5vw;
+    --layout-textBoxGap: 5vh;
 
     --layout-imageVisibility: visible;
 
@@ -350,7 +351,7 @@
     --layout-marginBottomXXs: 2dvh;
 
     --layout-textBoxWidth: 100%;
-    --layout-textBoxGap: 5vw;
+    --layout-textBoxGap: 5dvh;
     
     --layout-imageVisibility: visible;
   }
@@ -394,6 +395,7 @@
 .default-text-box-layout {
   margin-bottom: var(--layout-marginBottomXXs);
   width: var(--layout-textBoxWidth);
+  gap: 20px;
 }
 
 .default-text-box-title {
@@ -408,14 +410,19 @@
 
 .why-title {
   font-size: var(--layout-mediumFontSize);
+  line-height: var(--layout-textBoxLineHeight);
 }
 
 .how-title {
   font-size: var(--layout-mediumFontSize);
+  line-height: var(--layout-textBoxLineHeight);
+
 }
 
 .what-title {
   font-size: var(--layout-mediumFontSize);
+  line-height: var(--layout-textBoxLineHeight);
+
 }
 
 .why-content {
@@ -432,6 +439,8 @@
 
 .body-text-box {
   margin-top: var(--layout-marginExtraSmallTop);
+  gap: var(--layout-textBoxTitleContentGap);
+
 }
 
 /* about page stuff */
