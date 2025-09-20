@@ -70,7 +70,7 @@
     --layout-fullHeight: 100dvh;
     --layout-doubleFullHeight: 200dvh;
     --layout-aboutHeight: 190dvh;
-    --layout-teamHeight: 100dvh;
+    --layout-teamHeight: 380dvh;
 
     --layout-textBoxMargin: 500px;
 
@@ -107,6 +107,9 @@
     --layout-footerLinkGap: 5dvw;
     --layout-footerSocialGap: 2dvw;
     --layout-footerSocialIconScale: 1.5;
+    --layout-footerFlexDirection: column;
+    --layout-footerLinksFlexDirection: column;
+
 
     --layout-marginBottomXXs: 2dvh;
 
@@ -197,6 +200,9 @@
     --layout-footerLinkGap: 5dvw;
     --layout-footerSocialGap: 2dvw;
     --layout-footerSocialIconScale: 1.5;
+    --layout-footerFlexDirection: row;
+    --layout-footerLinksFlexDirection: row;
+
 
     --layout-marginBottomXXs: 2dvh;
 
@@ -206,7 +212,7 @@
     --layout-imageVisibility: visible;
 
     --layout-aboutTitleWrap: nowrap;
-    --layout-aboutFlexDirection: "column"
+    --layout-aboutFlexDirection: column
 
   }
 }
@@ -282,6 +288,10 @@
     --layout-footerLinkGap: 5dvw;
     --layout-footerSocialGap: 2dvw;
     --layout-footerSocialIconScale: 1.5;
+    --layout-footerFlexDirection: row;
+        --layout-footerLinksFlexDirection: row;
+
+
 
     --layout-marginBottomXXs: 2dvh;
 
@@ -291,7 +301,7 @@
     --layout-imageVisibility: visible;
 
     --layout-aboutTitleWrap: nowrap;
-    --layout-aboutFlexDirection: "row"
+    --layout-aboutFlexDirection: row
 
   }
 }
@@ -326,7 +336,7 @@
     --layout-paddingBody: 3.125rem;
 
     --layout-aboutHeight: 130dvh;
-    --layout-teamHeight: 300%;
+    --layout-teamHeight: 500dvh;
 
     --layout-textBoxMargin: 500px;
 
@@ -368,6 +378,9 @@
     --layout-footerLinkGap: 5dvw;
     --layout-footerSocialGap: 2dvw;
     --layout-footerSocialIconScale: 1.5;
+    --layout-footerFlexDirection: row;
+    --layout-footerLinksFlexDirection: row;
+
 
     --layout-marginBottomXXs: 2dvh;
 
@@ -377,7 +390,7 @@
     --layout-imageVisibility: visible;
 
     --layout-aboutTitleWrap: nowrap;
-    --layout-aboutFlexDirection: "column"
+    --layout-aboutFlexDirection: column
 
   }
 }
@@ -504,10 +517,6 @@
   visibility: var(--layout-imageVisibility);
 }
 
-.scroll-rect1 {
-  height: var(--layout-teamHeight);
-}
-
 .team-text-box {
   margin-bottom: var(--layout-marginBottomXXs);
 }
@@ -532,7 +541,8 @@
 /* footer section stuff */
 
 .footer-container {
-  padding: var(--layout-paddingBody)
+  padding: var(--layout-paddingBody);
+  flex-direction: var(--layout-footerFlexDirection);
 }
 
 .footer-contact-us {
@@ -544,6 +554,7 @@
   margin-left: var(--layout-footerLinkMargin);
   gap: var(--layout-footerLinkGap);
   margin-right: var(--layout-footerLinkMargin);
+  flex-direction: var(--layout-footerLinksFlexDirection);
 }
 
 .footer-image-container {

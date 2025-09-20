@@ -33,8 +33,8 @@ import { About } from "../components/About";
 import { Team } from "../components/Team";
 import type { ImageMapProps } from "../components/basics/ImagePropTypes";
 import { Footer } from "../components/Footer";
-import { AboutCard } from "../components/AboutCard";
-import { aboutTextMap } from "../text-maps/aboutTextMap";
+import { FooterCard } from "../components/FooterCard";
+import { footerTextMap } from "../text-maps/footerTextMap";
 import { bodyTextMap } from "../text-maps/bodyTextMap";
 import { teamTextMap } from "../text-maps/teamMap";
 
@@ -326,7 +326,7 @@ export const Home = () => {
             <TextBox
               key={key}
               value={value}
-              className={"team-text-box"}
+              className="team-text-box"
               classNameContent="team-text-box-content"
               style={{
                 opacity: 0,
@@ -343,7 +343,6 @@ export const Home = () => {
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            flexDirection: "row",
           }}
         >
           <Text className="footer-contact-us">Contact us</Text>
@@ -352,11 +351,10 @@ export const Home = () => {
             style={{
               justifyContent: "space-between",
               display: "flex",
-              flexDirection: "row",
             }}
           >
-            {Object.entries(aboutTextMap).map(([key, value]) => (
-              <AboutCard key={key} value={value} />
+            {Object.entries(footerTextMap).map(([key, value]) => (
+              <FooterCard key={key} value={value} />
             ))}
           </Layout>
           <Layout

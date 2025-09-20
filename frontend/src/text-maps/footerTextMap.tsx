@@ -1,4 +1,4 @@
-export const aboutTextMap = {
+export const footerTextMap = {
   useCases: {
     title: "Use Cases",
     content: [
@@ -75,24 +75,6 @@ export const aboutTextMap = {
             to: "j29mak@uwaterloo.ca",
             subject: "Olevius_inquiry",
           }).toString(), // Outlook handles + as spaces fine,
-      },
-    ],
-  },
-
-  legal: {
-    title: "Legal",
-    content: [
-      {
-        text: "Privacy Policy",
-        link: "https://opensource.org/license/bsd-3-clause",
-      },
-      {
-        text: "Terms of Service",
-        link: "https://opensource.org/license/bsd-3-clause",
-      },
-      {
-        text: "Data Processing Agreement",
-        link: "https://uwaterloo.ca/nanotechnology-engineering/undergraduate-students/capstone-design",
       },
     ],
   },

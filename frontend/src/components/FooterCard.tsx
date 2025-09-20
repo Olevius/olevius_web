@@ -3,7 +3,7 @@ import { AnchoredText, Layout, Text } from "./basics/defaults";
 import type { AboutCardProps } from "./basics/AboutConfigTypes";
 import { forRef } from "./basics/refHelper";
 
-export const AboutCard = forRef<HTMLDivElement, AboutCardProps>(
+export const FooterCard = forRef<HTMLDivElement, AboutCardProps>(
   ({ classNameTitle, className, style, value, ...rest }, ref) => (
     <Layout
       style={{
