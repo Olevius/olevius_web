@@ -346,13 +346,7 @@ export const Home = () => {
           }}
         >
           <Text className="footer-contact-us">Contact us</Text>
-          <Layout
-            className="footer-link-layout"
-            style={{
-              justifyContent: "space-between",
-              display: "flex",
-            }}
-          >
+          <Layout className="footer-link-layout">
             {Object.entries(footerTextMap).map(([key, value]) => (
               <FooterCard key={key} value={value} />
             ))}

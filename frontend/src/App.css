@@ -102,14 +102,18 @@
     --layout-teamImageWidth: 25dvw;
     --layout-teamImageHeight: auto;
 
-    --layout-footerContactTranslateY: -6dvh;
+    --layout-footerContactTranslateY: 0;
     --layout-footerLinkMargin: 5dvw;
     --layout-footerLinkGap: 5dvw;
-    --layout-footerSocialGap: 2dvw;
+    --layout-footerSocialGap: 5dvw;
     --layout-footerSocialIconScale: 1.5;
     --layout-footerFlexDirection: column;
     --layout-footerLinksFlexDirection: column;
-
+    --layout-footerContainerGap: 8dvh;
+    --layout-footerContactUsFontSize: 3.5rem;
+    --layout-footerLinkLayoutDisplay: grid;
+    --layout-footerLinkLayoutGridTemplateCols: repeat(2, minmax(0, 1fr));
+    --layout-footerLinkLayoutJustifyContent: none;
 
     --layout-marginBottomXXs: 2dvh;
 
@@ -202,6 +206,11 @@
     --layout-footerSocialIconScale: 1.5;
     --layout-footerFlexDirection: row;
     --layout-footerLinksFlexDirection: row;
+    --layout-footerContainerGap: 0;
+    --layout-footerContactUsFontSize: 3.25rem;
+    --layout-footerLinkLayoutDisplay: flex;
+    --layout-footerGridTemplateCols: none;
+    --layout-footerLinkLayoutJustifyContent: space-between;
 
 
     --layout-marginBottomXXs: 2dvh;
@@ -289,8 +298,12 @@
     --layout-footerSocialGap: 2dvw;
     --layout-footerSocialIconScale: 1.5;
     --layout-footerFlexDirection: row;
-        --layout-footerLinksFlexDirection: row;
-
+    --layout-footerLinksFlexDirection: row;
+    --layout-footerContainerGap: 0;
+    --layout-footerContactUsFontSize: 3.25rem;
+    --layout-footerLinkLayoutDisplay: flex;
+    --layout-footerGridTemplateCols: none;
+    --layout-footerLinkLayoutJustifyContent: space-between;
 
 
     --layout-marginBottomXXs: 2dvh;
@@ -380,6 +393,11 @@
     --layout-footerSocialIconScale: 1.5;
     --layout-footerFlexDirection: row;
     --layout-footerLinksFlexDirection: row;
+    --layout-footerContainerGap: 0;
+    --layout-footerContactUsFontSize: 3.25rem;
+    --layout-footerLinkLayoutDisplay: flex;
+    --layout-footerGridTemplateCols: none;
+    --layout-footerLinkLayoutJustifyContent: space-between;
 
 
     --layout-marginBottomXXs: 2dvh;
@@ -543,11 +561,12 @@
 .footer-container {
   padding: var(--layout-paddingBody);
   flex-direction: var(--layout-footerFlexDirection);
+  gap: var(--layout-footerContainerGap);
 }
 
 .footer-contact-us {
   transform: translateY(var(--layout-footerContactTranslateY));
-  font-size: var(--layout-subtitleFontSize);
+  font-size: var(--layout-footerContactUsFontSize);
 }
 
 .footer-link-layout {
@@ -555,6 +574,9 @@
   gap: var(--layout-footerLinkGap);
   margin-right: var(--layout-footerLinkMargin);
   flex-direction: var(--layout-footerLinksFlexDirection);
+  justify-content: var(--layout-footerLinkLayoutJustifyContent);
+  grid-template-columns: var(--layout-footerLinkLayoutGridTemplateCols);
+  display: var(--layout-footerLinkLayoutDisplay);
 }
 
 .footer-image-container {
