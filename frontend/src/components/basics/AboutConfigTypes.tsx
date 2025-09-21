@@ -1,7 +1,6 @@
 import type { TextBoxConfig, TextBoxProps } from "./TextBoxConfigTypes";
 
-export interface AboutCardProps
-  extends Omit<TextBoxProps, "value" | "classNameContent"> {
+export interface AboutCardProps extends Omit<TextBoxProps, "value"> {
   value?: Readonly<AboutCardConfig>;
 }
 

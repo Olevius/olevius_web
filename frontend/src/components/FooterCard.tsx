@@ -1,10 +1,9 @@
-import { cssNumbers } from "../theme/theme";
 import { AnchoredText, Layout, Text } from "./basics/defaults";
 import type { AboutCardProps } from "./basics/AboutConfigTypes";
 import { forRef } from "./basics/refHelper";
 
 export const FooterCard = forRef<HTMLDivElement, AboutCardProps>(
-  ({ classNameTitle, className, style, value, ...rest }, ref) => (
+  ({ classNameTitle, classNameContent, style, value, ...rest }, ref) => (
     <Layout
       style={{
         display: "flex",
@@ -18,25 +17,22 @@ export const FooterCard = forRef<HTMLDivElement, AboutCardProps>(
       <Text
         className={classNameTitle}
         style={{
-          fontSize: cssNumbers.layout.footerFontSize,
           fontFamily: "Satoshi",
           marginBottom: "0.5dvh",
         }}
       >
         {value?.title}
       </Text>
-      {value?.content.map((value, i) => (
+      {value?.content.map((value) => (
         <AnchoredText
           link={value.link}
-          key={i}
-          className={className}
+          className={classNameContent}
           style={{
-            fontSize: cssNumbers.layout.footerFontSize,
             fontFamily: "Satoshi",
             marginTop: "0.5dvh",
           }}
         >
-          {value.text}
+          {value?.text}
         </AnchoredText>
       ))}
     </Layout>

@@ -186,7 +186,7 @@ export const Home = () => {
                   styleContent={{
                     textAlign: "left",
                     border: cssNumbers.testing.border,
-                    whiteSpace: "pre-line",
+                    whiteSpace: "no-wrap",
                   }}
                   key={key}
                   value={value}
@@ -227,7 +227,6 @@ export const Home = () => {
               data-speed={cssNumbers.layout.aboutTitleSpeed}
               className="about-title"
               style={{
-                textAlign: "left",
                 border: cssNumbers.testing.border,
               }}
             >
@@ -348,7 +347,12 @@ export const Home = () => {
           <Text className="footer-contact-us">Contact us</Text>
           <Layout className="footer-link-layout">
             {Object.entries(footerTextMap).map(([key, value]) => (
-              <FooterCard key={key} value={value} />
+              <FooterCard
+                classNameContent="footer-card-content"
+                classNameTitle="footer-card-title"
+                key={key}
+                value={value}
+              />
             ))}
           </Layout>
           <Layout

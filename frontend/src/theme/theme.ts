@@ -72,7 +72,7 @@ export const cssNumbers = {
     bodySectionOffsetWhat: 800,
   },
   layout: {
-    titleFontSize: { xs: "5.5rem", s: "8.5rem", m: "12.5rem", l: "12.5rem", xl: "12.5rem" },
+    titleFontSize: { xs: "5.5rem", s: "8.5rem", m: "10.5rem", l: "12.5rem", xl: "12.5rem" },
     mediumFontSize: "6.25rem",
     subtitleFontSize: "3.125rem",
     footerFontSize: "0.8125rem",
@@ -81,7 +81,7 @@ export const cssNumbers = {
     textHeaderFontSize: "1.25rem",
     scrubFontSize: {
       xs: "312.5rem",
-      s: "10.5rem",
+      s: "312.5rem",
       m: "312.5rem",
       l: "312.5rem",
       xl: "312.5rem",
@@ -122,8 +122,8 @@ export const cssNumbers = {
     aboutContentSpeed: 1,
     aboutParallaxDistance: {
       xs: "15dvh",
-      s: "30dvh",
-      m: "30dvh",
+      s: "15dvh",
+      m: "15dvh",
       l: "30dvh",
       xl: "30dvh",
     },

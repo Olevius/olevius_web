@@ -56,7 +56,6 @@
     /* layout */
     --layout-titleFontSize: 5.5rem;
     --layout-mediumFontSize: 3.5rem;
-    --layout-headerTitleFontSize: 12.5rem;
     --layout-subtitleFontSize: 1.5rem;
     --layout-footerFontSize: 0.8125rem;
     --layout-teamFontSize: 0.9375rem;
@@ -96,6 +95,10 @@
     --layout-aboutFullWidth: 100dvw;
     --layout-aboutGap: 10vw;
     --layout-aboutContentPaddingTop: 2dvh;
+    --layout-aboutBottomPadding: 10dvh;
+    --layout-aboutContainerFlex: none;
+    --layout-aboutTitleTextAlign: left;
+    --layout-aboutTitleJustifyContent: left;
 
     --layout-teamFullWidth: 100%;
     --layout-teamImagesFlexDirection: row;
@@ -149,14 +152,13 @@
     --animation-teamStaggerAmount: 0.9;
 
     /* layout */
-    --layout-titleFontSize: 12.5rem;
-    --layout-mediumFontSize: 6.25rem;
-    --layout-headerTitleFontSize: 12.5rem;
-    --layout-subtitleFontSize: 3.125rem;
-    --layout-aboutTitleFontSize: 3.5rem;
+    --layout-titleFontSize: 6.5rem;
+    --layout-mediumFontSize: 4.5rem;
+    --layout-subtitleFontSize: 2rem;
     --layout-footerFontSize: 0.8125rem;
     --layout-teamFontSize: 0.9375rem;
-    --layout-bodyFontSize: 1.5625rem;
+    --layout-aboutTitleFontSize: 4.5rem;
+    --layout-bodyFontSize: 1.5rem;
     --layout-textHeaderFontSize: 1.25rem;
 
     --layout-paddingSmall: 0.625rem;
@@ -164,14 +166,11 @@
 
     --layout-fullHeight: 100dvh;
     --layout-doubleFullHeight: 200dvh;
-    --layout-aboutHeight: 130dvh;
-    --layout-teamHeight: 100dvh;
+    --layout-teamHeight: 380dvh;
 
     --layout-textBoxMargin: 500px;
-    --layout-teamImagesFlexDirection: row;
 
     --layout-marginSmallLeft: 2dvw;
-    --layout-marginSmallRight: 2dvw;
     --layout-marginSmallTop: 20dvh;
     --layout-marginSmallBottom: 2dvh;
 
@@ -191,37 +190,44 @@
     --layout-paddingTransitionBottom: 5rem;
 
     --layout-aboutFullWidth: 100dvw;
-    --layout-aboutTitleWidth: 50dvw;
-    --layout-aboutGap: 5vw;
+    --layout-aboutGap: 10vw;
     --layout-aboutContentPaddingTop: 2dvh;
+    --layout-aboutBottomPadding: 10dvh;
+    --layout-aboutContainerFlex: none;
+    --layout-aboutTitleTextAlign: left;
+    --layout-aboutTitleJustifyContent: left;
 
     --layout-teamFullWidth: 100%;
+    --layout-teamImagesFlexDirection: row;
     --layout-teamImageWidth: 25dvw;
     --layout-teamImageHeight: auto;
 
-    --layout-footerContactTranslateY: -6dvh;
+    --layout-footerContactTranslateY: 0;
     --layout-footerLinkMargin: 5dvw;
     --layout-footerLinkGap: 5dvw;
-    --layout-footerSocialGap: 2dvw;
+    --layout-footerSocialGap: 5dvw;
     --layout-footerSocialIconScale: 1.5;
-    --layout-footerFlexDirection: row;
-    --layout-footerLinksFlexDirection: row;
-    --layout-footerContainerGap: 0;
-    --layout-footerContactUsFontSize: 3.25rem;
-    --layout-footerLinkLayoutDisplay: flex;
-    --layout-footerGridTemplateCols: none;
-    --layout-footerLinkLayoutJustifyContent: space-between;
-
+    --layout-footerFlexDirection: column;
+    --layout-footerLinksFlexDirection: column;
+    --layout-footerContainerGap: 10dvh;
+    --layout-footerContactUsFontSize: 3.5rem;
+    --layout-footerLinkLayoutDisplay: grid;
+    --layout-footerLinkLayoutGridTemplateCols: repeat(4, minmax(0, 1fr));
+    --layout-footerLinkLayoutJustifyContent: none;
 
     --layout-marginBottomXXs: 2dvh;
 
     --layout-textBoxWidth: 100%;
     --layout-textBoxGap: 5dvh;
+    --layout-textBoxLineHeight: 1;
+    --layout-textBoxTitleContentGap: 20px;
 
     --layout-imageVisibility: visible;
 
-    --layout-aboutTitleWrap: nowrap;
-    --layout-aboutFlexDirection: column
+    --layout-aboutTitleWrap: wrap;
+    --layout-aboutFlexDirection: column;
+
+
 
   }
 }
@@ -243,13 +249,13 @@
     --animation-teamStaggerAmount: 0.9;
 
     /* layout */
-    --layout-titleFontSize: 12.5rem;
-    --layout-mediumFontSize: 6.25rem;
-    --layout-subtitleFontSize: 3.125rem;
-    --layout-aboutTitleFontSize: 3.5rem;
-    --layout-footerFontSize: 0.8125rem;
+    --layout-titleFontSize: 9.5rem;
+    --layout-mediumFontSize: 5.5rem;
+    --layout-subtitleFontSize: 2.65rem;
+    --layout-footerFontSize: 1.2rem;
     --layout-teamFontSize: 0.9375rem;
-    --layout-bodyFontSize: 1.5625rem;
+    --layout-aboutTitleFontSize: 4.5rem;
+    --layout-bodyFontSize: 1.8rem;
     --layout-textHeaderFontSize: 1.25rem;
 
     --layout-paddingSmall: 0.625rem;
@@ -257,14 +263,11 @@
 
     --layout-fullHeight: 100dvh;
     --layout-doubleFullHeight: 200dvh;
-    --layout-aboutHeight: 130dvh;
-    --layout-teamHeight: 500dvh;
+    --layout-teamHeight: 380dvh;
 
     --layout-textBoxMargin: 500px;
-    --layout-teamImagesFlexDirection: row;
 
     --layout-marginSmallLeft: 2dvw;
-    --layout-marginSmallRight: 2dvw;
     --layout-marginSmallTop: 20dvh;
     --layout-marginSmallBottom: 2dvh;
 
@@ -284,37 +287,42 @@
     --layout-paddingTransitionBottom: 5rem;
 
     --layout-aboutFullWidth: 100dvw;
-    --layout-aboutTitleWidth: 50dvw;
-    --layout-aboutGap: 5vw;
+    --layout-aboutGap: 10vw;
     --layout-aboutContentPaddingTop: 2dvh;
+    --layout-aboutBottomPadding: 10dvh;
+    --layout-aboutContainerFlex: none;
+    --layout-aboutTitleTextAlign: left;
+    --layout-aboutTitleJustifyContent: left;
 
-    --layout-teamFullWidth: 100dvw;
+    --layout-teamFullWidth: 100%;
+    --layout-teamImagesFlexDirection: row;
     --layout-teamImageWidth: 25dvw;
     --layout-teamImageHeight: auto;
 
-    --layout-footerContactTranslateY: -6dvh;
+    --layout-footerContactTranslateY: 0;
     --layout-footerLinkMargin: 5dvw;
     --layout-footerLinkGap: 5dvw;
-    --layout-footerSocialGap: 2dvw;
-    --layout-footerSocialIconScale: 1.5;
-    --layout-footerFlexDirection: row;
-    --layout-footerLinksFlexDirection: row;
-    --layout-footerContainerGap: 0;
-    --layout-footerContactUsFontSize: 3.25rem;
-    --layout-footerLinkLayoutDisplay: flex;
-    --layout-footerGridTemplateCols: none;
-    --layout-footerLinkLayoutJustifyContent: space-between;
-
+    --layout-footerSocialGap: 10dvw;
+    --layout-footerSocialIconScale: 2.5;
+    --layout-footerFlexDirection: column;
+    --layout-footerLinksFlexDirection: column;
+    --layout-footerContainerGap: 6dvh;
+    --layout-footerContactUsFontSize: 3.5rem;
+    --layout-footerLinkLayoutDisplay: grid;
+    --layout-footerLinkLayoutGridTemplateCols: repeat(4, minmax(0, 1fr));
+    --layout-footerLinkLayoutJustifyContent: none;
 
     --layout-marginBottomXXs: 2dvh;
 
     --layout-textBoxWidth: 100%;
-    --layout-textBoxGap: 5vh;
+    --layout-textBoxGap: 5dvh;
+    --layout-textBoxLineHeight: 1;
+    --layout-textBoxTitleContentGap: 20px;
 
     --layout-imageVisibility: visible;
 
-    --layout-aboutTitleWrap: nowrap;
-    --layout-aboutFlexDirection: row
+    --layout-aboutTitleWrap: wrap;
+    --layout-aboutFlexDirection: column;
 
   }
 }
@@ -339,10 +347,10 @@
     --layout-titleFontSize: 12.5rem;
     --layout-mediumFontSize: 6.25rem;
     --layout-subtitleFontSize: 3.125rem;
-    --layout-aboutTitleFontSize: 3.5rem;
-    --layout-footerFontSize: 0.8125rem;
+    --layout-aboutTitleFontSize: 500%;
+    --layout-footerFontSize: 1.2rem;
     --layout-teamFontSize: 0.9375rem;
-    --layout-bodyFontSize: 1.5625rem;
+    --layout-bodyFontSize: 2rem;
     --layout-textHeaderFontSize: 1.25rem;
 
     --layout-paddingSmall: 0.625rem;
@@ -377,6 +385,10 @@
     --layout-aboutFullWidth: 100dvw;
     --layout-aboutTitleWidth: 50dvw;
     --layout-aboutGap: 5vw;
+    --layout-aboutBottomPadding: 15%;
+    --layout-aboutContainerFlex: 1 1 0%;
+    --layout-aboutTitleTextAlign: center;
+    --layout-aboutTitleJustifyContent: center;
 
     --layout-aboutContentPaddingTop: 2dvh;
 
@@ -388,9 +400,9 @@
 
     --layout-footerContactTranslateY: -6dvh;
     --layout-footerLinkMargin: 5dvw;
-    --layout-footerLinkGap: 5dvw;
-    --layout-footerSocialGap: 2dvw;
-    --layout-footerSocialIconScale: 1.5;
+    --layout-footerLinkGap: 8dvw;
+    --layout-footerSocialGap: 4dvw;
+    --layout-footerSocialIconScale: 3;
     --layout-footerFlexDirection: row;
     --layout-footerLinksFlexDirection: row;
     --layout-footerContainerGap: 0;
@@ -408,7 +420,7 @@
     --layout-imageVisibility: visible;
 
     --layout-aboutTitleWrap: nowrap;
-    --layout-aboutFlexDirection: column
+    --layout-aboutFlexDirection: row
 
   }
 }
@@ -416,7 +428,7 @@
 /* header stuff */
 
 .title-header {
-  font-size: var(--layout-z);
+  font-size: var(--layout-headerTitleFontSize);
 }
 
 /* subtitle stuff */
@@ -502,7 +514,7 @@
 /* about page stuff */
 
 .about {
-  height: var(--layout-aboutHeight);
+  padding-bottom: var(--layout-aboutBottomPadding);
 }
 
 .about-container {
@@ -512,9 +524,19 @@
   gap: var(--layout-aboutGap);
 }
 
+.about-title-container {
+  flex: var(--layout-aboutContainerFlex);
+  justify-content: var(--layout-aboutTitleJustifyContent);
+}
+
+.about-content-container {
+  flex: var(--layout-aboutContainerFlex);
+}
+
 .about-title {
   font-size: var(--layout-aboutTitleFontSize);
   white-space: nowrap;
+  text-align: var(--layout-aboutTitleTextAlign);
 }
 
 .about-content {
@@ -567,6 +589,14 @@
 .footer-contact-us {
   transform: translateY(var(--layout-footerContactTranslateY));
   font-size: var(--layout-footerContactUsFontSize);
+}
+
+.footer-card-content {
+  font-size: var(--layout-footerFontSize);
+}
+
+.footer-card-title {
+  font-size: var(--layout-footerFontSize);
 }
 
 .footer-link-layout {
