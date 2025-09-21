@@ -72,7 +72,7 @@ export const cssNumbers = {
     bodySectionOffsetWhat: 800,
   },
   layout: {
-    titleFontSize: { xs: "5.5rem", s: "8.5rem", m: "10.5rem", l: "12.5rem", xl: "12.5rem" },
+    titleFontSize: { xs: "5rem", s: "8.5rem", m: "10.5rem", l: "12.5rem", xl: "12.5rem" },
     mediumFontSize: "6.25rem",
     subtitleFontSize: "3.125rem",
     footerFontSize: "0.8125rem",

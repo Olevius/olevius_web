@@ -54,9 +54,9 @@
     --animation-teamStaggerAmount: 0.9;
 
     /* layout */
-    --layout-titleFontSize: 5.5rem;
+    --layout-titleFontSize: 4.5rem;
     --layout-mediumFontSize: 3.5rem;
-    --layout-subtitleFontSize: 1.5rem;
+    --layout-subtitleFontSize: 1.35rem;
     --layout-footerFontSize: 0.8125rem;
     --layout-teamFontSize: 0.9375rem;
     --layout-aboutTitleFontSize: 2.5rem;
@@ -113,7 +113,7 @@
     --layout-footerFlexDirection: column;
     --layout-footerLinksFlexDirection: column;
     --layout-footerContainerGap: 8dvh;
-    --layout-footerContactUsFontSize: 3.5rem;
+    --layout-footerContactUsFontSize: 3rem;
     --layout-footerLinkLayoutDisplay: grid;
     --layout-footerLinkLayoutGridTemplateCols: repeat(2, minmax(0, 1fr));
     --layout-footerLinkLayoutJustifyContent: none;
