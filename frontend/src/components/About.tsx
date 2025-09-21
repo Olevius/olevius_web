@@ -1,6 +1,5 @@
 import React from "react";
 import type { BaseProps } from "./basics/defaultTypes";
-import { cssNumbers } from "../theme/theme";
 
 /**
  * A React functional component that renders a flexible `div` container for the About page
