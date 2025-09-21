@@ -33,8 +33,8 @@ import { About } from "../components/About";
 import { Team } from "../components/Team";
 import type { ImageMapProps } from "../components/basics/ImagePropTypes";
 import { Footer } from "../components/Footer";
-import { AboutCard } from "../components/AboutCard";
-import { aboutTextMap } from "../text-maps/aboutTextMap";
+import { FooterCard } from "../components/FooterCard";
+import { footerTextMap } from "../text-maps/footerTextMap";
 import { bodyTextMap } from "../text-maps/bodyTextMap";
 import { teamTextMap } from "../text-maps/teamMap";
 
@@ -44,31 +44,15 @@ export const Home = () => {
   const imagePathList: ImageMapProps = {
     levi: {
       src: leviImg,
-      style: {
-        maxWidth: cssNumbers.layout.teamImageMaxWidth,
-        height: "auto",
-      },
     },
     jp: {
       src: jpImg,
-      style: {
-        maxWidth: cssNumbers.layout.teamImageMaxWidth,
-        height: "auto",
-      },
     },
     matthew: {
       src: matthewImg,
-      style: {
-        maxWidth: cssNumbers.layout.teamImageMaxWidth,
-        height: "auto",
-      },
     },
     andrew: {
       src: andrewImg,
-      style: {
-        maxWidth: cssNumbers.layout.teamImageMaxWidth,
-        height: "auto",
-      },
     },
   };
 
@@ -89,7 +73,7 @@ export const Home = () => {
       runHeaderScrollTimeline(cssNumbers);
       runTransitionTextScroll(cssNumbers);
       runBodyScroll(cssNumbers);
-      runAboutScroll();
+      runAboutScroll(cssNumbers);
       runTeamScroll(cssNumbers);
     })();
     return () => {
@@ -126,8 +110,8 @@ export const Home = () => {
           <Text
             className="title-header"
             style={{
-              fontSize: cssNumbers.layout.titleFontSize,
               color: "black",
+              zIndex: 0,
               border: cssNumbers.testing.border,
             }}
           >
@@ -136,10 +120,10 @@ export const Home = () => {
           <Text
             className="subtitle-header"
             style={{
-              fontSize: cssNumbers.layout.subtitleFontSize,
               color: "black",
-              opacity: 0,
+              opacity: 1,
               border: cssNumbers.testing.border,
+              zIndex: 0,
             }}
           >
             Accuracy. Unmatched.
@@ -151,16 +135,14 @@ export const Home = () => {
         style={{
           backgroundColor: customColors.highlight,
           border: cssNumbers.testing.border,
+          zIndex: 2,
         }}
-        className="body-title-box"
+        className="transition-title-box"
       >
         <Text
-          className="body-text"
+          className="transition-text"
           style={{
-            fontSize: cssNumbers.layout.titleFontSize,
             color: "black",
-            marginLeft: cssNumbers.layout.paddingTransitionText,
-            marginRight: cssNumbers.layout.paddingTransitionText,
             border: cssNumbers.testing.border,
           }}
         >
@@ -173,14 +155,15 @@ export const Home = () => {
           overflow: "hidden",
           backgroundColor: customColors.highlight,
           border: cssNumbers.testing.border,
+          zIndex: 3,
         }}
         className="body"
       >
         <Layout
+          className="body-text-container"
           style={{
             display: "flex",
             flexDirection: "column",
-            padding: cssNumbers.layout.paddingBody,
             border: cssNumbers.testing.border,
           }}
         >
@@ -195,18 +178,15 @@ export const Home = () => {
             }}
           >
             {Object.entries(bodyTextMap).map(([key, value], idx) => {
-              const marginTop =
-                idx !== 0 ? cssNumbers.layout.marginExtraSmallTop : undefined;
               return (
                 <TextBox
+                  className={idx !== 0 ? "body-text-box" : undefined}
                   classNameTitle={value.classNameTitle}
                   classNameContent={value.classNameContent}
-                  style={{ marginTop }}
                   styleContent={{
-                    fontSize: cssNumbers.layout.bodyFontSize,
                     textAlign: "left",
                     border: cssNumbers.testing.border,
-                    whiteSpace: "pre-line",
+                    whiteSpace: "no-wrap",
                   }}
                   key={key}
                   value={value}
@@ -230,21 +210,16 @@ export const Home = () => {
         className="about"
       >
         <Layout
+          className="about-container"
           style={{
             display: "flex",
-            flexDirection: "row",
-            width: cssNumbers.layout.aboutFullWidth,
-            padding: cssNumbers.layout.paddingBody,
-            border: cssNumbers.testing.border,
-            gap: "5vw",
-            paddingBlockStart: cssNumbers.layout.paddingBody, // 👈 top spacing applied once
             alignItems: "flex-start",
           }}
         >
           <Layout
+            className="about-title-container"
             style={{
               display: "flex",
-              width: cssNumbers.layout.aboutTitleWidth,
               border: cssNumbers.testing.border,
             }}
           >
@@ -252,9 +227,6 @@ export const Home = () => {
               data-speed={cssNumbers.layout.aboutTitleSpeed}
               className="about-title"
               style={{
-                fontSize: cssNumbers.layout.mediumFontSize,
-                textAlign: "left",
-                zIndex: 100,
                 border: cssNumbers.testing.border,
               }}
             >
@@ -263,11 +235,9 @@ export const Home = () => {
           </Layout>
 
           <Layout
+            className="about-content-container"
             style={{
               display: "flex",
-              // ❌ remove paddingTop; parent handles it
-              height: cssNumbers.layout.aboutContentHeight,
-              width: cssNumbers.layout.aboutContentWidth,
               justifyContent: "flex-start",
               border: cssNumbers.testing.border,
             }}
@@ -276,10 +246,8 @@ export const Home = () => {
               className="about-content"
               data-speed={cssNumbers.layout.aboutContentSpeed}
               style={{
-                fontSize: cssNumbers.layout.bodyFontSize,
                 textAlign: "left",
                 border: cssNumbers.testing.border,
-                paddingRight: cssNumbers.layout.paddingBody,
               }}
             >
               Olevius is a wearable health-tech initiative focused on
@@ -287,14 +255,17 @@ export const Home = () => {
               affects ~1.39 billion people, yet current options force a
               trade-off: bulky, intermittent cuffs vs. smartwatch PTT methods
               that require frequent recalibration and lack clinical accuracy.{" "}
-              <br /> <br /> Our approach uses a compact optical-fiber sensor
-              inside a fluid-filled PDMS pouch. Pulse pressure subtly changes
-              light transmission at an air-core fiber union; those waveforms are
+              <br /> <br />
+              Our approach uses a compact optical-fiber sensor inside a
+              fluid-filled PDMS pouch. Pulse pressure subtly changes light
+              transmission at an air-core fiber union; those waveforms are
               processed on-device and with ML to estimate systolic and diastolic
-              BP, targeting ±5 mmHg accuracy. <br /> <br /> Designed for
-              everyday wear, the band targets ≤7 mm thickness, ≤30 g weight, ≥24
-              h battery life, and secure Bluetooth/NFC syncing—while keeping
-              unit cost under $100 to maximize accessibility.
+              BP, targeting ±5 mmHg accuracy.
+              <br /> <br />
+              Designed for everyday wear, the band targets ≤7 mm thickness, ≤30
+              g weight, ≥24 h battery life, and secure Bluetooth/NFC
+              syncing—while keeping unit cost under $100 to maximize
+              accessibility.
             </Text>
           </Layout>
         </Layout>
@@ -303,27 +274,21 @@ export const Home = () => {
       <Team style={{ border: cssNumbers.testing.border }} className="team">
         <Layout style={{ display: "flex", flexDirection: "column" }}>
           <Layout
+            className="team-container"
             style={{
               display: "flex",
               justifyContent: "center",
               alignItems: "top",
-              padding: cssNumbers.layout.paddingBody,
             }}
           >
-            <Text
-              className="team-title"
-              style={{ fontSize: cssNumbers.layout.mediumFontSize }}
-            >
-              Our Team
-            </Text>
+            <Text className="team-title">Our Team</Text>
           </Layout>
-          <Layout style={{ display: "flex", flexDirection: "row" }}>
+          <Layout className="image-container" style={{ display: "flex" }}>
             {Object.entries(imagePathList).map(([key, value]) => (
               <Layout
                 className="image-wrapper"
                 style={{
                   display: "flex",
-                  flexDirection: "row",
                   flexWrap: "wrap",
                   height: "auto",
                 }}
@@ -332,7 +297,7 @@ export const Home = () => {
                 <Image
                   id="view_img"
                   className="images"
-                  style={{ ...value.style, pointerEvents: "none" }} // don't block clicks
+                  style={{ pointerEvents: "none" }}
                   key={key}
                   src={value.src}
                 />
@@ -350,23 +315,21 @@ export const Home = () => {
           display: "flex",
           justifyContent: "flex-start",
           alignItems: "flex-start",
-          height: cssNumbers.layout.teamHeight,
         }}
       >
-        <Layout style={{ padding: cssNumbers.layout.paddingBody }}>
+        <Layout
+          className="team-text-box-container"
+          style={{ padding: cssNumbers.layout.paddingBody }}
+        >
           {Object.entries(teamTextMap).map(([key, value]) => (
             <TextBox
               key={key}
               value={value}
-              className={value.className}
-              classNameContent={value.classNameContent}
-              classNameTitle={value.classNameTitle}
+              className="team-text-box"
+              classNameContent="team-text-box-content"
               style={{
                 opacity: 0,
-                width: cssNumbers.layout.fullWidthPercent,
-                paddingRight: cssNumbers.layout.paddingBody,
               }}
-              styleContent={{ fontSize: cssNumbers.layout.bodyFontSize }}
             />
           ))}
         </Layout>
@@ -374,51 +337,40 @@ export const Home = () => {
 
       <Footer>
         <Layout
+          className="footer-container"
           style={{
             display: "flex",
             justifyContent: "space-between",
             alignItems: "center",
-            flexDirection: "row",
-            padding: cssNumbers.layout.paddingBody,
           }}
         >
-          <Text
-            style={{
-              transform: `translateY(${cssNumbers.layout.footerContactTranslateY})`,
-            }}
-          >
-            Contact us
-          </Text>
-          <Layout
-            style={{
-              marginLeft: cssNumbers.layout.footerLinkMargin,
-              justifyContent: "space-between",
-              display: "flex",
-              flexDirection: "row",
-              gap: cssNumbers.layout.footerLinkGap,
-              marginRight: cssNumbers.layout.footerLinkMargin,
-            }}
-          >
-            {Object.entries(aboutTextMap).map(([key, value]) => (
-              <AboutCard key={key} value={value} />
+          <Text className="footer-contact-us">Contact us</Text>
+          <Layout className="footer-link-layout">
+            {Object.entries(footerTextMap).map(([key, value]) => (
+              <FooterCard
+                classNameContent="footer-card-content"
+                classNameTitle="footer-card-title"
+                key={key}
+                value={value}
+              />
             ))}
           </Layout>
           <Layout
+            className="footer-image-container"
             style={{
               display: "flex",
               flexDirection: "row",
-              gap: cssNumbers.layout.footerSocialGap,
             }}
           >
             <AnchoredImage
+              className="footer-linkedin-icon"
               link="https://www.linkedin.com/company/olevius/posts/?feedView=all"
               src={linkedinImg}
-              style={{ scale: cssNumbers.layout.footerSocialIconScale }}
             />
             <AnchoredImage
+              className="footer-github-icon"
               link="https://github.com/Olevius"
               src={githubImg}
-              style={{ scale: cssNumbers.layout.footerSocialIconScale }}
             />
           </Layout>
         </Layout>

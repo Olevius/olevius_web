@@ -164,7 +164,7 @@ export const ListElement = forRef<HTMLLIElement, BaseProps>(
  * @returns A ref-forwarding `<span>`.
  */
 export const AnchoredText = forRef<HTMLSpanElement, LinkProps>(
-  ({ children, style, link, ...rest }, ref) => (
+  ({ children, className, style, link, ...rest }, ref) => (
     <a
       href={link}
       target="_blank"
@@ -174,8 +174,8 @@ export const AnchoredText = forRef<HTMLSpanElement, LinkProps>(
     >
       <span
         ref={ref}
+        className={className}
         style={{
-          fontSize: cssNumbers.layout.subtitleFontSize,
           color: "black",
           display: "inline",
           ...style,
@@ -202,7 +202,6 @@ export const Text = forRef<HTMLSpanElement, BaseProps>(
       ref={ref}
       {...rest}
       style={{
-        fontSize: cssNumbers.layout.subtitleFontSize,
         color: "black",
         display: "inline",
         ...style,

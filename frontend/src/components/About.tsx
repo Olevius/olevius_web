@@ -1,6 +1,5 @@
 import React from "react";
 import type { BaseProps } from "./basics/defaultTypes";
-import { cssNumbers } from "../theme/theme";
 
 /**
  * A React functional component that renders a flexible `div` container for the About page
@@ -21,7 +20,6 @@ export const About = React.forwardRef<HTMLDivElement, BaseProps>(
       className={className}
       style={{
         display: "flex",
-        height: cssNumbers.layout.aboutHeight, // renamed to aboutHeight
         background: "white",
         ...style,
       }}

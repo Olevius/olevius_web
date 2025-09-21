@@ -1,7 +1,6 @@
 import type { TextBoxConfig, TextBoxProps } from "./TextBoxConfigTypes";
 
-export interface AboutCardProps
-  extends Omit<TextBoxProps, "value" | "classNameContent"> {
+export interface AboutCardProps extends Omit<TextBoxProps, "value"> {
   value?: Readonly<AboutCardConfig>;
 }
 
@@ -13,6 +12,6 @@ export interface AboutCardConfig
 
 type AboutContentProps = Readonly<{
   text: string;
-  className: string;
+  className?: string;
   link: string;
 }>;

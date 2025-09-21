@@ -68,14 +68,16 @@ export type CSSNumbers = {
     teamStaggerEach: string | number;
     teamStaggerFrom: "start" | "center" | "edges" | number;
     teamStaggerAmount: string | number;
+    bodySectionOffsetHow: number;
+    bodySectionOffsetWhat: number;
   };
   layout: {
-    titleFontSize: string;
+    titleFontSize: MediaQuery;
     mediumFontSize: string | number;
     subtitleFontSize: string;
     bodyFontSize: string;
     textHeaderFontSize: string;
-    scrubFontSize: string;
+    scrubFontSize: MediaQuery;
 
     paddingSmall: number | string;
     paddingBody: number | string;
@@ -87,9 +89,6 @@ export type CSSNumbers = {
     fullHeight: string;
     doubleFullHeight: string;
     aboutHeight: string;
-
-    bodySectionOffsetHow: number;
-    bodySectionOffsetWhat: number;
 
     textBoxMargin: string;
 
@@ -110,17 +109,26 @@ export type CSSNumbers = {
     aboutContentHeight: string;
     aboutTitleSpeed: number;
     aboutContentSpeed: number;
+    aboutParallaxDistance: MediaQuery;
     footerContactTranslateY: string;
     footerLinkMargin: string;
     footerLinkGap: string;
     footerSocialGap: string;
     footerSocialIconScale: number;
-    fullWidthPercent: string;
 
     // Extra small variant
-    marginBottomXs: string;
+    marginBottomXXs: string;
   };
   testing: {
     border: string;
   };
 };
+
+
+export type MediaQuery = {
+  xs: string | number;
+  s: string | number;
+  m: string | number;
+  l: string | number;
+  xl: string | number
+}
