@@ -242,71 +242,152 @@ export const runAboutScroll = (numbers: CSSNumbers = cssNumbers) => {
 
 };
 
-export const runTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
+
+export const runTeamTransitionScroll = (numbers: CSSNumbers = cssNumbers) => {
+
   mm.add({
     xs: "(max-width: 639px)",
     sd: "(min-width: 640px)",
     md: "(min-width: 900px)",
     lg: "(min-width: 1024px)",
-  }, () => {
-    const A = numbers.animation;
+  },
+    () => {
+      const split = SplitText.create(".team-title", {
+        type: "chars, words, lines",
+        charsClass: "char",
+      });
 
-    const tl = gsap.timeline({
-      defaults: { ease: A.eases.none ?? "none" },
-      scrollTrigger: {
-        trigger: ".team",
-        start: "top top",
-        end: () => {
-          const el = document.querySelector(
-            ".image-wrapper"
-          ) as HTMLElement | null;
-          const h = el?.getBoundingClientRect().height ?? 0;
-          return "+=" + h * A.endMultiplier;
-        },
-        pin: true,
-        pinSpacing: false,
-        scrub: A.scrub,
-      },
-    });
+      const tl = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".team-container",
+            start: "center center",
+            pin: true,
+            pinSpacing: true,
+            scrub: numbers.animation.scrubDuration,
+          },
+        })
+        .from(split.words, {
+          y: numbers.animation.wordStart,
+          autoAlpha: 0,
+          duration: numbers.animation.bodyHeaderDuration,
+          stagger: numbers.animation.wordStagger,
+        });
 
-    tl.add("start")
-      .to(".scroll-rect1", { y: 0, duration: A.scrollRectDuration }, "start")
-      .to(
-        ".images",
-        { opacity: A.imagesOpacity, duration: A.imagesFadeDuration },
-        `start+=${A.imagesFadeOffset}`
-      )
-      .add("sync-point", `+=${A.syncPointOffset}`)
-      .to(
-        ".team-title",
-        { autoAlpha: 0, duration: A.titleFadeDuration },
-        "sync-point"
-      )
-      .add("bios", `>-=${A.biosOverlapBack}`);
+      return tl
 
-    tl.fromTo(
-      ".team-text-box",
-      { xPercent: A.teamEnterXPercent, autoAlpha: 0 } as gsap.TweenVars,
-      {
-        xPercent: 0,
-        autoAlpha: 1,
-        duration: A.teamEnterDuration,
-        ease: A.eases.none ?? "none",
-        stagger: {
-          each: A.teamStaggerEach,
-          from: A.teamStaggerFrom,
-          amount: A.teamStaggerAmount,
-          grid: "auto",
-        },
-      } as gsap.TweenVars,
-      `>+=${A.biosDelay}`
-    );
+    })
 
-    // ensure refresh after load (first view in prod)
-    window.addEventListener("load", () => ScrollTrigger.refresh(), {
-      once: true,
-    });
 
-    return tl
-  });
 };
+
+export const runTeamTextScroll = (numbers: CSSNumbers = cssNumbers) => {
+  mm.add({
+    xs: "(max-width: 639px)",
+    sd: "(min-width: 640px)",
+    md: "(min-width: 900px)",
+    lg: "(min-width: 1024px)",
+  },
+    () => {
+
+      const tl = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".team-container",
+            start: `bottom center+=${375}`,
+            scrub: numbers.animation.scrubDuration,
+          },
+        })
+      tl.fromTo(
+        ".team-text-box",
+        { xPercent: numbers.animation.teamEnterXPercent, autoAlpha: 0 } as gsap.TweenVars,
+        {
+          xPercent: 0,
+          autoAlpha: 1,
+          duration: numbers.animation.teamEnterDuration,
+          ease: numbers.animation.eases.none ?? "none",
+          stagger: {
+            each: numbers.animation.teamStaggerEach,
+            from: numbers.animation.teamStaggerFrom,
+            amount: numbers.animation.teamStaggerAmount,
+            grid: "auto",
+          },
+        } as gsap.TweenVars,
+        `>+=${numbers.animation.biosDelay}`
+      );
+
+      return tl
+
+
+    })
+};
+
+
+// export const runTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
+//   mm.add({
+//     xs: "(max-width: 639px)",
+//     sd: "(min-width: 640px)",
+//     md: "(min-width: 900px)",
+//     lg: "(min-width: 1024px)",
+//   }, () => {
+//     const A = numbers.animation;
+
+//     const tl = gsap.timeline({
+//       defaults: { ease: A.eases.none ?? "none" },
+//       scrollTrigger: {
+//         trigger: ".team",
+//         start: "top top",
+//         end: () => {
+//           const el = document.querySelector(
+//             ".image-wrapper"
+//           ) as HTMLElement | null;
+//           const h = el?.getBoundingClientRect().height ?? 0;
+//           return "+=" + h * A.endMultiplier;
+//         },
+//         pin: true,
+//         pinSpacing: false,
+//         scrub: A.scrub,
+//       },
+//     });
+
+//     tl.add("start")
+//       .to(".scroll-rect1", { y: 0, duration: A.scrollRectDuration }, "start")
+//       .to(
+//         ".images",
+//         { opacity: A.imagesOpacity, duration: A.imagesFadeDuration },
+//         `start+=${A.imagesFadeOffset}`
+//       )
+//       .add("sync-point", `+=${A.syncPointOffset}`)
+//       .to(
+//         ".team-title",
+//         { autoAlpha: 0, duration: A.titleFadeDuration },
+//         "sync-point"
+//       )
+//       .add("bios", `>-=${A.biosOverlapBack}`);
+
+//     tl.fromTo(
+//       ".team-text-box",
+//       { xPercent: A.teamEnterXPercent, autoAlpha: 0 } as gsap.TweenVars,
+//       {
+//         xPercent: 0,
+//         autoAlpha: 1,
+//         duration: A.teamEnterDuration,
+//         ease: A.eases.none ?? "none",
+//         stagger: {
+//           each: A.teamStaggerEach,
+//           from: A.teamStaggerFrom,
+//           amount: A.teamStaggerAmount,
+//           grid: "auto",
+//         },
+//       } as gsap.TweenVars,
+//       `>+=${A.biosDelay}`
+//     );
+
+//     // ensure refresh after load (first view in prod)
+//     window.addEventListener("load", () => ScrollTrigger.refresh(), {
+//       once: true,
+//     });
+
+//     return tl
+//   });
+// };

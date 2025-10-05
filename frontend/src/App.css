@@ -490,7 +490,6 @@
 .what-title {
   font-size: var(--layout-mediumFontSize);
   line-height: var(--layout-textBoxLineHeight);
-
 }
 
 .why-content {
@@ -508,7 +507,6 @@
 .body-text-box {
   margin-top: var(--layout-marginExtraSmallTop);
   gap: var(--layout-textBoxTitleContentGap);
-
 }
 
 /* about page stuff */
@@ -546,11 +544,11 @@
 /* team page stuff */
 
 .team-container {
-  padding: var(--layout-paddingBody);
+  padding: 0;
 }
 
 .team-title {
-  font-size: var(--layout-mediumFontSize);
+  font-size: var(--layout-titleFontSize);
 }
 
 .image-wrapper {
@@ -561,8 +559,8 @@
   margin-bottom: var(--layout-marginBottomXXs);
 }
 
-.team-text-box-container {
-  margin-bottom: var(--layout-marginSmallBottom);
+.team-text-margin-container {
+  padding-bottom: var(--layout-marginSmallBottom);
 }
 
 .team-text-box-content {

@@ -16,7 +16,7 @@ import githubImg from "../assets/logos/github.svg";
 import linkedinImg from "../assets/logos/linkedin.svg";
 import aboutImg from "../assets/aboutBg.png";
 import { Body } from "../components/Body";
-import { customColors } from "../theme/colors";
+import { customColors, palette } from "../theme/colors";
 import { cssNumbers } from "../theme/theme";
 
 import {
@@ -25,7 +25,8 @@ import {
   runTransitionTextScroll,
   runBodyScroll,
   runAboutScroll,
-  runTeamScroll,
+  runTeamTextScroll,
+  runTeamTransitionScroll,
 } from "../animations/homeAnimations";
 import { useEffect, useRef } from "react";
 import { TextBox } from "../components/TextBox";
@@ -41,20 +42,20 @@ import { teamTextMap } from "../text-maps/teamMap";
 export const Home = () => {
   const container = useRef(null);
 
-  const imagePathList: ImageMapProps = {
-    levi: {
-      src: leviImg,
-    },
-    jp: {
-      src: jpImg,
-    },
-    matthew: {
-      src: matthewImg,
-    },
-    andrew: {
-      src: andrewImg,
-    },
-  };
+  // const imagePathList: ImageMapProps = {
+  //   levi: {
+  //     src: leviImg,
+  //   },
+  //   jp: {
+  //     src: jpImg,
+  //   },
+  //   matthew: {
+  //     src: matthewImg,
+  //   },
+  //   andrew: {
+  //     src: andrewImg,
+  //   },
+  // };
 
   useEffect(() => {
     document.documentElement.classList.add("cursor-hidden");
@@ -74,7 +75,8 @@ export const Home = () => {
       runTransitionTextScroll(cssNumbers);
       runBodyScroll(cssNumbers);
       runAboutScroll(cssNumbers);
-      runTeamScroll(cssNumbers);
+      runTeamTransitionScroll(cssNumbers);
+      runTeamTextScroll(cssNumbers);
     })();
     return () => {
       cancelled = true;
@@ -271,19 +273,30 @@ export const Home = () => {
         </Layout>
       </About>
 
-      <Team style={{ border: cssNumbers.testing.border }} className="team">
+      <Team
+        style={{ border: cssNumbers.testing.border, backgroundColor: "white" }}
+        className="team"
+      >
         <Layout style={{ display: "flex", flexDirection: "column" }}>
-          <Layout
-            className="team-container"
+          <GridLayout
             style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "top",
+              backgroundColor: "white",
+              border: cssNumbers.testing.border,
+              zIndex: 2,
             }}
+            className="team-container"
           >
-            <Text className="team-title">Our Team</Text>
-          </Layout>
-          <Layout className="image-container" style={{ display: "flex" }}>
+            <Text
+              className="team-title"
+              style={{
+                color: "black",
+                border: cssNumbers.testing.border,
+              }}
+            >
+              Our Team
+            </Text>{" "}
+          </GridLayout>
+          {/* <Layout className="image-container" style={{ display: "flex" }}>
             {Object.entries(imagePathList).map(([key, value]) => (
               <Layout
                 className="image-wrapper"
@@ -303,11 +316,10 @@ export const Home = () => {
                 />
               </Layout>
             ))}
-          </Layout>
+          </Layout> */}
         </Layout>
-      </Team>
 
-      <Layout
+        {/* <Layout
         className="scroll-rect1"
         style={{
           backgroundColor: "white",
@@ -316,24 +328,31 @@ export const Home = () => {
           justifyContent: "flex-start",
           alignItems: "flex-start",
         }}
-      >
-        <Layout
-          className="team-text-box-container"
-          style={{ padding: cssNumbers.layout.paddingBody }}
-        >
-          {Object.entries(teamTextMap).map(([key, value]) => (
-            <TextBox
-              key={key}
-              value={value}
-              className="team-text-box"
-              classNameContent="team-text-box-content"
-              style={{
-                opacity: 0,
-              }}
-            />
-          ))}
+      > */}
+        <Layout className="team-text-margin-container">
+          <Layout
+            className="team-text-box-container"
+            style={{
+              padding: cssNumbers.layout.paddingBody,
+              backgroundColor: "white",
+            }}
+          >
+            {Object.entries(teamTextMap).map(([key, value]) => (
+              <TextBox
+                key={key}
+                value={value}
+                className="team-text-box"
+                classNameContent="team-text-box-content"
+                style={{
+                  opacity: 0,
+                }}
+              />
+            ))}
+          </Layout>
         </Layout>
-      </Layout>
+      </Team>
+
+      {/* </Layout> */}
 
       <Footer>
         <Layout
