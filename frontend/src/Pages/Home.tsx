@@ -9,7 +9,6 @@ import {
 } from "../components/basics/defaults";
 import githubImg from "../assets/logos/github.svg";
 import linkedinImg from "../assets/logos/linkedin.svg";
-import aboutImg from "../assets/aboutBg.png";
 import { Body } from "../components/Body";
 import { customColors } from "../theme/colors";
 import { cssNumbers } from "../theme/theme";
