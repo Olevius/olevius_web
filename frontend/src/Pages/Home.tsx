@@ -5,18 +5,13 @@ import {
   Layout,
   Text,
   GridLayout,
-  Image,
   AnchoredImage,
 } from "../components/basics/defaults";
-import leviImg from "../assets/levi.png";
-import jpImg from "../assets/jp.png";
-import matthewImg from "../assets/matthew.png";
-import andrewImg from "../assets/andrew.png";
 import githubImg from "../assets/logos/github.svg";
 import linkedinImg from "../assets/logos/linkedin.svg";
 import aboutImg from "../assets/aboutBg.png";
 import { Body } from "../components/Body";
-import { customColors, palette } from "../theme/colors";
+import { customColors } from "../theme/colors";
 import { cssNumbers } from "../theme/theme";
 
 import {
@@ -32,7 +27,6 @@ import { useEffect, useRef } from "react";
 import { TextBox } from "../components/TextBox";
 import { About } from "../components/About";
 import { Team } from "../components/Team";
-import type { ImageMapProps } from "../components/basics/ImagePropTypes";
 import { Footer } from "../components/Footer";
 import { FooterCard } from "../components/FooterCard";
 import { footerTextMap } from "../text-maps/footerTextMap";
@@ -203,7 +197,8 @@ export const Home = () => {
         style={{
           overflow: "hidden",
           border: cssNumbers.testing.border,
-          backgroundImage: `url(${aboutImg})`,
+          backgroundImage:
+            "linear-gradient(135deg, #D1F2D5 0%, #A2E5C1 50%, #7AD7C4 100%)",
           backgroundColor: "transparent",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",

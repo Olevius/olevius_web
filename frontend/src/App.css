@@ -448,6 +448,7 @@
 .body-text-container {
   margin-top: var(--layout-paddingBody);
   padding: var(--layout-paddingBody);
+  margin-bottom: var(--layout-paddingSmall)
 }
 
 .body-text-box-title {
