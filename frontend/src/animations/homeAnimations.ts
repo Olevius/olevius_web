@@ -252,10 +252,13 @@ export const runTeamTransitionScroll = (numbers: CSSNumbers = cssNumbers) => {
     lg: "(min-width: 1024px)",
   },
     () => {
+
       const split = SplitText.create(".team-title", {
         type: "chars, words, lines",
         charsClass: "char",
       });
+
+
 
       const tl = gsap
         .timeline({
@@ -288,13 +291,20 @@ export const runTeamTextScroll = (numbers: CSSNumbers = cssNumbers) => {
     md: "(min-width: 900px)",
     lg: "(min-width: 1024px)",
   },
-    () => {
+    (mctx) => {
+      const textStartOffset =
+        mctx.conditions?.lg ? numbers.animation.textOffset.l :
+          mctx.conditions?.md ? numbers.animation.textOffset :
+            mctx.conditions?.sd ? numbers.animation.textOffset.s :
+              mctx.conditions?.xs ? numbers.animation.textOffset.xs :
+                numbers.animation.textOffset.xs;
+
 
       const tl = gsap
         .timeline({
           scrollTrigger: {
             trigger: ".team-container",
-            start: `bottom center+=${375}`,
+            start: `bottom center+=${textStartOffset}`,
             scrub: numbers.animation.scrubDuration,
           },
         })

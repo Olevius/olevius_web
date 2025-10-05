@@ -45,6 +45,13 @@ export const cssNumbers = {
     scrollEnd: 1000,
     overlapEnd: 1500,
     scrubScale: 10,
+    textOffset: {
+      xs: 325,
+      s: 0,
+      m: 375,
+      l: 375,
+      xl: 375
+    },
     wordStart: 100,
     eases: {
       power1Out: "power1.out",

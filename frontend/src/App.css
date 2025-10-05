@@ -443,6 +443,10 @@
   font-size: var(--layout-titleFontSize);
 }
 
+.transition-title-box {
+  padding: var(--layout-paddingBody)
+}
+
 /* body stuff */
 
 .body-text-container {
@@ -545,7 +549,7 @@
 /* team page stuff */
 
 .team-container {
-  padding: 0;
+  padding: var(--layout-paddingBody);
 }
 
 .team-title {

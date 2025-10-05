@@ -46,6 +46,7 @@ export type CSSNumbers = {
     overlapEnd: string | number;
     scrubScale: string | number;
     wordStart: string | number;
+    textOffset: MediaQuery;
     eases: {
       power1Out: string;
       power1In: string;
