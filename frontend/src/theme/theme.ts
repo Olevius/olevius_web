@@ -47,7 +47,7 @@ export const cssNumbers = {
     scrubScale: 10,
     textOffset: {
       xs: 325,
-      s: 0,
+      s: 345,
       m: 375,
       l: 375,
       xl: 375
