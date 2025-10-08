@@ -21,7 +21,7 @@ https://olevius.info/
 ## 📦 Technologies
 
 -   **Frontend**: React, Vite, TypeScript, GSAP
--   **Backend**: Node.js, Express, TypeScript
+-   **Backend**: Node.js, Express, TypeScript or Go (not sure at the moment)
 -   **Database**: PostgreSQL (via Prisma ORM)
 -   **Testing**: Vitest, Testing Library
 -   **CI/CD**: GitHub Actions, Docker
