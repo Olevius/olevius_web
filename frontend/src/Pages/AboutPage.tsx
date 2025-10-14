@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { Layout } from "../components/basics/defaults";
-import { NavBar } from "../components/NavBar";
+import { NavBar } from "./Home/NavBar";
 import { customColors } from "../theme/colors";
 
 export const AboutPage = () => {
