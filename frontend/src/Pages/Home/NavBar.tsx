@@ -6,6 +6,8 @@ import {
 import type { BaseProps } from "../../components/basics/defaultTypes";
 import { forRef } from "../../components/basics/refHelper";
 import { Link } from "react-router-dom";
+import { customColors } from "../../theme/colors";
+import { cssNumbers } from "../../theme/theme";
 
 // This is a navigation bar component
 /**
@@ -34,7 +36,14 @@ export const NavBar = forRef<HTMLSpanElement, BaseProps>((props, ref) => {
 
   // Render the navigation bar
   return (
-    <Nav ref={ref} {...props}>
+    <Nav
+      ref={ref}
+      {...props}
+      style={{
+        backgroundColor: customColors.highlight,
+        border: cssNumbers.testing.border,
+      }}
+    >
       <UlContainer>
         {/* Go through each link and show it */}
         {Object.entries(navLinks).map(([path, name]) => (

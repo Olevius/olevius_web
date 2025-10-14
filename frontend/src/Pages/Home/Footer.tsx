@@ -11,8 +11,8 @@ import linkedinImg from "../../assets/logos/linkedin.svg";
  * A React functional component that renders a flexible `div` container for the Team page
  * with customizable styles and class names. Uses `forwardRef` to pass a ref to the underlying `div`.
  */
-export const Footer = forRef<HTMLDivElement, BaseProps>(
-  ({ children, style, className, ...rest }, ref) => (
+export const Footer = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
+  ({ style, className, ...rest }, ref) => (
     <div
       ref={ref}
       className={className}

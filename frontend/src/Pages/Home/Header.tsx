@@ -2,6 +2,7 @@ import type { BaseProps } from "../../components/basics/defaultTypes";
 import { cssNumbers } from "../../theme/theme";
 import { forRef } from "../../components/basics/refHelper";
 import { Layout, Text } from "../../components/basics/defaults";
+import { customColors } from "../../theme/colors";
 
 /**
  * A React functional component that renders a header element with customizable styles and properties.
@@ -14,8 +15,8 @@ import { Layout, Text } from "../../components/basics/defaults";
  * @param {React.Ref<HTMLHeadElement>} ref - A ref to the underlying `<header>` element.
  * @returns {JSX.Element} The rendered header component.
  */
-export const Header = forRef<HTMLHeadElement, BaseProps>(
-  ({ children, style, className, ...rest }, ref) => (
+export const Header = forRef<HTMLHeadElement, Omit<BaseProps, "children">>(
+  ({ style, className, ...rest }, ref) => (
     <header
       ref={ref}
       className={className}
@@ -24,6 +25,8 @@ export const Header = forRef<HTMLHeadElement, BaseProps>(
         justifyContent: "center",
         alignItems: "center",
         height: cssNumbers.layout.fullHeight,
+        backgroundColor: customColors.highlight,
+        border: cssNumbers.testing.border,
         ...style,
       }}
       {...rest}

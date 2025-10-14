@@ -10,12 +10,14 @@ import { cssNumbers } from "../../theme/theme";
  * A React functional component that renders a flexible `div` container for the Team page
  * with customizable styles and class names. Uses `forwardRef` to pass a ref to the underlying `div`.
  */
-export const Team = forRef<HTMLDivElement, BaseProps>(
-  ({ children, style, className, ...rest }, ref) => (
+export const Team = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
+  ({ style, className, ...rest }, ref) => (
     <div
       ref={ref}
       className={className}
       style={{
+        border: cssNumbers.testing.border,
+        backgroundColor: "white",
         background: "white",
         ...style,
       }}
