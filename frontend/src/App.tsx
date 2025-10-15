@@ -1,6 +1,6 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home } from "./Pages/Home";
+import { Home } from "./Pages/Home/Home";
 import { useEffect } from "react";
 import { Analytics } from "@vercel/analytics/react";
 
