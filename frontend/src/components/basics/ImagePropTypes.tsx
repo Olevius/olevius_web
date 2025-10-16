@@ -14,6 +14,6 @@ export type ImageMapProps = {
 };
 
 export interface ImageProps extends BaseProps {
-  src?: string;
+  src: string;
   link?: string;
 }
