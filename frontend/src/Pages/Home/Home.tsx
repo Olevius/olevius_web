@@ -3,7 +3,6 @@ import { Header } from "./Header";
 import { NavBar } from "./NavBar";
 import { Layout } from "../../components/basics/defaults";
 
-import { Body } from "./Body";
 import { cssNumbers } from "../../theme/theme";
 
 import {
@@ -16,7 +15,6 @@ import {
   runTeamTransitionScroll,
 } from "../../animations/homeAnimations";
 import { useEffect, useRef } from "react";
-import { About } from "./About";
 import { Team } from "./Team";
 import { Footer } from "./Footer";
 import { Transition } from "./Transition";
@@ -73,9 +71,7 @@ export const Home = () => {
       <NavBar className="nav-bar" />
       <Header className="header" />
       <Transition className="transition-title-box" />
-      <Body className="body" />
-      <About className="about" />
-      <Team className="team" />
+      <Team className="team"></Team>
       <Footer className="footer" />
     </Layout>
   );
