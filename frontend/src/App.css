@@ -347,12 +347,13 @@
     /* layout */
     --layout-titleFontSize: 12.5rem;
     --layout-mediumLargerFontSize: 11.5rem;
-    --layout-mediumLargeFontSize: 6.5rem;
+    --layout-mediumLargeFontSize: 7.5rem;
     --layout-mediumFontSize: 3.5rem;
     --layout-subtitleFontSize: 3.125rem;
     --layout-aboutTitleFontSize: 500%;
     --layout-footerFontSize: 1.2rem;
     --layout-teamFontSize: 0.9375rem;
+    --layout-buttonFontSize: 1.8rem;
     --layout-bodyFontSize: 2rem;
     --layout-textHeaderFontSize: 1.25rem;
 
@@ -394,6 +395,12 @@
     --layout-updProblemWidth: 50vw;
     --layout-updProblemPaddingLeft: 35vw;
     --layout-updProblemPaddingBottom: 10vh;
+
+    --layout-updBodyTextContainerWidth: 60vw;
+    --layout-updBodyGap: 20;
+
+    --layout-updButtonWidth: 20vw;
+    --layout-updButtonHeight: 10vh;
 
     --layout-teamImageMaxWidth: 25dvw;
     --layout-aboutFullWidth: 100dvw;
@@ -525,7 +532,50 @@
   font-size: var(--layout-mediumLargerFontSize);
 }
 
+/* UpdBody stuff */
 
+.upd-body {
+  padding: var(--layout-paddingMedium);
+  gap: 5vh;
+}
+
+.upd-body-text-container {
+  max-width: var(--layout-updBodyTextContainerWidth);
+}
+
+.upd-body-text {
+  font-size: var(--layout-bodyFontSize);
+}
+
+.upd-body-header {
+    font-size: var(--layout-mediumLargeFontSize);
+    line-height: 1.3;
+}
+
+.upd-button-container {
+  padding-top: var(--layout-paddingMedium);
+}
+.upd-button {
+  width: var(--layout-updButtonWidth);
+  height: var(--layout-updButtonHeight);
+  box-sizing: border-box;
+  border-radius: 1000px;
+  font-size: var(--layout-buttonFontSize);
+  outline: none;
+  border: none;  
+  transition: background-color 0.3s, transform 0.3s, color 0.3s;
+}
+
+.upd-button:hover {
+  background-color: #f0f0f0;
+  color: #333;
+  transform: scale(1.05);
+}
+
+.upd-button:active {
+  transform: scale(1);
+  transition: transform 0.3s;
+}
 
 /* body stuff */
 

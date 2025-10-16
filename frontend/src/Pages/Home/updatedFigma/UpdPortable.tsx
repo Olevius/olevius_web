@@ -14,6 +14,7 @@ export const UpdPortable = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
           display: "flex",
           height: "130vh",
           overflow: "visible",
+          justifyContent: "center",
           backgroundImage: `url(${surfer})`,
           backgroundSize: "cover",
           backgroundPosition: "center",

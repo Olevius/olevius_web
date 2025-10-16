@@ -33,4 +33,5 @@ export const palette = {
 
 export const customColors = {
   highlight: "#dcffcf",
+  softHighlight: "#f5fff2ff"
 };
