@@ -346,6 +346,7 @@
 
     /* layout */
     --layout-titleFontSize: 12.5rem;
+    --layout-mediumLargerFontSize: 11.5rem;
     --layout-mediumLargeFontSize: 6.5rem;
     --layout-mediumFontSize: 3.5rem;
     --layout-subtitleFontSize: 3.125rem;
@@ -509,6 +510,21 @@
 .upd-statement-text {
   font-size: var(--layout-subtitleFontSize);
 }
+
+/* UpdPortable stuff */
+
+.upd-portable-text1 {
+  font-size: var(--layout-mediumLargerFontSize);
+}
+
+.upd-portable-text2 {
+  font-size: var(--layout-mediumLargerFontSize);
+}
+
+.upd-portable-text3 {
+  font-size: var(--layout-mediumLargerFontSize);
+}
+
 
 
 /* body stuff */

@@ -1,4 +1,4 @@
-import type { CSSProperties } from "react";
+import type { CSSProperties, SyntheticEvent } from "react";
 import type { BaseProps } from "./defaultTypes";
 
 type ImageMapValueProps = {
@@ -15,5 +15,7 @@ export type ImageMapProps = {
 
 export interface ImageProps extends BaseProps {
   src: string;
+  onLoad?: (e: SyntheticEvent) => void;
   link?: string;
+  alt?: string;
 }
