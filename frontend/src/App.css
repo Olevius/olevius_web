@@ -504,6 +504,12 @@
   padding-bottom: var(--layout-updProblemPaddingBottom);
 }
 
+/* UpdStatement stuff */
+
+.upd-statement-text {
+  font-size: var(--layout-subtitleFontSize);
+}
+
 
 /* body stuff */
 
