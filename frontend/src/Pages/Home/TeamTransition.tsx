@@ -8,7 +8,7 @@ import { cssNumbers } from "../../theme/theme";
  * A React functional component that renders a flexible `div` container for the Team page
  * with customizable styles and class names. Uses `forwardRef` to pass a ref to the underlying `div`.
  */
-export const Team = forRef<HTMLDivElement, BaseProps>(
+export const TeamTransition = forRef<HTMLDivElement, BaseProps>(
   ({ children, style, className, ...rest }, ref) => (
     <div
       ref={ref}
@@ -78,4 +78,4 @@ export const Team = forRef<HTMLDivElement, BaseProps>(
   )
 );
 
-Team.displayName = "Team";
+TeamTransition.displayName = "Team";

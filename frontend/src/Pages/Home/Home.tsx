@@ -15,9 +15,16 @@ import {
   runTeamTransitionScroll,
 } from "../../animations/homeAnimations";
 import { useEffect, useRef } from "react";
-import { Team } from "./Team";
+import { TeamTransition } from "./TeamTransition";
 import { Footer } from "./Footer";
 import { Transition } from "./Transition";
+import { UpdSummary } from "./updatedFigma/UpdSummary";
+import { UpdProblem } from "./updatedFigma/UpdProblem";
+import { UpdStatement } from "./updatedFigma/UpdStatement";
+import { UpdPortable } from "./updatedFigma/UpdPortable";
+import { UpdBody } from "./updatedFigma/UpdBody";
+import { UpdPeople } from "./updatedFigma/UpdPeople";
+import { UpdTeam } from "./updatedFigma/UpdTeam";
 
 export const Home = () => {
   const container = useRef(null);
@@ -71,7 +78,14 @@ export const Home = () => {
       <NavBar className="nav-bar" />
       <Header className="header" />
       <Transition className="transition-title-box" />
-      <Team className="team"></Team>
+      <UpdSummary />
+      <UpdProblem />
+      <UpdStatement />
+      <UpdPortable />
+      <UpdBody />
+      <UpdPeople />
+      <TeamTransition className="team"></TeamTransition>
+      <UpdTeam />
       <Footer className="footer" />
     </Layout>
   );

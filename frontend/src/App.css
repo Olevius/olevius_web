@@ -354,6 +354,7 @@
     --layout-textHeaderFontSize: 1.25rem;
 
     --layout-paddingSmall: 0.625rem;
+    --layout-paddingExtraSmall: 0.325rem;
     --layout-paddingBody: 3.125rem;
 
     --layout-aboutHeight: 130dvh;
