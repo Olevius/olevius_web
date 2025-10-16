@@ -142,6 +142,6 @@ export const cssNumbers = {
     marginBottomXXs: '2dvh',
   },
   testing: {
-    border: ""
+    border: "1px solid red"
   }
 };

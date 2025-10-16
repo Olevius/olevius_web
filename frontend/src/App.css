@@ -55,6 +55,7 @@
 
     /* layout */
     --layout-titleFontSize: 4.5rem;
+    --layout-mediumLargeFontSize: 3.5rem;
     --layout-mediumFontSize: 2.5rem;
     --layout-subtitleFontSize: 1.35rem;
     --layout-footerFontSize: 0.8125rem;
@@ -345,6 +346,7 @@
 
     /* layout */
     --layout-titleFontSize: 12.5rem;
+    --layout-mediumLargeFontSize: 6.5rem;
     --layout-mediumFontSize: 3.5rem;
     --layout-subtitleFontSize: 3.125rem;
     --layout-aboutTitleFontSize: 500%;
@@ -386,6 +388,11 @@
     --layout-updSummaryMaxWidth: 40%;
     --layout-updSummaryImageMarginTop: 14%;
     --layout-updSummaryImageWidth: 90vw;
+    --layout-updSummaryPaddingBottom: 30vh;
+
+    --layout-updProblemWidth: 50vw;
+    --layout-updProblemPaddingLeft: 35vw;
+    --layout-updProblemPaddingBottom: 10vh;
 
     --layout-teamImageMaxWidth: 25dvw;
     --layout-aboutFullWidth: 100dvw;
@@ -475,7 +482,28 @@
 
 .upd-summary-image {
   width: var(--layout-updSummaryImageWidth);
+  padding-bottom: var(--layout-updSummaryPaddingBottom);
 }
+
+/* UpdProblem stuff */
+
+.upd-problem-text-box {
+  margin: var(--layout-paddingMedium);
+  max-width: var(--layout-updSummaryMaxWidth);
+  line-height: var(--layout-condensed-line-height);
+}
+
+.upd-problem-text {
+  font-size: var(--layout-mediumLargeFontSize);
+}
+
+.upd-problem-content-text {
+  font-size: var(--layout-bodyFontSize);
+  width: var(--layout-updProblemWidth);
+  padding-left: var(--layout-updProblemPaddingLeft);
+  padding-bottom: var(--layout-updProblemPaddingBottom);
+}
+
 
 /* body stuff */
 
