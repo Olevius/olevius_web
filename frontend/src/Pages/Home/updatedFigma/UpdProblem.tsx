@@ -21,6 +21,7 @@ export const UpdProblem = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
         style={{
           display: "flex",
           flexDirection: "column",
+          border: cssNumbers.testing.border,
         }}
       >
         <Layout
@@ -29,12 +30,23 @@ export const UpdProblem = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
             width: "100vw",
             height: "50vh",
             justifyContent: "left",
+            border: cssNumbers.testing.border,
           }}
         >
-          <Layout className="upd-problem-text-box" style={{ display: "flex" }}>
+          <Layout
+            className="upd-problem-text-box"
+            style={{
+              display: "flex",
+              border: cssNumbers.testing.border,
+            }}
+          >
             <Text
               className="upd-problem-text"
-              style={{ textAlign: "left", fontFamily: "Uber Move Text" }}
+              style={{
+                textAlign: "left",
+                fontFamily: "Uber Move Text",
+                border: cssNumbers.testing.border,
+              }}
             >
               THE PROBLEM:
             </Text>
@@ -50,6 +62,7 @@ export const UpdProblem = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
+            border: cssNumbers.testing.border,
           }}
         >
           <Text
@@ -58,6 +71,7 @@ export const UpdProblem = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
               fontFamily: "satoshi",
               fontWeight: 1,
               color: "white",
+              border: cssNumbers.testing.border,
             }}
           >
             Current blood pressure monitoring is either intermittent (cuffs) or

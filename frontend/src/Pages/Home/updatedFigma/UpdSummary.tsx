@@ -21,6 +21,7 @@ export const UpdSummary = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
         style={{
           display: "flex",
           flexDirection: "column",
+          border: cssNumbers.testing.border,
         }}
       >
         <Layout
@@ -29,6 +30,7 @@ export const UpdSummary = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
             display: "flex",
             flexDirection: "column",
             justifyContent: "left",
+            border: cssNumbers.testing.border,
           }}
         >
           <Text
@@ -37,6 +39,7 @@ export const UpdSummary = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
               textAlign: "left",
               fontWeight: "lighter",
               fontFamily: "satoshi",
+              border: cssNumbers.testing.border,
             }}
           >
             Tibi, matri tuae, et ceteris curatum
@@ -44,12 +47,20 @@ export const UpdSummary = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
         </Layout>
         <Layout
           className="upd-summary-image-container"
-          style={{ display: "flex", justifyContent: "center" }}
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            border: cssNumbers.testing.border,
+          }}
         >
           <Image
             className="upd-summary-image"
             src={papamama}
-            style={{ zIndex: 11, height: "100%" }}
+            style={{
+              zIndex: 11,
+              height: "100%",
+              border: cssNumbers.testing.border,
+            }}
           />
         </Layout>
       </Layout>
