@@ -78,14 +78,14 @@ export const Home = () => {
       <NavBar className="nav-bar" />
       <Header className="header" />
       <Transition className="transition-title-box" />
-      <UpdSummary />
-      <UpdProblem />
-      <UpdStatement />
-      <UpdPortable />
-      <UpdBody />
-      <UpdPeople />
+      <UpdSummary className="upd-summary" />
+      <UpdProblem className="upd-problem" />
+      <UpdStatement className="upd-statement" />
+      <UpdPortable className="upd-portable" />
+      <UpdBody className="upd-body" />
+      <UpdPeople className="upd-people" />
       <TeamTransition className="team"></TeamTransition>
-      <UpdTeam />
+      <UpdTeam className="upd-team" />
       <Footer className="footer" />
     </Layout>
   );
