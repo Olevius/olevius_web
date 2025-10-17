@@ -449,6 +449,8 @@
     --layout-updAvatar7-w: 15vw;
     --layout-updAvatar7-h: 15vw;
 
+    --layout-updTeamBoxWidth: 87vw;
+
     --layout-teamImageMaxWidth: 25dvw;
     --layout-aboutFullWidth: 100dvw;
     --layout-aboutTitleWidth: 50dvw;
@@ -900,6 +902,10 @@
   font-size: var(--layout-bodyFontSize);
   padding-bottom: var(--layout-updPeoplePaddingBottom);
 
+}
+
+.upd-team-box-disable-bottom-line {
+  width: 0
 }
 
 /* body stuff */
