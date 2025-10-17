@@ -6,9 +6,10 @@ export const palette = {
     contrastText: "#fff",
   },
   secondary: {
-    main: "#9c27b0",
-    light: "#d05ce3",
-    dark: "#6a0080",
+    main: "#ed6c02",
+    light: "#ff9800",
+    dark: "#e65100",
+
     contrastText: "#fff",
   },
   error: {
@@ -18,9 +19,9 @@ export const palette = {
     contrastText: "#fff",
   },
   warning: {
-    main: "#ed6c02",
-    light: "#ff9800",
-    dark: "#e65100",
+    main: "#9c27b0",
+    light: "#d05ce3",
+    dark: "#6a0080",
     contrastText: "#fff",
   },
   info: {

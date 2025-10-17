@@ -354,13 +354,15 @@
     --layout-footerFontSize: 1.2rem;
     --layout-teamFontSize: 0.9375rem;
     --layout-buttonFontSize: 1.8rem;
-    --layout-bodyFontSize: 2rem;
+    --layout-subheaderFontSize: 6.5rem;
+    --layout-bodyFontSize: 2.6rem;
     --layout-textHeaderFontSize: 1.25rem;
 
     --layout-paddingSmall: 0.625rem;
     --layout-paddingExtraSmall: 0.325rem;
     --layout-paddingMedium: 2.5rem;
     --layout-paddingBody: 3.125rem;
+    --layout-paddingPeopleText1: 25.125rem;
 
     --layout-aboutHeight: 130dvh;
     --layout-teamHeight: 500dvh;
@@ -397,10 +399,55 @@
     --layout-updProblemPaddingBottom: 10vh;
 
     --layout-updBodyTextContainerWidth: 60vw;
-    --layout-updBodyGap: 20;
+    --layout-updBodyGap: 5vh;
+    --layout-updBodyPaddingBottom: 20vh;
 
     --layout-updButtonWidth: 20vw;
     --layout-updButtonHeight: 10vh;
+
+    --layout-updPeoplePaddingBottom: 10vh;
+
+     /* Avatar 1 */
+    --layout-updAvatar1-top: 15vh;
+    --layout-updAvatar1-left: 5vw;
+    --layout-updAvatar1-w: 20vw;
+    --layout-updAvatar1-h: 20vw;
+
+    /* Avatar 2 */
+    --layout-updAvatar2-top: 70vh;
+    --layout-updAvatar2-left: 45vw;
+    --layout-updAvatar2-w: 15vw;
+    --layout-updAvatar2-h: 15vw;
+
+    /* Avatar 3 */
+    --layout-updAvatar3-top: 25vh;
+    --layout-updAvatar3-left: 75vw;
+    --layout-updAvatar3-w: 10vw;
+    --layout-updAvatar3-h: 10vw;
+
+    /* Avatar 4 */
+    --layout-updAvatar4-top: 10vh;
+    --layout-updAvatar4-left: 13vw;
+    --layout-updAvatar4-w: 20vw;
+    --layout-updAvatar4-h: 20vw;
+
+    /* Avatar 5 */
+    --layout-updAvatar5-top: 60vh;
+    --layout-updAvatar5-left: 10vw;
+    --layout-updAvatar5-w: 15vw;
+    --layout-updAvatar5-h: 15vw;
+
+    /* Avatar 6 */
+    --layout-updAvatar6-top: 68vh;
+    --layout-updAvatar6-left: 60vw;
+    --layout-updAvatar6-w: 15vw;
+    --layout-updAvatar6-h: 15vw;
+
+    /* Avatar 7 */
+    --layout-updAvatar7-top: 30vh;
+    --layout-updAvatar7-left: 75vw;
+    --layout-updAvatar7-w: 15vw;
+    --layout-updAvatar7-h: 15vw;
 
     --layout-teamImageMaxWidth: 25dvw;
     --layout-aboutFullWidth: 100dvw;
@@ -446,6 +493,172 @@
 
   }
 }
+
+/* ========== Large ≥1200px ========== */
+@media (min-width: 1200px) {
+  :root {
+    /* animation */
+    --animation-titleStartX: 46.875rem;
+    --animation-navStartY: -4.375rem;
+    --animation-scrollEnd: 1000;
+    --animation-overlapEnd: 1500;
+    --animation-scrubScale: 10;
+    --animation-wordStart: 100;
+
+    --animation-teamEnterXPercent: 12;
+    --animation-teamEnterDuration: 1.2;
+    --animation-teamStaggerEach: 0.22;
+    --animation-teamStaggerAmount: 0.9;
+
+    /* layout */
+    --layout-titleFontSize: 12.5rem;
+    --layout-mediumLargerFontSize: 11.5rem;
+    --layout-mediumLargeFontSize: 7.5rem;
+    --layout-mediumFontSize: 3.5rem;
+    --layout-subtitleFontSize: 3.125rem;
+    --layout-aboutTitleFontSize: 500%;
+    --layout-footerFontSize: 1.2rem;
+    --layout-teamFontSize: 0.9375rem;
+    --layout-buttonFontSize: 1.8rem;
+    --layout-subheaderFontSize: 6.5rem;
+    --layout-bodyFontSize: 2.6rem;
+    --layout-textHeaderFontSize: 1.25rem;
+
+    --layout-paddingSmall: 0.625rem;
+    --layout-paddingExtraSmall: 0.325rem;
+    --layout-paddingMedium: 2.5rem;
+    --layout-paddingBody: 3.125rem;
+    --layout-paddingPeopleText1: 25.125rem;
+
+    --layout-aboutHeight: 130dvh;
+    --layout-teamHeight: 500dvh;
+
+    --layout-textBoxMargin: 500px;
+
+    --layout-marginSmallLeft: 2dvw;
+    --layout-marginSmallRight: 2dvw;
+    --layout-marginSmallTop: 20dvh;
+    --layout-marginSmallBottom: 2dvh;
+
+    --layout-marginExtraSmallLeft: 5dvh;
+    --layout-marginExtraSmallRight: 5dvh;
+    --layout-marginExtraSmallTop: 5dvh;
+    --layout-marginExtraSmallBottom: 5dvh;
+
+    --layout-paddingLeft: 0.625rem;
+    --layout-paddingRight: 0.625rem;
+    --layout-paddingTop: 0.625rem;
+    --layout-paddingBottom: 0.625rem;
+
+    --layout-paddingTransitionLeft: 5rem;
+    --layout-paddingTransitionRight: 5rem;
+    --layout-paddingTransitionTop: 5rem;
+    --layout-paddingTransitionBottom: 5rem;
+
+    --layout-updSummaryMaxWidth: 40%;
+    --layout-updSummaryImageMarginTop: 14%;
+    --layout-updSummaryImageWidth: 90vw;
+    --layout-updSummaryPaddingBottom: 30vh;
+
+    --layout-updProblemWidth: 50vw;
+    --layout-updProblemPaddingLeft: 35vw;
+    --layout-updProblemPaddingBottom: 10vh;
+
+    --layout-updBodyTextContainerWidth: 60vw;
+    --layout-updBodyGap: 20;
+
+    --layout-updButtonWidth: 20vw;
+    --layout-updButtonHeight: 10vh;
+
+    --layout-updPeoplePaddingBottom: 10vh;
+
+     /* Avatar 1 */
+    --layout-updAvatar1-top: 15vh;
+    --layout-updAvatar1-left: 5vw;
+    --layout-updAvatar1-w: 20vw;
+    --layout-updAvatar1-h: 20vw;
+
+    /* Avatar 2 */
+    --layout-updAvatar2-top: 70vh;
+    --layout-updAvatar2-left: 45vw;
+    --layout-updAvatar2-w: 15vw;
+    --layout-updAvatar2-h: 15vw;
+
+    /* Avatar 3 */
+    --layout-updAvatar3-top: 25vh;
+    --layout-updAvatar3-left: 75vw;
+    --layout-updAvatar3-w: 10vw;
+    --layout-updAvatar3-h: 10vw;
+
+    /* Avatar 4 */
+    --layout-updAvatar4-top: 10vh;
+    --layout-updAvatar4-left: 13vw;
+    --layout-updAvatar4-w: 20vw;
+    --layout-updAvatar4-h: 20vw;
+
+    /* Avatar 5 */
+    --layout-updAvatar5-top: 60vh;
+    --layout-updAvatar5-left: 10vw;
+    --layout-updAvatar5-w: 15vw;
+    --layout-updAvatar5-h: 15vw;
+
+    /* Avatar 6 */
+    --layout-updAvatar6-top: 68vh;
+    --layout-updAvatar6-left: 60vw;
+    --layout-updAvatar6-w: 15vw;
+    --layout-updAvatar6-h: 15vw;
+
+    /* Avatar 7 */
+    --layout-updAvatar7-top: 30vh;
+    --layout-updAvatar7-left: 75vw;
+    --layout-updAvatar7-w: 15vw;
+    --layout-updAvatar7-h: 15vw;
+
+    --layout-teamImageMaxWidth: 25dvw;
+    --layout-aboutFullWidth: 100dvw;
+    --layout-aboutTitleWidth: 50dvw;
+    --layout-aboutGap: 5vw;
+    --layout-aboutBottomPadding: 15%;
+    --layout-aboutContainerFlex: 1 1 0%;
+    --layout-aboutTitleTextAlign: center;
+    --layout-aboutTitleJustifyContent: center;
+
+    --layout-aboutContentPaddingTop: 2dvh;
+
+    --layout-teamImageMaxWidth: 25dvw;
+    --layout-teamFullWidth: 100dvw;
+    --layout-teamImagesFlexDirection: row;
+    --layout-teamImageWidth: 25vw;
+    --layout-teamImageHeight: auto;
+
+    --layout-footerContactTranslateY: -6dvh;
+    --layout-footerLinkMargin: 5dvw;
+    --layout-footerLinkGap: 8dvw;
+    --layout-footerSocialGap: 4dvw;
+    --layout-footerSocialIconScale: 3;
+    --layout-footerFlexDirection: row;
+    --layout-footerLinksFlexDirection: row;
+    --layout-footerContainerGap: 0;
+    --layout-footerContactUsFontSize: 3.25rem;
+    --layout-footerLinkLayoutDisplay: flex;
+    --layout-footerGridTemplateCols: none;
+    --layout-footerLinkLayoutJustifyContent: space-between;
+
+    --layout-condensed-line-height: 1.3;
+
+    --layout-marginBottomXXs: 2dvh;
+
+    --layout-textBoxWidth: 100%;
+    --layout-textBoxGap: 5dvh;
+    
+    --layout-imageVisibility: visible;
+
+    --layout-aboutTitleWrap: nowrap;
+    --layout-aboutFlexDirection: row
+
+  }
+}
+
 
 /* header stuff */
 
@@ -535,8 +748,12 @@
 /* UpdBody stuff */
 
 .upd-body {
-  padding: var(--layout-paddingMedium);
+  padding-top: var(--layout-paddingMedium);
+  padding-right: var(--layout-paddingMedium);
+  padding-left: var(--layout-paddingMedium);
+  padding-bottom: var(--layout-updBodyPaddingBottom);
   gap: 5vh;
+  
 }
 
 .upd-body-text-container {
@@ -575,6 +792,114 @@
 .upd-button:active {
   transform: scale(1);
   transition: transform 0.3s;
+}
+
+.upd-avatar1 {
+  margin-top: var(--layout-updAvatar1-top);
+  margin-left: var(--layout-updAvatar1-left);
+  width: var(--layout-updAvatar1-w);
+  height: var(--layout-updAvatar1-h);
+  aspect-ratio: 1;
+  z-index: 10000;
+  background-position: center;      /* centers the image */
+  background-size: cover;           /* fills the box, keeps aspect ratio */
+  background-repeat: no-repeat;
+  aspect-ratio: 1;
+  border-radius: 50%;               /* optional circle */
+}
+
+.upd-avatar2 {
+  margin-top: var(--layout-updAvatar2-top);
+  margin-left: var(--layout-updAvatar2-left);
+  width: var(--layout-updAvatar2-w);
+  height: var(--layout-updAvatar2-h);
+  aspect-ratio: 1;
+  z-index: 10000;
+  background-position: center;      /* centers the image */
+  background-size: cover;           /* fills the box, keeps aspect ratio */
+  background-repeat: no-repeat;
+  aspect-ratio: 1;
+}
+
+.upd-avatar3 {
+  margin-top: var(--layout-updAvatar3-top);
+  margin-left: var(--layout-updAvatar3-left);
+  width: var(--layout-updAvatar3-w);
+  height: var(--layout-updAvatar3-h);
+  aspect-ratio: 1;
+  z-index: 10000;
+  background-position: center;      /* centers the image */
+  background-size: cover;           /* fills the box, keeps aspect ratio */
+  background-repeat: no-repeat;
+  aspect-ratio: 1;
+  border-radius: 50%;               
+}
+
+.upd-avatar4 {
+  margin-top: var(--layout-updAvatar4-top);
+  margin-left: var(--layout-updAvatar4-left);
+  width: var(--layout-updAvatar4-w);
+  height: var(--layout-updAvatar4-h);
+  aspect-ratio: 1;
+  z-index: 10000;
+  background-position: center;      /* centers the image */
+  background-size: cover;           /* fills the box, keeps aspect ratio */
+  background-repeat: no-repeat;
+  aspect-ratio: 1;
+  border-radius: 50%;               
+}
+
+.upd-avatar5 {
+  margin-top: var(--layout-updAvatar5-top);
+  margin-left: var(--layout-updAvatar5-left);
+  width: var(--layout-updAvatar5-w);
+  height: var(--layout-updAvatar5-h);
+  aspect-ratio: 1;
+  z-index: 10000;
+  background-position: center;      /* centers the image */
+  background-size: cover;           /* fills the box, keeps aspect ratio */
+  background-repeat: no-repeat;
+  aspect-ratio: 1;
+  border-radius: 50%;               
+}
+
+.upd-avatar6 {
+  margin-top: var(--layout-updAvatar6-top);
+  margin-left: var(--layout-updAvatar6-left);
+  width: var(--layout-updAvatar6-w);
+  height: var(--layout-updAvatar6-h);
+  aspect-ratio: 1;
+  z-index: 10000;
+  background-position: center;      /* centers the image */
+  background-size: cover;           /* fills the box, keeps aspect ratio */
+  background-repeat: no-repeat;
+  aspect-ratio: 1;
+  border-radius: 50%;               
+}
+
+.upd-avatar7 {
+  margin-top: var(--layout-updAvatar7-top);
+  margin-left: var(--layout-updAvatar7-left);
+  width: var(--layout-updAvatar7-w);
+  height: var(--layout-updAvatar7-h);
+  aspect-ratio: 1;
+  z-index: 10000;
+  background-position: center;      /* centers the image */
+  background-size: cover;           /* fills the box, keeps aspect ratio */
+  background-repeat: no-repeat;
+  aspect-ratio: 1;
+  border-radius: 50%;               
+}
+
+.upd-people-header-text1 {
+  font-size: var(--layout-subheaderFontSize)
+}
+.upd-people-content-text1 {
+  padding-left: var(--layout-paddingPeopleText1);
+  padding-right: var(--layout-paddingPeopleText1);
+  font-size: var(--layout-bodyFontSize);
+  padding-bottom: var(--layout-updPeoplePaddingBottom);
+
 }
 
 /* body stuff */
