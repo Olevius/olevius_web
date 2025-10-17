@@ -10,7 +10,7 @@ export const UpdTeam = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
       {...rest}
       style={{
         display: "flex",
-        height: "150vh",
+        paddingBottom: "30vh",
         background: "#fff",
         flexDirection: "column",
         overflow: "hidden",
