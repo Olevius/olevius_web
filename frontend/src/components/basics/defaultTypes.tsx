@@ -14,6 +14,10 @@ export interface LinkProps extends BaseProps {
   link: string;
 }
 
+export interface TeamBoxProps extends BaseProps {
+  bottomLine: boolean;
+}
+
 export interface PaddingProps extends BaseProps {
   size: number;
 }

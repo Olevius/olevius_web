@@ -1,5 +1,5 @@
 :root {
-  font-family: "Uber Move", sans-serif;
+  font-family: "Uber Move", "Uber Move Text", "Vujahday Script", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -34,6 +34,7 @@ body {
 h1, .bold {
   font-weight: 700;
 }
+
 
 button {
   border-radius: 0.5rem; 
