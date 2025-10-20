@@ -12,7 +12,6 @@ export const UpdBody = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
       {...rest}
       style={{
         backgroundColor: "white",
-        height: "100vh",
         display: "flex",
         flexDirection: "column",
         textAlign: "left",

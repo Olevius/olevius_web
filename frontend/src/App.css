@@ -399,8 +399,8 @@
     --layout-updProblemPaddingBottom: 10vh;
 
     --layout-updBodyTextContainerWidth: 60vw;
-    --layout-updBodyGap: 5vh;
-    --layout-updBodyPaddingBottom: 20vh;
+    --layout-updBodyGap: 100vh;
+    --layout-updBodyPaddingBottom: 30vh;
 
     --layout-updButtonWidth: 20vw;
     --layout-updButtonHeight: 10vh;
@@ -567,7 +567,7 @@
     --layout-updProblemPaddingBottom: 10vh;
 
     --layout-updBodyTextContainerWidth: 60vw;
-    --layout-updBodyGap: 20;
+    --layout-updBodyGap: 8vh;
 
     --layout-updButtonWidth: 20vw;
     --layout-updButtonHeight: 10vh;
@@ -754,8 +754,7 @@
   padding-right: var(--layout-paddingMedium);
   padding-left: var(--layout-paddingMedium);
   padding-bottom: var(--layout-updBodyPaddingBottom);
-  gap: 5vh;
-  
+  gap: var(--layout-updBodyGap);
 }
 
 .upd-body-text-container {
