@@ -53,10 +53,12 @@
     --animation-teamStaggerEach: 0.22;
     --animation-teamStaggerAmount: 0.9;
 
+    --animation-footerIconScaleAmount: 2;
+
     /* layout */
     --layout-titleFontSize: 4.5rem;
     --layout-mediumFontSize: 3.5rem;
-    --layout-subtitleFontSize: 1.35rem;
+    --layout-subtitleFontSize: 2.35rem;
     --layout-footerFontSize: 0.8125rem;
     --layout-teamFontSize: 0.9375rem;
     --layout-aboutTitleFontSize: 2.5rem;
@@ -151,10 +153,12 @@
     --animation-teamStaggerEach: 0.22;
     --animation-teamStaggerAmount: 0.9;
 
+    --animation-footerIconScaleAmount: 2;
+
     /* layout */
     --layout-titleFontSize: 6.5rem;
     --layout-mediumFontSize: 4.5rem;
-    --layout-subtitleFontSize: 2rem;
+    --layout-subtitleFontSize: 2.35rem;
     --layout-footerFontSize: 0.8125rem;
     --layout-teamFontSize: 0.9375rem;
     --layout-aboutTitleFontSize: 4.5rem;
@@ -248,6 +252,10 @@
     --animation-teamStaggerEach: 0.22;
     --animation-teamStaggerAmount: 0.9;
 
+
+    --animation-footerIconScaleAmount: 3.5;
+
+
     /* layout */
     --layout-titleFontSize: 9.5rem;
     --layout-mediumFontSize: 5.5rem;
@@ -302,7 +310,7 @@
     --layout-footerContactTranslateY: 0;
     --layout-footerLinkMargin: 5dvw;
     --layout-footerLinkGap: 5dvw;
-    --layout-footerSocialGap: 10dvw;
+    --layout-footerSocialGap: 10vw;
     --layout-footerSocialIconScale: 2.5;
     --layout-footerFlexDirection: column;
     --layout-footerLinksFlexDirection: column;
@@ -344,6 +352,7 @@
     --animation-teamStaggerAmount: 0.9;
 
     /* layout */
+    --layout-footerContactTranslateY: 5;
     --layout-titleFontSize: 12.5rem;
     --layout-mediumFontSize: 6.25rem;
     --layout-subtitleFontSize: 3.125rem;
@@ -401,7 +410,7 @@
     --layout-footerContactTranslateY: -6dvh;
     --layout-footerLinkMargin: 5dvw;
     --layout-footerLinkGap: 8dvw;
-    --layout-footerSocialGap: 4dvw;
+    --layout-footerSocialGap: 5dvw;
     --layout-footerSocialIconScale: 3;
     --layout-footerFlexDirection: row;
     --layout-footerLinksFlexDirection: row;
@@ -588,10 +597,19 @@
   flex-direction: var(--layout-footerFlexDirection);
   gap: var(--layout-footerContainerGap);
 }
-
+/* Make the span scale nicely even though your inline style sets display:inline */
 .footer-contact-us {
+  display: inline-block !important;
   transform: translateY(var(--layout-footerContactTranslateY));
-  font-size: var(--layout-footerContactUsFontSize);
+  font-size: var(--layout-subtitleFontSize);
+  transform-origin: center;
+  transition: transform 180ms ease;
+}
+
+/* Scale the span when its parent link is hovered or focused */
+a:hover > .footer-contact-us,
+a:focus-visible > .footer-contact-us {
+  transform: translateY(var(--layout-footerContactTranslateY)) scale(1.15);
 }
 
 .footer-card-content {
@@ -613,16 +631,27 @@
 }
 
 .footer-image-container {
-  gap: var(--layout-footerSocialGap)
+  gap: var(--layout-footerSocialGap);
 }
 
+/* DRY: shared base styles */
+.footer-github-icon,
 .footer-linkedin-icon {
-  scale: var(--layout-footerSocialIconScale)
+  display: inline-block !important;
+  transform: scale(var(--layout-footerSocialIconScale, 1));
+  transform-origin: center;
+  transition: transform 180ms ease;   /* <-- smooth easing */
+  will-change: transform;              /* optional, for smoother rendering */
 }
 
-.footer-github-icon {
-  scale: var(--layout-footerSocialIconScale)
+/* Hover + keyboard focus */
+a:hover   > .footer-github-icon,
+a:focus-visible > .footer-github-icon,
+a:hover   > .footer-linkedin-icon,
+a:focus-visible > .footer-linkedin-icon {
+  transform: scale(var(--animation-footerIconScaleAmount));
 }
+
 
 /* misc stuff */
 
