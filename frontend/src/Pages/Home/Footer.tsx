@@ -1,9 +1,14 @@
 // Footer.tsx
-import { AnchoredImage, Layout, Text } from "../../components/basics/defaults";
+import {
+  AnchoredImage,
+  AnchoredText,
+  Layout,
+  // Text,
+} from "../../components/basics/defaults";
 import type { BaseProps } from "../../components/basics/defaultTypes";
 import { forRef } from "../../components/basics/refHelper";
-import { FooterCard } from "../../components/FooterCard";
-import { footerTextMap } from "../../text-maps/footerTextMap";
+// import { FooterCard } from "../../components/FooterCard";
+// import { footerTextMap } from "../../text-maps/footerTextMap";
 import githubImg from "../../assets/logos/github.svg";
 import linkedinImg from "../../assets/logos/linkedin.svg";
 
@@ -30,8 +35,13 @@ export const Footer = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
           alignItems: "center",
         }}
       >
-        <Text className="footer-contact-us">Contact us</Text>
-        <Layout className="footer-link-layout">
+        <AnchoredText
+          className="footer-contact-us"
+          link={"https://outlook.office.com/mail/deeplink/compose?"}
+        >
+          Contact us
+        </AnchoredText>
+        {/* <Layout className="footer-link-layout">
           {Object.entries(footerTextMap).map(([key, value]) => (
             <FooterCard
               classNameContent="footer-card-content"
@@ -40,7 +50,7 @@ export const Footer = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
               value={value}
             />
           ))}
-        </Layout>
+        </Layout> */}
         <Layout
           className="footer-image-container"
           style={{
