@@ -3,7 +3,6 @@ import { Header } from "./Header";
 import { NavBar } from "./NavBar";
 import { Layout } from "../../components/basics/defaults";
 
-import { Body } from "./Body";
 import { cssNumbers } from "../../theme/theme";
 
 import {
@@ -16,10 +15,16 @@ import {
   runTeamTransitionScroll,
 } from "../../animations/homeAnimations";
 import { useEffect, useRef } from "react";
-import { About } from "./About";
-import { Team } from "./Team";
+import { TeamTransition } from "./TeamTransition";
 import { Footer } from "./Footer";
 import { Transition } from "./Transition";
+import { UpdSummary } from "./updatedFigma/UpdSummary";
+import { UpdProblem } from "./updatedFigma/UpdProblem";
+import { UpdStatement } from "./updatedFigma/UpdStatement";
+import { UpdPortable } from "./updatedFigma/UpdPortable";
+import { UpdBody } from "./updatedFigma/UpdBody";
+import { UpdPeople } from "./updatedFigma/UpdPeople";
+import { UpdTeam } from "./updatedFigma/UpdTeam";
 
 export const Home = () => {
   const container = useRef(null);
@@ -73,9 +78,14 @@ export const Home = () => {
       <NavBar className="nav-bar" />
       <Header className="header" />
       <Transition className="transition-title-box" />
-      <Body className="body" />
-      <About className="about" />
-      <Team className="team" />
+      <UpdSummary className="upd-summary" />
+      <UpdProblem className="upd-problem" />
+      <UpdStatement className="upd-statement" />
+      <UpdPortable className="upd-portable" />
+      <UpdBody className="upd-body" />
+      <UpdPeople className="upd-people" />
+      <TeamTransition className="team"></TeamTransition>
+      <UpdTeam className="upd-team" />
       <Footer className="footer" />
     </Layout>
   );
