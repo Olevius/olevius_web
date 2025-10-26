@@ -10,7 +10,8 @@ export const UpdProblem = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
       ref={ref}
       {...rest}
       style={{
-        maxHeight: "100vh",
+        position: "relative",
+        height: "100vh",
         backgroundColor: "white",
         border: cssNumbers.testing.border,
         ...style,

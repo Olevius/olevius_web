@@ -9,6 +9,7 @@ export const UpdStatement = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
       ref={ref}
       {...rest}
       style={{
+        position: "relative",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",

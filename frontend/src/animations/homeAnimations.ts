@@ -105,6 +105,8 @@ export const runHeaderScrollTimeline = (numbers: CSSNumbers = cssNumbers) => {
   )
 };
 
+
+
 export const runTransitionTextScroll = (numbers: CSSNumbers = cssNumbers) => {
 
   mm.add({
@@ -141,30 +143,7 @@ export const runTransitionTextScroll = (numbers: CSSNumbers = cssNumbers) => {
     })
 };
 
-export const createSplitScroll = (
-  selector: string,
-  offset: number,
-  numbers: CSSNumbers = cssNumbers
-) => {
-  const split = SplitText.create(selector, {
-    type: "chars, words, lines",
-    charsClass: "char",
-  });
-
-  gsap.from(split.chars, {
-    x: numbers.animation.wordStart,
-    autoAlpha: 0,
-    stagger: numbers.animation.charStagger,
-    scrollTrigger: {
-      trigger: ".body",
-      start: offset ? `top center-=${offset}` : "top center",
-      end: `+=${numbers.animation.sectionScrollSpan}`,
-      scrub: 2,
-    },
-  });
-};
-
-export const runBodyScroll = (numbers: CSSNumbers = cssNumbers) => {
+export const runUpdSummaryScroll = (numbers: CSSNumbers = cssNumbers): void => {
   mm.add({
     xs: "(max-width: 639px)",
     sd: "(min-width: 640px)",
@@ -172,75 +151,231 @@ export const runBodyScroll = (numbers: CSSNumbers = cssNumbers) => {
     lg: "(min-width: 1024px)",
   },
     () => {
-      const sections = [
-        { title: ".why-title", content: ".why-content", offset: 0 },
-        {
-          title: ".how-title",
-          content: ".how-content",
-          offset: numbers.animation.bodySectionOffsetHow,
-        },
-        {
-          title: ".what-title",
-          content: ".what-content",
-          offset: numbers.animation.bodySectionOffsetWhat,
-        },
-      ];
-
-      sections.forEach(({ title, content, offset }) => {
-        createSplitScroll(title, offset, numbers);
-        createSplitScroll(content, offset, numbers);
-      });
 
     })
+}
+
+// Assumes: gsap.registerPlugin(ScrollTrigger) already done, and `mm = gsap.matchMedia()`
+
+export const runUpdProblemScroll = (numbers: CSSNumbers = cssNumbers) => {
+  return mm.add(
+    {
+      xs: "(max-width: 639px)",
+      sd: "(min-width: 640px)",
+      md: "(min-width: 900px)",
+      lg: "(min-width: 1024px)",
+    },
+    () => {
+      // .upd-summary is the pinned stage
+      // .upd-next starts just below and scrolls up into place
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".upd-summary",
+          start: "top top",
+          end: "+=100%",   // one viewport of scroll
+          scrub: true,
+          pin: true,
+          pinSpacing: false,
+          // markers: true,
+        },
+      });
+
+      // If your CSS sets .upd-next { transform: translateY(100%); }
+      // you can simply animate to yPercent: 0. If not, use fromTo.
+      tl.to(".upd-problem", { y: 0, ease: "none" }, 0);
+
+      // OPTIONAL: if you want the current screen to be pushed away too, uncomment:
+      // tl.to(".upd-current", { yPercent: -100, ease: "none" }, 0);
+
+      return tl;
+    }
+  );
 };
 
-export const runAboutScroll = (numbers: CSSNumbers = cssNumbers) => {
-
+export const runUpdStatementScroll = (numbers: CSSNumbers = cssNumbers) => {
   mm.add({
     xs: "(max-width: 639px)",
     sd: "(min-width: 640px)",
     md: "(min-width: 900px)",
     lg: "(min-width: 1024px)",
-  }, (mctx) => {
-    const parallaxDistance =
-      mctx.conditions?.lg
-        ? numbers.layout.aboutParallaxDistance.l
-        : mctx.conditions?.md
-          ? numbers.layout.aboutParallaxDistance.m
-          : mctx.conditions?.sd
-            ? numbers.layout.aboutParallaxDistance.s
-            : mctx.conditions?.xs
-              ? numbers.layout.aboutParallaxDistance.xs
-              : numbers.layout.aboutParallaxDistance.xs; // fallback
-
-    const tl = gsap
-      .timeline({
+  },
+    () => {// .upd-summary is the pinned stage
+      // .upd-next starts just below and scrolls up into place
+      const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: ".about",
-          start: "top center",
-          end: `bottom top`,
+          trigger: ".upd-problem",
+          start: "top top",
+          end: "+=200%",   // one viewport of scroll
           scrub: true,
+          pin: true,
+          pinSpacing: false,
+          // markers: true,
         },
-      })
-      .add("sync-point")
-      .from(
-        ".about-content",
-        {
-          y: parallaxDistance,
-        },
-        "sync-point"
-      )
-      .from(
-        ".about-title",
-        {
-          y: parallaxDistance,
-        },
-        "sync-point"
-      );
-    return tl
-  })
+      });
 
-};
+      // If your CSS sets .upd-next { transform: translateY(100%); }
+      // you can simply animate to yPercent: 0. If not, use fromTo.
+      tl.add("sync-point")
+      tl.to(".upd-statement", { y: 0, ease: "none" }, "sync-point");
+
+      // OPTIONAL: if you want the current screen to be pushed away too, uncomment:
+      // tl.to(".upd-current", { yPercent: -100, ease: "none" }, 0);
+
+      return tl;
+    })
+}
+
+export const runUpdPortableScroll = (numbers: CSSNumbers = cssNumbers) => {
+  mm.add({
+    xs: "(max-width: 639px)",
+    sd: "(min-width: 640px)",
+    md: "(min-width: 900px)",
+    lg: "(min-width: 1024px)",
+  },
+    () => { })
+}
+
+export const runUpdInfoScroll = (numbers: CSSNumbers = cssNumbers) => {
+  mm.add({
+    xs: "(max-width: 639px)",
+    sd: "(min-width: 640px)",
+    md: "(min-width: 900px)",
+    lg: "(min-width: 1024px)",
+  },
+    () => { })
+}
+
+export const runUpdPeopleScroll = (numbers: CSSNumbers = cssNumbers) => {
+  mm.add({
+    xs: "(max-width: 639px)",
+    sd: "(min-width: 640px)",
+    md: "(min-width: 900px)",
+    lg: "(min-width: 1024px)",
+  },
+    () => { })
+}
+
+export const runUpdTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
+  mm.add({
+    xs: "(max-width: 639px)",
+    sd: "(min-width: 640px)",
+    md: "(min-width: 900px)",
+    lg: "(min-width: 1024px)",
+  },
+    () => {
+      return mm.add(
+        {
+          xs: "(max-width: 639px)",
+          sd: "(min-width: 640px)",
+          md: "(min-width: 900px)",
+          lg: "(min-width: 1024px)",
+        },
+        () => {
+        }
+      );
+    })
+}
+
+// export const createSplitScroll = (
+//   selector: string,
+//   offset: number,
+//   numbers: CSSNumbers = cssNumbers
+// ) => {
+//   const split = SplitText.create(selector, {
+//     type: "chars, words, lines",
+//     charsClass: "char",
+//   });
+
+//   gsap.from(split.chars, {
+//     x: numbers.animation.wordStart,
+//     autoAlpha: 0,
+//     stagger: numbers.animation.charStagger,
+//     scrollTrigger: {
+//       trigger: ".body",
+//       start: offset ? `top center-=${offset}` : "top center",
+//       end: `+=${numbers.animation.sectionScrollSpan}`,
+//       scrub: 2,
+//     },
+//   });
+// };
+
+// export const runBodyScroll = (numbers: CSSNumbers = cssNumbers) => {
+//   mm.add({
+//     xs: "(max-width: 639px)",
+//     sd: "(min-width: 640px)",
+//     md: "(min-width: 900px)",
+//     lg: "(min-width: 1024px)",
+//   },
+//     () => {
+//       const sections = [
+//         { title: ".why-title", content: ".why-content", offset: 0 },
+//         {
+//           title: ".how-title",
+//           content: ".how-content",
+//           offset: numbers.animation.bodySectionOffsetHow,
+//         },
+//         {
+//           title: ".what-title",
+//           content: ".what-content",
+//           offset: numbers.animation.bodySectionOffsetWhat,
+//         },
+//       ];
+
+//       sections.forEach(({ title, content, offset }) => {
+//         createSplitScroll(title, offset, numbers);
+//         createSplitScroll(content, offset, numbers);
+//       });
+
+//     })
+// };
+
+// export const runAboutScroll = (numbers: CSSNumbers = cssNumbers) => {
+
+//   mm.add({
+//     xs: "(max-width: 639px)",
+//     sd: "(min-width: 640px)",
+//     md: "(min-width: 900px)",
+//     lg: "(min-width: 1024px)",
+//   }, (mctx) => {
+//     const parallaxDistance =
+//       mctx.conditions?.lg
+//         ? numbers.layout.aboutParallaxDistance.l
+//         : mctx.conditions?.md
+//           ? numbers.layout.aboutParallaxDistance.m
+//           : mctx.conditions?.sd
+//             ? numbers.layout.aboutParallaxDistance.s
+//             : mctx.conditions?.xs
+//               ? numbers.layout.aboutParallaxDistance.xs
+//               : numbers.layout.aboutParallaxDistance.xs; // fallback
+
+//     const tl = gsap
+//       .timeline({
+//         scrollTrigger: {
+//           trigger: ".about",
+//           start: "top center",
+//           end: `bottom top`,
+//           scrub: true,
+//         },
+//       })
+//       .add("sync-point")
+//       .from(
+//         ".about-content",
+//         {
+//           y: parallaxDistance,
+//         },
+//         "sync-point"
+//       )
+//       .from(
+//         ".about-title",
+//         {
+//           y: parallaxDistance,
+//         },
+//         "sync-point"
+//       );
+//     return tl
+//   })
+
+// };
 
 
 export const runTeamTransitionScroll = (numbers: CSSNumbers = cssNumbers) => {
@@ -266,71 +401,70 @@ export const runTeamTransitionScroll = (numbers: CSSNumbers = cssNumbers) => {
             trigger: ".team-container",
             start: "center center",
             pin: true,
-            pinSpacing: true,
+            pinSpacing: false,
             scrub: numbers.animation.scrubDuration,
           },
         })
-        .from(split.words, {
-          y: numbers.animation.wordStart,
-          autoAlpha: 0,
-          duration: numbers.animation.bodyHeaderDuration,
-          stagger: numbers.animation.wordStagger,
-        });
+
+      tl.from(split.words, {
+        y: numbers.animation.wordStart,
+        autoAlpha: 0,
+        duration: numbers.animation.bodyHeaderDuration,
+        stagger: numbers.animation.wordStagger,
+      });
 
       return tl
 
     })
-
-
 };
 
-export const runTeamTextScroll = (numbers: CSSNumbers = cssNumbers) => {
-  mm.add({
-    xs: "(max-width: 639px)",
-    sd: "(min-width: 640px)",
-    md: "(min-width: 900px)",
-    lg: "(min-width: 1024px)",
-  },
-    (mctx) => {
-      const textStartOffset =
-        mctx.conditions?.lg ? numbers.animation.textOffset.l :
-          mctx.conditions?.md ? numbers.animation.textOffset :
-            mctx.conditions?.sd ? numbers.animation.textOffset.s :
-              mctx.conditions?.xs ? numbers.animation.textOffset.xs :
-                numbers.animation.textOffset.xs;
+// export const runTeamTextScroll = (numbers: CSSNumbers = cssNumbers) => {
+//   mm.add({
+//     xs: "(max-width: 639px)",
+//     sd: "(min-width: 640px)",
+//     md: "(min-width: 900px)",
+//     lg: "(min-width: 1024px)",
+//   },
+//     (mctx) => {
+//       const textStartOffset =
+//         mctx.conditions?.lg ? numbers.animation.textOffset.l :
+//           mctx.conditions?.md ? numbers.animation.textOffset :
+//             mctx.conditions?.sd ? numbers.animation.textOffset.s :
+//               mctx.conditions?.xs ? numbers.animation.textOffset.xs :
+//                 numbers.animation.textOffset.xs;
 
 
-      const tl = gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: ".team-container",
-            start: `bottom center+=${textStartOffset}`,
-            scrub: numbers.animation.scrubDuration,
-          },
-        })
-      tl.fromTo(
-        ".team-text-box",
-        { xPercent: numbers.animation.teamEnterXPercent, autoAlpha: 0 } as gsap.TweenVars,
-        {
-          xPercent: 0,
-          autoAlpha: 1,
-          duration: numbers.animation.teamEnterDuration,
-          ease: numbers.animation.eases.none ?? "none",
-          stagger: {
-            each: numbers.animation.teamStaggerEach,
-            from: numbers.animation.teamStaggerFrom,
-            amount: numbers.animation.teamStaggerAmount,
-            grid: "auto",
-          },
-        } as gsap.TweenVars,
-        `>+=${numbers.animation.biosDelay}`
-      );
+//       const tl = gsap
+//         .timeline({
+//           scrollTrigger: {
+//             trigger: ".team-container",
+//             start: `bottom center+=${textStartOffset}`,
+//             scrub: numbers.animation.scrubDuration,
+//           },
+//         })
+//       tl.fromTo(
+//         ".team-text-box",
+//         { xPercent: numbers.animation.teamEnterXPercent, autoAlpha: 0 } as gsap.TweenVars,
+//         {
+//           xPercent: 0,
+//           autoAlpha: 1,
+//           duration: numbers.animation.teamEnterDuration,
+//           ease: numbers.animation.eases.none ?? "none",
+//           stagger: {
+//             each: numbers.animation.teamStaggerEach,
+//             from: numbers.animation.teamStaggerFrom,
+//             amount: numbers.animation.teamStaggerAmount,
+//             grid: "auto",
+//           },
+//         } as gsap.TweenVars,
+//         `>+=${numbers.animation.biosDelay}`
+//       );
 
-      return tl
+//       return tl
 
 
-    })
-};
+//     })
+// };
 
 
 // export const runTeamScroll = (numbers: CSSNumbers = cssNumbers) => {

@@ -9,10 +9,10 @@ import {
   runIntroTimeline,
   runHeaderScrollTimeline,
   runTransitionTextScroll,
-  runBodyScroll,
-  runAboutScroll,
-  runTeamTextScroll,
+  runUpdProblemScroll,
+  runUpdStatementScroll,
   runTeamTransitionScroll,
+  runUpdTeamScroll,
 } from "../../animations/homeAnimations";
 import { useEffect, useRef } from "react";
 import { TeamTransition } from "./TeamTransition";
@@ -25,6 +25,7 @@ import { UpdPortable } from "./updatedFigma/UpdPortable";
 import { UpdBody } from "./updatedFigma/UpdBody";
 import { UpdPeople } from "./updatedFigma/UpdPeople";
 import { UpdTeam } from "./updatedFigma/UpdTeam";
+import { UpdFooter } from "./updatedFigma/UpdFooter";
 
 export const Home = () => {
   const container = useRef(null);
@@ -60,10 +61,10 @@ export const Home = () => {
       runIntroTimeline(cssNumbers);
       runHeaderScrollTimeline(cssNumbers);
       runTransitionTextScroll(cssNumbers);
-      runBodyScroll(cssNumbers);
-      runAboutScroll(cssNumbers);
+      runUpdProblemScroll(cssNumbers);
+      runUpdStatementScroll(cssNumbers);
       runTeamTransitionScroll(cssNumbers);
-      runTeamTextScroll(cssNumbers);
+      runUpdTeamScroll(cssNumbers);
     })();
     return () => {
       cancelled = true;
@@ -78,15 +79,16 @@ export const Home = () => {
       <NavBar className="nav-bar" />
       <Header className="header" />
       <Transition className="transition-title-box" />
-      <UpdSummary className="upd-summary" />
-      <UpdProblem className="upd-problem" />
-      <UpdStatement className="upd-statement" />
+      <UpdSummary className="upd-summary" style={{ zIndex: 1 }} />
+      <UpdProblem className="upd-problem" style={{ zIndex: 2 }} />
+      <Layout style={{ height: "100vh", backgroundColor: "white" }} />
+      <UpdStatement className="upd-statement" style={{ zIndex: 3 }} />
       <UpdPortable className="upd-portable" />
       <UpdBody className="upd-body" />
       <UpdPeople className="upd-people" />
       <TeamTransition className="team"></TeamTransition>
       <UpdTeam className="upd-team" />
-      <Footer className="footer" />
+      <UpdFooter className="upd-footer" />
     </Layout>
   );
 };

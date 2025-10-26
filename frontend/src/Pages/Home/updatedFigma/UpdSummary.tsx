@@ -11,6 +11,7 @@ export const UpdSummary = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
       ref={ref}
       {...rest}
       style={{
+        height: "100vh",
         backgroundColor: "white",
         border: cssNumbers.testing.border,
         ...style,
@@ -59,6 +60,7 @@ export const UpdSummary = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
             style={{
               zIndex: 11,
               height: "100%",
+              width: "80%",
               border: cssNumbers.testing.border,
             }}
           />
