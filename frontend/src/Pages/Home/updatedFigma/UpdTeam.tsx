@@ -9,6 +9,7 @@ export const UpdTeam = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
       ref={ref}
       {...rest}
       style={{
+        position: "relative",
         display: "flex",
         paddingBottom: "30vh",
         background: "#fff",

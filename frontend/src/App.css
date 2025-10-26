@@ -756,6 +756,7 @@
   font-size: var(--layout-mediumLargerFontSize);
 }
 
+
 /* UpdBody stuff */
 
 .upd-body {
@@ -1018,7 +1019,6 @@
 /* team page stuff */
 
 .team-container {
-  padding: var(--layout-paddingBody);
 }
 
 .team-title {

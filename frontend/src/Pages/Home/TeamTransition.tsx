@@ -14,11 +14,9 @@ export const TeamTransition = forRef<HTMLDivElement, BaseProps>(
       ref={ref}
       className={className}
       style={{
-        position: "relative",
-        height: "100vh",
         border: cssNumbers.testing.border,
-        backgroundColor: "white",
         background: "white",
+        overflow: "hidden",
         ...style,
       }}
       {...rest}
@@ -26,7 +24,6 @@ export const TeamTransition = forRef<HTMLDivElement, BaseProps>(
       <Layout style={{ display: "flex", flexDirection: "column" }}>
         <GridLayout
           style={{
-            backgroundColor: "white",
             border: cssNumbers.testing.border,
             zIndex: 2,
           }}

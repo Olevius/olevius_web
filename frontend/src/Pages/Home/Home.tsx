@@ -14,6 +14,7 @@ import {
   runTeamTransitionScroll,
   runUpdTeamScroll,
   runUpdStatementScrollFade,
+  runUpdPortableScroll,
 } from "../../animations/homeAnimations";
 import { useEffect, useRef } from "react";
 import { TeamTransition } from "./TeamTransition";
@@ -64,9 +65,10 @@ export const Home = () => {
       runTransitionTextScroll(cssNumbers);
       runUpdProblemScroll(cssNumbers);
       runUpdStatementScroll(cssNumbers);
-      runTeamTransitionScroll(cssNumbers);
-      runUpdTeamScroll(cssNumbers);
       runUpdStatementScrollFade(cssNumbers);
+      runUpdPortableScroll(cssNumbers);
+      runTeamTransitionScroll(cssNumbers);
+      // runUpdTeamTransitionScrollUp(cssNumbers);
     })();
     return () => {
       cancelled = true;
@@ -89,8 +91,13 @@ export const Home = () => {
       <UpdPortable className="upd-portable" style={{ zIndex: 4 }} />
       <UpdBody className="upd-body" style={{ zIndex: 5 }} />
       <UpdPeople className="upd-people" style={{ zIndex: 6 }} />
-      <TeamTransition className="team" style={{ zIndex: 7 }} />
-      <UpdTeam className="upd-team" style={{ zIndex: 8 }} />
+      <Layout style={{ backgroundColor: "white" }}>
+        <TeamTransition
+          className="team"
+          style={{ zIndex: 8, borderBottom: "1px solid black" }}
+        />
+        <UpdTeam className="upd-team" style={{ zIndex: 7 }} />
+      </Layout>
       <UpdFooter className="upd-footer" style={{ zIndex: 9 }} />
     </Layout>
   );
