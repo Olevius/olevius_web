@@ -10,7 +10,6 @@ export const UpdProblem = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
       ref={ref}
       {...rest}
       style={{
-        position: "relative",
         height: "100vh",
         backgroundColor: "white",
         border: cssNumbers.testing.border,
@@ -62,7 +61,6 @@ export const UpdProblem = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
             textAlign: "left",
             display: "flex",
             justifyContent: "center",
-            alignItems: "center",
             border: cssNumbers.testing.border,
           }}
         >

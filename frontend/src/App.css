@@ -66,6 +66,7 @@
 
     --layout-paddingSmall: 0.625rem;
     --layout-paddingBody: 3.125rem;
+    --layout-paddingLarge: 4.125rem;
 
     --layout-fullHeight: 100dvh;
     --layout-doubleFullHeight: 200dvh;
@@ -363,6 +364,8 @@
     --layout-paddingMedium: 2.5rem;
     --layout-paddingBody: 3.125rem;
     --layout-paddingPeopleText1: 25.125rem;
+    --layout-paddingLarge: 4.125rem;
+
 
     --layout-aboutHeight: 130dvh;
     --layout-teamHeight: 500dvh;
@@ -383,6 +386,7 @@
     --layout-paddingRight: 0.625rem;
     --layout-paddingTop: 0.625rem;
     --layout-paddingBottom: 0.625rem;
+    
 
     --layout-paddingTransitionLeft: 5rem;
     --layout-paddingTransitionRight: 5rem;
@@ -530,6 +534,7 @@
     --layout-paddingExtraSmall: 0.325rem;
     --layout-paddingMedium: 2.5rem;
     --layout-paddingBody: 3.125rem;
+    --layout-paddingLarge: 9.125rem;
     --layout-paddingPeopleText1: 25.125rem;
 
     --layout-aboutHeight: 130dvh;
@@ -714,6 +719,10 @@
   margin: var(--layout-paddingMedium);
   max-width: var(--layout-updSummaryMaxWidth);
   line-height: var(--layout-condensed-line-height);
+}
+
+.upd-problem-content-text {
+  margin-top: var(--layout-paddingLarge)
 }
 
 .upd-problem-text {

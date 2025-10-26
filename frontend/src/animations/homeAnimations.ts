@@ -205,7 +205,7 @@ export const runUpdStatementScroll = (numbers: CSSNumbers = cssNumbers) => {
         scrollTrigger: {
           trigger: ".upd-problem",
           start: "top top",
-          end: "+=200%",   // one viewport of scroll
+          end: "+=100%",   // one viewport of scroll
           scrub: true,
           pin: true,
           pinSpacing: false,
@@ -217,6 +217,41 @@ export const runUpdStatementScroll = (numbers: CSSNumbers = cssNumbers) => {
       // you can simply animate to yPercent: 0. If not, use fromTo.
       tl.add("sync-point")
       tl.to(".upd-statement", { y: 0, ease: "none" }, "sync-point");
+      tl.to(".upd-problem-container", { opacity: 0 }, "sync-point")
+
+
+      // OPTIONAL: if you want the current screen to be pushed away too, uncomment:
+      // tl.to(".upd-current", { yPercent: -100, ease: "none" }, 0);
+
+      return tl;
+    })
+}
+
+export const runUpdStatementScrollFade = (numbers: CSSNumbers = cssNumbers) => {
+  mm.add({
+    xs: "(max-width: 639px)",
+    sd: "(min-width: 640px)",
+    md: "(min-width: 900px)",
+    lg: "(min-width: 1024px)",
+  },
+    () => {// .upd-summary is the pinned stage
+      // .upd-next starts just below and scrolls up into place
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".upd-statement",
+          start: "top top",
+          end: "+=100%",   // one viewport of scroll
+          scrub: true,
+          pin: true,
+          pinSpacing: true,
+          // markers: true,
+        },
+      });
+
+      // If your CSS sets .upd-next { transform: translateY(100%); }
+      // you can simply animate to yPercent: 0. If not, use fromTo.
+      tl.add("sync-point")
+      tl.to(".upd-problem", { opacity: 0, ease: "none" }, "sync-point");
 
       // OPTIONAL: if you want the current screen to be pushed away too, uncomment:
       // tl.to(".upd-current", { yPercent: -100, ease: "none" }, 0);
@@ -271,6 +306,21 @@ export const runUpdTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
           lg: "(min-width: 1024px)",
         },
         () => {
+          const tl = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".team",
+              start: "center-center",                 // pin as soon as it hits the top
+              pin: true,
+              pinSpacing: false,
+              scrub: numbers.animation.scrubDuration,
+              // markers: true,
+            },
+            defaults: { ease: "none" }
+          });
+
+          // 2) Reveal next screen by “shrinking” current with clip-path
+          tl.add("reveal");
+          tl.to(".team", { height: 0 })
         }
       );
     })
@@ -379,33 +429,32 @@ export const runUpdTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
 
 
 export const runTeamTransitionScroll = (numbers: CSSNumbers = cssNumbers) => {
-
-  mm.add({
-    xs: "(max-width: 639px)",
-    sd: "(min-width: 640px)",
-    md: "(min-width: 900px)",
-    lg: "(min-width: 1024px)",
-  },
+  mm.add(
+    {
+      xs: "(max-width: 639px)",
+      sd: "(min-width: 640px)",
+      md: "(min-width: 900px)",
+      lg: "(min-width: 1024px)",
+    },
     () => {
-
       const split = SplitText.create(".team-title", {
         type: "chars, words, lines",
         charsClass: "char",
       });
 
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".team-container",
+          start: "center center",                 // pin as soon as it hits the top
+          pin: true,
+          pinSpacing: false,
+          scrub: numbers.animation.scrubDuration,
+          // markers: true,
+        },
+        defaults: { ease: "none" }
+      });
 
-
-      const tl = gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: ".team-container",
-            start: "center center",
-            pin: true,
-            pinSpacing: false,
-            scrub: numbers.animation.scrubDuration,
-          },
-        })
-
+      // 1) Title flies in
       tl.from(split.words, {
         y: numbers.animation.wordStart,
         autoAlpha: 0,
@@ -413,9 +462,13 @@ export const runTeamTransitionScroll = (numbers: CSSNumbers = cssNumbers) => {
         stagger: numbers.animation.wordStagger,
       });
 
-      return tl
 
-    })
+
+      // (Optional) If you prefer height shrink instead of clip-path, swap the tween above with:
+
+      return tl;
+    }
+  );
 };
 
 // export const runTeamTextScroll = (numbers: CSSNumbers = cssNumbers) => {

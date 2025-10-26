@@ -14,6 +14,7 @@ export const TeamTransition = forRef<HTMLDivElement, BaseProps>(
       ref={ref}
       className={className}
       style={{
+        position: "relative",
         height: "100vh",
         border: cssNumbers.testing.border,
         backgroundColor: "white",
