@@ -12,13 +12,11 @@ import {
   runUpdProblemScroll,
   runUpdStatementScroll,
   runTeamTransitionScroll,
-  runUpdTeamScroll,
   runUpdStatementScrollFade,
   runUpdPortableScroll,
 } from "../../animations/homeAnimations";
 import { useEffect, useRef } from "react";
 import { TeamTransition } from "./TeamTransition";
-import { Footer } from "./Footer";
 import { Transition } from "./Transition";
 import { UpdSummary } from "./updatedFigma/UpdSummary";
 import { UpdProblem } from "./updatedFigma/UpdProblem";
@@ -84,10 +82,8 @@ export const Home = () => {
       <Header className="header" />
       <Transition className="transition-title-box" />
       <UpdSummary className="upd-summary" style={{ zIndex: 1 }} />
-      <Layout>
-        <UpdProblem className="upd-problem" style={{ zIndex: 2 }} />
-        <UpdStatement className="upd-statement" style={{ zIndex: 1 }} />
-      </Layout>
+      <UpdProblem className="upd-problem" style={{ zIndex: 2 }} />
+      <UpdStatement className="upd-statement" style={{ zIndex: 1 }} />
       <UpdPortable className="upd-portable" style={{ zIndex: 4 }} />
       <UpdBody className="upd-body" style={{ zIndex: 5 }} />
       <UpdPeople className="upd-people" style={{ zIndex: 6 }} />

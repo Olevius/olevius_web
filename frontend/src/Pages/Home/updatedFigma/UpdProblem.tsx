@@ -20,57 +20,51 @@ export const UpdProblem = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
         className="upd-problem-container"
         style={{
           display: "flex",
-          flexDirection: "column",
-          border: cssNumbers.testing.border,
+          border: "1px solid black",
+          justifyContent: "center",
+          alignItems: "center", // Changed from alignContent
+          height: "100vh", // Added to fill parent
         }}
       >
-        <Layout
-          className="upd-problem-container-white"
+        <Text
           style={{
-            width: "100vw",
-            height: "50vh",
-            justifyContent: "left",
-            border: cssNumbers.testing.border,
+            position: "absolute",
+            top: -2,
+            right: -40,
+            left: -30,
+            margin: 0,
+            padding: 0,
+            lineHeight: 1,
+            zIndex: 2,
+            whiteSpace: "nowrap",
+            fontSize: "23vw",
+            fontFamily: "Uber Move",
+            transform: "translateY(-0.15em)",
           }}
         >
-          <Layout
-            className="upd-problem-text-box"
-            style={{
-              display: "flex",
-              border: cssNumbers.testing.border,
-            }}
-          >
-            <Text
-              className="upd-problem-text"
-              style={{
-                textAlign: "left",
-                fontFamily: "Uber Move Text",
-                border: cssNumbers.testing.border,
-              }}
-            >
-              THE PROBLEM:
-            </Text>
-          </Layout>
-        </Layout>
+          PROBLEM.
+        </Text>
         <Layout
-          className="upd-problem-container-black"
           style={{
-            backgroundColor: "black",
-            width: "100vw",
-            height: "50vh",
-            textAlign: "left",
+            backgroundColor: "#FFC0C0",
+            height: "85vh",
+            width: "45vw",
+            zIndex: 1,
             display: "flex",
             justifyContent: "center",
-            border: cssNumbers.testing.border,
+            alignItems: "center",
+            textAlign: "left",
+            overflow: "visible",
           }}
         >
           <Text
-            className="upd-problem-content-text"
             style={{
-              fontFamily: "satoshi",
-              fontWeight: 1,
-              color: "white",
-              border: cssNumbers.testing.border,
+              fontSize: "30px",
+              marginTop: "5vh",
+              padding: 20,
+              textAlign: "center",
+              zIndex: 2,
+              fontFamily: "Uber Move Text",
             }}
           >
             Current blood pressure monitoring is either intermittent (cuffs) or
