@@ -264,7 +264,11 @@ export const UlContainer = forRef<HTMLUListElement, BaseProps>(
  */
 export const Padding = forRef<HTMLDivElement, PaddingProps>(
   ({ size, className, style }, ref) => (
-    <div ref={ref} className={className} style={{ padding: size, ...style }} />
+    <div
+      ref={ref}
+      className={className}
+      style={{ padding: size ? size : cssNumbers.layout.paddingBody, ...style }}
+    />
   )
 );
 

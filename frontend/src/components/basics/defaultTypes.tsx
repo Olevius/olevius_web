@@ -19,7 +19,7 @@ export interface TeamBoxProps extends BaseProps {
 }
 
 export interface PaddingProps extends BaseProps {
-  size: number;
+  size?: number | string;
 }
 
 export interface GridLayoutProps extends BaseProps {
