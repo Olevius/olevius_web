@@ -2,7 +2,7 @@ import { Layout, Text } from "../../../components/basics/defaults";
 import type { BaseProps } from "../../../components/basics/defaultTypes";
 import { forRef } from "../../../components/basics/refHelper";
 import { cssNumbers } from "../../../theme/theme";
-import { UpdButton } from "./UpdButton";
+import { UpdLine } from "./UpdLine";
 
 export const UpdBody = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
   ({ style, className, ...rest }, ref) => (
@@ -13,53 +13,145 @@ export const UpdBody = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
       style={{
         backgroundColor: "white",
         display: "flex",
+        height: "135vh",
+        padding: 0,
+        overflow: "visible",
+        margin: 0,
+        gap: 0,
         flexDirection: "column",
         textAlign: "left",
-        border: cssNumbers.testing.border,
         ...style,
       }}
     >
-      <Layout
-        className="upd-body-text-container"
-        style={{ border: cssNumbers.testing.border }}
+      <Text
+        style={{
+          width: "100vw",
+          lineHeight: 0.7,
+          padding: 0,
+          whiteSpace: "nowrap",
+          fontSize: "22vw",
+          borderTop: "1px solid black",
+
+          fontFamily: "Uber Move",
+        }}
       >
-        <Text
-          className="upd-body-text"
+        OLEVIUS
+      </Text>
+      <Layout
+        style={{
+          position: "relative",
+          width: "100vw",
+          lineHeight: 0.7,
+          padding: 0,
+          whiteSpace: "nowrap",
+          height: "0vw",
+          borderBottom: "1px solid black",
+          fontFamily: "Uber Move",
+        }}
+      />
+      <Layout
+        style={{
+          position: "relative",
+          width: "100vw",
+          lineHeight: 0.7,
+          padding: 0,
+          whiteSpace: "nowrap",
+          height: "15.4vw",
+          borderBottom: "1px solid black",
+          fontFamily: "Uber Move",
+        }}
+      />
+      <Layout
+        style={{
+          width: "100vw",
+          lineHeight: 0.7,
+          padding: 0,
+          display: "flex",
+          height: "18vw",
+          borderBottom: "1px solid black",
+        }}
+      >
+        <Layout
           style={{
-            fontFamily: "satoshi",
-            border: cssNumbers.testing.border,
+            width: "89vw",
+            lineHeight: 0.7,
+            padding: 0,
+            display: "flex",
+            height: "18vw",
+            fontFamily: "Uber Move",
           }}
         >
-          Olevius delivers continuous, cuff-free blood pressure tracking through
-          direct optical sensing. See real-time trends, detect subtle changes,
-          and understand your heart's rhythm with clinical-grade accuracy - all
-          in one effortless glance
-        </Text>
+          <Layout
+            style={{
+              display: "flex",
+              paddingLeft: "5vw",
+              justifyContent: "flex-start",
+              alignItems: "center",
+              flex: 1,
+            }}
+          >
+            <Text
+              style={{
+                textAlign: "left",
+                fontFamily: "satoshi",
+                fontSize: "2rem",
+                fontWeight: "lighter",
+                lineHeight: 1.5,
+              }}
+            >
+              Olevius delivers continuous, cuff-free blood pressure tracking
+              through direct optical sensing. See real-time trends, detect
+              subtle changes, and understand your heart’s rhythm with
+              clinical-grade accuracy — all in one effortless glance.
+            </Text>
+          </Layout>
+        </Layout>
       </Layout>
-      <Layout
-        className="upd-body-text-container"
-        style={{ border: cssNumbers.testing.border }}
-      >
-        <Text
-          className="upd-body-header"
+      <Layout>
+        <Layout
           style={{
-            fontFamily: "Uber Move Text",
-            border: cssNumbers.testing.border,
+            position: "absolute",
+            overflow: "visible",
+            marginLeft: "15vw",
+            width: "1px", // Changed from "100vw"
+            height: "135vh",
+            borderLeft: "1px solid black",
           }}
-        >
-          Direct and <u>Accurate.</u>
-        </Text>
+        />
+        <Layout
+          style={{
+            position: "absolute",
+            overflow: "visible",
+            marginLeft: "78vw",
+            width: "1px", // Changed from "100vw"
+            height: "135vh",
+            borderLeft: "1px solid black",
+          }}
+        />
+        <Layout
+          style={{
+            width: "100vw",
+            lineHeight: 0.7,
+            padding: 0,
+            whiteSpace: "nowrap",
+            height: "15.4vw",
+            borderBottom: "1px solid black",
+            fontFamily: "Uber Move",
+          }}
+        />
       </Layout>
       <Layout
-        className="upd-button-container"
-        style={{ border: cssNumbers.testing.border }}
+        style={{ flexDirection: "row", display: "flex", position: "absolute" }}
       >
-        <UpdButton
-          className="upd-button"
-          style={{ border: cssNumbers.testing.border }}
-        >
-          See More
-        </UpdButton>
+        <Layout
+          style={{
+            overflow: "visible",
+            marginLeft: "89vw",
+            width: "1px", // Changed from "100vw"
+            height: "135vh",
+            borderLeft: "1px solid black",
+          }}
+        />
       </Layout>
     </Layout>
   )
