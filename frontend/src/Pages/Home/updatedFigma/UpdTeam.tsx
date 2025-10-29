@@ -1,6 +1,7 @@
 import { Layout, Text } from "../../../components/basics/defaults";
 import type { BaseProps } from "../../../components/basics/defaultTypes";
 import { forRef } from "../../../components/basics/refHelper";
+import { teamTextMap } from "../../../text-maps/teamMap";
 import { UpdTeamBox } from "./UpdTeamBox";
 
 export const UpdTeam = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
@@ -20,16 +21,24 @@ export const UpdTeam = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
     >
       {/* Header area becomes the positioning context */}
       <Layout
-        style={{ height: "30vh", position: "relative", padding: 0, margin: 0 }}
+        style={{
+          height: "30vh",
+          position: "relative",
+          padding: 0,
+          margin: 0,
+        }}
       >
         <Text
           style={{
             position: "absolute",
-            top: -5,
+            top: 54,
             right: -40, // hug right edge
             margin: 0,
             padding: 0,
-            lineHeight: 1,
+            lineHeight: 0.7,
+            borderBottom: "1px solid black",
+            textAlign: "right",
+            width: "100vw",
             whiteSpace: "nowrap",
             fontSize: "25vw",
             fontFamily: "Uber Move Text, sans-serif",
@@ -40,11 +49,18 @@ export const UpdTeam = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
         >
           TEAM
         </Text>
+        <Layout
+          style={{
+            position: "absolute",
+            borderBottom: "1px solid black",
+            width: "100vw",
+            height: "1px",
+          }}
+        />
       </Layout>
 
       <Layout
         style={{
-          height: "70vh",
           display: "flex",
           flexDirection: "column",
         }}
@@ -56,10 +72,18 @@ export const UpdTeam = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
             marginTop: "20vh",
           }}
         >
-          <UpdTeamBox bottomLine={false}>Levi</UpdTeamBox>
-          <UpdTeamBox bottomLine={false}>Andrew</UpdTeamBox>
-          <UpdTeamBox bottomLine={false}>Matthew</UpdTeamBox>
-          <UpdTeamBox bottomLine={true}>Justin</UpdTeamBox>
+          <UpdTeamBox bottomLine={true} title={teamTextMap.levi.title}>
+            {teamTextMap.levi.content}
+          </UpdTeamBox>
+          <UpdTeamBox bottomLine={false} title={teamTextMap.andrew.title}>
+            {teamTextMap.andrew.content}
+          </UpdTeamBox>
+          <UpdTeamBox bottomLine={false} title={teamTextMap.matthew.title}>
+            {teamTextMap.matthew.content}
+          </UpdTeamBox>
+          <UpdTeamBox bottomLine={false} title={teamTextMap.jp.title}>
+            {teamTextMap.jp.content}
+          </UpdTeamBox>
         </Layout>
       </Layout>
     </Layout>

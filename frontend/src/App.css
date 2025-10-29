@@ -917,6 +917,18 @@
   width: 0
 }
 
+/* footer stuff */
+.upd-footer-text {
+  font-size: 12.5rem;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+.upd-footer-text:hover {
+  transform: scale(1.1) !important;
+  color: #123207 !important;
+}
+
+
 /* body stuff */
 
 .body-text-container {
@@ -1102,5 +1114,4 @@
 .read-the-docs {
   color: #888;
 }
-
 

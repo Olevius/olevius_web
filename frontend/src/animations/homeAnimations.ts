@@ -289,7 +289,6 @@ export const runUpdPortableScroll = (numbers: CSSNumbers = cssNumbers) => {
       tl.to(".upd-portable-text1", { translateX: "10%" }, "scroll-sideways")
       tl.to(".upd-portable-text2", { translateX: "-10%" }, "scroll-sideways")
       tl.to(".upd-portable-text3", { translateX: "10%" }, "scroll-sideways")
-
     })
 }
 
@@ -471,6 +470,32 @@ export const runTeamTransitionScroll = (numbers: CSSNumbers = cssNumbers) => {
 
 };
 
+export const runFooterScroll = (numbers: CSSNumbers = cssNumbers) => {
+  mm.add({
+    xs: "(max-width: 639px)",
+    sd: "(min-width: 640px)",
+    md: "(min-width: 900px)",
+    lg: "(min-width: 1024px)",
+  },
+    () => {
+      const split = SplitText.create(".upd-footer-text", {
+        type: "chars, words, lines",
+        charsClass: "char",
+      });
+      const tl = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".upd-footer-text",
+            start: "top bottom",
+            end: "bottom bottom",
+            scrub: 7,
+          },
+        })
+
+
+      tl.from(split.chars, { y: "10vh", autoAlpha: 0, stagger: 0.1 })
+    })
+}
 // export const runTeamTextScroll = (numbers: CSSNumbers = cssNumbers) => {
 //   mm.add({
 //     xs: "(max-width: 639px)",

@@ -40,7 +40,6 @@ export const UpdBody = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
             fontSize: "22vw",
             borderRight: "1px solid black",
             fontFamily: "Uber Move",
-            textShadow: "4px 4px 8px rgba(0, 0, 0, 0.3)",
           }}
         >
           OLEVIUS

@@ -1,15 +1,21 @@
-import type { BaseProps } from "../../../components/basics/defaultTypes";
+import type { ButtonHTMLAttributes } from "react";
+import type {
+  BaseProps,
+  ButtonProps,
+} from "../../../components/basics/defaultTypes";
 import { forRef } from "../../../components/basics/refHelper";
 import { customColors } from "../../../theme/colors";
 
-export const UpdButton = forRef<HTMLButtonElement, BaseProps>(
+export const UpdButton = forRef<HTMLButtonElement, ButtonProps>(
   ({ style, children, className, ...rest }, ref) => (
     <button
       ref={ref}
       style={{
         backgroundColor: customColors.softHighlight,
         color: "black",
-        boxShadow: "-2px 5px 3px rgba(0, 0, 0, 0.3)", // Added box shadow
+        border: "none",
+        outline: "none",
+        pointerEvents: "auto",
         ...style,
       }}
       className={className}

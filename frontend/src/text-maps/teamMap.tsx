@@ -2,7 +2,7 @@ export const teamTextMap = {
   levi: {
     title: "Levi:",
     content:
-      "Levi focuses on the chemistry and materials side of the project, particularly in developing and testing the PDMS pouch and fluid interface that enables the fiber-optic sensor to detect blood pressure changes. His work ensures the sensor has the right mechanical and chemical properties to translate pulse-induced pressure variations into reliable optical signals, while also exploring alternative polymers and materials for durability and comfort in a wearable device.",
+      "Levi leads the opto-mechanical design of the sensing module and wearable housing. He owns the geometry and tolerances of the fiber-to-fiber joint, the coupling optics to the 850 nm source and photodiode, and the PDMS-pouch mechanics that transmit arterial pulse pressure into a repeatable optical loss signal. This includes custom fiber coupling (no off-the-shelf ferrules given size limits), alignment and gap control in the polyethylene sleeve, mold design and wall-thickness targets for a glycerol-filled PDMS pouch, and a compact, serviceable enclosure/strap that maintains consistent artery contact without sacrificing comfort. He defines benchtop validation for pressure–intensity transfer, oversees durability testing (creep, strap-load shifts), and feeds constraints to electronics/ML for power, sampling, and motion-robust estimation.",
     offset: 1,
   },
   andrew: {

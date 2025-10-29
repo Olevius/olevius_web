@@ -14,6 +14,7 @@ import {
   runTeamTransitionScroll,
   runUpdStatementScrollFade,
   runUpdPortableScroll,
+  runFooterScroll,
 } from "../../animations/homeAnimations";
 import { useEffect, useRef } from "react";
 import { TeamTransition } from "./TeamTransition";
@@ -66,6 +67,7 @@ export const Home = () => {
       runUpdStatementScrollFade(cssNumbers);
       runUpdPortableScroll(cssNumbers);
       runTeamTransitionScroll(cssNumbers);
+      runFooterScroll(cssNumbers);
       // runUpdTeamTransitionScrollUp(cssNumbers);
     })();
     return () => {
