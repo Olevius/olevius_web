@@ -685,9 +685,7 @@
   font-size: var(--layout-titleFontSize);
 }
 
-.transition-title-box {
-  padding: var(--layout-paddingBody)
-}
+
 
 /* UpdSummary stuff */
 
@@ -919,7 +917,6 @@
 
 /* footer stuff */
 .upd-footer-text {
-  font-size: 12.5rem;
   cursor: pointer;
   transition: transform 0.3s ease, color 0.3s ease;
 }

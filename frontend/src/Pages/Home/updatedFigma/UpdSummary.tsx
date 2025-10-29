@@ -40,10 +40,11 @@ export const UpdSummary = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
               textAlign: "left",
               fontWeight: "lighter",
               fontFamily: "satoshi",
+              width: "50vw",
               border: cssNumbers.testing.border,
             }}
           >
-            Tibi, matri tuae, et ceteris curatum
+            Health happens on walks, at work, in sleep.
           </Text>
         </Layout>
         <Layout

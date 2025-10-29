@@ -108,8 +108,7 @@ export const runHeaderScrollTimeline = (numbers: CSSNumbers = cssNumbers) => {
 
 
 export const runTransitionTextScroll = (numbers: CSSNumbers = cssNumbers) => {
-
-  mm.add({
+  return mm.add({
     xs: "(max-width: 639px)",
     sd: "(min-width: 640px)",
     md: "(min-width: 900px)",
@@ -125,21 +124,26 @@ export const runTransitionTextScroll = (numbers: CSSNumbers = cssNumbers) => {
         .timeline({
           scrollTrigger: {
             trigger: ".transition-title-box",
-            start: "center center",
-            end: `+=${numbers.animation.overlapEnd}`,
+            start: "top top",
             pin: true,
+            pinSpacing: false,
             scrub: numbers.animation.scrubDuration,
+            invalidateOnRefresh: true, // Add this
           },
-        })
+        }).add("cover")
         .from(split.words, {
           y: numbers.animation.wordStart,
           autoAlpha: 0,
-          duration: numbers.animation.bodyHeaderDuration,
-          stagger: numbers.animation.wordStagger,
-        });
+          duration: 10,
+          stagger: 20,
+        }, "cover")
+        .to(".upd-body", {
+          y: 0, duration: numbers.animation.bodyHeaderDuration,
+        }, "cover")
+        .to(".transition-title-box", { duration: 80 }, "cover")
+        .to(".transition-title-box", { height: 0, duration: 40 });
 
-      return tl
-
+      return tl;
     })
 };
 
@@ -166,27 +170,24 @@ export const runUpdProblemScroll = (numbers: CSSNumbers = cssNumbers) => {
       lg: "(min-width: 1024px)",
     },
     () => {
-      // .upd-summary is the pinned stage
-      // .upd-next starts just below and scrolls up into place
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".upd-summary",
           start: "top top",
-          end: "+=100%",   // one viewport of scroll
+          end: "+=100%",
           scrub: true,
           pin: true,
           pinSpacing: false,
-          // markers: true,
         },
+        defaults: { ease: "none" }
       });
 
-      // If your CSS sets .upd-next { transform: translateY(100%); }
-      // you can simply animate to yPercent: 0. If not, use fromTo.
-      tl.to(".upd-problem", { y: 0, ease: "none" }, 0);
+      tl.add("stack")
+        // make sure the statement is stacked and hidden but in place
+        .to(".upd-summary-container", { opacity: 0, duration: 0.2 }, "stack")
+        .fromTo(".upd-problem", { opacity: 0 }, { opacity: 1 })
 
-      // OPTIONAL: if you want the current screen to be pushed away too, uncomment:
-      // tl.to(".upd-current", { yPercent: -100, ease: "none" }, 0);
-
+      // NOTE: no opacity on .upd-problem here — that happens in function #2
       return tl;
     }
   );
@@ -309,7 +310,45 @@ export const runUpdPeopleScroll = (numbers: CSSNumbers = cssNumbers) => {
     md: "(min-width: 900px)",
     lg: "(min-width: 1024px)",
   },
-    () => { })
+    () => {
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".upd-people",
+          start: "top top+=100%",
+          end: "bottom bottom-=30%",
+          scrub: true,
+        },
+        defaults: { ease: "none" }
+      })
+
+      tl.fromTo(".upd-people-text1-container", { y: 100 }, { y: 0 })
+
+    })
+}
+
+export const runUpdPeople2Scroll = (numbers: CSSNumbers = cssNumbers) => {
+  mm.add({
+    xs: "(max-width: 639px)",
+    sd: "(min-width: 640px)",
+    md: "(min-width: 900px)",
+    lg: "(min-width: 1024px)",
+  },
+    () => {
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".upd-people2",
+          start: "top top+=100%",
+          end: "bottom bottom-=30%",
+          scrub: true,
+        },
+        defaults: { ease: "none" }
+      })
+
+      tl.fromTo(".upd-people-text2-container", { y: 100 }, { y: 0 }, 0) // <- position parameter
+      tl.fromTo(".upd-people-text3-container", { y: 130 }, { y: 0 }, 0) // <- starts at time 0
+    })
 }
 
 export const runUpdTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
@@ -435,7 +474,6 @@ export const runTeamTransitionScroll = (numbers: CSSNumbers = cssNumbers) => {
     lg: "(min-width: 1024px)",
   },
     () => {
-
       const split = SplitText.create(".team-title", {
         type: "chars, words, lines",
         charsClass: "char",
@@ -493,7 +531,7 @@ export const runFooterScroll = (numbers: CSSNumbers = cssNumbers) => {
         })
 
 
-      tl.from(split.chars, { y: "10vh", autoAlpha: 0, stagger: 0.1 })
+      tl.from(split.chars, { y: "20vh", stagger: 0.1 })
     })
 }
 // export const runTeamTextScroll = (numbers: CSSNumbers = cssNumbers) => {
@@ -543,7 +581,6 @@ export const runFooterScroll = (numbers: CSSNumbers = cssNumbers) => {
 
 //     })
 // };
-
 
 // export const runTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
 //   mm.add({

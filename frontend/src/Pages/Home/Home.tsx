@@ -15,6 +15,8 @@ import {
   runUpdStatementScrollFade,
   runUpdPortableScroll,
   runFooterScroll,
+  runUpdPeopleScroll,
+  runUpdPeople2Scroll,
 } from "../../animations/homeAnimations";
 import { useEffect, useRef } from "react";
 import { TeamTransition } from "./TeamTransition";
@@ -27,6 +29,8 @@ import { UpdBody } from "./updatedFigma/UpdBody";
 import { UpdPeople } from "./updatedFigma/UpdPeople";
 import { UpdTeam } from "./updatedFigma/UpdTeam";
 import { UpdFooter } from "./updatedFigma/UpdFooter";
+import { UpdPeople2 } from "./updatedFigma/UpdPeople2";
+import { UpdIssue } from "./updatedFigma/UpdIssue";
 
 export const Home = () => {
   const container = useRef(null);
@@ -58,17 +62,22 @@ export const Home = () => {
         await (document.fonts as FontFaceSet).ready;
       }
       if (cancelled) return;
-      // run SplitText/ScrollTrigger timelines here AFTER fonts are ready
+
+      // Run all animation timelines
       runIntroTimeline(cssNumbers);
       runHeaderScrollTimeline(cssNumbers);
-      runTransitionTextScroll(cssNumbers);
       runUpdProblemScroll(cssNumbers);
       runUpdStatementScroll(cssNumbers);
       runUpdStatementScrollFade(cssNumbers);
       runUpdPortableScroll(cssNumbers);
+      runTransitionTextScroll(cssNumbers);
       runTeamTransitionScroll(cssNumbers);
+      runUpdPeopleScroll(cssNumbers);
+      runUpdPeople2Scroll(cssNumbers);
       runFooterScroll(cssNumbers);
-      // runUpdTeamTransitionScrollUp(cssNumbers);
+
+      // Global refresh after all animations are initialized
+      ScrollTrigger.refresh();
     })();
     return () => {
       cancelled = true;
@@ -82,13 +91,16 @@ export const Home = () => {
     >
       <NavBar className="nav-bar" />
       <Header className="header" />
-      <Transition className="transition-title-box" />
       <UpdSummary className="upd-summary" style={{ zIndex: 1 }} />
       <UpdProblem className="upd-problem" style={{ zIndex: 2 }} />
       <UpdStatement className="upd-statement" style={{ zIndex: 1 }} />
       <UpdPortable className="upd-portable" style={{ zIndex: 4 }} />
-      <UpdBody className="upd-body" style={{ zIndex: 5 }} />
+      <Layout style={{ backgroundColor: "white" }}>
+        <Transition className="transition-title-box" style={{ zIndex: 6 }} />
+        <UpdBody className="upd-body" style={{ zIndex: 5 }} />
+      </Layout>
       <UpdPeople className="upd-people" style={{ zIndex: 6 }} />
+      <UpdPeople2 className="upd-people2" style={{ zIndex: 6 }} />
       <Layout style={{ backgroundColor: "white" }}>
         <TeamTransition
           className="team"

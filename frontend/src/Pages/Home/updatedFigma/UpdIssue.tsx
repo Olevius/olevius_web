@@ -1,10 +1,10 @@
 import React from "react";
-import { GridLayout, Text, Layout } from "../../components/basics/defaults";
+import { GridLayout, Text, Layout } from "../../../components/basics/defaults";
 import type { BaseProps } from "../../components/basics/defaultTypes";
-import { customColors } from "../../theme/colors";
-import { cssNumbers } from "../../theme/theme";
+import { customColors } from "../../../theme/theme";
+import { cssNumbers } from "../../../theme/theme";
 
-export const Transition = React.forwardRef<HTMLDivElement, BaseProps>(
+export const UpdIssue = React.forwardRef<HTMLDivElement, BaseProps>(
   ({ className, children, style, ...rest }, ref) => {
     return (
       <div
@@ -25,16 +25,16 @@ export const Transition = React.forwardRef<HTMLDivElement, BaseProps>(
               border: cssNumbers.testing.border,
               zIndex: 2,
             }}
-            className="transition-container"
+            className="upd-issue-container"
           >
             <Text
-              className="transition-text"
+              className="upd-issue-text"
               style={{
                 color: "black",
                 border: cssNumbers.testing.border,
               }}
             >
-              What is Olevius?
+              The Issue
             </Text>{" "}
           </GridLayout>
           {/* <Layout className="image-container" style={{ display: "flex" }}>

@@ -27,6 +27,7 @@ export const UpdFooter = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
         className="upd-footer-text"
         link=""
         style={{
+          fontSize: " 12.5rem",
           display: "inline-block",
           fontFamily: "Uber Move",
           zIndex: 1,
