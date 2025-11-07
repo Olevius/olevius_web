@@ -22,11 +22,12 @@ export const UpdSummary = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
       }}
     >
       <Layout
+        className="upd-clinical-grade-section"
         style={{
           display: "flex",
           flexDirection: "row",
           textAlign: "left",
-          borderBottom: "1px solid black",
+          position: "relative",
         }}
       >
         <Text
@@ -42,13 +43,24 @@ export const UpdSummary = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
         >
           Clinical Grade
         </Text>
+        <Layout
+          className="upd-clinical-grade-border"
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            width: "100%",
+            height: "1px",
+            backgroundColor: "black",
+          }}
+        />
       </Layout>
       <Layout
+        className="upd-blood-pressure-section"
         style={{
           display: "flex",
           flexDirection: "row",
           textAlign: "left",
-          borderBottom: "1px solid black",
         }}
       >
         <Text
@@ -64,13 +76,24 @@ export const UpdSummary = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
         >
           Blood Pressure
         </Text>
+        <Layout
+          className="upd-blood-pressure-border"
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            width: "100%",
+            height: "1px",
+            backgroundColor: "black",
+          }}
+        />
       </Layout>
       <Layout
+        className="upd-for-everyone-section"
         style={{
           display: "flex",
           flexDirection: "row",
           textAlign: "left",
-          borderBottom: "1px solid black",
         }}
       >
         <Text
@@ -86,8 +109,20 @@ export const UpdSummary = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
         >
           For Everyone.
         </Text>
+        <Layout
+          className="upd-everyone-border"
+          style={{
+            position: "absolute",
+            bottom: 0,
+            left: 0,
+            width: "100%",
+            height: "1px",
+            backgroundColor: "black",
+          }}
+        />
       </Layout>
       <Layout
+        className="upd-wherever-section"
         style={{
           flex: 1,
           display: "flex",

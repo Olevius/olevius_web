@@ -199,10 +199,37 @@ export const runUpdSummaryScroll = (numbers: CSSNumbers = cssNumbers): void => {
           scrollTrigger: {
             trigger: ".upd-summary",
             start: "top top",
-            scrub: numbers.animation.scrubDuration,
+            end: "2000vh",
+            pin: true,
+            scrub: 1,
           },
         })
-      tl.fromTo(".upd-summary-text-box", { y: 100 }, { y: 0 }, 0) // <- position parameter
+        .fromTo(".upd-clinical-grade-section", { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 })
+        .fromTo(".upd-blood-pressure-section", { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 })
+        .fromTo(".upd-for-everyone-section", { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8 })
+        .fromTo(".upd-clinical-grade-border", { scaleX: 0 }, { scaleX: 1, transformOrigin: "left", duration: 0.8 })
+        .fromTo(".upd-blood-pressure-border", { scaleX: 0 }, { scaleX: 1, transformOrigin: "right", duration: 0.8 })
+        .fromTo(".upd-everyone-border", { scaleX: 0 }, { scaleX: 1, transformOrigin: "left", duration: 0.8 })
+        .to({}, { duration: 0.1 }) // 5 second delay after all animations complete
+        .add("sync")
+        .fromTo(".upd-summary-circle",
+          { x: "-120vw", y: 0 },
+          { x: 0, y: 0, duration: 1.2, ease: "power2.out" },
+          "sync+=0.5"
+        )
+        .fromTo(".upd-summary-circle2",
+          { x: "120vw", y: 0, },
+          { x: 0, y: 0, duration: 1.2, ease: "power2.out" },
+          "sync+=0.7"
+        )
+        .fromTo(".upd-summary-circle3",
+          { x: "10vw", y: "-120vh" },
+          { x: 0, y: 0, duration: 1.2, ease: "power2.out" },
+          "sync+=0.9"
+        )
+        .fromTo(".upd-wherever-section", { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 2 }, "+=0.4")
+        .to({}, { duration: 2 }) // 5 second delay after all animations complete
+
       return tl;
     })
 }
@@ -220,20 +247,15 @@ export const runUpdProblemScroll = (numbers: CSSNumbers = cssNumbers) => {
     () => {
       const tl = gsap.timeline({
         scrollTrigger: {
-          trigger: ".upd-summary",
+          trigger: ".upd-problem-=30vh",
           start: "top top",
-          end: "+=100%",
+          end: "bottom bottom-=30%",
           scrub: true,
-          pin: true,
-          pinSpacing: false,
         },
         defaults: { ease: "none" }
       });
 
-      tl.add("stack")
-        // make sure the statement is stacked and hidden but in place
-        .to(".upd-summary-container", { opacity: 0, duration: 0.2 }, "stack")
-        .fromTo(".upd-problem", { opacity: 0 }, { opacity: 1 })
+      tl.fromTo(".upd-people-text1-container", { y: -100 }, { y: 0 })
 
       // NOTE: no opacity on .upd-problem here — that happens in function #2
       return tl;

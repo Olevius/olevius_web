@@ -18,6 +18,7 @@ import {
   runUpdPeopleScroll,
   runUpdPeople2Scroll,
   runIssueTextScroll,
+  runUpdSummaryScroll,
 } from "../../animations/homeAnimations";
 import { useEffect, useRef } from "react";
 import { TeamTransition } from "./TeamTransition";
@@ -68,9 +69,8 @@ export const Home = () => {
       runIntroTimeline(cssNumbers);
       runHeaderScrollTimeline(cssNumbers);
       runIssueTextScroll(cssNumbers);
+      runUpdSummaryScroll(cssNumbers);
       runUpdProblemScroll(cssNumbers);
-      runUpdStatementScroll(cssNumbers);
-      runUpdStatementScrollFade(cssNumbers);
       runUpdPortableScroll(cssNumbers);
       runTransitionTextScroll(cssNumbers);
       runTeamTransitionScroll(cssNumbers);
@@ -97,6 +97,7 @@ export const Home = () => {
         <UpdIssue className="upd-issue" style={{ zIndex: 2 }} />
         <UpdSummary className="upd-summary" style={{ zIndex: 1 }} />
       </Layout>
+      <Layout style={{ height: "50vh", backgroundColor: "white" }} />
       <UpdProblem className="upd-problem" style={{ zIndex: 2 }} />
       <UpdStatement className="upd-statement" style={{ zIndex: 1 }} />
       <UpdPortable className="upd-portable" style={{ zIndex: 4 }} />
