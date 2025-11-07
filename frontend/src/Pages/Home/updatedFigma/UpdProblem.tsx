@@ -13,63 +13,82 @@ export const UpdProblem = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
         height: "100vh",
         backgroundColor: "white",
         border: cssNumbers.testing.border,
+        display: "flex",
+        flexDirection: "column",
         ...style,
       }}
     >
       <Layout
-        className="upd-problem-container"
         style={{
+          padding: "2rem",
           display: "flex",
-          border: "1px solid black",
-          justifyContent: "center",
-          alignItems: "center", // Changed from alignContent
-          height: "100vh", // Added to fill parent
+          justifyContent: "flex-start",
         }}
       >
         <Text
           style={{
-            position: "absolute",
-            top: -2,
-            right: -40,
-            left: -30,
-            margin: 0,
-            padding: 0,
-            lineHeight: 1,
-            zIndex: 2,
-            whiteSpace: "nowrap",
-            fontSize: "23vw",
-            fontFamily: "Uber Move",
-            transform: "translateY(-0.15em)",
+            fontFamily: "Uber Move Text",
+            fontWeight: "lighter",
+            fontSize: "5.5rem",
           }}
         >
-          PROBLEM.
+          What if..
         </Text>
+      </Layout>
+
+      <Layout
+        style={{
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <Layout
           style={{
-            backgroundColor: "#FFC0C0",
-            height: "85vh",
-            width: "45vw",
-            zIndex: 1,
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
             textAlign: "left",
-            overflow: "visible",
+            width: "40vw",
+            paddingTop: "7vh",
+            paddingLeft: "40vw",
           }}
         >
           <Text
             style={{
-              fontSize: "30px",
-              marginTop: "5vh",
-              padding: 20,
-              textAlign: "center",
-              zIndex: 2,
               fontFamily: "Uber Move Text",
+              fontWeight: "lighter",
+              fontSize: "2.2rem",
             }}
           >
-            Current blood pressure monitoring is either intermittent (cuffs) or
-            inaccurate (PPG/pressure watches), but neither provides direct,
-            real-time arterial pressure data.
+            you could get clinical grade blood-pressure data thats comfortable
+            and automatic, without the bulky ambulatory cuff that disrupts rest?{" "}
+          </Text>
+        </Layout>
+      </Layout>
+      <Layout
+        style={{
+          display: "flex",
+          justifyContent: "flex-start",
+          alignItems: "flex-end",
+          flex: 1,
+        }}
+      >
+        <Layout
+          style={{
+            textAlign: "left",
+            width: "40vw",
+            paddingBottom: "10vh",
+            paddingLeft: "10vw",
+          }}
+        >
+          <Text
+            style={{
+              fontFamily: "Uber Move Text",
+              fontWeight: "lighter",
+              fontSize: "2.2rem",
+            }}
+          >
+            And in the daytime, capture it as you walk{" "}
+            <Text style={{ color: "#4B6C44" }}>
+              without cuffs and without a pharmacist?
+            </Text>
           </Text>
         </Layout>
       </Layout>

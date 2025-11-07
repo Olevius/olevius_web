@@ -685,6 +685,9 @@
   font-size: var(--layout-titleFontSize);
 }
 
+.upd-issue-text {
+  font-size: var(--layout-titleFontSize);
+}
 
 
 /* UpdSummary stuff */

@@ -105,6 +105,45 @@ export const runHeaderScrollTimeline = (numbers: CSSNumbers = cssNumbers) => {
   )
 };
 
+export const runIssueTextScroll = (numbers: CSSNumbers = cssNumbers) => {
+  return mm.add({
+    xs: "(max-width: 639px)",
+    sd: "(min-width: 640px)",
+    md: "(min-width: 900px)",
+    lg: "(min-width: 1024px)",
+  },
+    () => {
+      const split = SplitText.create(".upd-issue-text", {
+        type: "chars, words, lines",
+        charsClass: "char",
+      });
+
+      const tl = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".upd-issue",
+            start: "top top",
+            pin: true,
+            pinSpacing: false,
+            scrub: numbers.animation.scrubDuration,
+            invalidateOnRefresh: true, // Add this
+          },
+        }).add("cover")
+        .from(split.words, {
+          y: numbers.animation.wordStart,
+          autoAlpha: 0,
+          duration: 10,
+          stagger: 20,
+        }, "cover")
+        .to(".upd-summary", {
+          y: 0, duration: numbers.animation.bodyHeaderDuration,
+        }, "cover")
+        .to(".upd-issue", { duration: 80 }, "cover")
+        .to(".upd-issue", { height: 0, duration: 40 });
+
+      return tl;
+    })
+};
 
 
 export const runTransitionTextScroll = (numbers: CSSNumbers = cssNumbers) => {
@@ -155,7 +194,16 @@ export const runUpdSummaryScroll = (numbers: CSSNumbers = cssNumbers): void => {
     lg: "(min-width: 1024px)",
   },
     () => {
-
+      const tl = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".upd-summary",
+            start: "top top",
+            scrub: numbers.animation.scrubDuration,
+          },
+        })
+      tl.fromTo(".upd-summary-text-box", { y: 100 }, { y: 0 }, 0) // <- position parameter
+      return tl;
     })
 }
 
@@ -524,7 +572,7 @@ export const runFooterScroll = (numbers: CSSNumbers = cssNumbers) => {
         .timeline({
           scrollTrigger: {
             trigger: ".upd-footer-text",
-            start: "top bottom",
+            start: "top bottom-=15%",
             end: "bottom bottom",
             scrub: 7,
           },

@@ -1,7 +1,6 @@
 import React from "react";
 import { GridLayout, Text, Layout } from "../../../components/basics/defaults";
-import type { BaseProps } from "../../components/basics/defaultTypes";
-import { customColors } from "../../../theme/theme";
+import type { BaseProps } from "../../../components/basics/defaultTypes";
 import { cssNumbers } from "../../../theme/theme";
 
 export const UpdIssue = React.forwardRef<HTMLDivElement, BaseProps>(
@@ -12,7 +11,7 @@ export const UpdIssue = React.forwardRef<HTMLDivElement, BaseProps>(
         className={className}
         style={{
           border: cssNumbers.testing.border,
-          background: "white",
+          backgroundColor: "white",
           overflow: "hidden",
           borderBottom: "1px solid black",
           ...style,
@@ -34,7 +33,7 @@ export const UpdIssue = React.forwardRef<HTMLDivElement, BaseProps>(
                 border: cssNumbers.testing.border,
               }}
             >
-              The Issue
+              Our Vision
             </Text>{" "}
           </GridLayout>
           {/* <Layout className="image-container" style={{ display: "flex" }}>

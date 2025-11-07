@@ -17,7 +17,7 @@ export const UpdFooter = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
         justifyContent: "center",
         padding: cssNumbers.layout.paddingSmall,
         alignItems: "center",
-        border: "1px solid black",
+        borderTop: "1px solid black",
         backgroundColor: "white",
         ...style,
       }}
