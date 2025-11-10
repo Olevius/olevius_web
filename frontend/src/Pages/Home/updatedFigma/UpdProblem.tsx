@@ -10,7 +10,7 @@ export const UpdProblem = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
       ref={ref}
       {...rest}
       style={{
-        height: "100vh",
+        height: "175vh",
         backgroundColor: "white",
         border: cssNumbers.testing.border,
         display: "flex",
@@ -19,6 +19,7 @@ export const UpdProblem = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
       }}
     >
       <Layout
+        className="upd-problem-header"
         style={{
           padding: "2rem",
           display: "flex",
@@ -26,6 +27,7 @@ export const UpdProblem = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
         }}
       >
         <Text
+          className="upd-problem-title"
           style={{
             fontFamily: "Uber Move Text",
             fontWeight: "lighter",
@@ -37,20 +39,23 @@ export const UpdProblem = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
       </Layout>
 
       <Layout
+        className="upd-problem-content-wrapper"
         style={{
           display: "flex",
           justifyContent: "center",
         }}
       >
         <Layout
+          className="upd-problem-content"
           style={{
             textAlign: "left",
             width: "40vw",
-            paddingTop: "7vh",
+            paddingTop: "30vh",
             paddingLeft: "40vw",
           }}
         >
           <Text
+            className="upd-problem-description"
             style={{
               fontFamily: "Uber Move Text",
               fontWeight: "lighter",
@@ -63,22 +68,24 @@ export const UpdProblem = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
         </Layout>
       </Layout>
       <Layout
+        className="upd-problem-footer-wrapper"
         style={{
           display: "flex",
+          position: "relative",
           justifyContent: "flex-start",
-          alignItems: "flex-end",
-          flex: 1,
         }}
       >
         <Layout
+          className="upd-problem-footer"
           style={{
             textAlign: "left",
             width: "40vw",
-            paddingBottom: "10vh",
+            paddingTop: "60vh",
             paddingLeft: "10vw",
           }}
         >
           <Text
+            className="upd-problem-footer-text"
             style={{
               fontFamily: "Uber Move Text",
               fontWeight: "lighter",
@@ -86,7 +93,10 @@ export const UpdProblem = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
             }}
           >
             And in the daytime, capture it as you walk{" "}
-            <Text style={{ color: "#4B6C44" }}>
+            <Text
+              className="upd-problem-highlight"
+              style={{ color: "#4B6C44" }}
+            >
               without cuffs and without a pharmacist?
             </Text>
           </Text>

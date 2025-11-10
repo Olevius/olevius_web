@@ -146,45 +146,8 @@ export const runIssueTextScroll = (numbers: CSSNumbers = cssNumbers) => {
 };
 
 
-export const runTransitionTextScroll = (numbers: CSSNumbers = cssNumbers) => {
-  return mm.add({
-    xs: "(max-width: 639px)",
-    sd: "(min-width: 640px)",
-    md: "(min-width: 900px)",
-    lg: "(min-width: 1024px)",
-  },
-    () => {
-      const split = SplitText.create(".transition-text", {
-        type: "chars, words, lines",
-        charsClass: "char",
-      });
 
-      const tl = gsap
-        .timeline({
-          scrollTrigger: {
-            trigger: ".transition-title-box",
-            start: "top top",
-            pin: true,
-            pinSpacing: false,
-            scrub: numbers.animation.scrubDuration,
-            invalidateOnRefresh: true, // Add this
-          },
-        }).add("cover")
-        .from(split.words, {
-          y: numbers.animation.wordStart,
-          autoAlpha: 0,
-          duration: 10,
-          stagger: 20,
-        }, "cover")
-        .to(".upd-body", {
-          y: 0, duration: numbers.animation.bodyHeaderDuration,
-        }, "cover")
-        .to(".transition-title-box", { duration: 80 }, "cover")
-        .to(".transition-title-box", { height: 0, duration: 40 });
 
-      return tl;
-    })
-};
 
 export const runUpdSummaryScroll = (numbers: CSSNumbers = cssNumbers): void => {
   mm.add({
@@ -229,115 +192,78 @@ export const runUpdSummaryScroll = (numbers: CSSNumbers = cssNumbers): void => {
         )
         .fromTo(".upd-wherever-section", { y: 100, opacity: 0 }, { y: 0, opacity: 1, duration: 2 }, "+=0.4")
         .to({}, { duration: 2 }) // 5 second delay after all animations complete
-
-      return tl;
+      return (tl)
     })
 }
 
-// Assumes: gsap.registerPlugin(ScrollTrigger) already done, and `mm = gsap.matchMedia()`
-
-export const runUpdProblemScroll = (numbers: CSSNumbers = cssNumbers) => {
-  return mm.add(
-    {
-      xs: "(max-width: 639px)",
-      sd: "(min-width: 640px)",
-      md: "(min-width: 900px)",
-      lg: "(min-width: 1024px)",
-    },
-    () => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".upd-problem-=30vh",
-          start: "top top",
-          end: "bottom bottom-=30%",
-          scrub: true,
-        },
-        defaults: { ease: "none" }
-      });
-
-      tl.fromTo(".upd-people-text1-container", { y: -100 }, { y: 0 })
-
-      // NOTE: no opacity on .upd-problem here — that happens in function #2
-      return tl;
-    }
-  );
-};
-
-// 1) Position/stack only (no opacity changes here)
-//    Ensures .upd-statement is overlapped and at y:0 while .upd-problem is pinned.
-export const runUpdStatementScroll = (numbers: CSSNumbers = cssNumbers) => {
-  mm.add(
-    {
-      xs: "(max-width: 639px)",
-      sd: "(min-width: 640px)",
-      md: "(min-width: 900px)",
-      lg: "(min-width: 1024px)",
-    },
+export const runUpdProblemScroll = (numbers: CSSNumbers = cssNumbers): void => {
+  mm.add({
+    xs: "(max-width: 639px)",
+    sd: "(min-width: 640px)",
+    md: "(min-width: 900px)",
+    lg: "(min-width: 1024px)",
+  },
     () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".upd-problem",
-          start: "top top",
-          end: "+=100%",
-          scrub: true,
-          pin: true,
-          pinSpacing: false,
-        },
-        defaults: { ease: "none" }
-      });
+          start: "top top+=80%",
+          scrub: 2,
+        }
+      }).add("sync-point")
+        .to(".upd-wherever-section", { opacity: 0 }, "sync-point")
+        .fromTo(".upd-problem-title", { opacity: 0 }, { opacity: 1 }, "sync-point")
+        .fromTo(".upd-problem-description", { opacity: 0 }, { opacity: 1 }, "sync-point+=0.2")
+        .fromTo(".upd-problem-footer-text", { opacity: 0 }, { opacity: 1 }, "sync-point+=0.4")
+        .fromTo(".upd-problem-footer-text", { opacity: 1 }, { opacity: 0 }, "sync-point+=0.6")
+      return tl
+    })
+}
 
-      tl.add("stack")
-        // make sure the statement is stacked and hidden but in place
-        .set(".upd-statement-text", { y: 0, autoAlpha: 0 }, "stack") // overlap in place
-        .to(".upd-problem-container", { opacity: 0, duration: 0.6, immediateRender: false }, "fadeOut")
-
-
-      // NOTE: no opacity on .upd-problem here — that happens in function #2
-      return tl;
-    }
-  );
-};
-
-
-// 2) Cross-fade with a gap while .upd-statement is pinned
-export const runUpdStatementScrollFade = (numbers: CSSNumbers = cssNumbers) => {
-  mm.add(
-    {
-      xs: "(max-width: 639px)",
-      sd: "(min-width: 640px)",
-      md: "(min-width: 900px)",
-      lg: "(min-width: 1024px)",
-    },
+export const runUpdProblemPause = (numbers: CSSNumbers = cssNumbers) => {
+  mm.add({
+    xs: "(max-width: 639px)",
+    sd: "(min-width: 640px)",
+    md: "(min-width: 900px)",
+    lg: "(min-width: 1024px)",
+  },
     () => {
-      const gapBeforeFade = 0.5; // seconds of delay between fade out and fade in
-      const gapAfterFade = 0.4;
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".upd-problem",
+          start: "bottom bottom",
+          pin: true,
+          pinSpacing: true,
+          scrub: 2
+        }
+      })
+      return tl
+    })
+}
 
+export const runUpdStatementScroll = (numbers: CSSNumbers = cssNumbers) => {
+  mm.add({
+    xs: "(max-width: 639px)",
+    sd: "(min-width: 640px)",
+    md: "(min-width: 900px)",
+    lg: "(min-width: 1024px)",
+  },
+    () => {
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: ".upd-statement",
-          start: "top top",
-          end: "+=150%",
-          scrub: true,
+          start: "bottom bottom",
           pin: true,
-          pinSpacing: true,  // keeps spacer in the flow under the pin
-        },
-        defaults: { ease: "none" }
-      });
+          scrub: 2
+        }
+      }).to(".upd-statement-text", { duration: 0.5 })
 
-      tl.add("fadeOut")
-        // fade current screen (problem) out
-        // wait (gap)
-        .to({}, { duration: gapBeforeFade })
-        // fade the statement in
-        .to(".upd-statement-text", { autoAlpha: 1, duration: 0.6, immediateRender: false }, ">")
-        .to({}, { duration: gapAfterFade })
+        .fromTo(".upd-statement-text", { opacity: 0 }, { opacity: 1 })
+        .to(".upd-statement-text", { duration: 0.5 })
 
-
-      return tl;
-    }
-  );
-};
-
+      return tl
+    })
+}
 
 export const runUpdPortableScroll = (numbers: CSSNumbers = cssNumbers) => {
   mm.add({
@@ -354,14 +280,55 @@ export const runUpdPortableScroll = (numbers: CSSNumbers = cssNumbers) => {
           scrub: true,
         },
         defaults: { ease: "none" }
-      });
-
-      tl.add("scroll-sideways")
-      tl.to(".upd-portable-text1", { translateX: "10%" }, "scroll-sideways")
-      tl.to(".upd-portable-text2", { translateX: "-10%" }, "scroll-sideways")
-      tl.to(".upd-portable-text3", { translateX: "10%" }, "scroll-sideways")
+      })
+        .add("scroll-sideways")
+        .to(".upd-portable-text1", { translateX: "10%" }, "scroll-sideways")
+        .to(".upd-portable-text2", { translateX: "-10%" }, "scroll-sideways")
+        .to(".upd-portable-text3", { translateX: "10%" }, "scroll-sideways")
+      return tl
     })
 }
+
+export const runTransitionTextScroll = (numbers: CSSNumbers = cssNumbers) => {
+  return mm.add({
+    xs: "(max-width: 639px)",
+    sd: "(min-width: 640px)",
+    md: "(min-width: 900px)",
+    lg: "(min-width: 1024px)",
+  },
+    () => {
+      const split = SplitText.create(".transition-text", {
+        type: "chars, words, lines",
+        charsClass: "char",
+      });
+
+      const tl = gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".transition-title-box",
+            start: "top top",
+            pin: true,
+            pinSpacing: false,
+            scrub: numbers.animation.scrubDuration,
+            invalidateOnRefresh: true, // Add this
+          },
+        }).add("cover")
+        .from(split.words, {
+          y: numbers.animation.wordStart,
+          autoAlpha: 0,
+          duration: 10,
+          stagger: 20,
+        }, "cover")
+        .to(".upd-body", {
+          y: 0, duration: numbers.animation.bodyHeaderDuration,
+        }, "cover")
+        .to(".transition-title-box", { duration: 80 }, "cover")
+        .to(".transition-title-box", { height: 0, duration: 40 });
+
+      return tl;
+    })
+};
+
 
 export const runUpdInfoScroll = (numbers: CSSNumbers = cssNumbers) => {
   mm.add({
@@ -393,7 +360,6 @@ export const runUpdPeopleScroll = (numbers: CSSNumbers = cssNumbers) => {
       })
 
       tl.fromTo(".upd-people-text1-container", { y: 100 }, { y: 0 })
-
     })
 }
 

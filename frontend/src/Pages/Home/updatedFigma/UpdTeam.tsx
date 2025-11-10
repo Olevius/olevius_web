@@ -38,7 +38,7 @@ export const UpdTeam = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
             lineHeight: 0.7,
             borderBottom: "1px solid black",
             textAlign: "right",
-            width: "100vw",
+            width: "120vw",
             whiteSpace: "nowrap",
             fontSize: "25vw",
             fontFamily: "Uber Move Text, sans-serif",
@@ -52,8 +52,9 @@ export const UpdTeam = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
         <Layout
           style={{
             position: "absolute",
-            borderBottom: "1px solid black",
             width: "100vw",
+            borderBottom: "1px solid black",
+
             height: "1px",
           }}
         />

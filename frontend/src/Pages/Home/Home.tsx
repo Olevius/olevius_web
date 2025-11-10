@@ -9,16 +9,16 @@ import {
   runIntroTimeline,
   runHeaderScrollTimeline,
   runTransitionTextScroll,
-  runUpdProblemScroll,
-  runUpdStatementScroll,
   runTeamTransitionScroll,
-  runUpdStatementScrollFade,
   runUpdPortableScroll,
   runFooterScroll,
   runUpdPeopleScroll,
   runUpdPeople2Scroll,
   runIssueTextScroll,
   runUpdSummaryScroll,
+  runUpdProblemScroll,
+  runUpdProblemPause,
+  runUpdStatementScroll,
 } from "../../animations/homeAnimations";
 import { useEffect, useRef } from "react";
 import { TeamTransition } from "./TeamTransition";
@@ -71,6 +71,8 @@ export const Home = () => {
       runIssueTextScroll(cssNumbers);
       runUpdSummaryScroll(cssNumbers);
       runUpdProblemScroll(cssNumbers);
+      runUpdProblemPause(cssNumbers);
+      runUpdStatementScroll(cssNumbers);
       runUpdPortableScroll(cssNumbers);
       runTransitionTextScroll(cssNumbers);
       runTeamTransitionScroll(cssNumbers);
@@ -98,9 +100,9 @@ export const Home = () => {
         <UpdSummary className="upd-summary" style={{ zIndex: 1 }} />
       </Layout>
       <Layout style={{ height: "50vh", backgroundColor: "white" }} />
-      <UpdProblem className="upd-problem" style={{ zIndex: 2 }} />
-      <UpdStatement className="upd-statement" style={{ zIndex: 1 }} />
-      <UpdPortable className="upd-portable" style={{ zIndex: 4 }} />
+      <UpdProblem className="upd-problem" style={{ zIndex: 3 }} />
+      <UpdStatement className="upd-statement" style={{ zIndex: 4 }} />
+      <UpdPortable className="upd-portable" style={{ zIndex: 5 }} />
       <Layout style={{ backgroundColor: "white" }}>
         <Transition className="transition-title-box" style={{ zIndex: 6 }} />
         <UpdBody className="upd-body" style={{ zIndex: 5 }} />
