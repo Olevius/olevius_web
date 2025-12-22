@@ -107,10 +107,10 @@ https://olevius.info/
 -   **Docker**
 
     ```bash
-    docker build -t olevius_web_frontend ./frontend
-    docker build -t olevius_web_backend  ./backend
-    docker-compose up -d
+    docker compose up --build
     ```
+
+    The frontend becomes available at http://localhost:3000 and proxies /api requests to the backend container on http://backend:3001. Shut everything down with docker compose down. Rebuild after dependency changes with docker compose up --build.
 
 -   **GitHub Pages** (for frontend)
 

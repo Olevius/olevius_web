@@ -149,7 +149,7 @@ export const runIssueTextScroll = (numbers: CSSNumbers = cssNumbers) => {
 
 
 
-export const runUpdSummaryScroll = (numbers: CSSNumbers = cssNumbers): void => {
+export const runUpdSummaryScroll = (_numbers: CSSNumbers = cssNumbers): void => {
   mm.add({
     xs: "(max-width: 639px)",
     sd: "(min-width: 640px)",
@@ -196,7 +196,7 @@ export const runUpdSummaryScroll = (numbers: CSSNumbers = cssNumbers): void => {
     })
 }
 
-export const runUpdProblemScroll = (numbers: CSSNumbers = cssNumbers): void => {
+export const runUpdProblemScroll = (_numbers: CSSNumbers = cssNumbers): void => {
   mm.add({
     xs: "(max-width: 639px)",
     sd: "(min-width: 640px)",
@@ -220,7 +220,7 @@ export const runUpdProblemScroll = (numbers: CSSNumbers = cssNumbers): void => {
     })
 }
 
-export const runUpdProblemPause = (numbers: CSSNumbers = cssNumbers) => {
+export const runUpdProblemPause = (_numbers: CSSNumbers = cssNumbers) => {
   mm.add({
     xs: "(max-width: 639px)",
     sd: "(min-width: 640px)",
@@ -241,7 +241,7 @@ export const runUpdProblemPause = (numbers: CSSNumbers = cssNumbers) => {
     })
 }
 
-export const runUpdStatementScroll = (numbers: CSSNumbers = cssNumbers) => {
+export const runUpdStatementScroll = (_numbers: CSSNumbers = cssNumbers) => {
   mm.add({
     xs: "(max-width: 639px)",
     sd: "(min-width: 640px)",
@@ -265,7 +265,7 @@ export const runUpdStatementScroll = (numbers: CSSNumbers = cssNumbers) => {
     })
 }
 
-export const runUpdPortableScroll = (numbers: CSSNumbers = cssNumbers) => {
+export const runUpdPortableScroll = (_numbers: CSSNumbers = cssNumbers) => {
   mm.add({
     xs: "(max-width: 639px)",
     sd: "(min-width: 640px)",
@@ -330,7 +330,7 @@ export const runTransitionTextScroll = (numbers: CSSNumbers = cssNumbers) => {
 };
 
 
-export const runUpdInfoScroll = (numbers: CSSNumbers = cssNumbers) => {
+export const runUpdInfoScroll = (_numbers: CSSNumbers = cssNumbers) => {
   mm.add({
     xs: "(max-width: 639px)",
     sd: "(min-width: 640px)",
@@ -340,7 +340,7 @@ export const runUpdInfoScroll = (numbers: CSSNumbers = cssNumbers) => {
     () => { })
 }
 
-export const runUpdPeopleScroll = (numbers: CSSNumbers = cssNumbers) => {
+export const runUpdPeopleScroll = (_numbers: CSSNumbers = cssNumbers) => {
   mm.add({
     xs: "(max-width: 639px)",
     sd: "(min-width: 640px)",
@@ -363,7 +363,7 @@ export const runUpdPeopleScroll = (numbers: CSSNumbers = cssNumbers) => {
     })
 }
 
-export const runUpdPeople2Scroll = (numbers: CSSNumbers = cssNumbers) => {
+export const runUpdPeople2Scroll = (_numbers: CSSNumbers = cssNumbers) => {
   mm.add({
     xs: "(max-width: 639px)",
     sd: "(min-width: 640px)",
@@ -387,7 +387,7 @@ export const runUpdPeople2Scroll = (numbers: CSSNumbers = cssNumbers) => {
     })
 }
 
-export const runUpdTeamScroll = (numbers: CSSNumbers = cssNumbers) => {
+export const runUpdTeamScroll = (_numbers: CSSNumbers = cssNumbers) => {
   mm.add({
     xs: "(max-width: 639px)",
     sd: "(min-width: 640px)",
@@ -544,7 +544,7 @@ export const runTeamTransitionScroll = (numbers: CSSNumbers = cssNumbers) => {
 
 };
 
-export const runFooterScroll = (numbers: CSSNumbers = cssNumbers) => {
+export const runFooterScroll = (_numbers: CSSNumbers = cssNumbers) => {
   mm.add({
     xs: "(max-width: 639px)",
     sd: "(min-width: 640px)",

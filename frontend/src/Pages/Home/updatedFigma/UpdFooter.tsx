@@ -1,16 +1,13 @@
-import {
-  AnchoredText,
-  Layout,
-  Text,
-} from "../../../components/basics/defaults";
+import { AnchoredText, Layout } from "../../../components/basics/defaults";
 import type { BaseProps } from "../../../components/basics/defaultTypes";
 import { forRef } from "../../../components/basics/refHelper";
 import { cssNumbers } from "../../../theme/theme";
 
 export const UpdFooter = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
-  ({ style, className, ...rest }, ref) => (
+  ({ style, ...rest }, ref) => (
     <Layout
       {...rest}
+      
       style={{
         position: "relative",
         display: "flex",

@@ -1,16 +1,8 @@
-import {
-  Layout,
-  Padding,
-  Text,
-  Image,
-} from "../../../components/basics/defaults";
+import { Layout, Text, Image } from "../../../components/basics/defaults";
 import type { BaseProps } from "../../../components/basics/defaultTypes";
 import { forRef } from "../../../components/basics/refHelper";
-import smileImg from "../../../assets/smile.png";
-import retirementImg from "../../../assets/retirement.png";
-import semifatImg from "../../../assets/semi-fat.png";
-import seniorImg from "../../../assets/senior.png";
-import { cssNumbers } from "../../../theme/theme";
+import smileImg from "../../../assets/pictures/smile.png";
+import semifatImg from "../../../assets/pictures/semi-fat.png";
 
 export const UpdPeople = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
   ({ style, className, ...rest }, ref) => (

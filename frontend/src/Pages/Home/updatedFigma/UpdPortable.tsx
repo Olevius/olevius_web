@@ -1,5 +1,5 @@
 import { Layout, Text } from "../../../components/basics/defaults";
-import surfer from "../../../assets/surfer.png";
+import surfer from "../../../assets/pictures/surfer.png";
 import type { BaseProps } from "../../../components/basics/defaultTypes";
 import { forRef } from "../../../components/basics/refHelper";
 import { cssNumbers } from "../../../theme/theme";

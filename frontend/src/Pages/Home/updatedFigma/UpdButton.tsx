@@ -1,8 +1,4 @@
-import type { ButtonHTMLAttributes } from "react";
-import type {
-  BaseProps,
-  ButtonProps,
-} from "../../../components/basics/defaultTypes";
+import type { ButtonProps } from "../../../components/basics/defaultTypes";
 import { forRef } from "../../../components/basics/refHelper";
 import { customColors } from "../../../theme/colors";
 

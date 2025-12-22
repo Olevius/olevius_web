@@ -1,7 +1,6 @@
 import React from "react";
 import { GridLayout, Text, Layout } from "../../components/basics/defaults";
 import type { BaseProps } from "../../components/basics/defaultTypes";
-import { customColors } from "../../theme/colors";
 import { cssNumbers } from "../../theme/theme";
 
 export const Transition = React.forwardRef<HTMLDivElement, BaseProps>(

@@ -1,9 +1,7 @@
-import { Layout, Text, Image } from "../../../components/basics/defaults";
+import { Layout, Text } from "../../../components/basics/defaults";
 import type { BaseProps } from "../../../components/basics/defaultTypes";
 import { forRef } from "../../../components/basics/refHelper";
 import { cssNumbers } from "../../../theme/theme";
-import { UpdBody } from "./UpdBody";
-import { UpdLine } from "./UpdLine";
 
 export const UpdSummary = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
   ({ style, className, ...rest }, ref) => (

@@ -5,7 +5,7 @@ import { teamTextMap } from "../../../text-maps/teamMap";
 import { UpdTeamBox } from "./UpdTeamBox";
 
 export const UpdTeam = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
-  ({ style, className, ...rest }, ref) => (
+  ({ style, ...rest }, ref) => (
     <Layout
       ref={ref}
       {...rest}

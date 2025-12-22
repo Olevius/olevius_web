@@ -17,6 +17,7 @@ export const TeamInfo = forRef<HTMLDivElement, Omit<BaseProps, "children">>(
         style={{
           padding: cssNumbers.layout.paddingBody,
           backgroundColor: "white",
+          ...style,
         }}
       >
         {Object.entries(teamTextMap).map(([key, value]) => (
