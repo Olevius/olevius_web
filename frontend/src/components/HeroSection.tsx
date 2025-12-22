@@ -1,4 +1,8 @@
-export const HeroSection = () => (
+type HeroSectionProps = {
+  onJoinWaitlist: () => void;
+};
+
+export const HeroSection = ({ onJoinWaitlist }: HeroSectionProps) => (
   <section className="relative min-h-screen flex items-center pt-32 pb-20 px-6 md:px-12 overflow-hidden border-b border-black">
     <div className="max-w-7xl w-full mx-auto relative z-10">
       <div className="max-w-5xl">
@@ -16,12 +20,16 @@ export const HeroSection = () => (
               Ditch bulky, stationary monitors. Our clinically accurate device reads your blood pressure directly from your pulse, wherever you are.
             </p>
           <div className="flex flex-col sm:flex-row items-start gap-4">
-            <button className="w-full sm:w-auto px-8 py-4 bg-black text-[#dfffce] border border-black font-bold hover:bg-transparent hover:text-black transition-all flex items-center justify-center gap-2 uppercase tracking-wide text-sm">
+            <button
+              className="w-full sm:w-auto px-8 py-4 bg-black text-[#dfffce] border border-black font-bold hover:bg-transparent hover:text-black transition-all flex items-center justify-center gap-2 uppercase tracking-wide text-sm"
+              type="button"
+              onClick={onJoinWaitlist}
+            >
               Join the Waitlist
             </button>
-            <button className="w-full sm:w-auto px-8 py-4 bg-transparent border border-black text-black font-bold hover:bg-black hover:text-[#dfffce] transition-colors flex items-center justify-center gap-2 uppercase tracking-wide text-sm">
+            {/* <button className="w-full sm:w-auto px-8 py-4 bg-transparent border border-black text-black font-bold hover:bg-black hover:text-[#dfffce] transition-colors flex items-center justify-center gap-2 uppercase tracking-wide text-sm">
               See How It Works
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

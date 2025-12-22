@@ -18,7 +18,7 @@ export const TestingSection = ({ stats }: TestingSectionProps) => (
             rigorous testing.
           </h2>
           <p className="text-[#dfffce]/80 text-xl mb-12 font-light">
-            We don&apos;t just claim accuracy; we prove it. Over 5,000 field tests conducted against industry-standard heavy machinery.
+            We don&apos;t just claim accuracy; we prove it. Over 500 lab tests conducted through certified medical institutions.
           </p>
           <div className="grid grid-cols-2 gap-y-12 gap-x-8">
             {stats.map(({ value, label }) => (

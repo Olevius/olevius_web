@@ -16,7 +16,7 @@ export const ExpertsSection = ({ members }: ExpertsSectionProps) => (
           Meet the Experts
         </h2>
         <p className="text-xl text-black font-medium relative z-10">
-          Built by engineers who were tired of carrying heavy equipment.
+          Built by Waterloo students passionate about stress-free blood pressure measurement.
         </p>
       </div>
       <div className="grid md:grid-cols-3 gap-8">
