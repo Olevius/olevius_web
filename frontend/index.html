@@ -1,22 +1,65 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <link
-      href="https://api.fontshare.com/v2/css?f[]=satoshi@500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/svg+xml" href="/Olevius.svg" />
+    <link rel="icon" href="/public/Olevius.svg">
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Olevius</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,typography"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#000000",
+              secondary: "#1a1a1a",
+              "accent-green": "#dfffce",
+              "background-light": "#dfffce",
+              "background-dark": "#0f172a",
+              "surface-light": "#dfffce",
+              "surface-white": "#ffffff",
+              "surface-dark": "#1e293b",
+              "text-light": "#000000",
+              "text-dark": "#e2e8f0",
+              "border-light": "#000000",
+              "border-dark": "#334155"
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              display: ["Space Grotesk", "sans-serif"]
+            },
+            borderRadius: {
+              DEFAULT: "0px",
+              lg: "0px",
+              xl: "0px",
+              "2xl": "0px"
+            }
+          }
+        }
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer utilities {
+        .border-b-black {
+          border-bottom: 1px solid black;
+        }
+        .border-t-black {
+          border-top: 1px solid black;
+        }
+        .border-black-all {
+          border: 1px solid black;
+        }
+      }
+    </style>
   </head>
-  <body>
-    <div id="smooth-wrapper">
-      <div id="smooth-content">
-        <div id="root"></div>
-        <!-- React mounts here -->
-      </div>
-    </div>
+  <body class="bg-background-light text-text-light font-sans transition-colors duration-300 antialiased selection:bg-black selection:text-[#dfffce]">
+    <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

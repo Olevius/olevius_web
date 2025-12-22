@@ -1,50 +1,29 @@
-import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Home } from "./Pages/Home/Home";
-import { useEffect } from "react";
-import { Analytics } from "@vercel/analytics/react";
+import { ContactSection } from "./components/ContactSection";
+import { ChallengeSection } from "./components/ChallengeSection";
+import { ExpertsSection } from "./components/ExpertsSection";
+import { HeroSection } from "./components/HeroSection";
+import { Navigation } from "./components/Navigation";
+import { SolutionSection } from "./components/SolutionSection";
+import { TestingSection } from "./components/TestingSection";
+import {
+  challengeItems,
+  footerLinks,
+  navLinks,
+  solutionFeatures,
+  teamMembers,
+  testingStats,
+} from "./data/content";
 
-export const ExternalRedirect = ({ to }: { to: string }) => {
-  useEffect(() => {
-    window.location.replace(to); // replaces history entry
-  }, [to]);
-  return null;
-};
-
-export const App = () => {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-
-        {/* external link */}
-        <Route
-          path="/aboutPage"
-          element={
-            <ExternalRedirect to="https://www.linkedin.com/company/olevius/posts/?feedView=all" />
-          }
-        />
-
-        {/* Outlook compose example (add params as needed) */}
-        <Route
-          path="/contactPage"
-          element={
-            <ExternalRedirect
-              to={
-                "https://outlook.office.com/mail/deeplink/compose?" +
-                new URLSearchParams({
-                  to: "j29mak@uwaterloo.ca",
-                  subject: "Olevius inquiry",
-                  body: "Hey team,%0A%0A",
-                }).toString()
-              }
-            />
-          }
-        />
-      </Routes>
-
-      {/* Load analytics (optionally gate by PROD) */}
-      <Analytics />
-    </Router>
-  );
-};
+export const App = () => (
+  <div className="bg-background-light text-text-light font-sans transition-colors duration-300 antialiased selection:bg-black selection:text-[#dfffce]">
+    <Navigation links={navLinks} />
+    <main>
+      <HeroSection />
+      <ChallengeSection items={challengeItems} />
+      <SolutionSection features={solutionFeatures} />
+      <TestingSection stats={testingStats} />
+      <ExpertsSection members={teamMembers} />
+      <ContactSection footerLinks={footerLinks} />
+    </main>
+  </div>
+);
