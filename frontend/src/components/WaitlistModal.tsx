@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import type { FormEvent } from "react";
 
 type WaitlistModalProps = {
@@ -8,9 +8,14 @@ type WaitlistModalProps = {
 
 export const WaitlistModal = ({ open, onClose }: WaitlistModalProps) => {
   const emailRef = useRef<HTMLInputElement>(null);
+  const formRef = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<"idle" | "loading" | "error">("idle");
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!open) {
+      setStatus("idle");
+      setError(null);
       return;
     }
 
@@ -50,9 +55,37 @@ export const WaitlistModal = ({ open, onClose }: WaitlistModalProps) => {
     return null;
   }
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    onClose();
+    setStatus("loading");
+    setError(null);
+
+    const formData = new FormData(event.currentTarget);
+    const email = String(formData.get("email") ?? "").trim();
+    const consent = formData.get("consent") === "on";
+
+    try {
+      const baseUrl = import.meta.env.VITE_API_BASE_URL?.replace(/\/$/, "") ?? "";
+      const endpoint = `${baseUrl}/api/waitlist`;
+
+      const response = await fetch(endpoint, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, consent }),
+      });
+
+      if (!response.ok) {
+        const payload = await response.json().catch(() => ({}));
+        throw new Error(payload.error ?? "Unable to join waitlist right now.");
+      }
+
+      formRef.current?.reset();
+      setStatus("idle");
+      onClose();
+    } catch (err) {
+      setStatus("error");
+      setError(err instanceof Error ? err.message : "Unexpected error. Please try again.");
+    }
   };
 
   return (
@@ -85,7 +118,7 @@ export const WaitlistModal = ({ open, onClose }: WaitlistModalProps) => {
             Enter your email to receive launch notifications and early access invites.
           </p>
         </div>
-        <form className="grid gap-6" onSubmit={handleSubmit}>
+        <form className="grid gap-6" onSubmit={handleSubmit} ref={formRef}>
           <div className="grid gap-2">
             <label
               className="text-xs font-bold uppercase tracking-wider text-black"
@@ -123,11 +156,17 @@ export const WaitlistModal = ({ open, onClose }: WaitlistModalProps) => {
               </p>
             </div>
           </div>
+          {error ? (
+            <p className="text-xs text-red-600" role="alert">
+              {error}
+            </p>
+          ) : null}
           <button
             className="w-full bg-black text-[#dfffce] font-bold py-4 px-6 border border-black hover:bg-white hover:text-black transition-all uppercase tracking-[0.3em] text-xs sm:text-sm flex items-center justify-center gap-2"
             type="submit"
+            disabled={status === "loading"}
           >
-            Join Waitlist
+            {status === "loading" ? "Submitting..." : "Join Waitlist"}
           </button>
         </form>
       </div>
