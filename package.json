@@ -4,7 +4,7 @@
   "version": "1.0.0",
   "description": "Monorepo for frontend, backend, and shared code.",
   "scripts": {
-    "dev": "concurrently -k \"pnpm --filter frontend dev\" \"pnpm --filter backend dev\"",
+    "dev": "./scripts/dev.sh",
     "build": "pnpm -r build",
     "lint": "pnpm -r lint",
     "test": "pnpm --filter frontend exec vitest run --environment jsdom --coverage"
