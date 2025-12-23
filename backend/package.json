@@ -15,9 +15,9 @@
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
     "pg": "^8.16.3",
-    "@supabase/supabase-js": "^2.48.1",
     "react": "^19",
     "react-dom": "^19",
+    "supabase": "^2.70.4",
     "vercel": "^46.0.4"
   },
   "devDependencies": {
