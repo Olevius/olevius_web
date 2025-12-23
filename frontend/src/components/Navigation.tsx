@@ -3,9 +3,10 @@ import type { NavLink } from "../data/content";
 
 type NavigationProps = {
   links: NavLink[];
+  onJoinWaitlist: () => void;
 };
 
-export const Navigation = ({ links }: NavigationProps) => {
+export const Navigation = ({ links, onJoinWaitlist }: NavigationProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -61,12 +62,13 @@ export const Navigation = ({ links }: NavigationProps) => {
             >
               <span className="material-icons">{isOpen ? "close" : "menu"}</span>
             </button>
-            <a
-              className="hidden md:inline-block text-sm font-bold hover:bg-black hover:text-[#dfffce] transition-colors uppercase tracking-wide focus-visible:outline-none"
-              href="#waitlist"
+            <button
+              className="hidden md:inline-block text-sm font-bold bg-transparent border-none hover:bg-black hover:text-[#dfffce] transition-colors uppercase tracking-wide focus-visible:outline-none cursor-pointer"
+              type="button"
+              onClick={onJoinWaitlist}
             >
               Join Waitlist
-            </a>
+            </button>
           </div>
         </div>
       </div>
