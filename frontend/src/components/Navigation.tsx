@@ -63,7 +63,7 @@ export const Navigation = ({ links, onJoinWaitlist }: NavigationProps) => {
               <span className="material-icons">{isOpen ? "close" : "menu"}</span>
             </button>
             <button
-              className="hidden md:inline-block text-sm font-bold bg-transparent border-none hover:bg-black hover:text-[#dfffce] transition-colors uppercase tracking-wide focus-visible:outline-none cursor-pointer"
+              className="hidden md:inline-block text-sm font-bold rounded-full px-6 py-2 bg-black text-[#dfffce] border-none hover:bg-transparent hover:text-black transition-colors uppercase tracking-wide focus-visible:outline-none cursor-pointer"
               type="button"
               onClick={onJoinWaitlist}
             >

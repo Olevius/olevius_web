@@ -6,5 +6,4 @@ ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$ROOT_DIR"
 
 pnpm exec concurrently -k \
-  "pnpm --filter frontend dev" \
-  "pnpm --filter backend dev"
+  "pnpm --filter frontend dev"
