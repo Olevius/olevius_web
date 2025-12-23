@@ -21,7 +21,8 @@
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.3",
     "three": "^0.178.0",
-    "vercel": "^46.0.4"
+    "vercel": "^46.0.4",
+    "@supabase/supabase-js": "^2.48.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
