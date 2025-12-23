@@ -65,7 +65,7 @@ export const solutionFeatures: SolutionFeature[] = [
     icon: "luggage",
     title: "Extreme Portability",
     description:
-      "Clinically graded arterial blood pressure directly from your wrist. Go where the data is.",
+      "Clinically graded arterial blood pressure directly from your wrist, in a compact wristband size.",
     cta: { label: "Explore specs", href: "#" },
   },
   {
