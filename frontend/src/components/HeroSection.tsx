@@ -29,12 +29,13 @@ export const HeroSection = ({ onJoinWaitlist }: HeroSectionProps) => (
             </button>
           </div>
         </div>
-        <div className="mt-12 text-center">
+        
+      </div>
+      <div className="mt-12 flex justify-center">
           <p className="text-sm md:text-base text-gray-600 font-medium">
             Made by Waterloo students for our capstone project
           </p>
         </div>
-      </div>
     </div>
     <div className="absolute right-0 bottom-0 translate-x-1/3 translate-y-1/3 w-[600px] h-[600px] rounded-full bg-gray-300 opacity-20 pointer-events-none mix-blend-multiply" />
   </section>
