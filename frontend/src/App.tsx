@@ -22,7 +22,7 @@ export const App = () => {
 
   return (
     <div className="bg-background-light text-text-light font-sans transition-colors duration-300 antialiased selection:bg-black selection:text-[#dfffce]">
-      <Navigation links={navLinks} />
+      <Navigation links={navLinks} onJoinWaitlist={() => setIsWaitlistOpen(true)} />
       <main>
         <HeroSection onJoinWaitlist={() => setIsWaitlistOpen(true)} />
         <ChallengeSection items={challengeItems} />
