@@ -94,7 +94,7 @@ export const teamMembers: TeamMember[] = [
   {
     name: "Levi Brunelle",
     role: "Head of R&D",
-    description: "Levi focuses on the chemistry and materials side of the project, particularly in developing and testing the PDMS pouch and fluid interface that enables the fiber-optic sensor to detect blood pressure changes. His work ensures the sensor has the right mechanical and chemical properties to translate pulse-induced pressure variations into reliable optical signals, while also exploring alternative polymers and materials for durability and comfort in a wearable device.",
+    description: "Levi focuses on the mechanical design and optics side of the project, particularly in developing and testing the PDMS pouch and fluid interface that enables the fiber-optic sensor to detect blood pressure changes. His work ensures the sensor has the right mechanical properties to translate pulse-induced pressure variations into reliable optical signals, while also exploring alternative polymers and materials for durability and comfort in a wearable device.",
     imageSrc: new URL("../assets/team/levi.png", import.meta.url).href,
   },
   {

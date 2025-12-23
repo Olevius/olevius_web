@@ -16,9 +16,9 @@ export const HeroSection = ({ onJoinWaitlist }: HeroSectionProps) => (
           <span className="font-light italic">Wherever you go.</span>
         </h2>
         <div className="max-w-2xl">
-            <p className="text-xl md:text-2xl text-black font-normal mb-10 leading-snug">
-              Ditch bulky, stationary monitors. Our clinically accurate device reads your blood pressure directly from your pulse, wherever you are.
-            </p>
+          <p className="text-xl md:text-2xl text-black font-normal mb-10 leading-snug">
+            Ditch bulky, stationary monitors. Our clinically accurate device reads your blood pressure directly from your pulse, wherever you are.
+          </p>
           <div className="flex flex-col sm:flex-row items-start gap-4">
             <button
               className="w-full sm:w-auto px-8 py-4 bg-black text-[#dfffce] border border-black font-bold hover:bg-transparent hover:text-black transition-all flex items-center justify-center gap-2 uppercase tracking-wide text-sm"
@@ -27,10 +27,12 @@ export const HeroSection = ({ onJoinWaitlist }: HeroSectionProps) => (
             >
               Join the Waitlist
             </button>
-            {/* <button className="w-full sm:w-auto px-8 py-4 bg-transparent border border-black text-black font-bold hover:bg-black hover:text-[#dfffce] transition-colors flex items-center justify-center gap-2 uppercase tracking-wide text-sm">
-              See How It Works
-            </button> */}
           </div>
+        </div>
+        <div className="mt-12 text-center">
+          <p className="text-sm md:text-base text-gray-600 font-medium">
+            Made by Waterloo students for our capstone project
+          </p>
         </div>
       </div>
     </div>

@@ -13,12 +13,12 @@ export const TestingSection = ({ stats }: TestingSectionProps) => (
       <div className="grid md:grid-cols-2">
         <div className="p-8 md:p-20 flex flex-col justify-center border-b md:border-b-0 md:border-r border-[#dfffce]/20">
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-8 uppercase leading-none">
-            Backed by
+            Proposed Research
             <br />
-            rigorous testing.
+           
           </h2>
           <p className="text-[#dfffce]/80 text-xl mb-12 font-light">
-            We don&apos;t just claim accuracy; we prove it. Over 500 lab tests conducted through certified medical institutions.
+            While we haven&apos;t conducted these tests yet, our research and proposals indicate that these statistics are achievable through rigorous testing and certified medical institutions.
           </p>
           <div className="grid grid-cols-2 gap-y-12 gap-x-8">
             {stats.map(({ value, label }) => (
