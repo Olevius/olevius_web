@@ -6,16 +6,18 @@
   "main": "src/index.tsx",
   "module": "src/index.tsx",
   "scripts": {
-    "dev": "bun --hot src/APITester.tsx",
+    "dev": "node --env-file=.env.local server.js",
     "start": "NODE_ENV=production bun src/index.tsx",
     "vitest": "vitest",
     "coverage": "vitest run --coverage --reporter=coverage"
   },
   "dependencies": {
     "dotenv": "^17.2.3",
+    "express": "^5.2.1",
     "pg": "^8.16.3",
     "react": "^19",
-    "react-dom": "^19"
+    "react-dom": "^19",
+    "vercel": "^46.0.4"
   },
   "devDependencies": {
     "@types/bun": "latest",

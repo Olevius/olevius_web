@@ -1,113 +1,47 @@
-import "dotenv/config";
-import express from "express";
-import pg from "pg";
+/**
+ * This script sets up an Express.js server with the following functionality:
+ * 
+ * - Loads environment variables from `.env.local` and `.env` files using `dotenv`.
+ * - Initializes an API handler for the `/api/waitlist` route.
+ * - Configures middleware to parse JSON request bodies.
+ * - Starts the server on a specified port (defaulting to 3000 if `PORT` is not set in the environment).
+ * 
+ * Dependencies:
+ * - `express`: Web framework for Node.js.
+ * - `dotenv`: Loads environment variables from `.env` files.
+ * 
+ * API Routes:
+ * - `POST /api/waitlist`: Handles requests using the `waitlistHandler` function.
+ * 
+ * Environment Variables:
+ * - `PORT`: The port number on which the server listens (default: 3000).
+ * 
+ * Usage:
+ * - Ensure `.env.local` or `.env` files are properly configured with necessary environment variables.
+ * - Start the server by running this script.
+ */
+import express from 'express';
+import dotenv from 'dotenv';
 
-const { Pool } = pg;
+// Load environment variables first
+dotenv.config({ path: '.env' });
+dotenv.config();
+
+// Import the handler AFTER loading env vars so Supabase client initializes correctly
+import waitlistHandler from './api/waitlist.js';
 
 const app = express();
+const PORT = process.env.PORT || 3000;
 
-const connectionString = process.env.DATABASE_URL;
-
-if (!connectionString) {
-  throw new Error("DATABASE_URL is required to start the API");
-}
-
-const pool = new Pool({
-  connectionString,
-  ssl: process.env.NODE_ENV === "production" ? { rejectUnauthorized: false } : undefined,
-});
-
+// Middleware to parse JSON bodies
 app.use(express.json());
 
-app.use((req, res, next) => {
-  const origin = process.env.CLIENT_ORIGIN ?? "*";
-  res.header("Access-Control-Allow-Origin", origin);
-  res.header("Access-Control-Allow-Methods", "GET,POST,OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Content-Type");
-
-  if (req.method === "OPTIONS") {
-    return res.sendStatus(204);
-  }
-
-  next();
+// Route requests to your API handler
+app.all('/api/waitlist', (req, res) => {
+    // Assuming waitlist.js exports a default function (req, res) => ...
+    return waitlistHandler(req, res);
 });
 
-app.get("/health", async (_req, res) => {
-  try {
-    const result = await pool.query("select 1 as ok");
-    res.json({ ok: true, db: result.rows[0]?.ok === 1 });
-  } catch (error) {
-    res.status(500).json({ ok: false, error: error.message });
-  }
-});
-
-app.post("/api/waitlist", async (req, res) => {
-  const { email, consent } = req.body ?? {};
-
-  if (typeof email !== "string" || !email.trim()) {
-    return res.status(400).json({ error: "Email is required" });
-  }
-
-  const normalisedEmail = email.trim().toLowerCase();
-
-  try {
-    const result = await pool.query(
-      `insert into waitlist_entries (email, consent)
-       values ($1, $2)
-       on conflict (email) do update set consent = excluded.consent
-       returning id, email, consent, created_at`,
-      [normalisedEmail, Boolean(consent)]
-    );
-
-    res.status(201).json({ ok: true, entry: result.rows[0] });
-  } catch (error) {
-    const code = error?.code;
-
-    if (code === "42P01") {
-      return res.status(500).json({
-        error: "Table waitlist_entries does not exist. Create it before posting entries.",
-      });
-    }
-
-    res.status(500).json({ error: "Failed to save waitlist entry" });
-  }
-});
-
-app.post("/entries", async (req, res) => {
-  const { name, value } = req.body ?? {};
-
-  if (typeof name !== "string" || !name.trim()) {
-    return res.status(400).json({ error: "name must be a non-empty string" });
-  }
-
-  if (!Number.isInteger(value)) {
-    return res.status(400).json({ error: "value must be an integer" });
-  }
-
-  try {
-    const result = await pool.query(
-      "insert into entries (name, value) values ($1, $2) returning id, name, value, created_at",
-      [name.trim(), value]
-    );
-    res.status(201).json(result.rows[0]);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
-app.get("/entries", async (_req, res) => {
-  try {
-    const result = await pool.query(
-      "select id, name, value, created_at from entries order by id desc limit 50"
-    );
-    res.json(result.rows);
-  } catch (error) {
-    res.status(500).json({ error: error.message });
-  }
-});
-
-const port = Number(process.env.PORT ?? 3000);
-
-app.listen(port, () => {
-  console.log(`API listening on http://localhost:${port}`);
+app.listen(PORT, () => {
+    console.log(`Backend server ruinning on http://localhost:${PORT}`);
 });

@@ -7,4 +7,4 @@ cd "$ROOT_DIR"
 
 pnpm exec concurrently -k \
   "pnpm --filter frontend dev" \
-  "bash -c 'cd backend && node server.js'"
+  "pnpm --filter backend dev"
