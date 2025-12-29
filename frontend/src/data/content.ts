@@ -84,10 +84,10 @@ export const solutionFeatures: SolutionFeature[] = [
 ];
 
 export const testingStats: TestingStat[] = [
-  { value: "±5", label: "mmHg Accuracy" },
-  { value: "10x", label: "Faster Setup" },
-  { value: "-85%", label: "Weight Reduction" },
-  { value: "24h", label: "Battery Life" },
+  // { value: "±5", label: "mmHg Accuracy" },
+  // { value: "10x", label: "Faster Setup" },
+  // { value: "-85%", label: "Weight Reduction" },
+  // { value: "24h", label: "Battery Life" },
 ];
 
 export const teamMembers: TeamMember[] = [

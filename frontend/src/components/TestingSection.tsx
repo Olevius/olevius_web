@@ -13,13 +13,13 @@ export const TestingSection = ({ stats }: TestingSectionProps) => (
       <div className="grid md:grid-cols-2">
         <div className="p-8 md:p-20 flex flex-col justify-center border-b md:border-b-0 md:border-r border-[#dfffce]/20">
           <h2 className="font-display text-4xl md:text-5xl font-bold mb-8 uppercase leading-none">
-            Proposed Research
+            Rigorous testing
             <br />
            
           </h2>
-          <p className="text-[#dfffce]/80 text-xl mb-12 font-light">
-            While we haven&apos;t conducted these tests yet, our research and proposals indicate that these statistics are achievable through rigorous testing and certified medical institutions.
-          </p>
+            <p className="text-[#dfffce]/80 text-xl mb-12 font-light">
+              While we haven't conducted any tests yet, we are working diligently on getting lab tests done to ensure the highest level of accuracy when compared to traditional clinical-grade cuff devices.
+            </p>
           <div className="grid grid-cols-2 gap-y-12 gap-x-8">
             {stats.map(({ value, label }) => (
               <div key={label}>
