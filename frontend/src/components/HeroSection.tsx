@@ -16,6 +16,9 @@ export const HeroSection = ({ onJoinWaitlist }: HeroSectionProps) => (
           <span className="font-light italic">Wherever you go.</span>
         </h2>
         <div className="max-w-2xl">
+           <p className="text-xl md:text-2xl text-black font-normal mb-10 leading-snug">
+            - A 4th year capstone project 
+          </p>
           <p className="text-xl md:text-2xl text-black font-normal mb-10 leading-snug">
             Ditch bulky, stationary monitors. Our clinically accurate device reads your blood pressure directly from your pulse, wherever you are.
           </p>

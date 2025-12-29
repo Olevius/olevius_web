@@ -16,7 +16,7 @@ export const ExpertsSection = ({ members }: ExpertsSectionProps) => (
           Meet the TEAM
         </h2>
         <p className="text-xl text-black font-medium relative z-10">
-          Built by Waterloo students passionate about stress-free blood pressure measurement.
+          This capstone project is the result of collaboration among a team of Waterloo students, each bringing their expertise to a unique aspect of its development.
         </p>
       </div>
       <div className="grid md:grid-cols-3 gap-8">
