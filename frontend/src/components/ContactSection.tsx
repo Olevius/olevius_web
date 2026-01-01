@@ -55,9 +55,9 @@ export const ContactSection = ({ footerLinks }: ContactSectionProps) => {
           Ready to upgrade?
         </h2>
         <p className="text-xl text-black mb-12 max-w-xl mx-auto">
-          Join the waitlist to be notified when we launch, or contact us directly.
+          Join the waitlist to be notified when we launch, or contact us directly for further inquiries.
         </p>
-        <form
+        <form 
           ref={formRef}
           className="max-w-md mx-auto bg-white border border-black p-8 shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] text-left"
           onSubmit={handleSubmit}
@@ -120,7 +120,7 @@ export const ContactSection = ({ footerLinks }: ContactSectionProps) => {
           </button>
         </form>
         <div className="mt-20 pt-8 border-t border-black flex flex-col md:flex-row justify-between items-center text-xs font-bold uppercase tracking-widest text-black/60">
-          <p>© 2025 Olevius.</p>
+          <p>© 2025 Olevius</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             {footerLinks.map(({ href, label }) => (
               <a key={label} className="hover:text-black hover:underline" href={href}>
