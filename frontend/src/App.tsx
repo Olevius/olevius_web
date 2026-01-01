@@ -27,7 +27,7 @@ export const App = () => {
         <HeroSection onJoinWaitlist={() => setIsWaitlistOpen(true)} />
         <ChallengeSection items={challengeItems} />
         <SolutionSection features={solutionFeatures} />
-        <TestingSection stats={testingStats} />
+        {/* <TestingSection stats={testingStats} /> */}
         <ExpertsSection members={teamMembers} />
         <ContactSection footerLinks={footerLinks} />
       </main>
