@@ -55,7 +55,7 @@ export const ContactSection = ({ footerLinks }: ContactSectionProps) => {
           Ready to upgrade?
         </h2>
         <p className="text-xl text-black mb-12 max-w-xl mx-auto">
-          Join the waitlist to be notified when we launch, or contact us directly for enterprise pilot programs.
+          Join the waitlist to be notified when we launch, or contact us directly.
         </p>
         <form
           ref={formRef}
