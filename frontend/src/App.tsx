@@ -6,7 +6,7 @@ import { ExpertsSection } from "./components/ExpertsSection";
 import { HeroSection } from "./components/HeroSection";
 import { Navigation } from "./components/Navigation";
 import { SolutionSection } from "./components/SolutionSection";
-import { TestingSection } from "./components/TestingSection";
+// import { TestingSection } from "./components/TestingSection";
 import { WaitlistModal } from "./components/WaitlistModal";
 import {
   challengeItems,
@@ -14,7 +14,7 @@ import {
   navLinks,
   solutionFeatures,
   teamMembers,
-  testingStats,
+  // testingStats,
 } from "./data/content";
 
 export const App = () => {
