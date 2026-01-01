@@ -118,6 +118,6 @@ export const teamMembers: TeamMember[] = [
 ];
 
 export const footerLinks: FooterLink[] = [
-  { label: "Privacy", href: "#" },
-  { label: "Terms", href: "#" },
+  // { label: "Privacy", href: "#" },
+  // { label: "Terms", href: "#" },
 ];
